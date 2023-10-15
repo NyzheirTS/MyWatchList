@@ -1,21 +1,24 @@
 
 u
-java:S1104:"SMake confPFP a static final constant or non-public and provide accessors if needed.(¢ìàéùÿÿÿÿ8…‚Ûà§1
+java:S1104@"SMake confPFP a static final constant or non-public and provide accessors if needed.(¢ìàéùÿÿÿÿ8ºÿ´±1
 r
-java:S1104;"UMake cancelPFP a static final constant or non-public and provide accessors if needed.(´ã³ 8…‚Ûà§1
+java:S1104A"UMake cancelPFP a static final constant or non-public and provide accessors if needed.(´ã³ 8ºÿ´±1
+e
+java:S2184y"HCast one of the operands of this multiplication operation to a "double".(ÍØë8¼ÿ´±1
+e
+java:S2184"HCast one of the operands of this multiplication operation to a "double".(™óœ8¼ÿ´±1
+k
+java:S2184€"HCast one of the operands of this multiplication operation to a "double".(º‘ó•ûÿÿÿÿ8¼ÿ´±1
 d
-java:S2259‹"AA "NullPointerException" could be thrown; "img" is nullable here.(óûµÍùÿÿÿÿ8ä¥ìà§1
-£
-java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôå×´ıÿÿÿÿ8§‚Ûà§1
+java:S2259Ê"AA "NullPointerException" could be thrown; "img" is nullable here.(óûµÍùÿÿÿÿ8ñÿ´±1
+{	java:S115D"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¨ª¼øÿÿÿÿ8òÿ´±1
+¤
+java:S1186¸"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ôå×´ıÿÿÿÿ8òÿ´±1
 {
-java:S1450="^Remove the "lastSelectedPfp" field and declare it as a local variable in the relevant methods.(š¢‡”8æ¥ìà§1
-
-java:S1130d"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÚúÙÿÿÿÿÿ8²‚Ûà§1
-`
-java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8Š…ñà§1
-R
-java:S1128"0Remove this unused import 'javafx.scene.Cursor'.(Ó©ëİşÿÿÿÿ8Š…ñà§1
-Q
-java:S1128"4Remove this unused import 'javafx.scene.shape.Line'.( ó×Ä8Š…ñà§1
-O
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8Š…ñà§1
+java:S1450C"^Remove the "lastSelectedPfp" field and declare it as a local variable in the relevant methods.(š¢‡”8óÿ´±1
+H	java:S106"+Replace this use of System.out by a logger.(õÒ›­8ƒ€´±1
+H	java:S106"+Replace this use of System.out by a logger.(ÅÄ¬»8ƒ€´±1
+H	java:S106–"+Replace this use of System.out by a logger.(õÒ›­8„€´±1
+H	java:S106—"+Replace this use of System.out by a logger.(ÅÄ¬»8„€´±1
+
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ÚúÙÿÿÿÿÿ8†€´±1

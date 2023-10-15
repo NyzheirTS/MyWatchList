@@ -26,10 +26,27 @@
          <children>
               <StackPane prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: #02030A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                      <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
-                      <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
-                      <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
-                  <AnchorPane fx:id="pnlSettings" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" stylesheets="@style.css">
+                  <AnchorPane prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: grey;">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" layoutY="-3.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+                           <content>
+                              <Pane prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: grey;">
+                                 <children>
+                                    <HBox fx:id="homeHbox" alignment="CENTER" layoutX="38.0" layoutY="69.0" prefHeight="188.0" prefWidth="757.0" spacing="25.0">
+                                       <padding>
+                                          <Insets left="11.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="extendableCard" alignment="TOP_CENTER" fillHeight="false" layoutX="51.0" layoutY="259.0" prefHeight="103.0" prefWidth="723.0" />
+                                    <Button fx:id="bwordButton" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#moveCouroulsesls" prefHeight="25.0" prefWidth="24.0" text="B" />
+                                    <Button fx:id="fwordButton" layoutX="797.0" layoutY="151.0" mnemonicParsing="false" onAction="#moveCouroulsesls" text="F" />
+                                 </children>
+                              </Pane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="pnlSettings" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" stylesheets="@style.css" visible="false">
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: black;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="103.0" prefWidth="736.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="cardText" layoutX="96.0" layoutY="21.0" prefHeight="62.0" prefWidth="335.0" text="Test Text" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="305.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

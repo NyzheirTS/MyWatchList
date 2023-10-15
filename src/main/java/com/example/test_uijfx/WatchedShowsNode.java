@@ -10,15 +10,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
-public class WatchedShowsNode {
+public class WatchedShowsNode implements NodeInterface {
     private final Node node;
     private final Button editSaveButton;
     private final TextField exitText;
     private final Label label;
     private final Button deleteButton;
-    private int nodeNumber;
+    private final int nodeNumber;
     private Alert alert;
 
     public WatchedShowsNode(String labelText, int nodeNumber){
@@ -38,18 +39,19 @@ public class WatchedShowsNode {
                 handleEditMode();
             }
             if (deleteButton != null){
-                handleDeleteButton();
+                handleDeleteMode();
             }
 
             this.nodeNumber = nodeNumber;
 
             setNodeMouseEvents();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(Arrays.toString(e.getStackTrace()));
         }
     }
 
-     private void handleEditMode(){
+    @Override
+     public void handleEditMode(){
         editSaveButton.setCursor(Cursor.HAND);
         editSaveButton.setOnAction(event ->{
             if("Edit".equals(editSaveButton.getText())){
@@ -59,7 +61,7 @@ public class WatchedShowsNode {
                 label.setVisible(false);
                 exitText.setVisible(true);
 
-                System.out.println("Edit bon Node: " + nodeNumber);
+                System.out.println("Edit on Node: " + nodeNumber);
             }else {
 
                 editSaveButton.setText("Edit");
@@ -69,11 +71,11 @@ public class WatchedShowsNode {
 
                 System.out.println("Save on Node: " + nodeNumber);
             }
-
         });
     }
 
-    private void handleDeleteButton(){
+    @Override
+    public void handleDeleteMode() {
         deleteButton.setCursor(Cursor.HAND);
         deleteButton.setOnAction(event -> {
             conformationPopup();
@@ -90,7 +92,8 @@ public class WatchedShowsNode {
         });
     }
 
-    private void conformationPopup(){
+    @Override
+    public void conformationPopup(){
         alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Deletion");
         alert.setContentText("Confirm Deletion of Row: " + (nodeNumber+1));
@@ -101,16 +104,19 @@ public class WatchedShowsNode {
 
     }
 
-    private void setNodeMouseEvents(){
+    @Override
+    public void setNodeMouseEvents(){
         node.setOnMouseEntered(event -> node.setStyle("-fx-background-color : #0A0E3F"));
         node.setOnMouseExited(event -> node.setStyle("-fx-background-color : black"));
     }
 
+    @Override
     public void bindWidth(VBox vbox){
         HBox hbox = (HBox) node;
         hbox.prefWidthProperty().bind(vbox.widthProperty());
     }
 
+    @Override
     public Node getNode(){
         return node;
     }
