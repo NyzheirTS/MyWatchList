@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -16,14 +17,14 @@ import java.util.Objects;
 
 public class ExtendableCard {
     private final AnchorPane node;
-    private Label label;
+    private TextArea label;
     private Rectangle clipRect;
 
     public ExtendableCard() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("extendableCard.fxml"));
             node = loader.load();
-            label = (Label) node.lookup("#cardText");
+            label = (TextArea) node.lookup("#cardText");
 
             // Create a clip rectangle and set it as the clip for the card
             clipRect = new Rectangle();
@@ -44,7 +45,7 @@ public class ExtendableCard {
     }
 
     public void setText(String text) {
-        label.setText("Info For Node: " + text);
+        label.setText(text);
     }
 
     public void cardGrow() {

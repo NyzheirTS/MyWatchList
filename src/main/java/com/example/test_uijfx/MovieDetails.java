@@ -5,8 +5,8 @@ public class MovieDetails {
 
     int id;
     String poster_path;
-
     String backdrop_path;
+    String overview;
 
 
     //Getters
@@ -18,6 +18,10 @@ public class MovieDetails {
 
     public String getBackdrop_path() {return backdrop_path;}
     public void setBackdrop_path(String backdrop_path) {this.backdrop_path = backdrop_path;}
+
+    public String getOverview() {return overview;}
+
+    public void setOverview(String overview) {this.overview = overview;}
 
     public static MovieDetails[] fromJson(String json) {
         Gson gson = new Gson();

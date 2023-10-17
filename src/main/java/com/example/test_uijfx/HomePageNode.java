@@ -30,7 +30,7 @@ public class HomePageNode{
 
 
 
-    public HomePageNode(String text, int nodeNumber, ExtendableCard card){
+    public HomePageNode(String text, int nodeNumber, ExtendableCard card,String desc){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeItems.fxml")));
 
@@ -47,7 +47,7 @@ public class HomePageNode{
         this.nodeNumber = nodeNumber;
         this.card = card;
         nodeGrowEvents();
-        cardEvents();
+        cardEvents(desc);
 
     } catch(IOException e){
         throw new RuntimeException(Arrays.toString(e.getStackTrace()));
@@ -57,11 +57,11 @@ public class HomePageNode{
 
     public Node getsNode() {return node;}
 
-    public void cardEvents(){
+    public void cardEvents(String text){
         node.setOnMouseClicked(event -> {
                 card.cardGrow();
                 nodeFocus = true;
-                card.setText(String.valueOf(nodeNumber));
+                card.setText(text);
         });
 
     }

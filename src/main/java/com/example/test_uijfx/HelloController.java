@@ -98,20 +98,17 @@ public class HelloController implements Initializable {
     }
 
     private void initializeHomeNodes() throws IOException {
-
-        api.getRequestAsync("https://api.themoviedb.org/3/trending/movie/week?language=en-US", jsonResponse -> {
-            Platform.runLater(() ->{
-                int i = 0;
-                ExtendableCard card = new ExtendableCard();
-                MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
-                for (MovieDetails movie : movies) {
-                    HomePageNode node = new HomePageNode(movie.getPosterPath(), i, card);
-                    homeHbox.getChildren().add(node.getsNode());
-                    i++;
-                }
-                extendableCard.getChildren().add(card.getNode());
-            });
-        });
+        api.getRequestAsync("https://api.themoviedb.org/3/trending/movie/week?language=en-US", jsonResponse -> Platform.runLater(() ->{
+            int i = 0;
+            ExtendableCard card = new ExtendableCard();
+            MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
+            for (MovieDetails movie : movies) {
+                HomePageNode node = new HomePageNode(movie.getPosterPath(), i, card,movie.getOverview());
+                homeHbox.getChildren().add(node.getsNode());
+                i++;
+            }
+            extendableCard.getChildren().add(card.getNode());
+        }));
     }
 
 
