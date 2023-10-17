@@ -6,6 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
@@ -17,14 +19,18 @@ import java.util.Objects;
 public class HomePageNode{
     private final Node node;
     private final Label label;
+    private final ImageView image;
     private final Scale scale = new Scale(1,1);
     private final DropShadow shadow = new DropShadow();
     private final ExtendableCard card;
     private final int nodeNumber;
     private boolean nodeFocus = false;
 
+    String baseImgURL = "https://image.tmdb.org/t/p/original";
 
-public HomePageNode(String text, int nodeNumber, ExtendableCard card){
+
+
+    public HomePageNode(String text, int nodeNumber, ExtendableCard card){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeItems.fxml")));
 
@@ -32,7 +38,11 @@ public HomePageNode(String text, int nodeNumber, ExtendableCard card){
         node.setEffect(shadow);
 
         label = (Label) node.lookup("#homeLabelPageTestingPheromont");
-        label.setText(text);
+        //label.setText(text);
+
+        image = (ImageView) node.lookup("#imgViewrPics");
+        image.setImage(new Image(baseImgURL+text));
+
 
         this.nodeNumber = nodeNumber;
         this.card = card;

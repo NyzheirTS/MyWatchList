@@ -1,5 +1,6 @@
 package com.example.test_uijfx;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,6 +70,7 @@ public class HelloController implements Initializable {
     private int currentindex = 0;
     PfpDictionary dic = new PfpDictionary();
     DropShadow shadow = new DropShadow();
+    ApiConnection api = new ApiConnection();
 
 
 
@@ -77,7 +79,11 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeShowNodes();
-        initializeHomeNodes();
+        try {
+            initializeHomeNodes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         homeInit();
         profilePICS.setImage(new Image("C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\test_uijfx\\Fake PFP\\0.jpg"));
         dic.Dictionary();
@@ -91,13 +97,21 @@ public class HelloController implements Initializable {
         }
     }
 
-    private void initializeHomeNodes(){
-        ExtendableCard card = new ExtendableCard();
-        for (int i = 0; i < 24; ++i){
-            HomePageNode node = new HomePageNode(String.format(String.valueOf(i)),i, card);
-            homeHbox.getChildren().add(node.getsNode());
-        }
-        extendableCard.getChildren().add(card.getNode());
+    private void initializeHomeNodes() throws IOException {
+
+        api.getRequestAsync("https://api.themoviedb.org/3/trending/movie/week?language=en-US", jsonResponse -> {
+            Platform.runLater(() ->{
+                int i = 0;
+                ExtendableCard card = new ExtendableCard();
+                MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
+                for (MovieDetails movie : movies) {
+                    HomePageNode node = new HomePageNode(movie.getPosterPath(), i, card);
+                    homeHbox.getChildren().add(node.getsNode());
+                    i++;
+                }
+                extendableCard.getChildren().add(card.getNode());
+            });
+        });
     }
 
 
