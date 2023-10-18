@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### Sensitive Files ###
-ApiConnection.java
+!ApiConnection.java
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
