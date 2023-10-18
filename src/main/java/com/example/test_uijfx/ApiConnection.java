@@ -14,7 +14,7 @@ public class ApiConnection {
         this.client = new OkHttpClient();
     }
 
-    public void getRequestAsync(String url, ResponseHandler responseHandler){  //TMDB API Handler
+    public void getRequestAsync(String url, ResponseHandler responseHandler){
         Thread networkThread = new Thread(() -> {
             Response response;
             Request request = new Request.Builder()
