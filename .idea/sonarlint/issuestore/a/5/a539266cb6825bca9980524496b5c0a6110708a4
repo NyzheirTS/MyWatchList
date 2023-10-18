@@ -1,0 +1,8 @@
+
+b	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8¤¦—Ï±1
+K
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8Ä·½€´1
+Y
+java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(ö²­žÿÿÿÿÿ8Æ·½€´1
+K
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8Ç·½€´1
