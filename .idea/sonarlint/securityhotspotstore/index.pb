@@ -46,3 +46,9 @@ f
 6src/main/java/com/example/test_uijfx/HomePageNode.java,3\7\3735a1154232dbe9e8b94d8e8b4b4af33811a4d1
 h
 8src/main/java/com/example/test_uijfx/ExtendableCard.java,a\5\a539266cb6825bca9980524496b5c0a6110708a4
+g
+7src/main/java/com/example/test_uijfx/moiveResponse.java,a\0\a0e64f339e76b4a81716219480794c86a7f00cc1
+f
+6src/main/java/com/example/test_uijfx/MovieDetails.java,c\1\c15be0358d69017f954cd349cf6fe255f75f4499
+g
+7src/main/java/com/example/test_uijfx/ApiConnection.java,7\c\7c0004c8939243653f3e72010fd9541a01b3c20f
