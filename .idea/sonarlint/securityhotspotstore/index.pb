@@ -54,3 +54,5 @@ g
 7src/main/java/com/example/test_uijfx/ApiConnection.java,7\c\7c0004c8939243653f3e72010fd9541a01b3c20f
 p
 @src/main/java/com/example/test_uijfx/FakeApiConnectionClass.java,4\4\444ee12a7d895c661fb757cfeb8d14b3c4835361
+Å
+Q.idea/sonarlint/securityhotspotstore/4/4/444ee12a7d895c661fb757cfeb8d14b3c4835361,2\9\29c0e78c8540fd9a3a79604ad731cb98fb910e6a

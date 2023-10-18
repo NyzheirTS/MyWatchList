@@ -20,7 +20,7 @@ public class ApiConnection {
             Request request = new Request.Builder()
                     .url(url)
                     .addHeader("accept", "application/json")
-                    .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNGFmODdhYTY2ZDdkZDAzNTYyODQwODlkYmM3NmViMSIsInN1YiI6IjY1MmMzNTM1ZjI4ODM4MDJhMjVlYjY1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UZfksL9d--GEFpBTuARhdzkyHqGICS8c1z5R70SpSZk")
+                    .addHeader("Authorization", "")
                     .build();
             try{
                 response = client.newCall(request).execute();
