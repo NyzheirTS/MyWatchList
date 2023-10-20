@@ -26,11 +26,12 @@ public class HomePageNode{
     private final int nodeNumber;
     private boolean nodeFocus = false;
 
-    String baseImgURL = "https://image.tmdb.org/t/p/original";
+    String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
-    public HomePageNode(String text, int nodeNumber, ExtendableCard card,String desc){
+
+    public HomePageNode(String text, int nodeNumber, ExtendableCard card, String desc, String imgTxt, String title, Double score, int votes){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HomeItems.fxml")));
 
@@ -47,7 +48,7 @@ public class HomePageNode{
         this.nodeNumber = nodeNumber;
         this.card = card;
         nodeGrowEvents();
-        cardEvents(desc);
+        cardEvents(desc,(baseImgURL+imgTxt), title, score, votes);
 
     } catch(IOException e){
         throw new RuntimeException(Arrays.toString(e.getStackTrace()));
@@ -57,14 +58,22 @@ public class HomePageNode{
 
     public Node getsNode() {return node;}
 
-    public void cardEvents(String text){
-        node.setOnMouseClicked(event -> {
+    public void cardEvents(String text, String imgText, String title, Double score, int votes) {
+        node.setOnMouseClicked(event ->  {
                 card.cardGrow();
                 nodeFocus = true;
                 card.setText(text);
+                card.setLabel(title);
+                card.setScore(score, votes);
+            try {
+                card.setBackGroundImage(imgText);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
     }
+
 
 
     public void nodeGrowEvents(){

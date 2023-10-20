@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="103.0" prefWidth="736.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="158.0" prefWidth="740.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea fx:id="cardText" editable="false" layoutX="-2.0" prefHeight="152.0" prefWidth="736.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fx:id="cardBackgroundImg" cache="true" cacheHint="SPEED" fitHeight="418.0" fitWidth="750.0" layoutX="-4.0" layoutY="-65.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-195.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-65.0">
+         <image>
+            <Image url="@../../../../../../../../Downloads/cHNqobjzfLj88lpIYqkZpecwQEC.jpg" />
+         </image></ImageView>
+      <TextArea fx:id="cardText" editable="false" layoutX="-2.0" layoutY="51.0" prefHeight="113.0" prefWidth="736.0" styleClass="text-area" stylesheets="@style.css" text="Testing" wrapText="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font></TextArea>
+      <Label fx:id="cardTitleLabel" layoutX="7.0" layoutY="6.0" prefHeight="41.0" prefWidth="559.0" style="-fx-text-fill: black;" text="Fabel 2 " wrapText="true">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="732.111083984375" endY="52.0" layoutX="7.0" layoutY="-1.0" startY="52.0" />
+      <ProgressBar fx:id="cardMovieRatingBar" layoutX="676.0" layoutY="35.0" prefHeight="14.0" prefWidth="57.0" progress="0.22" stylesheets="@style.css" />
+      <Label fx:id="cardScoreLabel" alignment="CENTER" layoutX="675.0" layoutY="6.0" prefHeight="30.0" prefWidth="57.0" style="-fx-text-fill: black;" text="100" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

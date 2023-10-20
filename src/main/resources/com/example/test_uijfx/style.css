@@ -1,3 +1,7 @@
+/* ---------------------------------------------------------------- */
+/* Showlist App Css */
+/* ---------------------------------------------------------------- */
+
 .button
 {
 -fx-text-fill : #e7e5e5;
@@ -43,3 +47,51 @@
 .homepane{
     -fx-background-color : #2a090f;
 }
+
+/* ================================================================= */
+/* Card Raiting Bar */
+
+.progress-bar {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-radius: 0; /* Remove border radius */
+    -fx-border-color: black; /* Set border color to transparent */
+}
+
+.progress-bar .track {
+    -fx-background-color: rgba(73, 73, 73, 0.3); /* Set track background to transparent */
+}
+
+.progress-bar .bar {
+    -fx-background-insets: 0;
+    -fx-border-width: 0; /* Remove border radius */
+    -fx-border-color: black; /* Set border color to black */
+    -fx-background-color: green; /* Customize the progress bar color */
+    -fx-background-radius: 0 0 0 0; /* Remove border radius */
+}
+
+
+/* ================================================================= */
+
+/* ================================================================= */
+/* vvvv Card Text Box css vvvv */
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+/* ================================================================= */

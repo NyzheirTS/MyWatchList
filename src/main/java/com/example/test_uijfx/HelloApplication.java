@@ -5,11 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    private ImageCaching cache = new ImageCaching();
+
     @Override
     public void start(Stage stage) throws IOException {
+        //starting stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 800);
         stage.setTitle("Hello!");

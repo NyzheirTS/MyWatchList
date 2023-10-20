@@ -1,8 +1,5 @@
 
-b	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8¤¦—Ï±1
-K
-java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8Ä·½€´1
-Y
-java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(ö²­ÿÿÿÿÿ8Æ·½€´1
-K
-java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8Ç·½€´1
+b	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8¤ºğÍ´1
+r	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü¤…’ÿÿÿÿÿ8¥ºğÍ´1
+R
+java:S1128"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8¬„Ñ´1

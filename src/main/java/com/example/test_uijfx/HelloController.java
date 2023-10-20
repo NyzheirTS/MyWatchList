@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     @FXML
-    public Pane pnlSettings;
+    public AnchorPane pnlSettings;
     @FXML
     public GridPane pfpGrid;
     @FXML
@@ -29,7 +29,7 @@ public class HelloController implements Initializable {
     @FXML
     public HBox pfpHBox;
     @FXML
-    public Pane pnlHome;
+    public AnchorPane pnlHome;
     @FXML
     public Button fwordButton;
     @FXML
@@ -59,14 +59,14 @@ public class HelloController implements Initializable {
     @FXML
     private Pane pnlOrders;
     @FXML
-    private Pane pnlWatched;
+    private AnchorPane pnlWatched;
     @FXML
     private Pane pnlMenus;
     public Button confPFP;
     public Button cancelPFP;
 
     private ImageView lastSelectedPfp;
-    private static final int numVisNode = 6;
+    private static final int numVisNode = 5;
     private int currentindex = 0;
     PfpDictionary dic = new PfpDictionary();
     DropShadow shadow = new DropShadow();
@@ -103,7 +103,17 @@ public class HelloController implements Initializable {
             ExtendableCard card = new ExtendableCard();
             MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
             for (MovieDetails movie : movies) {
-                HomePageNode node = new HomePageNode(movie.getPosterPath(), i, card,movie.getOverview());
+                HomePageNode node = new HomePageNode(
+                        movie.getPosterPath(),
+                        i,
+                        card,
+                        movie.getOverview(),
+                        movie.getBackdrop_path(),
+                        movie.getTitle(),
+                        movie.getVote_average(),
+                        movie.getVote_count()
+
+                );
                 homeHbox.getChildren().add(node.getsNode());
                 i++;
             }
@@ -129,21 +139,21 @@ public class HelloController implements Initializable {
 
 
     //HomePage Nodes Actions Control ??????????????????????????????????????????????
-    Rectangle clip = new Rectangle(numVisNode * 124,2000); //adjust according to size needed for 6 nodes
+    Rectangle clip = new Rectangle(numVisNode * 155,300 ); //adjust according to size needed for 5 nodes
     private void homeInit(){
         homeHbox.setClip(clip);
         bwordButton.setVisible(false);
     }
     private void updateClipping(HBox courbox){
-        double clipX = currentindex * 125;
-        double clipZ = -currentindex * 125;
+        double clipX = currentindex * 155;
+        double clipZ = -currentindex * 155;
         ((Rectangle) courbox.getClip()).setX(clipX);
         courbox.setTranslateX(clipZ);
     }
 
     private void buttonVis(){
         bwordButton.setVisible(currentindex != 0);
-        fwordButton.setVisible(currentindex != 24 - numVisNode);
+        fwordButton.setVisible(currentindex != 20 - numVisNode);
     }
 
     public void moveCouroulsesls(ActionEvent event) {
@@ -166,20 +176,11 @@ public class HelloController implements Initializable {
 
     //Main Movement System.???????????????????????????????????????????????????
     public void handleClicks(ActionEvent actionEvent) throws IOException {
-        if (actionEvent.getSource() == btnCustomers) {
-            pnlCustomer.setStyle("-fx-background-color : #1620A1");
-            pnlCustomer.toFront();
-        }
-        if (actionEvent.getSource() == btnMenus) {
-            pnlMenus.setStyle("-fx-background-color : #000000");
+        if (actionEvent.getSource() == btnOverview) {
             pnlHome.toFront();
         }
-        if (actionEvent.getSource() == btnOverview) {
-            pnlWatched.toFront();
-        }
         if(actionEvent.getSource()==btnOrders) {
-            pnlOrders.setStyle("-fx-background-color : #464F67");
-            pnlOrders.toFront();
+            pnlWatched.toFront();
         }
         if(actionEvent.getSource() == btnSettings){
             pnlSettings.toFront();
