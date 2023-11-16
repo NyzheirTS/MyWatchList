@@ -61,6 +61,7 @@ public class ExtendableCard {
 
     public void setBackGroundImage(String txt) throws IOException {
         image.setImage(ImageCaching.getImage(txt));
+        //image.setImage(new Image(txt));
     }
 
     public void setText(String text) {

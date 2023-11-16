@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class ImageCaching {
 
-    private static final String CACHE_DIRECTORY = "image_cache";
+    private static final String CACHE_DIRECTORY = "./com/example/test_uijfx/Cache/image_cache";
     private static final Cache<String, Image> imageCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
 
@@ -52,14 +52,14 @@ public class ImageCaching {
 
                     while ((bytesRead = inputStream.read(buffer)) != -1) {
                         byteArrayOutputStream.write(buffer,0, bytesRead);
-                        //System.out.println("Buffer: " + Arrays.toString(buffer));
+                        System.out.println("Buffer: " + Arrays.toString(buffer));
                         //System.out.println("bytesRead: " + bytesRead);
                     }
 
-                    byte[] compressedData = imageCompresser(byteArrayOutputStream.toByteArray(), 0.5F);
-                    outputStream.write(compressedData);
+                    //byte[] compressedData = imageCompresser(byteArrayOutputStream.toByteArray(), 0.5F);
+                    outputStream.write(byteArrayOutputStream.toByteArray());
 
-                    image = new Image(new ByteArrayInputStream(compressedData));
+                    image = new Image(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
                     imageCache.put(localFilePath, image);
                 }
 

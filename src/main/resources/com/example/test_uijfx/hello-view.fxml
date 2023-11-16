@@ -26,7 +26,7 @@
          <children>
               <StackPane prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: #02030A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                  <AnchorPane fx:id="pnlSettings" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" stylesheets="@style.css" visible="false">
+                  <AnchorPane fx:id="pnlSettings" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: blue;" stylesheets="@style.css">
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: black;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
@@ -183,7 +183,7 @@
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="pnlWatched" style="-fx-background-color: red;" visible="false">
+                  <AnchorPane fx:id="pnlWatched" style="-fx-background-color: red;">
                      <children>
                               <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="15.0" layoutY="157.0" prefHeight="453.0" prefWidth="800.0" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="157.0">
                                   <content>

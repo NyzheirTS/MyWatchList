@@ -78,6 +78,7 @@ public class HelloController implements Initializable {
     //Init Hub ????????????????????????????????????????????????????????????????????????????
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        long startTIme = System.currentTimeMillis();
         initializeShowNodes();
         try {
             initializeHomeNodes();
@@ -85,8 +86,10 @@ public class HelloController implements Initializable {
             throw new RuntimeException(e);
         }
         homeInit();
-        profilePICS.setImage(new Image("C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\test_uijfx\\Fake PFP\\0.jpg"));
         dic.Dictionary();
+        long endTime = System.currentTimeMillis();
+        long elapsedTime = endTime - startTIme;
+        System.out.println("Loading Time: " + elapsedTime);
     }
 
     private void initializeShowNodes(){
@@ -98,6 +101,7 @@ public class HelloController implements Initializable {
     }
 
     private void initializeHomeNodes() throws IOException {
+
         api.getRequestAsync("https://api.themoviedb.org/3/trending/movie/week?language=en-US", jsonResponse -> Platform.runLater(() ->{
             int i = 0;
             ExtendableCard card = new ExtendableCard();
@@ -127,7 +131,9 @@ public class HelloController implements Initializable {
     //SHow List NODe Actions control ?????????????????????????????????????????????
     @FXML
     public void newItemNode(ActionEvent event) {
+
         addNewItem();
+
     }
 
     private void addNewItem(){
