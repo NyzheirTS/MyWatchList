@@ -1,9 +1,6 @@
-package com.example.test_uijfx;
+package com.example.MyWatchList.CachingClasses;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import javafx.scene.image.Image;
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
@@ -11,15 +8,13 @@ import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.Arrays;
-import java.util.Map;
 
 public class ImageCaching {
 
-    private static final String CACHE_DIRECTORY = "./com/example/test_uijfx/Cache/image_cache";
+    private static final String CACHE_DIRECTORY = "Cache/image_cache";
     private static final Cache<String, Image> imageCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
 

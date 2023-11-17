@@ -1,5 +1,8 @@
-package com.example.test_uijfx;
+package com.example.MyWatchList;
 
+import DataClasses.MovieDetails;
+import DataClasses.PfpDictionary;
+import com.example.MyWatchList.APIClasses.ApiConnection;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

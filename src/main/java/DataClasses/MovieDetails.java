@@ -1,4 +1,4 @@
-package com.example.test_uijfx;
+package DataClasses;
 import com.google.gson.Gson;
 
 public class MovieDetails {

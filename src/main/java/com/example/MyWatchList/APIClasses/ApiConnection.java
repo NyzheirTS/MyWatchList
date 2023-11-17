@@ -1,4 +1,4 @@
-package com.example.test_uijfx;
+package com.example.MyWatchList.APIClasses;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;

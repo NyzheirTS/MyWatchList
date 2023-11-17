@@ -7,6 +7,14 @@ module com.example.test_uijfx {
     requires java.desktop;
 
 
-    opens com.example.test_uijfx to javafx.fxml, com.google.gson;
-    exports com.example.test_uijfx;
+    opens com.example.MyWatchList to javafx.fxml, com.google.gson;
+    exports com.example.MyWatchList;
+    exports DataClasses;
+    opens DataClasses to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.CachingClasses;
+    opens com.example.MyWatchList.CachingClasses to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.APIClasses;
+    opens com.example.MyWatchList.APIClasses to com.google.gson, javafx.fxml;
+    exports Interfaces;
+    opens Interfaces to com.google.gson, javafx.fxml;
 }

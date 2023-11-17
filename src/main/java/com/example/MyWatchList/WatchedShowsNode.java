@@ -1,5 +1,6 @@
-package com.example.test_uijfx;
+package com.example.MyWatchList;
 
+import Interfaces.NodeInterface;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -100,7 +101,7 @@ public class WatchedShowsNode implements NodeInterface {
 
         //Customize the visuals of the alert stage.
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\test_uijfx\\images\\First Quarter.png"));
+        stage.getIcons().add(new Image("C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\images\\First Quarter.png"));
 
     }
 

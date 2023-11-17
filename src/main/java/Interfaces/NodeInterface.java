@@ -1,4 +1,4 @@
-package com.example.test_uijfx;
+package Interfaces;
 
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;

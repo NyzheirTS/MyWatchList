@@ -1,4 +1,4 @@
-package com.example.test_uijfx;
+package com.example.MyWatchList;
 
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXMLLoader;
