@@ -1,9 +1,0 @@
-
-b	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8·‰Â´´1
-g	java:S112G"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8«÷Í´1
-b	java:S107""AConstructor has 8 parameters, which is greater than 7 authorized.(úñÉÿÿÿÿÿ8Ü‰Â´´1
-]	java:S125*"<This block of commented-out lines of code should be removed.(šŞ—Åşÿÿÿÿ8â‰Â´´1
-K
-java:S1068")Remove this unused "label" private field.(é˜³åøÿÿÿÿ8ğ‰Â´´1
-K
-java:S1068".Remove this unused "nodeNumber" private field.(ŒÚô¶8ñ‰Â´´1

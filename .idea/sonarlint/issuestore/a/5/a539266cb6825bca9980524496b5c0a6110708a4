@@ -1,8 +1,0 @@
-
-b	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8µéÕÑ´1
-r	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü¤…’ÿÿÿÿÿ8¶éÕÑ´1
-x
-java:S1450"VRemove the "tooltip" field and declare it as a local variable in the relevant methods.(þÄ·¡ûÿÿÿÿ8àéÕÑ´1
-X	java:S125@"<This block of commented-out lines of code should be removed.(À²—8å„‹¢µ1
-R
-java:S1128"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8ý„‹¢µ1
