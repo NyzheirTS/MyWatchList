@@ -56,7 +56,7 @@
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="10.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/Cross%20Mark.png" />
+                        <Image url="@../images/Cross_Mark.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -43,6 +43,16 @@ public class MainController implements Initializable {
     @FXML
     public HBox extendableCard;
     @FXML
+    public Button addNodeButton;
+    @FXML
+    public HBox extendableCardTV;
+    @FXML
+    public HBox homeHBoxTV;
+    @FXML
+    public Button fwordButtonTV;
+    @FXML
+    public Button bwordButtonTV;
+    @FXML
     private HBox homeHbox;
     @FXML
     private VBox pnItems;
@@ -51,32 +61,13 @@ public class MainController implements Initializable {
     @FXML
     private Button btnOrders;
     @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnPackages;
-    @FXML
     private Button btnSettings;
-    @FXML
-    private Button btnSignout;
-    @FXML
-    private Pane pnlCustomer;
-    @FXML
-    private Pane pnlOrders;
     @FXML
     private AnchorPane pnlWatched;
     @FXML
-    private Pane pnlMenus;
-    public Button confPFP;
-    public Button cancelPFP;
-
-    private ImageView lastSelectedPfp;
-    private static final int numVisNode = 5;
-    private int currentindex = 0;
-    PfpDictionary dic = new PfpDictionary();
-    DropShadow shadow = new DropShadow();
-    ApiConnection api = new ApiConnection();
+    private Button confPFP;
+    @FXML
+    private Button cancelPFP;
 
 
 
@@ -84,106 +75,21 @@ public class MainController implements Initializable {
     //Init Hub ????????????????????????????????????????????????????????????????????????????
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        long startTIme = System.currentTimeMillis();
-        initializeShowNodes();
-        try {
-            initializeHomeNodes();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        homeInit();
-        dic.Dictionary();
-        long endTime = System.currentTimeMillis();
-        long elapsedTime = endTime - startTIme;
-        System.out.println("Loading Time: " + elapsedTime);
-    }
-
-    private void initializeShowNodes(){
-        for ( int i = 0; i<10; ++i){
-            WatchedShowsNode node = new WatchedShowsNode(String.format("%.2f", 10 * 100 * Math.random()),i);
-            node.bindWidth(pnItems);
-            pnItems.getChildren().add(node.getNode());
-        }
-    }
-
-    private void initializeHomeNodes() throws IOException {
-
-        api.getRequestAsync("https://api.themoviedb.org/3/trending/movie/week?language=en-US", jsonResponse -> Platform.runLater(() ->{
-            int i = 0;
-            ExtendableCard card = new ExtendableCard();
-            MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
-            for (MovieDetails movie : movies) {
-                HomePageNode node = new HomePageNode(
-                        movie.getPosterPath(),
-                        i,
-                        card,
-                        movie.getOverview(),
-                        movie.getBackdrop_path(),
-                        movie.getTitle(),
-                        movie.getVote_average(),
-                        movie.getVote_count()
-
-                );
-                homeHbox.getChildren().add(node.getsNode());
-                i++;
-            }
-            extendableCard.getChildren().add(card.getNode());
-        }));
+        setMethods();
     }
 
 
+    private void setMethods(){
+        HomePageController homePageController = new HomePageController(homeHbox, extendableCard, bwordButton, fwordButton, fwordButtonTV, bwordButtonTV, extendableCardTV, homeHBoxTV);
+        WatchedListController watchedListController = new WatchedListController(pnItems, addNodeButton);
 
+        homePageController.initializeHomeNodes();
+        homePageController.initHomeNodesTV();
+        watchedListController.initializeShowNodes();
 
-    //SHow List NODe Actions control ?????????????????????????????????????????????
-    @FXML
-    public void newItemNode(ActionEvent event) {
-
-        addNewItem();
-
+        initDic();
     }
 
-    private void addNewItem(){
-        int index = pnItems.getChildren().size();
-        WatchedShowsNode newNode = new WatchedShowsNode(String.format("%.2f", 10 * 100 * Math.random()),index);
-        newNode.bindWidth(pnItems);
-        pnItems.getChildren().add(newNode.getNode());
-    }
-
-
-    //HomePage Nodes Actions Control ??????????????????????????????????????????????
-    Rectangle clip = new Rectangle(numVisNode * 155,300 ); //adjust according to size needed for 5 nodes
-    private void homeInit(){
-        homeHbox.setClip(clip);
-        bwordButton.setVisible(false);
-    }
-    private void updateClipping(HBox courbox){
-        double clipX = currentindex * 155;
-        double clipZ = -currentindex * 155;
-        ((Rectangle) courbox.getClip()).setX(clipX);
-        courbox.setTranslateX(clipZ);
-    }
-
-    private void buttonVis(){
-        bwordButton.setVisible(currentindex != 0);
-        fwordButton.setVisible(currentindex != 20 - numVisNode);
-    }
-
-    public void moveCouroulsesls(ActionEvent event) {
-        if(event.getSource() == fwordButton) {
-            currentindex = Math.min(homeHbox.getChildren().size() - numVisNode, currentindex + numVisNode);
-            updateClipping(homeHbox);
-            buttonVis();
-            System.out.println(homeHbox.getTranslateX());
-            System.out.println(currentindex);
-        }
-        if(event.getSource() == bwordButton){
-            currentindex = Math.max(0, currentindex - numVisNode);
-            updateClipping(homeHbox);
-            buttonVis();
-            System.out.println(homeHbox.getTranslateX());
-            System.out.println(currentindex);
-        }
-    }
 
 
     //Main Movement System.???????????????????????????????????????????????????
@@ -200,17 +106,25 @@ public class MainController implements Initializable {
     }
 
 
-    //PFP Actions ??????????????????????????????????????????????????????????
-    private void shade() {
+    //Settings Page Profile Pic System.
+    private ImageView lastSelectedPfp;
+    DropShadow shadow = new DropShadow();
+    PfpDictionary dic = new PfpDictionary();
+
+    public void shade() {
         shadow.setRadius(5);
         shadow.setColor(Color.CRIMSON);
     }
-    public void getPFP(MouseEvent mouseEvent) {
+
+    public void initDic(){
+        dic.Dictionary();
     }
+
 
     public void controlPfp(MouseEvent mouse) {
         ImageView img = (ImageView) mouse.getSource();
         lastSelectedPfp = img;
+
 
         if (lastSelectedPfp != null){
             lastSelectedPfp.setEffect(shadow);
@@ -237,5 +151,6 @@ public class MainController implements Initializable {
         });
 
     }
+
 
 }

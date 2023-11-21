@@ -1,4 +1,5 @@
 package com.example.MyWatchList.APIClasses;
+import com.example.MyWatchList.DataClasses.AppConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -20,7 +21,7 @@ public class ApiConnection {
             Request request = new Request.Builder()
                     .url(url)
                     .addHeader("accept", "application/json")
-                    .addHeader("Authorization", "")
+                    .addHeader("Authorization", AppConfig.getTMDBKey())
                     .build();
             try{
                 response = client.newCall(request).execute();

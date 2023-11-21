@@ -12,15 +12,15 @@ public class PfpDictionary {
     }
 
     public void Dictionary(){
-        dictionary.put("pfp_0","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\0.jpg");
-        dictionary.put("pfp_1","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\1.jpg");
-        dictionary.put("pfp_2","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\2.jpg");
-        dictionary.put("pfp_3","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\3.jpg");
-        dictionary.put("pfp_4","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\4.jpg");
-        dictionary.put("pfp_5","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\5.jpg");
-        dictionary.put("pfp_6","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\6.jpg");
-        dictionary.put("pfp_7","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\7.jpg");
-        dictionary.put("pfp_8","C:\\Users\\eshas\\IdeaProjects\\Test_UI-JFX\\src\\main\\resources\\com\\example\\MyWatchList\\Fake PFP\\8.jpg");
+        dictionary.put("pfp_0","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\0.jpg");
+        dictionary.put("pfp_1","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\1.jpg");
+        dictionary.put("pfp_2","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\2.jpg");
+        dictionary.put("pfp_3","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\3.jpg");
+        dictionary.put("pfp_4","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\4.jpg");
+        dictionary.put("pfp_5","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\5.jpg");
+        dictionary.put("pfp_6","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\6.jpg");
+        dictionary.put("pfp_7","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\7.jpg");
+        dictionary.put("pfp_8","C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\resources\\com\\example\\MyWatchList\\Fake_PFP\\8.jpg");
     }
 
 

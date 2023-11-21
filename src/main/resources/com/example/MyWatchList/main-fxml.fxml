@@ -32,7 +32,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="802.0" prefWidth="863.0" style="-fx-background-color: gray;">
                                  <children>
-                                    <GridPane fx:id="pfpGrid" alignment="CENTER" layoutX="89.0" layoutY="214.0" onMouseClicked="#getPFP" prefHeight="166.0" prefWidth="587.0" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="214.0">
+                                    <GridPane fx:id="pfpGrid" alignment="CENTER" layoutX="89.0" layoutY="214.0" prefHeight="166.0" prefWidth="587.0" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="214.0">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="370.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="731.0" minWidth="10.0" prefWidth="370.0" />
@@ -48,7 +48,7 @@
                                        <children>
                                           <ImageView fx:id="pfp_1" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                              <image>
-                                                <Image url="@Fake%20PFP/1.jpg" />
+                                                <Image url="@Fake_PFP/1.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -59,7 +59,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_3" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                              <image>
-                                                <Image url="@Fake%20PFP/3.jpg" />
+                                                <Image url="@Fake_PFP/3.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -70,7 +70,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_2" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                              <image>
-                                                <Image url="@Fake%20PFP/2.jpg" />
+                                                <Image url="@Fake_PFP/2.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -81,7 +81,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_4" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
                                              <image>
-                                                <Image url="@Fake%20PFP/4.jpg" />
+                                                <Image url="@Fake_PFP/4.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -92,7 +92,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_5" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
                                              <image>
-                                                <Image url="@Fake%20PFP/5.jpg" />
+                                                <Image url="@Fake_PFP/5.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -103,7 +103,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_6" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <image>
-                                                <Image url="@Fake%20PFP/6.jpg" />
+                                                <Image url="@Fake_PFP/6.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -114,7 +114,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_7" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <image>
-                                                <Image url="@Fake%20PFP/7.jpg" />
+                                                <Image url="@Fake_PFP/7.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -125,7 +125,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_8" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                              <image>
-                                                <Image url="@Fake%20PFP/8.jpg" />
+                                                <Image url="@Fake_PFP/8.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -136,7 +136,7 @@
                                           </ImageView>
                                           <ImageView fx:id="pfp_0" fitHeight="60.0" fitWidth="117.0" nodeOrientation="INHERIT" onMouseClicked="#controlPfp" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@Fake%20PFP/0.jpg" />
+                                                <Image url="@Fake_PFP/0.jpg" />
                                              </image>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -234,23 +234,41 @@
                                       <Font size="24.0" />
                                   </font>
                               </Label>
-                        <Button fx:id="addNodeButton" layoutX="567.0" layoutY="57.0" mnemonicParsing="false" onAction="#newItemNode" text="Add" AnchorPane.rightAnchor="214.0" />
+                        <Button fx:id="addNodeButton" layoutX="567.0" layoutY="57.0" mnemonicParsing="false" text="Add" AnchorPane.rightAnchor="214.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="pnlHome" prefHeight="620.0" prefWidth="833.0" style="-fx-background-color: grey;">
                      <children>
                         <ScrollPane hbarPolicy="NEVER" layoutY="-19.0" prefHeight="636.0" prefWidth="833.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-19.0">
                            <content>
-                              <Pane prefHeight="633.0" prefWidth="863.0" style="-fx-background-color: grey;">
+                              <Pane prefHeight="824.0" prefWidth="863.0" style="-fx-background-color: grey;">
                                  <children>
-                                    <HBox fx:id="homeHbox" alignment="CENTER" layoutX="29.0" layoutY="52.0" prefHeight="205.0" prefWidth="766.0" spacing="25.0">
+                                    <HBox fx:id="homeHbox" alignment="CENTER" layoutX="29.0" layoutY="105.0" prefHeight="205.0" prefWidth="766.0" spacing="25.0">
                                        <padding>
                                           <Insets left="11.0" top="10.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox fx:id="extendableCard" alignment="TOP_CENTER" fillHeight="false" layoutX="29.0" layoutY="279.0" prefHeight="120.0" prefWidth="766.0" />
-                                    <Button fx:id="bwordButton" layoutY="164.0" mnemonicParsing="false" onAction="#moveCouroulsesls" prefHeight="25.0" prefWidth="24.0" text="B" />
-                                    <Button fx:id="fwordButton" layoutX="797.0" layoutY="151.0" mnemonicParsing="false" onAction="#moveCouroulsesls" text="F" />
+                                    <HBox fx:id="extendableCard" alignment="TOP_CENTER" fillHeight="false" layoutX="29.0" layoutY="322.0" prefHeight="140.0" prefWidth="766.0" />
+                                    <Button fx:id="bwordButton" layoutX="2.0" layoutY="183.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="24.0" text="B" />
+                                    <Button fx:id="fwordButton" layoutX="795.0" layoutY="183.0" mnemonicParsing="false" text="F" />
+                                    <HBox fx:id="homeHBoxTV" alignment="CENTER" layoutX="29.0" layoutY="504.0" prefHeight="205.0" prefWidth="766.0" spacing="25.0">
+                                       <padding>
+                                          <Insets left="11.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox fx:id="extendableCardTV" alignment="TOP_CENTER" fillHeight="false" layoutX="29.0" layoutY="709.0" prefHeight="120.0" prefWidth="766.0" />
+                                    <Button fx:id="fwordButtonTV" layoutX="806.0" layoutY="594.0" mnemonicParsing="false" text="F" />
+                                    <Button fx:id="bwordButtonTV" layoutX="2.0" layoutY="594.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="24.0" text="B" />
+                                    <Label layoutX="35.0" layoutY="63.0" prefHeight="42.0" prefWidth="230.0" text="Trending Movies this Week" underline="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="35.0" layoutY="462.0" prefHeight="42.0" prefWidth="230.0" text="Trending Shows this Week" underline="true">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </Pane>
                            </content>
