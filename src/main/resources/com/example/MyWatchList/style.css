@@ -45,8 +45,20 @@
 }
 
 .homepane{
-    -fx-background-color : #2a090f;
+    -fx-background-color : #3c3b3f;
 }
+
+.split-pane-divider {
+    -fx-background-color: black;
+    -fx-padding: 10;
+}
+
+.split-pane {
+    -fx-padding: 0;
+    -fx-border-style: none;
+    -fx-background-radius: 10;
+}
+
 
 /* ================================================================= */
 /* Card Raiting Bar */

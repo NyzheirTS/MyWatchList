@@ -1,7 +1,8 @@
 package com.example.MyWatchList.NodeClasses;
 
-import com.example.MyWatchList.NodeClasses.ExtendableCard;
 import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -23,7 +24,6 @@ public class HomePageNode{
     private final ImageView image;
     private final Scale scale = new Scale(1,1);
     private final DropShadow shadow = new DropShadow();
-    private final ExtendableCard card;
     private final int nodeNumber;
     private boolean nodeFocus = false;
 
@@ -32,7 +32,7 @@ public class HomePageNode{
 
 
 
-    public HomePageNode(String text, int nodeNumber, ExtendableCard card, String desc, String imgTxt, String title, Double score, int votes){
+    public HomePageNode(String text, int nodeNumber, String desc, String imgTxt, String title, Double score, int votes){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CarouselItemsTemplate.fxml")));
 
@@ -43,39 +43,28 @@ public class HomePageNode{
         //label.setText(text);
 
         image = (ImageView) node.lookup("#imgViewrPics");
-        image.setImage(new Image(baseImgURL+text));
+        //Async load image
+        Task<Void> imageLoadingThread1 = new  Task<>(){
+            @Override
+            protected Void call(){
+                Image loadedImage = new Image(baseImgURL + text);
+                Platform.runLater(() -> image.setImage(loadedImage));
+                return null;
+            }
+        };
 
+        new Thread(imageLoadingThread1).start();
 
         this.nodeNumber = nodeNumber;
-        this.card = card;
+
         nodeGrowEvents();
-        cardEvents(desc,(baseImgURL+imgTxt), title, score, votes);
+        nodeClickEvent();
 
     } catch(IOException e){
         throw new RuntimeException(Arrays.toString(e.getStackTrace()));
     }
 }
-
-
     public Node getsNode() {return node;}
-
-    public void cardEvents(String text, String imgText, String title, Double score, int votes) {
-        node.setOnMouseClicked(event ->  {
-                card.cardGrow();
-                nodeFocus = true;
-                card.setText(text);
-                card.setLabel(title);
-                card.setScore(score, votes);
-            try {
-                card.setBackGroundImage(imgText);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-    }
-
-
 
     public void nodeGrowEvents(){
         ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),node);
@@ -95,6 +84,12 @@ public class HomePageNode{
             if(!nodeFocus) {
                 shrinkTransition.play();
             }
+        });
+    }
+
+    private void nodeClickEvent(){
+        node.setOnMouseClicked(event -> {
+            System.out.println(String.valueOf(nodeNumber));
         });
     }
 

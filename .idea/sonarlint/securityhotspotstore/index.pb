@@ -26,8 +26,6 @@ v
 Fsrc/main/java/com/example/MyWatchList/CachingClasses/ImageCaching.java,8\8\88c70417ff4c669303ee90980acdd9159cc6dd83
 s
 Csrc/main/java/com/example/MyWatchList/APIClasses/ApiConnection.java,4\b\4b1c4411b968f1962e7d2fa1cda79ccc3889e387
-t
-Dsrc/main/java/com/example/MyWatchList/DataClasses/PfpDictionary.java,6\8\68e997b7ddebcb73bac9f98375ec8f3183b7b099
 s
 Csrc/main/java/com/example/MyWatchList/DataClasses/MovieDetails.java,2\5\251756c6488bc40f37ad0a2d55c6a19531d05572
 s
@@ -56,3 +54,7 @@ Lsrc/main/java/com/example/MyWatchList/Controllers/WatchedListController.java,9
 Msrc/main/java/com/example/MyWatchList/Controllers/SettingsPageController.java,4\1\410cb7e416373fe2dafd51a6587dcd228d8e5a33
 p
 @src/main/java/com/example/MyWatchList/DataClasses/TvDetails.java,8\4\849cf6b0db021cae02bcb7a04edc8198655e9abc
+v
+Fsrc/main/java/com/example/MyWatchList/DataClasses/SearchTvDetails.java,0\6\06f1743d46bd6fab75f14c7c13fb1116777d4e69
+u
+Esrc/main/java/com/example/MyWatchList/DataClasses/TvImageDetails.java,5\3\536406104f9b204c0ff2e799cdbbb471f4d73eee

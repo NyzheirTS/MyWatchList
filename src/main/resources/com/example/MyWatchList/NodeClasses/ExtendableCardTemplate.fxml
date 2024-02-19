@@ -9,9 +9,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="158.0" prefWidth="740.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="353.0" prefWidth="735.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="cardBackgroundImg" cache="true" cacheHint="SPEED" fitHeight="418.0" fitWidth="750.0" layoutX="-4.0" layoutY="-65.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-195.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-65.0">
+      <ImageView fx:id="cardBackgroundImg" cache="true" cacheHint="SPEED" fitHeight="418.0" fitWidth="750.0" layoutX="-4.0" layoutY="-65.0" nodeOrientation="INHERIT" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-195.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-65.0">
          <image>
             <Image url="@../../../../../../../../../Downloads/cHNqobjzfLj88lpIYqkZpecwQEC.jpg" />
          </image></ImageView>

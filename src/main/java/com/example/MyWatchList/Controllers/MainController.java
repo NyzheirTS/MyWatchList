@@ -1,24 +1,18 @@
 package com.example.MyWatchList.Controllers;
 
-import com.example.MyWatchList.DataClasses.MovieDetails;
-import com.example.MyWatchList.DataClasses.PfpDictionary;
 import com.example.MyWatchList.APIClasses.ApiConnection;
-import com.example.MyWatchList.NodeClasses.ExtendableCard;
-import com.example.MyWatchList.NodeClasses.HomePageNode;
-import com.example.MyWatchList.NodeClasses.WatchedShowsNode;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,14 +22,6 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     @FXML
     public AnchorPane pnlSettings;
-    @FXML
-    public GridPane pfpGrid;
-    @FXML
-    public ImageView profilePICS;
-    @FXML
-    public HBox pfpHBox;
-    @FXML
-    public AnchorPane pnlHome;
     @FXML
     public Button fwordButton;
     @FXML
@@ -53,6 +39,12 @@ public class MainController implements Initializable {
     @FXML
     public Button bwordButtonTV;
     @FXML
+    public ScrollPane pnlHome;
+    @FXML
+    public StackPane StackPaneCont;
+    @FXML
+    public Pane homeContentPane;
+    @FXML
     private HBox homeHbox;
     @FXML
     private VBox pnItems;
@@ -64,30 +56,25 @@ public class MainController implements Initializable {
     private Button btnSettings;
     @FXML
     private AnchorPane pnlWatched;
-    @FXML
-    private Button confPFP;
-    @FXML
-    private Button cancelPFP;
 
-
-
+    ApiConnection api = new ApiConnection();
 
     //Init Hub ????????????????????????????????????????????????????????????????????????????
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setMethods();
+        api.fetchData(this::setMethods);
     }
 
-
     private void setMethods(){
-        HomePageController homePageController = new HomePageController(homeHbox, extendableCard, bwordButton, fwordButton, fwordButtonTV, bwordButtonTV, extendableCardTV, homeHBoxTV);
+        HomePageController homePageController = new HomePageController(homeHbox, bwordButton, fwordButton, fwordButtonTV, bwordButtonTV, homeHBoxTV);
         WatchedListController watchedListController = new WatchedListController(pnItems, addNodeButton);
 
         homePageController.initializeHomeNodes();
         homePageController.initHomeNodesTV();
         watchedListController.initializeShowNodes();
 
-        initDic();
+        homeContentPane.prefWidthProperty().bind(pnlHome.widthProperty());
+        homeContentPane.prefHeightProperty().bind(pnlHome.heightProperty());
     }
 
 
@@ -105,52 +92,6 @@ public class MainController implements Initializable {
         }
     }
 
-
-    //Settings Page Profile Pic System.
-    private ImageView lastSelectedPfp;
-    DropShadow shadow = new DropShadow();
-    PfpDictionary dic = new PfpDictionary();
-
-    public void shade() {
-        shadow.setRadius(5);
-        shadow.setColor(Color.CRIMSON);
-    }
-
-    public void initDic(){
-        dic.Dictionary();
-    }
-
-
-    public void controlPfp(MouseEvent mouse) {
-        ImageView img = (ImageView) mouse.getSource();
-        lastSelectedPfp = img;
-
-
-        if (lastSelectedPfp != null){
-            lastSelectedPfp.setEffect(shadow);
-        }
-
-        for(Node node : pfpGrid.getChildren()){
-            if(node instanceof ImageView){
-                ((ImageView) node).setEffect(null);
-            }
-        }
-
-        shade();
-        img.setEffect(shadow);
-
-        pfpHBox.setVisible(true);
-        confPFP.setOnAction(event -> {
-            img.setEffect(shadow);
-            profilePICS.setImage(new Image(dic.getPIC(img.getId())));
-            pfpHBox.setVisible(false);
-        });
-        cancelPFP.setOnAction(event -> {
-            img.setEffect(null);
-            pfpHBox.setVisible(false);
-        });
-
-    }
 
 
 }

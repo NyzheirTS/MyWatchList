@@ -4,11 +4,14 @@ import com.example.MyWatchList.CachingClasses.ImageCaching;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
@@ -60,7 +63,22 @@ public class ExtendableCard {
     }
 
     public void setBackGroundImage(String txt) throws IOException {
-        image.setImage(ImageCaching.getImage(txt));
+        Task<Void> imageLoadingThread2 = new Task<>(){
+            @Override
+            protected Void call(){
+                Image loadedImage = new Image(txt);
+                Platform.runLater(() -> image.setImage(loadedImage));
+                return null;
+            }
+        };
+
+        Platform.runLater(() -> {
+            try {
+                image.setImage(ImageCaching.getImage(txt));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         //image.setImage(new Image(txt));
     }
 

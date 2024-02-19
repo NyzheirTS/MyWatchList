@@ -36,6 +36,11 @@ public class ImageCaching {
                 byte[] decompressedData = imageDecompressor(Files.readAllBytes(cachedImageFile.toPath()),1.0F);
                 image = new Image(new ByteArrayInputStream(decompressedData));
                 imageCache.put(localFilePath, image);
+
+
+
+                boolean lumin = imageColorAnalyzer(new ByteArrayInputStream(decompressedData));
+                System.out.println("Overall image color: " + (lumin ? "Light" : "Dark"));
             } else {
                 try (InputStream inputStream = new URL(url).openStream();
                      FileOutputStream outputStream = new FileOutputStream(cachedImageFile)) {
@@ -56,6 +61,9 @@ public class ImageCaching {
 
                     image = new Image(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
                     imageCache.put(localFilePath, image);
+
+                    boolean lumin = imageColorAnalyzer(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                    System.out.println("Overall image color: " + (lumin ? "Light" : "Dark"));
                 }
 
             }
@@ -75,6 +83,8 @@ public class ImageCaching {
         }
         return length / 1000;
     }
+
+
 
     public static void dumpCache(){
         for (File file : cacheDirectory.listFiles()){
@@ -128,6 +138,46 @@ public class ImageCaching {
         //System.out.println(imageSizeAfterDecom/1000 + " kB");
 
         return decompressedStream.toByteArray();
+    }
+
+
+    private static boolean imageColorAnalyzer(InputStream imageStream) throws IOException {
+        BufferedImage image = ImageIO.read(imageStream);
+
+        int width = image.getWidth();
+        int height = image.getHeight();
+        int totalPixels = width * height;
+        int lightPixelCount = 0;
+
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                int rgb = image.getRGB(x, y);
+                String hexColor = String.format("#%06X", (0xFFFFFF & rgb));
+
+                if (colorLuminDetect(hexColor)) {
+                    lightPixelCount++;
+                }
+            }
+        }
+
+        double lightPercentage = (double) lightPixelCount / totalPixels;
+        System.out.println("Percentage of light pixels: " + (lightPercentage * 100) + "%");
+
+        // Adjust the threshold based on your preference
+        double lightThreshold = 0.5;  // Adjust this value as needed
+        return lightPercentage > lightThreshold;
+    }
+
+    private static boolean colorLuminDetect(String hexColor) {
+        hexColor = hexColor.substring(1);
+        int rgb = Integer.parseInt(hexColor, 16);
+        int r = (rgb >> 16) & 0xff;
+        int g = (rgb >> 8) & 0xff;
+        int b = rgb & 0xff;
+
+        double luminance = Math.sqrt((0.299 * (r * r)) + (0.587 * (g * g)) + (0.114 * (b * b)));
+        return luminance > 127.5;
     }
 
 }

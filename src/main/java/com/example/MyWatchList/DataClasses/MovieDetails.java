@@ -1,5 +1,6 @@
 package com.example.MyWatchList.DataClasses;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class MovieDetails {
 
@@ -40,8 +41,8 @@ public class MovieDetails {
 
     public static MovieDetails[] fromJson(String json) {
         Gson gson = new Gson();
-        jsonResponse movieList = gson.fromJson(json, jsonResponse.class);
-        return movieList.results;
+        jsonResponse<MovieDetails> movieList = gson.fromJson(json, new TypeToken<jsonResponse<MovieDetails>>() {}.getType());
+        return movieList.getResults();
     }
 }
 
