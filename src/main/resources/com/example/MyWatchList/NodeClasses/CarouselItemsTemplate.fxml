@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homeItemPaneTest" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="130.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="homeItemPaneTest" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="168.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="homeLabelPageTestingPheromont" layoutX="26.0" layoutY="46.0" prefHeight="55.0" prefWidth="31.0" text="10" textAlignment="CENTER" visible="false">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgViewrPics" fitHeight="191.0" fitWidth="130.0" layoutY="-1.0" pickOnBounds="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+      <ImageView fx:id="imgViewrPics" fitHeight="257.0" fitWidth="169.0" layoutY="-1.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0">
          <image>
             <Image url="@../../../../../../../../../Downloads/cHNqobjzfLj88lpIYqkZpecwQEC.jpg" />
          </image></ImageView>
+      <ProgressBar fx:id="scoreBar" layoutY="254.0" prefHeight="12.0" prefWidth="168.0" progress="0.0" stylesheets="@../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
 </AnchorPane>

@@ -58,3 +58,9 @@ v
 Fsrc/main/java/com/example/MyWatchList/DataClasses/SearchTvDetails.java,0\6\06f1743d46bd6fab75f14c7c13fb1116777d4e69
 u
 Esrc/main/java/com/example/MyWatchList/DataClasses/TvImageDetails.java,5\3\536406104f9b204c0ff2e799cdbbb471f4d73eee
+v
+Fsrc/main/java/com/example/MyWatchList/ErrorPackage/ItemsNotLoaded.java,7\0\70dd0d5b4898d041fbd610c2da3b2582b164b240
+t
+Dsrc/main/java/com/example/MyWatchList/NodeClasses/CarouselModel.java,3\4\346a3c7c9ffe7acae87860829a20ff1a4073402b
+o
+?src/main/java/com/example/MyWatchList/NodeClasses/Carousel.java,6\0\6058773573752df81563ad2e77aa4c4953031cc8

@@ -69,8 +69,6 @@ public class MainController implements Initializable {
         HomePageController homePageController = new HomePageController(homeHbox, bwordButton, fwordButton, fwordButtonTV, bwordButtonTV, homeHBoxTV);
         WatchedListController watchedListController = new WatchedListController(pnItems, addNodeButton);
 
-        homePageController.initializeHomeNodes();
-        homePageController.initHomeNodesTV();
         watchedListController.initializeShowNodes();
 
         homeContentPane.prefWidthProperty().bind(pnlHome.widthProperty());

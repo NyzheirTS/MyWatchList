@@ -6,6 +6,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -26,6 +27,7 @@ public class HomePageNode{
     private final DropShadow shadow = new DropShadow();
     private final int nodeNumber;
     private boolean nodeFocus = false;
+    private final ProgressBar bar;
 
     String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
@@ -38,6 +40,8 @@ public class HomePageNode{
 
         node.getTransforms().add(scale);
         node.setEffect(shadow);
+
+        bar = (ProgressBar) node.lookup("#scoreBar");
 
         label = (Label) node.lookup("#homeLabelPageTestingPheromont");
         //label.setText(text);
@@ -59,6 +63,7 @@ public class HomePageNode{
 
         nodeGrowEvents();
         nodeClickEvent();
+        progressbar(score/10);
 
     } catch(IOException e){
         throw new RuntimeException(Arrays.toString(e.getStackTrace()));
@@ -91,6 +96,11 @@ public class HomePageNode{
         node.setOnMouseClicked(event -> {
             System.out.println(String.valueOf(nodeNumber));
         });
+    }
+
+    public void progressbar(Double score){
+        bar.setProgress(score);
+
     }
 
     final void dropShadowEffects(){
