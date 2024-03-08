@@ -10,12 +10,11 @@ import java.util.List;
 public class Carousel {
         private List<Node> nodes = new ArrayList<>();
         private int currPage = 0;
-        private final int itemsVisible;
+        private final int itemsVisible = 5;
         private final HBox displayBox;
 
-        public Carousel(HBox displayBox, int itemsVisible) {
+        public Carousel(HBox displayBox) {
             this.displayBox = displayBox;
-            this.itemsVisible = itemsVisible;
         }
 
         public void addItem(Node item) {

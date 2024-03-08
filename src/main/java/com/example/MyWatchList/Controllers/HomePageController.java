@@ -3,6 +3,7 @@ package com.example.MyWatchList.Controllers;
 import com.example.MyWatchList.APIClasses.ApiConnection;
 import com.example.MyWatchList.DataClasses.MovieDetails;
 import com.example.MyWatchList.DataClasses.TvDetails;
+import com.example.MyWatchList.NodeClasses.Carousel;
 import com.example.MyWatchList.NodeClasses.HomePageNode;
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -16,13 +17,6 @@ public class HomePageController {
 
     //TODO: Removed the extendablecard want to move it to a dedicated page also change the way the carousel loads instead of all at once load as needed elements ass needed.
     //TODO: build the poster nodes and add them to an array then load them into the carousel as needed.
-
-    static final int numOfItemsVis = 5;
-    private int currPageMoive = 0;
-    private int currPageTv = 0;
-    private final List<Node> movieNodes = new ArrayList<>();
-    private final List<Node> tvNodes = new ArrayList<>();
-
     HBox homeHbox;
     HBox homeHBoxTV;
     Button bwordButton;
@@ -38,60 +32,24 @@ public class HomePageController {
         this.bwordButtonTV = tvbButton;
         this.homeHBoxTV = homeHBoxTV;
         initArrays();
-        setMovementMovieWeek();
-        setMovementTvWeek();
     }
+
 
 
     private void initArrays() {
         Platform.runLater(() -> {
-            //Trending Movie Week Array
             movieTrendingWeekArray();
-            //Trending Tv Week Array
             tvTrendingWeekArray();
         });
     }
 
-    private void updateDisplay(HBox hBox, List<Node> list, int currPage) {
-        hBox.getChildren().clear();
-        int start = currPage * numOfItemsVis;
-        int end = Math.min(start + numOfItemsVis, list.size());
-        for(int i = start; i < end; i++) {
-            Node node = list.get(i);
-            Platform.runLater(()-> hBox.getChildren().addAll(node));
-        }
-    }
 
-    private void navigation(int direction, HBox hBox, List<Node> list, boolean isMovie) {
-        int currPage = isMovie ? currPageMoive : currPageTv;
-        int totalPages = (int) Math.ceil((double)list.size() / numOfItemsVis);
-        currPage += direction;
-        if (currPage < 0) currPage = 0;
-        else if (currPage >= totalPages) currPage = totalPages - 1;
-
-        if (isMovie) {
-            currPageMoive = currPage; // Update the movie page tracker
-        } else {
-            currPageTv = currPage; // Update the TV show page tracker
-        }
-
-        updateDisplay(hBox, list, currPage);
-    }
-
-    private void setMovementMovieWeek(){
-        fwordButton.setOnAction(event -> navigation(1, homeHbox, movieNodes, true));
-        bwordButton.setOnAction(event -> navigation(-1, homeHbox, movieNodes, true));
-    }
-
-    private void setMovementTvWeek(){
-        fwordButtonTV.setOnAction(event -> navigation(1, homeHBoxTV, tvNodes, false));
-        bwordButtonTV.setOnAction(event -> navigation(-1, homeHBoxTV, tvNodes, false));
-    }
 
     private void movieTrendingWeekArray(){
         try {
             String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.MOVIE_TRENDING_WEEK);
             MovieDetails[] movies = MovieDetails.fromJson(jsonResponse);
+            Carousel movieCarousel = new Carousel(homeHbox);
 
             for (MovieDetails movie : movies) {
                 HomePageNode node = new HomePageNode(
@@ -103,9 +61,11 @@ public class HomePageController {
                         movie.getVote_average(),
                         movie.getVote_count()
                 );
-                movieNodes.add(node.getsNode());
+                movieCarousel.addItem(node.getsNode());
             }
-            updateDisplay(homeHbox, movieNodes, currPageMoive);
+            movieCarousel.updateDisplay();
+            fwordButton.setOnAction(event -> movieCarousel.navigate(1));
+            bwordButton.setOnAction(event -> movieCarousel.navigate(-1));
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -115,6 +75,8 @@ public class HomePageController {
         try {
             String jsonResponseTV = ApiConnection.getResponseData(ApiConnection.ApiCallType.TV_TRENDING_WEEK);
             TvDetails[] tvs = TvDetails.fromJson(jsonResponseTV);
+            Carousel tvCarousel = new Carousel(homeHBoxTV);
+
             for(TvDetails tv: tvs){
                 HomePageNode node = new HomePageNode(
                         tv.getPoster_path(),
@@ -125,12 +87,15 @@ public class HomePageController {
                         tv.getVote_average(),
                         tv.getVote_count()
                 );
-                tvNodes.add(node.getsNode());
+                tvCarousel.addItem(node.getsNode());
             }
-            updateDisplay(homeHBoxTV, tvNodes, currPageTv);
+            tvCarousel.updateDisplay();
+            fwordButtonTV.setOnAction(event -> tvCarousel.navigate(1));
+            bwordButtonTV.setOnAction(event -> tvCarousel.navigate(-1));
         } catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
 }
