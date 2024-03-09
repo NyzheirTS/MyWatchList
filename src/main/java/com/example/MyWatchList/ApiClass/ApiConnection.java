@@ -1,5 +1,5 @@
-package com.example.MyWatchList.APIClasses;
-import com.example.MyWatchList.DataClasses.AppConfig;
+package com.example.MyWatchList.ApiClass;
+import com.example.MyWatchList.AppConfig.AppConfig;
 import javafx.application.Platform;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

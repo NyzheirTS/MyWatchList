@@ -1,11 +1,10 @@
-package com.example.MyWatchList.NodeClasses;
+package com.example.MyWatchList.HomePage;
 
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
@@ -19,11 +18,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class HomePageNode{
+public class PosterNode {
     private final Node node;
-    private final Label label;
     private final ImageView image;
-    private final Scale scale = new Scale(1,1);
     private final DropShadow shadow = new DropShadow();
     private final int nodeNumber;
     private boolean nodeFocus = false;
@@ -34,17 +31,15 @@ public class HomePageNode{
 
 
 
-    public HomePageNode(String text, int nodeNumber, String desc, String imgTxt, String title, Double score, int votes){
+    public PosterNode(String text, int nodeNumber, Double score, int votes){
     try {
-        node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CarouselItemsTemplate.fxml")));
+        node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CarouselPosterTemplate.fxml")));
 
+        Scale scale = new Scale(1, 1);
         node.getTransforms().add(scale);
         node.setEffect(shadow);
 
         bar = (ProgressBar) node.lookup("#scoreBar");
-
-        label = (Label) node.lookup("#homeLabelPageTestingPheromont");
-        //label.setText(text);
 
         image = (ImageView) node.lookup("#imgViewrPics");
         //Async load image
@@ -93,9 +88,7 @@ public class HomePageNode{
     }
 
     private void nodeClickEvent(){
-        node.setOnMouseClicked(event -> {
-            System.out.println(String.valueOf(nodeNumber));
-        });
+        node.setOnMouseClicked(event -> System.out.println(String.valueOf(nodeNumber)));
     }
 
     public void progressbar(Double score){

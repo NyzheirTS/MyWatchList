@@ -1,6 +1,6 @@
 package com.example.MyWatchList.DataClasses;
 
-public class    jsonResponse<T> {
+public class JsonResponse<T> {
     private T[] results;
     private T[] posters;
 

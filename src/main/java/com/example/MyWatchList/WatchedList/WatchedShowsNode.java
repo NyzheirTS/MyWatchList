@@ -1,4 +1,4 @@
-package com.example.MyWatchList.NodeClasses;
+package com.example.MyWatchList.WatchedList;
 
 import com.example.MyWatchList.Interfaces.NodeInterface;
 import javafx.fxml.FXMLLoader;

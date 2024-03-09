@@ -1,4 +1,4 @@
-package com.example.MyWatchList.NodeClasses;
+package com.example.MyWatchList.HomePage;
 
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carousel {
-        private List<Node> nodes = new ArrayList<>();
+        private final List<Node> nodes = new ArrayList<>();
         private int currPage = 0;
         private final int itemsVisible = 5;
         private final HBox displayBox;

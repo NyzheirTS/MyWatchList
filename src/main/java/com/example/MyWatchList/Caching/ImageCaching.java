@@ -1,4 +1,4 @@
-package com.example.MyWatchList.CachingClasses;
+package com.example.MyWatchList.Caching;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import javafx.scene.image.Image;

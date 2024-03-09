@@ -11,14 +11,15 @@ module com.example.test_uijfx {
     exports com.example.MyWatchList;
     exports com.example.MyWatchList.DataClasses;
     opens com.example.MyWatchList.DataClasses to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.CachingClasses;
-    opens com.example.MyWatchList.CachingClasses to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.APIClasses;
-    opens com.example.MyWatchList.APIClasses to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Caching;
+    opens com.example.MyWatchList.Caching to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.ApiClass;
+    opens com.example.MyWatchList.ApiClass to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Interfaces;
-    opens com.example.MyWatchList.Interfaces to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.NodeClasses;
-    opens com.example.MyWatchList.NodeClasses to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.Controllers;
-    opens com.example.MyWatchList.Controllers to com.google.gson, javafx.fxml;
+    opens com.example.MyWatchList.HomePage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.AppConfig;
+    opens com.example.MyWatchList.AppConfig to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.WatchedList;
+    opens com.example.MyWatchList.WatchedList to com.google.gson, javafx.fxml;
+    opens com.example.MyWatchList.SettingsPage to com.google.gson, javafx.fxml;
 }
