@@ -3,151 +3,93 @@ package com.example.MyWatchList.HomePage;
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.DataClasses.*;
 import javafx.application.Platform;
+import org.jetbrains.annotations.NotNull;
 
 public class HomePageController {
     private final TrendingCarouselModel trending;
     private final TopRatedCarouselModel toprated;
     private final UpcomingCarouselModel upcoming;
 
-    //TODO: Continue to work on imageloading optimization in Carousel and PosterNode
-    //TODO: Work on logic for loading and unloading maybe unload images that are 2 pages away from current ie if i am on page 2 of carousel items on page 0 are unloaded
-    //TODO: Also look into only loading images based on what tab is currently showing. We do not need to load toprated and upcomming if all we see is the Trending Page.
+        //TODO: work on implements a way to assign a medatype variable to objects for later tmdb api use on the info page
+        //TODO: work on creating a info page so when you click on a object it brings a new page with all info associated to the object clicked
 
     public HomePageController(TrendingCarouselModel trending, TopRatedCarouselModel toprated, UpcomingCarouselModel upcoming) {
         this.trending = trending;
         this.toprated = toprated;
         this.upcoming = upcoming;
-        initArrays();
+        setTrendingCarousel(true);
     }
 
-
-    private void initArrays() {
-        Platform.runLater(() -> {
-            try {
+    private boolean trendingLoaded = false;
+    public void setTrendingCarousel(boolean state){
+        if (!trendingLoaded){
+            Platform.runLater(() -> {
                 movieTrendingWeekArray();
-                movieUpcomingArray();
-                movieTopRatedArray();
                 tvTrendingArray();
-                tvTopRatedArray();
+                trendingLoaded = state;
+            });
+        }
+    }
+
+    private boolean upcomingLoaded = false;
+    public void setUpcomingCarousel(boolean state){
+        if(!upcomingLoaded) {
+            Platform.runLater(() -> {
+                movieUpcomingArray();
                 tvUpcomingArray();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        });
+                upcomingLoaded = state;
+            });
+        }
+    }
+
+    private boolean topratedLoaded = false;
+    public void setTopratedCarousel(boolean state){
+        if (!topratedLoaded) {
+            Platform.runLater(() -> {
+                movieTopRatedArray();
+                tvTopRatedArray();
+                topratedLoaded = state;
+            });
+        }
     }
 
 
     private void movieTrendingWeekArray(){
-        try {
             String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.MOVIE_TRENDING_WEEK);
             TMDBMovieData[] movies = TMDBMovieData.fromJson(jsonResponse);
-            Carousel movieTrendingCarousel = new Carousel(trending.getTrendingMovieHbox());
-
-            for (TMDBMovieData movie : movies) {
-                PosterNode node = new PosterNode(
-                        movie.getPosterPath(),
-                        movie.getId(),
-                        movie.getVote_average(),
-                        movie.getVote_count()
-                );
-                movieTrendingCarousel.addItem(node);
-            }
-            movieTrendingCarousel.updateDisplay();
+            final Carousel movieTrendingCarousel = getCarouselMovie(new Carousel(trending.getTrendingMovieHbox(), trending.getForwardButtonMovieTrending(), trending.getBackButtonMovieTrending()), movies);
             trending.getForwardButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(1));
             trending.getBackButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(-1));
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     private void movieUpcomingArray(){
-        try{
             String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.MOVIE_UPCOMING);
             TMDBMovieData[] movieUpcoming = TMDBMovieData.fromJson(jsonResponse);
-            Carousel movieUcomingCarousel = new Carousel(upcoming.getUpcomingMovieHbox());
-
-            for(TMDBMovieData movie: movieUpcoming){
-                PosterNode node = new PosterNode(
-                        movie.getPosterPath(),
-                        movie.getId(),
-                        movie.getVote_average(),
-                        movie.getVote_count()
-                );
-                movieUcomingCarousel.addItem(node);
-            }
-            movieUcomingCarousel.updateDisplay();
+            final Carousel movieUcomingCarousel = getCarouselMovie(new Carousel(upcoming.getUpcomingMovieHbox(),upcoming.getForwardButtonUpcomingMovie(), upcoming.getBackButtonMovieUpcoming()), movieUpcoming);
             upcoming.getForwardButtonUpcomingMovie().setOnAction(event -> movieUcomingCarousel.navigate(1));
             upcoming.getBackButtonMovieUpcoming().setOnAction(event -> movieUcomingCarousel.navigate(-1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     private void movieTopRatedArray(){
-        try {
             String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.MOVIE_TOPRATED);
             TMDBMovieData[] movieTopRated = TMDBMovieData.fromJson(jsonResponse);
-            Carousel movieTopRatedCarousel = new Carousel(toprated.getTopRatedMovieHbox());
-
-            for (TMDBMovieData movie : movieTopRated) {
-                PosterNode node = new PosterNode(
-                        movie.getPosterPath(),
-                        movie.getId(),
-                        movie.getVote_average(),
-                        movie.getVote_count()
-                );
-                movieTopRatedCarousel.addItem(node);
-            }
-            movieTopRatedCarousel.updateDisplay();
+            final Carousel movieTopRatedCarousel = getCarouselMovie(new Carousel(toprated.getTopRatedMovieHbox(),toprated.getForwardButtonTopRatedMovie(),toprated.getBackButtonTopRatedMovies()), movieTopRated);
             toprated.getForwardButtonTopRatedMovie().setOnAction(event -> movieTopRatedCarousel.navigate(1));
             toprated.getBackButtonTopRatedMovies().setOnAction(event -> movieTopRatedCarousel.navigate(-1));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
-
-
-
     private  void tvTrendingArray(){
-        try {
             String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.TV_TRENDING_WEEK);
             TMDBTvData[] tvs = TMDBTvData.fromJson(jsonResponse);
-            Carousel tvCarousel = new Carousel(trending.getTrendingTvHbox());
-
-            for(TMDBTvData tv: tvs){
-                PosterNode node = new PosterNode(
-                        tv.getPoster_path(),
-                        tv.getId(),
-                        tv.getVote_average(),
-                        tv.getVote_count()
-                );
-                tvCarousel.addItem(node);
-            }
-            tvCarousel.updateDisplay();
+            final Carousel tvCarousel = getCarouselTV(new Carousel(trending.getTrendingTvHbox(), trending.getForwardButtonTvTrending(), trending.getBackButtonTVTrending()), tvs);
             trending.getForwardButtonTvTrending().setOnAction(event -> tvCarousel.navigate(1));
             trending.getBackButtonTVTrending().setOnAction(event -> tvCarousel.navigate(-1));
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     private void tvUpcomingArray(){
         String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.TV_UPCOMING);
         TMDBTvData[] tvUpcoming = TMDBTvData.fromJson(jsonResponse);
-        Carousel tvUpcomingCarousel = new Carousel(upcoming.getUpcomingTvHbox());
-
-        for(TMDBTvData tv : tvUpcoming){
-            PosterNode node = new PosterNode(
-                    tv.getPoster_path(),
-                    tv.getId(),
-                    tv.getVote_average(),
-                    tv.getVote_count()
-            );
-            tvUpcomingCarousel.addItem(node);
-        }
-        tvUpcomingCarousel.updateDisplay();
+        final Carousel tvUpcomingCarousel = getCarouselTV(new Carousel(upcoming.getUpcomingTvHbox(),upcoming.getForwardButtonUpcomingTv(), upcoming.getBackButtonUpcomingTv()), tvUpcoming);
         upcoming.getForwardButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(1));
         upcoming.getBackButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(-1));
     }
@@ -155,20 +97,39 @@ public class HomePageController {
     private void tvTopRatedArray(){
         String jsonResponse = ApiConnection.getResponseData(ApiConnection.ApiCallType.TV_TOPRATED);
         TMDBTvData[] tvTopRated = TMDBTvData.fromJson(jsonResponse);
-        Carousel tvTopRatedCarousel = new Carousel(toprated.getTopRatedTvHbox());
+        final Carousel tvTopRatedCarousel = getCarouselTV(new Carousel(toprated.getTopRatedTvHbox(),toprated.getForwardButtonTopRatedTv(),toprated.getBackButtonTopRatedTv()), tvTopRated);
+        toprated.getForwardButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(1));
+        toprated.getBackButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(-1));
+    }
 
-        for(TMDBTvData tv : tvTopRated){
+
+    @NotNull
+    private Carousel getCarouselMovie(Carousel carousel, TMDBMovieData[] movies) {
+        for (TMDBMovieData movie : movies) {
+            PosterNode node = new PosterNode(
+                    movie.getPosterPath(),
+                    movie.getId(),
+                    movie.getVote_average(),
+                    movie.getVote_count()
+            );
+            carousel.addItem(node);
+        }
+        carousel.updateDisplay();
+        return carousel;
+    }
+
+    @NotNull
+    private Carousel getCarouselTV(Carousel carousel, TMDBTvData[] tvs) {
+        for (TMDBTvData tv : tvs) {
             PosterNode node = new PosterNode(
                     tv.getPoster_path(),
                     tv.getId(),
                     tv.getVote_average(),
                     tv.getVote_count()
             );
-            tvTopRatedCarousel.addItem(node);
+            carousel.addItem(node);
         }
-        tvTopRatedCarousel.updateDisplay();
-        toprated.getForwardButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(1));
-        toprated.getBackButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(-1));
+        carousel.updateDisplay();
+        return carousel;
     }
-
 }

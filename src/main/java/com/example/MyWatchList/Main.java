@@ -15,7 +15,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1100, 800);
 
         MainController controller = fxmlLoader.getController();
-        controller.setKeyListeners(scene);
+        controller.setSceneListeners(scene);
 
         stage.setTitle("Hello!");
         stage.setScene(scene);

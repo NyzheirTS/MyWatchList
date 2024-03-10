@@ -60,3 +60,7 @@ w
 Gsrc/main/java/com/example/MyWatchList/WatchedList/WatchedShowsNode.java,f\e\fe09a829906dd13d37374b8a42ecab51996927cb
 ~
 Nsrc/main/java/com/example/MyWatchList/SettingsPage/SettingsPageController.java,d\1\d1c9b09e6e10eded4029937578e6f87c9d22301b
+i
+9src/main/java/com/example/MyWatchList/SceneRunnables.java,0\7\0708e71e6654ea9a219fd149a0ea8ae0dfd8d0ea
+d
+4src/main/java/com/example/MyWatchList/ShortCuts.java,c\f\cf1247eb9afaea79c58d5c41f091f4f108a030de

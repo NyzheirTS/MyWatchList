@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
@@ -23,11 +24,9 @@ public class PosterNode  {
     private final ImageView image;
     private final DropShadow shadow = new DropShadow();
     private final int nodeNumber;
-    private boolean nodeFocus = false;
     private final ProgressBar bar;
     private final String text;
-
-    String baseImgURL = "https://image.tmdb.org/t/p/w780";
+    private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
@@ -73,21 +72,25 @@ public class PosterNode  {
 
     public void loadImg(){
         //Async load image
-
-        //Insert PlaceHolder Image Here VVVV
-
+        /*
+        if (image.getImage() != null){
+            return;
+        }
+         */
         Task<Void> imageLoadingTask = new  Task<>(){
             @Override
             protected Void call(){
                 Image loadedImage = new Image(baseImgURL + text ); //true to enable Background loading
-                Platform.runLater(() -> {
-                    image.setImage(loadedImage);
-                });
+                Platform.runLater(() -> image.setImage(loadedImage));
                 return null;
             }
         };
 
         new Thread(imageLoadingTask).start();
+    }
+
+    public void unloadImg(){
+        image.setImage(null);
     }
 
     private void nodeClickEvent(){

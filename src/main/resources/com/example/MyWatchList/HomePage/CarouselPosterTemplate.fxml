@@ -16,7 +16,7 @@
       </Label>
       <ImageView fx:id="imgViewrPics" fitHeight="257.0" fitWidth="169.0" layoutY="-1.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0">
          <image>
-            <Image url="@../../../../../../../../../Downloads/cHNqobjzfLj88lpIYqkZpecwQEC.jpg" />
+            <Image url="@../images/ezgif.com-optimize.gif" />
          </image></ImageView>
       <ProgressBar fx:id="scoreBar" layoutY="254.0" prefHeight="12.0" prefWidth="168.0" progress="0.0" stylesheets="@../style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>

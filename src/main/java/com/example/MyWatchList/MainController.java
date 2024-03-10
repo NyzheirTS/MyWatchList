@@ -16,7 +16,6 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -108,11 +107,9 @@ public class MainController implements Initializable {
 
     //Other Variables
     ApiConnection api = new ApiConnection();
-    KeyCombination kc = new KeyCodeCombination(KeyCode.ESCAPE, KeyCombination.SHIFT_DOWN);
+    HomePageController homeController;
 
-    //Carousel Objects
 
-    //Init Hub ????????????????????????????????????????????????????????????????????????????
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -126,32 +123,43 @@ public class MainController implements Initializable {
         TopRatedCarouselModel toprated = new TopRatedCarouselModel(topRatedMovieHbox, topRatedTvHbox, forwardButtonTopRatedMovie, forwardButtonTopRatedTv, backButtonTopRatedMovies, backButtonTopRatedTv);
         UpcomingCarouselModel upcoming = new UpcomingCarouselModel(upcomingMovieHbox, upcomingTvHbox, forwardButtonUpcomingMovie, forwardButtonUpcomingTv, backButtonMovieUpcoming, backButtonUpcomingTv);
 
-        new HomePageController(trending, toprated, upcoming);
+        homeController = new HomePageController(trending, toprated, upcoming);
         new WatchedListController(pnItems, addNodeButton);
     }
 
 
 
-    //Main Movement System.???????????????????????????????????????????????????
-
-    public void handleClicks(ActionEvent actionEvent) throws IOException {
-        if (actionEvent.getSource() == btnOverview) {
-            pnlHome.toFront();
-        }
-        if(actionEvent.getSource() == btnOrders) {
-            pnlWatched.toFront();
-        }
-        if(actionEvent.getSource() == btnSettings){
-            pnlSettings.toFront();
-        }
+    public void handleClicks(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == btnOverview) pnlHomeToFront.run();
+        if(actionEvent.getSource() == btnOrders) pnlWatchedToFront.run();
+        if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
 
     private void homePageNavControl(){
-        topRatedPaneButton.setOnAction(event -> topRatedPane.toFront());
-        upcomingPaneButton.setOnAction(event -> upcomingPane.toFront());
+        topRatedPaneButton.setOnAction(event -> {
+            homeController.setTopratedCarousel(true);
+            topRatedPane.toFront();
+        });
+        upcomingPaneButton.setOnAction(event -> {
+            homeController.setUpcomingCarousel(true);
+            upcomingPane.toFront();
+        });
         trendingPaneButton.setOnAction(event -> trendingPane.toFront());
     }
 
+
+    Runnable pnlHomeToFront = () -> {
+        pnlHome.toFront();
+        menuOpenButton.toFront();
+    };
+    Runnable pnlSettingsToFront = () -> {
+        pnlSettings.toFront();
+        menuOpenButton.toFront();
+    };
+    Runnable pnlWatchedToFront = () -> {
+        pnlWatched.toFront();
+        menuOpenButton.toFront();
+    };
 
     Runnable menuClose = () -> {
         menuPnl.setPrefWidth(0);
@@ -173,11 +181,23 @@ public class MainController implements Initializable {
         menuOpenButton.setOnAction(event -> menuOpen.run());
     }
 
-    public void setKeyListeners(Scene scene){
+    public void setSceneListeners(Scene scene){
         scene.setOnKeyPressed(e -> {
-            if (kc.match(e)) {
+            if (ShortCuts.shiftEsc.match(e)) {
                 if (menuCloseButton.isVisible()) menuClose.run();
                 else menuOpen.run();
+                e.consume();
+            }
+            if (ShortCuts.shift1.match(e)){
+                pnlHomeToFront.run();
+                e.consume();
+            }
+            if (ShortCuts.shift2.match(e)){
+                pnlWatchedToFront.run();
+                e.consume();
+            }
+            if (ShortCuts.shift5.match(e)){
+                pnlSettingsToFront.run();
                 e.consume();
             }
         });

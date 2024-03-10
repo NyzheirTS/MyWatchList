@@ -5,6 +5,7 @@ module com.example.test_uijfx {
     requires com.google.gson;
     requires com.github.benmanes.caffeine;
     requires java.desktop;
+    requires annotations;
 
 
     opens com.example.MyWatchList to javafx.fxml, com.google.gson;
