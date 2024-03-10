@@ -11,6 +11,7 @@ public class TMDBTvData {
     String name;
     Double vote_average;
     int vote_count;
+    String media_type;
 
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
@@ -33,7 +34,13 @@ public class TMDBTvData {
     public int getVote_count() {return vote_count;}
     public void setVote_count(int vote_count) {this.vote_count = vote_count;}
 
+    public String getMedia_type() {
+        return media_type;
+    }
 
+    public void setMedia_type(String media_type) {
+        this.media_type = media_type;
+    }
 
     public static TMDBTvData[] fromJson(String json) {
         Gson gson = new Gson();

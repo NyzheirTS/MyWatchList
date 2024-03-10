@@ -18,13 +18,14 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class PosterNode {
+public class PosterNode  {
     private final Node node;
     private final ImageView image;
     private final DropShadow shadow = new DropShadow();
     private final int nodeNumber;
     private boolean nodeFocus = false;
     private final ProgressBar bar;
+    private final String text;
 
     String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
@@ -40,21 +41,10 @@ public class PosterNode {
         node.setEffect(shadow);
 
         bar = (ProgressBar) node.lookup("#scoreBar");
-
         image = (ImageView) node.lookup("#imgViewrPics");
-        //Async load image
-        Task<Void> imageLoadingThread1 = new  Task<>(){
-            @Override
-            protected Void call(){
-                Image loadedImage = new Image(baseImgURL + text);
-                Platform.runLater(() -> image.setImage(loadedImage));
-                return null;
-            }
-        };
-
-        new Thread(imageLoadingThread1).start();
 
         this.nodeNumber = nodeNumber;
+        this.text = text;
 
         nodeGrowEvents();
         nodeClickEvent();
@@ -64,9 +54,11 @@ public class PosterNode {
         throw new RuntimeException(Arrays.toString(e.getStackTrace()));
     }
 }
-    public Node getsNode() {return node;}
 
-    public void nodeGrowEvents(){
+
+    public Node getNode() {return node;}
+
+    private void nodeGrowEvents(){
         ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),node);
         growTransition.setToX(1.08);
         growTransition.setToY(1.08);
@@ -75,25 +67,37 @@ public class PosterNode {
         shrinkTransition.setToY(1);
         shrinkTransition.setToX(1);
 
-        node.setOnMouseEntered(e -> {
-            if(!nodeFocus) {
-                growTransition.play();
+        node.setOnMouseEntered(e -> growTransition.play());
+        node.setOnMouseExited(e -> shrinkTransition.play());
+    }
+
+    public void loadImg(){
+        //Async load image
+
+        //Insert PlaceHolder Image Here VVVV
+
+        Task<Void> imageLoadingTask = new  Task<>(){
+            @Override
+            protected Void call(){
+                Image loadedImage = new Image(baseImgURL + text ); //true to enable Background loading
+                Platform.runLater(() -> {
+                    image.setImage(loadedImage);
+                });
+                return null;
             }
-        });
-        node.setOnMouseExited(e -> {
-            if(!nodeFocus) {
-                shrinkTransition.play();
-            }
-        });
+        };
+
+        new Thread(imageLoadingTask).start();
     }
 
     private void nodeClickEvent(){
-        node.setOnMouseClicked(event -> System.out.println(String.valueOf(nodeNumber)));
+        node.setOnMouseClicked(event -> {
+            System.out.println(String.valueOf(nodeNumber));
+        });
     }
 
-    public void progressbar(Double score){
+    private void progressbar(Double score){
         bar.setProgress(score);
-
     }
 
     final void dropShadowEffects(){

@@ -1,6 +1,7 @@
 package com.example.MyWatchList.HomePage;
 
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carousel {
-        private final List<Node> nodes = new ArrayList<>();
+        private final List<PosterNode> nodes = new ArrayList<>();
         private int currPage = 0;
         private final int itemsVisible = 5;
         private final HBox displayBox;
@@ -17,7 +18,7 @@ public class Carousel {
             this.displayBox = displayBox;
         }
 
-        public void addItem(Node item) {
+        public void addItem(PosterNode item) {
             nodes.add(item);
         }
 
@@ -27,7 +28,8 @@ public class Carousel {
                 int start = currPage * itemsVisible;
                 int end = Math.min(start + itemsVisible, nodes.size());
                 for (int i = start; i < end; i++) {
-                    displayBox.getChildren().add(nodes.get(i));
+                    displayBox.getChildren().add(nodes.get(i).getNode());
+                    nodes.get(i).loadImg();
                 }
             });
         }

@@ -22,7 +22,7 @@ public class ApiConnection {
     }
 
     private void initEndpoints(){
-        endpoints.put(ApiCallType.TV_UPCOMING,"https://api.themoviedb.org/3/tv/upcoming");
+        endpoints.put(ApiCallType.TV_UPCOMING,"https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=1");
         endpoints.put(ApiCallType.TV_TRENDING_WEEK,"https://api.themoviedb.org/3/trending/tv/week?language=en-US");
         endpoints.put(ApiCallType.TV_TOPRATED,"https://api.themoviedb.org/3/tv/top_rated");
         endpoints.put(ApiCallType.MOVIE_TOPRATED,"https://api.themoviedb.org/3/movie/top_rated");

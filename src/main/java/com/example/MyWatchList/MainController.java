@@ -55,6 +55,8 @@ public class MainController implements Initializable {
     ////////////////////////////////////////// HomePage Section ////////////////////////////////////////////////////////
     //Trending Home Pane Section
     @FXML
+    public VBox trendingPane;
+    @FXML
     public Button forwardButtonTrendingTv;
     @FXML
     public Button backButtonTrendingTv;
@@ -70,6 +72,8 @@ public class MainController implements Initializable {
     public Button trendingPaneButton;
     //Upcoming Home Pane Section
     @FXML
+    public VBox upcomingPane;
+    @FXML
     public Button upcomingPaneButton;
     @FXML
     public HBox upcomingTvHbox;
@@ -84,6 +88,8 @@ public class MainController implements Initializable {
     @FXML
     public Button forwardButtonUpcomingTv;
     //Top Rated Home Pane Section
+    @FXML
+    public VBox topRatedPane;
     @FXML
     public Button topRatedPaneButton;
     @FXML
@@ -112,12 +118,14 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         api.fetchData(this::setMethods);
         menuAction();
+        homePageNavControl();
     }
 
     private void setMethods(){
         TrendingCarouselModel trending = new TrendingCarouselModel(trendingMovieHbox, trendingTvHbox, forwardButtonTrendingMovie, forwardButtonTrendingTv, backButtonTrendingMovie, backButtonTrendingTv);
         TopRatedCarouselModel toprated = new TopRatedCarouselModel(topRatedMovieHbox, topRatedTvHbox, forwardButtonTopRatedMovie, forwardButtonTopRatedTv, backButtonTopRatedMovies, backButtonTopRatedTv);
         UpcomingCarouselModel upcoming = new UpcomingCarouselModel(upcomingMovieHbox, upcomingTvHbox, forwardButtonUpcomingMovie, forwardButtonUpcomingTv, backButtonMovieUpcoming, backButtonUpcomingTv);
+
         new HomePageController(trending, toprated, upcoming);
         new WatchedListController(pnItems, addNodeButton);
     }
@@ -136,6 +144,12 @@ public class MainController implements Initializable {
         if(actionEvent.getSource() == btnSettings){
             pnlSettings.toFront();
         }
+    }
+
+    private void homePageNavControl(){
+        topRatedPaneButton.setOnAction(event -> topRatedPane.toFront());
+        upcomingPaneButton.setOnAction(event -> upcomingPane.toFront());
+        trendingPaneButton.setOnAction(event -> trendingPane.toFront());
     }
 
 

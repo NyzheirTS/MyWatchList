@@ -180,7 +180,7 @@
                <center>
                   <StackPane>
                      <children>
-                        <VBox alignment="CENTER" style="-fx-background-color: white;">
+                        <VBox fx:id="topRatedPane" alignment="CENTER" style="-fx-background-color: white;">
                            <children>
                               <Label prefHeight="42.0" prefWidth="340.0" text="Top Rated Movies" underline="true">
                                  <font>
@@ -247,7 +247,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: white;">
+                        <VBox fx:id="upcomingPane" alignment="CENTER" style="-fx-background-color: white;">
                            <children>
                               <Label prefHeight="42.0" prefWidth="340.0" text="Upcoming Moives" underline="true">
                                  <font>
@@ -314,7 +314,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" style="-fx-background-color: white;">
+                        <VBox fx:id="trendingPane" alignment="CENTER" style="-fx-background-color: white;">
                            <children>
                               <Label prefHeight="42.0" prefWidth="340.0" text="Trending Movies this Week" underline="true">
                                  <font>

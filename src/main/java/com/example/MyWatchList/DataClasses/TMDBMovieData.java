@@ -11,6 +11,7 @@ public class TMDBMovieData {
     String title;
     Double vote_average;
     int vote_count;
+    String media_type;
 
 
     //Standard Getters and Setters
@@ -36,8 +37,15 @@ public class TMDBMovieData {
     public int getVote_count() {return vote_count;}
     public void setVote_count(int vote_count) {this.vote_count = vote_count;}
 
+    public String getMedia_type() {
+        return media_type;
+    }
 
-    //Deserialize the json string ..
+    public void setMedia_type(String media_type) {
+        this.media_type = media_type;
+    }
+
+//Deserialize the json string ..
 
     public static TMDBMovieData[] fromJson(String json) {
         Gson gson = new Gson();
