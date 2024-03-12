@@ -1,23 +1,26 @@
 package com.example.MyWatchList.DataClasses;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class TMDBTvData {
+public class TMDBMovieModel {
+
     int id;
     String poster_path;
     String backdrop_path;
     String overview;
-    String name;
+    String title;
     Double vote_average;
     int vote_count;
-    String media_type;
+    String media_type = "movie";
 
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
 
-    public String getPoster_path() {return poster_path;}
+    //Standard Getters and Setters
+
+    public String getPosterPath(){return poster_path;}
     public void setPoster_path(String poster_path) {this.poster_path = poster_path;}
+
+    public int getId(){return id;}
+    public void setId(int id) {this.id = id;}
 
     public String getBackdrop_path() {return backdrop_path;}
     public void setBackdrop_path(String backdrop_path) {this.backdrop_path = backdrop_path;}
@@ -25,8 +28,8 @@ public class TMDBTvData {
     public String getOverview() {return overview;}
     public void setOverview(String overview) {this.overview = overview;}
 
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public String getTitle() {return title;}
+    public void setTitle(String title) {this.title = title;}
 
     public Double getVote_average() {return vote_average;}
     public void setVote_average(Double vote_average) {this.vote_average = vote_average;}
@@ -42,11 +45,12 @@ public class TMDBTvData {
         this.media_type = media_type;
     }
 
-    public static TMDBTvData[] fromJson(String json) {
+//Deserialize the json string ..
+
+    public static TMDBMovieModel[] fromJson(String json) {
         Gson gson = new Gson();
-        JsonResponse<TMDBTvData> tvList = gson.fromJson(json, new TypeToken<JsonResponse<TMDBTvData>>() {}.getType());
-        return tvList.getResults();
+        JsonResponse<TMDBMovieModel> movieList = gson.fromJson(json, new TypeToken<JsonResponse<TMDBMovieModel>>() {}.getType());
+        return movieList.getResults();
     }
-
-
 }
+

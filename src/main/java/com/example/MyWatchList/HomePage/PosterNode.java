@@ -26,12 +26,13 @@ public class PosterNode  {
     private final int nodeNumber;
     private final ProgressBar bar;
     private final String text;
+    private final String mediaType;
     private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
 
-    public PosterNode(String text, int nodeNumber, Double score, int votes){
+    public PosterNode(String text, int nodeNumber, Double score, int votes, String mediaType){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CarouselPosterTemplate.fxml")));
 
@@ -44,6 +45,7 @@ public class PosterNode  {
 
         this.nodeNumber = nodeNumber;
         this.text = text;
+        this.mediaType = mediaType;
 
         nodeGrowEvents();
         nodeClickEvent();
@@ -96,6 +98,7 @@ public class PosterNode  {
     private void nodeClickEvent(){
         node.setOnMouseClicked(event -> {
             System.out.println(String.valueOf(nodeNumber));
+            System.out.println(mediaType);
         });
     }
 

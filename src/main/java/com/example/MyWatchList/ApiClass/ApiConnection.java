@@ -1,5 +1,7 @@
 package com.example.MyWatchList.ApiClass;
 import com.example.MyWatchList.AppConfig.AppConfig;
+import com.example.MyWatchList.Caching.JsonCache;
+import com.example.MyWatchList.DataClasses.ApiCallType;
 import javafx.application.Platform;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -15,6 +17,7 @@ public class ApiConnection {
     private final OkHttpClient client;
     private static final HashMap<ApiCallType, String> responseData = new HashMap<>();
     private final HashMap<ApiCallType, String> endpoints = new HashMap<>();
+    private final JsonCache jsonCache = new JsonCache();
 
     public ApiConnection() {
         initEndpoints();
@@ -30,40 +33,40 @@ public class ApiConnection {
         endpoints.put(ApiCallType.MOVIE_TRENDING_WEEK,"https://api.themoviedb.org/3/trending/movie/week?language=en-US");
     }
 
-    public enum ApiCallType {
-        TV_TRENDING_WEEK,
-        MOVIE_TRENDING_WEEK,
-        TV_UPCOMING,
-        MOVIE_UPCOMING,
-        TV_TOPRATED,
-        MOVIE_TOPRATED,
-    }
 
-    public void batchApiCall(ApiCallType callType, CountDownLatch latch){ //TMDB API Handler
+    public void batchApiCall(ApiCallType callType, CountDownLatch latch) throws IOException { //TMDB API Handler
         String url = endpoints.get(callType);
-        Thread networkThread = new Thread(() -> {
+        if (jsonCache.getJson(callType) != null) {
+            synchronized (responseData){
+                responseData.put(callType, jsonCache.getJson(callType));
+            }
+            latch.countDown();
+        } else {
+            Thread networkThread = new Thread(() -> {
             try {
-            Request request = new Request.Builder()
-                    .url(url)
-                    .addHeader("accept", "application/json")
-                    .addHeader("Authorization", AppConfig.getTMDBKey())
-                    .build();
+                Request request = new Request.Builder()
+                        .url(url)
+                        .addHeader("accept", "application/json")
+                        .addHeader("Authorization", AppConfig.getTMDBKey())
+                        .build();
 
                 Response response = client.newCall(request).execute();
+
                 ResponseBody responseBody = response.body();
-                if(responseBody != null){
-                    synchronized (responseData){
-                        responseData.put(callType, responseBody.string());
-                    }
+                String responseBodyString = responseBody.string();
+
+                jsonCache.setJsonCache(callType, responseBodyString);
+                synchronized (responseData) {
+                    responseData.put(callType, responseBodyString);
                 }
                 latch.countDown();
             } catch (IOException e){
                 e.printStackTrace();
                 latch.countDown();
             }
-        });
-        networkThread.start();
-
+            });
+            networkThread.start();
+        }
     }
 
     public void onDemandApiCall(String url, ResponseHandler responseHandler){ //TMDB API Handler
@@ -79,7 +82,6 @@ public class ApiConnection {
                 ResponseBody responseBody = response.body();
                 assert responseBody != null;
                 responseHandler.handleResponse(responseBody.string());
-
             } catch (IOException e){
                 throw new RuntimeException();
             }
@@ -89,7 +91,13 @@ public class ApiConnection {
 
     public void fetchData(Runnable callback){
         final CountDownLatch latch = new CountDownLatch(endpoints.size());
-        endpoints.keySet().forEach(callType -> batchApiCall(callType, latch));
+        endpoints.keySet().forEach(callType -> {
+            try {
+                batchApiCall(callType, latch);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         try {
             latch.await();

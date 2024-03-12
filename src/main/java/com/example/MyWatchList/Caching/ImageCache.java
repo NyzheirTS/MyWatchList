@@ -11,24 +11,28 @@ import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.Objects;
 
-public class ImageCaching {
+public class ImageCache {
 
     private static final String CACHE_DIRECTORY = "Cache/image_cache";
     private static final Cache<String, Image> imageCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
 
-
-    public static Image getImage(String url) throws IOException {
-        String fileName = url.substring(url.lastIndexOf('/') +1);
-        String localFilePath = CACHE_DIRECTORY + File.separator + fileName;
-
+    static {
         if(!cacheDirectory.exists()) {
             boolean isDirCreated = cacheDirectory.mkdirs();
             if (!isDirCreated) {
                 System.err.println("Failed to create cache directory: " + CACHE_DIRECTORY);
             }
         }
+    }
+
+
+    public static Image getImage(String url) throws IOException {
+        String fileName = url.substring(url.lastIndexOf('/') +1);
+        String localFilePath = CACHE_DIRECTORY + File.separator + fileName;
+
         Image image = imageCache.getIfPresent(localFilePath);
         if (image == null) {
             File cachedImageFile = new File(localFilePath);
@@ -86,13 +90,10 @@ public class ImageCaching {
 
 
 
-    public static void dumpCache(){
-        for (File file : cacheDirectory.listFiles()){
+    public static void dumpCache() throws IOException {
+        for (File file : Objects.requireNonNull(cacheDirectory.listFiles())){
             if (!file.isDirectory()){
-                boolean isDeleted = file.delete();
-                if (!isDeleted){
-                    System.out.println("Could Not Delete File: " + file);
-                }
+                java.nio.file.Files.delete(file.toPath());
             }
         }
     }

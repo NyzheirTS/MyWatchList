@@ -3,7 +3,7 @@ package com.example.MyWatchList.HomePage;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class TopRatedCarouselModel {
+public class TopRatedCarouselView {
     HBox topRatedMovieHbox;
     HBox topRatedTvHbox;
     Button backButtonTopRatedMovies;
@@ -11,7 +11,7 @@ public class TopRatedCarouselModel {
     Button backButtonTopRatedTv;
     Button forwardButtonTopRatedTv;
 
-    public TopRatedCarouselModel(HBox topRatedMovieHbox, HBox topRatedTvHbox, Button forwardButtonTopRatedMovie, Button forwardButtonTopRatedTv, Button backButtonTopRatedMovies, Button backButtonTopRatedTv){
+    public TopRatedCarouselView(HBox topRatedMovieHbox, HBox topRatedTvHbox, Button forwardButtonTopRatedMovie, Button forwardButtonTopRatedTv, Button backButtonTopRatedMovies, Button backButtonTopRatedTv){
         this.topRatedMovieHbox = topRatedMovieHbox;
         this.topRatedTvHbox = topRatedTvHbox;
         this.forwardButtonTopRatedMovie = forwardButtonTopRatedMovie;

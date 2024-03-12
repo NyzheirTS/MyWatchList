@@ -3,7 +3,7 @@ package com.example.MyWatchList.HomePage;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-public class TrendingCarouselModel {
+public class TrendingCarouselView {
     HBox trendingMovieHbox;
     HBox trendingTvHbox;
     Button backButtonMovieTrending;
@@ -11,7 +11,7 @@ public class TrendingCarouselModel {
     Button forwardButtonTvTrending;
     Button backButtonTVTrending;
 
-    public TrendingCarouselModel(HBox trendingMovieHbox, HBox trendingTvHbox, Button forwardButtonMovieTrending, Button forwardButtonTvTrending, Button backButtonMovieTrending, Button backButtonTVTrending){
+    public TrendingCarouselView(HBox trendingMovieHbox, HBox trendingTvHbox, Button forwardButtonMovieTrending, Button forwardButtonTvTrending, Button backButtonMovieTrending, Button backButtonTVTrending){
         this.trendingMovieHbox = trendingMovieHbox;
         this.trendingTvHbox = trendingTvHbox;
         this.forwardButtonMovieTrending = forwardButtonMovieTrending;

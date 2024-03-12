@@ -3,17 +3,14 @@ package com.example.MyWatchList;
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.WatchedList.WatchedListController;
 import com.example.MyWatchList.HomePage.HomePageController;
-import com.example.MyWatchList.HomePage.TopRatedCarouselModel;
-import com.example.MyWatchList.HomePage.TrendingCarouselModel;
-import com.example.MyWatchList.HomePage.UpcomingCarouselModel;
+import com.example.MyWatchList.HomePage.TopRatedCarouselView;
+import com.example.MyWatchList.HomePage.TrendingCarouselView;
+import com.example.MyWatchList.HomePage.UpcomingCarouselView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.*;
 
 import java.net.URL;
@@ -119,9 +116,9 @@ public class MainController implements Initializable {
     }
 
     private void setMethods(){
-        TrendingCarouselModel trending = new TrendingCarouselModel(trendingMovieHbox, trendingTvHbox, forwardButtonTrendingMovie, forwardButtonTrendingTv, backButtonTrendingMovie, backButtonTrendingTv);
-        TopRatedCarouselModel toprated = new TopRatedCarouselModel(topRatedMovieHbox, topRatedTvHbox, forwardButtonTopRatedMovie, forwardButtonTopRatedTv, backButtonTopRatedMovies, backButtonTopRatedTv);
-        UpcomingCarouselModel upcoming = new UpcomingCarouselModel(upcomingMovieHbox, upcomingTvHbox, forwardButtonUpcomingMovie, forwardButtonUpcomingTv, backButtonMovieUpcoming, backButtonUpcomingTv);
+        TrendingCarouselView trending = new TrendingCarouselView(trendingMovieHbox, trendingTvHbox, forwardButtonTrendingMovie, forwardButtonTrendingTv, backButtonTrendingMovie, backButtonTrendingTv);
+        TopRatedCarouselView toprated = new TopRatedCarouselView(topRatedMovieHbox, topRatedTvHbox, forwardButtonTopRatedMovie, forwardButtonTopRatedTv, backButtonTopRatedMovies, backButtonTopRatedTv);
+        UpcomingCarouselView upcoming = new UpcomingCarouselView(upcomingMovieHbox, upcomingTvHbox, forwardButtonUpcomingMovie, forwardButtonUpcomingTv, backButtonMovieUpcoming, backButtonUpcomingTv);
 
         homeController = new HomePageController(trending, toprated, upcoming);
         new WatchedListController(pnItems, addNodeButton);
@@ -160,6 +157,8 @@ public class MainController implements Initializable {
         pnlWatched.toFront();
         menuOpenButton.toFront();
     };
+
+    //TODO: Implement Transition for closing and opening the menu
 
     Runnable menuClose = () -> {
         menuPnl.setPrefWidth(0);
