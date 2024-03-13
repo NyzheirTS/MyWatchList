@@ -23,4 +23,6 @@ module com.example.test_uijfx {
     exports com.example.MyWatchList.WatchedList;
     opens com.example.MyWatchList.WatchedList to com.google.gson, javafx.fxml;
     opens com.example.MyWatchList.SettingsPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.InfoPage;
+    opens com.example.MyWatchList.InfoPage to com.google.gson, javafx.fxml;
 }

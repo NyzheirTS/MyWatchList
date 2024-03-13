@@ -36,9 +36,9 @@ public class ApiConnection {
 
     public void batchApiCall(ApiCallType callType, CountDownLatch latch) throws IOException { //TMDB API Handler
         String url = endpoints.get(callType);
-        if (jsonCache.getJson(callType) != null) {
+        if (jsonCache.getJsonCache(callType) != null) {
             synchronized (responseData){
-                responseData.put(callType, jsonCache.getJson(callType));
+                responseData.put(callType, jsonCache.getJsonCache(callType));
             }
             latch.countDown();
         } else {
@@ -53,6 +53,7 @@ public class ApiConnection {
                 Response response = client.newCall(request).execute();
 
                 ResponseBody responseBody = response.body();
+                assert responseBody != null;
                 String responseBodyString = responseBody.string();
 
                 jsonCache.setJsonCache(callType, responseBodyString);

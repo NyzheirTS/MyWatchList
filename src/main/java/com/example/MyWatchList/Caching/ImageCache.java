@@ -16,7 +16,7 @@ import java.util.Objects;
 public class ImageCache {
 
     private static final String CACHE_DIRECTORY = "Cache/image_cache";
-    private static final Cache<String, Image> imageCache = Caffeine.newBuilder().maximumSize(100).build();
+    private static final Cache<String, Image> imagesCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
 
     static {
@@ -33,13 +33,13 @@ public class ImageCache {
         String fileName = url.substring(url.lastIndexOf('/') +1);
         String localFilePath = CACHE_DIRECTORY + File.separator + fileName;
 
-        Image image = imageCache.getIfPresent(localFilePath);
+        Image image = imagesCache.getIfPresent(localFilePath);
         if (image == null) {
             File cachedImageFile = new File(localFilePath);
             if (cachedImageFile.exists()) {
-                byte[] decompressedData = imageDecompressor(Files.readAllBytes(cachedImageFile.toPath()),1.0F);
+                byte[] decompressedData = imageDecompressor(Files.readAllBytes(cachedImageFile.toPath()));
                 image = new Image(new ByteArrayInputStream(decompressedData));
-                imageCache.put(localFilePath, image);
+                imagesCache.put(localFilePath, image);
 
 
 
@@ -64,7 +64,7 @@ public class ImageCache {
                     outputStream.write(byteArrayOutputStream.toByteArray());
 
                     image = new Image(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-                    imageCache.put(localFilePath, image);
+                    imagesCache.put(localFilePath, image);
 
                     boolean lumin = imageColorAnalyzer(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
                     System.out.println("Overall image color: " + (lumin ? "Light" : "Dark"));
@@ -119,7 +119,7 @@ public class ImageCache {
         return compressedStream.toByteArray();
     }
 
-    private static byte[] imageDecompressor(byte[] compressedImageData, float quality) throws IOException{
+    private static byte[] imageDecompressor(byte[] compressedImageData) throws IOException{
 
         BufferedImage compressedImage = ImageIO.read(new ByteArrayInputStream(compressedImageData));
 
@@ -128,7 +128,7 @@ public class ImageCache {
         ImageWriter imageWriter = ImageIO.getImageWritersByFormatName("jpeg").next();
         ImageWriteParam writeParam = imageWriter.getDefaultWriteParam();
         writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        writeParam.setCompressionQuality(quality);
+        writeParam.setCompressionQuality((float) 1.0);
 
         imageWriter.setOutput(ImageIO.createImageOutputStream(decompressedStream));
         imageWriter.write(null, new IIOImage(compressedImage, null, null), writeParam);

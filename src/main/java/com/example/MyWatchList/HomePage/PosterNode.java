@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
@@ -34,7 +33,7 @@ public class PosterNode  {
 
     public PosterNode(String text, int nodeNumber, Double score, int votes, String mediaType){
     try {
-        node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CarouselPosterTemplate.fxml")));
+        node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("carousel-poster-template.fxml")));
 
         Scale scale = new Scale(1, 1);
         node.getTransforms().add(scale);
@@ -97,7 +96,7 @@ public class PosterNode  {
 
     private void nodeClickEvent(){
         node.setOnMouseClicked(event -> {
-            System.out.println(String.valueOf(nodeNumber));
+            System.out.println(nodeNumber);
             System.out.println(mediaType);
         });
     }

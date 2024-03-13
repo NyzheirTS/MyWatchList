@@ -46,7 +46,7 @@ public class Carousel {
                 unloadImages(prevPageStart,nextPageEnd);
             });
         }
-        private void unloadImages(int prev, int next){ // unload the images that are out of view within a 1 page radius IE. if im on page i go to page 3 pages 0 and 1 get unloaded.
+        private void unloadImages(int prev, int next){ // unload the images that are out of view within a 1-page radius IE. if im on page I go to page 3 pages 0 and 1 get unloaded.
             for (int i = 0; i < prev; i++){
                 nodes.get(i).unloadImg();
             }
@@ -74,15 +74,18 @@ public class Carousel {
         }
 
         private void updateButtons(){
-            if (currPage == 0){
-                forward.setVisible(true);
-                backward.setVisible(false);
-            }else if (currPage == 3){
-                forward.setVisible(false);
-                backward.setVisible(true);
-            }else {
-                forward.setVisible(true);
-                backward.setVisible(true);
+            switch (currPage){
+                case 0:
+                    forward.setVisible(true);
+                    backward.setVisible(false);
+                    break;
+                case 3:
+                    forward.setVisible(false);
+                    backward.setVisible(true);
+                    break;
+                default:
+                    forward.setVisible(true);
+                    backward.setVisible(true);
             }
         }
 

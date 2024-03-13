@@ -15,9 +15,12 @@ import java.util.Objects;
 
 public class JsonCache {
     private static final String CACHE_DIRECTORY = "Cache/json_cache";
-    private static final Cache<String, String> jsonCache = Caffeine.newBuilder().maximumSize(100).build();
+    private static final Cache<String, String> apiJsonCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
     private static final Date date = new Date();
+
+    //TODO: Implement method for deleting cache after season is over for the info page. only delete on shutdown.
+
 
     static {
         try {
@@ -43,23 +46,23 @@ public class JsonCache {
         }
     }
 
-    private String formattFilePath(String fileName){
+    private String formatFilePath(String fileName){
         return CACHE_DIRECTORY + File.separator +
                 new SimpleDateFormat("MM-dd-yyyy_").format(date) + fileName;
     }
 
 
-    public  String getJson(ApiCallType apiCallType) throws IOException {
+    public  String getJsonCache(ApiCallType apiCallType) throws IOException {
         String fileName = apiCallType.name() + ".json";
-        String localFilePath = formattFilePath(fileName);
+        String localFilePath = formatFilePath(fileName);
 
 
-        String apiData = jsonCache.getIfPresent(localFilePath);
+        String apiData = apiJsonCache.getIfPresent(localFilePath);
         File cachedJson = new File(localFilePath);
         if(cachedJson.exists()) {
             byte[] byteData = Files.readAllBytes(cachedJson.toPath());
             apiData = new String(byteData, StandardCharsets.UTF_8);
-            //jsonCache.put(localFilePath, apiData);
+            //apiJsonCache.put(localFilePath, apiData);
         }
         return apiData;
     }
@@ -67,7 +70,7 @@ public class JsonCache {
 
     public void setJsonCache(ApiCallType apiCallType, String apiInfo) throws IOException {
         String fileName = apiCallType.name() + ".json";
-        String localFilePath = formattFilePath(fileName);
+        String localFilePath = formatFilePath(fileName);
 
         File cachedJson = new File(localFilePath);
         try (InputStream inputStream = new ByteArrayInputStream(apiInfo.getBytes(StandardCharsets.UTF_8));
@@ -85,7 +88,7 @@ public class JsonCache {
 
             String apiData = String.valueOf(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
 
-            jsonCache.put(localFilePath, apiData);
+            apiJsonCache.put(localFilePath, apiData);
 
         }
     }

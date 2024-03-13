@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<ScrollPane prefHeight="1080.0" prefWidth="1665.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <VBox prefHeight="1078.0" prefWidth="1663.0">
+         <children>
+            <HBox prefHeight="464.0" prefWidth="1663.0">
+               <children>
+                  <ImageView fitHeight="935.0" fitWidth="1971.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@testImgsForinfoPage/bQS43HSLZzMjZkcHJz4fGc7fNdz.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

@@ -6,12 +6,14 @@ import com.example.MyWatchList.HomePage.HomePageController;
 import com.example.MyWatchList.HomePage.TopRatedCarouselView;
 import com.example.MyWatchList.HomePage.TrendingCarouselView;
 import com.example.MyWatchList.HomePage.UpcomingCarouselView;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -158,21 +160,41 @@ public class MainController implements Initializable {
         menuOpenButton.toFront();
     };
 
-    //TODO: Implement Transition for closing and opening the menu
 
     Runnable menuClose = () -> {
-        menuPnl.setPrefWidth(0);
-        mainBorderPane.setLeft(menuPnl);
         menuOpenButton.toFront();
+
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(menuPnl.prefWidthProperty(), 0);
+        KeyFrame kf = new KeyFrame(Duration.millis(200), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+
         menuCloseButton.setVisible(false);
-        menuOpenButton.setVisible(true);
+
+        timeline.setOnFinished(e -> {
+            menuCloseButton.setVisible(false);
+            menuOpenButton.setVisible(true);
+            mainBorderPane.setLeft(menuPnl);
+        });
     };
 
+
     Runnable menuOpen = () -> {
-        menuPnl.setPrefWidth(246);
+        menuPnl.setPrefWidth(0);
         mainBorderPane.setLeft(menuPnl);
-        menuCloseButton.setVisible(true);
+
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(menuPnl.prefWidthProperty(), 246);
+        KeyFrame kf = new KeyFrame(Duration.millis(200), kv);
+        timeline.getKeyFrames().add(kf);
+        timeline.play();
+
         menuOpenButton.setVisible(false);
+        timeline.setOnFinished(event -> {
+            menuCloseButton.setVisible(true);
+            menuOpenButton.setVisible(false);
+        });
     };
 
     private void menuAction(){

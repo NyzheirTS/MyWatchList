@@ -112,6 +112,7 @@
    <center>
         <StackPane prefHeight="1080.0" prefWidth="1665.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
             <children>
+            <VBox fx:id="infoPageVbox" prefHeight="200.0" prefWidth="100.0" />
             <AnchorPane fx:id="pnlSettings" style="-fx-background-color: grey;" stylesheets="@style.css">
                <children>
                   <Label layoutX="61.0" layoutY="36.0" prefHeight="58.0" prefWidth="116.0" text="Settings" textFill="#e7e5e5">

@@ -25,7 +25,7 @@ public class WatchedShowsNode implements NodeInterface {
 
     public WatchedShowsNode(String labelText, int nodeNumber){
         try {
-            node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ListItemTemplate.fxml")));
+            node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("list-item-template.fxml")));
 
 
             label = (Label) node.lookup("#titleLabel");
