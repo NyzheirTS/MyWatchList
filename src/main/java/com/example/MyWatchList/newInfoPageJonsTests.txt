@@ -1,0 +1,94 @@
+//youtube base link https://www.youtube.com/watch?v=
+        String baseURLYT = "https://www.youtube.com/watch?v=";
+        InfoPageModel infoPageModels = InfoPageModel.fromJson(TestJsonStringHolder.getJsonString());
+
+        System.out.println(infoPageModels.getBackdrop_path());
+        System.out.println(infoPageModels.getBelongs_to_collections().getId());
+        System.out.println(infoPageModels.getBelongs_to_collections().getName());
+        System.out.println(infoPageModels.getBelongs_to_collections().getPoster_path());
+        System.out.println(infoPageModels.getBelongs_to_collections().getBackdrop_path());
+        System.out.println(infoPageModels.getBudget());
+        retrieveGenres(infoPageModels);
+        System.out.println(infoPageModels.getHomepage());
+        System.out.println(infoPageModels.getId());
+        System.out.println(infoPageModels.getOverview());
+        System.out.println(infoPageModels.getPoster_path());
+        retrieveProductionCompanies(infoPageModels);
+        System.out.println(infoPageModels.getRelease_date());
+        System.out.println(infoPageModels.getRevenue());
+        System.out.println(infoPageModels.getRuntime());
+        System.out.println(infoPageModels.getStatus());
+        System.out.println(infoPageModels.getTagline());
+        System.out.println(infoPageModels.getTitle());
+        System.out.println(infoPageModels.getVote_average());
+        System.out.println(infoPageModels.getVote_count());
+
+
+        CreditsModel.Cast[] cast = infoPageModels.getCredits().getCast();
+        for (int i = 0; i <= 10; i++){
+                System.out.println(cast[i].getId());
+                System.out.println(cast[i].getName());
+                System.out.println(cast[i].getCharacter());
+                System.out.println(cast[i].getProfile_path());
+                System.out.println(cast[i].getGender() == 1 ? "Female\n\n" : "Male\n\n");
+        }
+
+
+        //System.out.println(TestJsonStringHolder.getJsonString());
+
+        RecommendationsModel.Recommendations[] recommendations = infoPageModels.getRecommendations().getResults();
+        for (RecommendationsModel.Recommendations recommend : recommendations){
+            System.out.println(recommend.getId());
+            System.out.println(recommend.getTitle());
+            System.out.println(recommend.getMedia_type());
+            System.out.println(recommend.getPoster_path());
+            System.out.println(recommend.getVote_average());
+            System.out.println("\n");
+        }
+
+
+        ReviewsModel.Reviews[] reviews = infoPageModels.getReviews().getResults();
+        for (ReviewsModel.Reviews review : reviews){
+            System.out.println(review.getAuthor());
+            System.out.println(review.getContent());
+            System.out.print("Author Details: { ");
+            System.out.print(review.getAuthor_details().getUsername() + ", ");
+            System.out.print(review.getAuthor_details().getAvatar_path() + ", ");
+            System.out.println(review.getAuthor_details().getRating() + " }");
+            System.out.println(review.getUrl());
+            System.out.println("\n");
+        }
+
+
+        VideosModel.Videos[] videos = infoPageModels.getVideos().getResults();
+        for (VideosModel.Videos video : videos){
+            if (video.getType().equals("Trailer") && video.getOfficial()){
+                System.out.println(video.getName());
+                System.out.println(baseURLYT+video.getKey());
+                System.out.println(video.getSite());
+                System.out.println(video.getType());
+                System.out.println(video.getOfficial() + "\n");
+            }
+        }
+
+
+        launch();
+    }
+
+
+    public static void retrieveGenres (InfoPageModel belongstoCollection){
+        for (InfoPageModel.Genres genres: belongstoCollection.getGenres()){
+            System.out.println(genres.getId());
+            System.out.println(genres.getName());
+
+        }
+    }
+
+    public static void retrieveProductionCompanies(InfoPageModel productionCompanies){
+        for (InfoPageModel.ProductionCompanies companies : productionCompanies.getProduction_companies()){
+            System.out.println(companies.getId());
+            System.out.println(companies.getLogo_path());
+            System.out.println(companies.getName());
+            System.out.println(companies.getOrigin_country());
+        }
+    }

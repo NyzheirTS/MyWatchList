@@ -110,7 +110,6 @@ public class HomePageController {
                     movie.getPosterPath(),
                     movie.getId(),
                     movie.getVote_average(),
-                    movie.getVote_count(),
                     movie.getMedia_type()
             );
             carousel.addItem(node);
@@ -126,7 +125,6 @@ public class HomePageController {
                     tv.getPoster_path(),
                     tv.getId(),
                     tv.getVote_average(),
-                    tv.getVote_count(),
                     tv.getMedia_type()
             );
             carousel.addItem(node);

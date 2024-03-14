@@ -31,7 +31,7 @@ public class PosterNode  {
 
 
 
-    public PosterNode(String text, int nodeNumber, Double score, int votes, String mediaType){
+    public PosterNode(String text, int nodeNumber, Double score, String mediaType){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("carousel-poster-template.fxml")));
 

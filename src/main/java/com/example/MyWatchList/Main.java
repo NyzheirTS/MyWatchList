@@ -1,11 +1,13 @@
 package com.example.MyWatchList;
 
+import com.example.MyWatchList.DataClasses.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main extends Application {
     @Override
@@ -17,11 +19,17 @@ public class Main extends Application {
         MainController controller = fxmlLoader.getController();
         controller.setSceneListeners(scene);
 
+
+
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
     }
 
-    public static void main(String[] args) {launch();}
+
+    public static void main(String[] args) throws IOException {
+        launch();
+    }
+
 }
