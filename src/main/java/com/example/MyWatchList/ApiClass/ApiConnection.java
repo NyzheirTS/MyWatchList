@@ -1,7 +1,7 @@
 package com.example.MyWatchList.ApiClass;
 import com.example.MyWatchList.AppConfig.AppConfig;
 import com.example.MyWatchList.Caching.JsonCache;
-import com.example.MyWatchList.DataClasses.ApiCallType;
+import com.example.MyWatchList.DataModels.ApiCallType;
 import javafx.application.Platform;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,13 +10,14 @@ import okhttp3.ResponseBody;
 
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 public class ApiConnection {
     private final OkHttpClient client;
-    private static final HashMap<ApiCallType, String> responseData = new HashMap<>();
-    private final HashMap<ApiCallType, String> endpoints = new HashMap<>();
+    private static final Map<ApiCallType, String> responseData = new EnumMap<>(ApiCallType.class);
+    private final Map<ApiCallType, String> endpoints = new EnumMap<>(ApiCallType.class);
     private final JsonCache jsonCache = new JsonCache();
 
     public ApiConnection() {

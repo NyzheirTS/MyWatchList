@@ -1,0 +1,13 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(„„‹Ο8βΰ¦πγ1
+W
+java:S1118
+":Add a private constructor to hide the implicit public one.(υΫΛΊ8 υίργ1
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(¥²¤ψÿÿÿÿ8΅υίργ1
+Q
+java:S1128"4Remove this unused import 'java.io.FileInputStream'.(³ΙΣ8£υίργ1
+\
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·ξ™ωÿÿÿÿ8¥υίργ1
+L
+java:S1128"/Remove this unused import 'java.nio.file.Path'.(Χ²κΒ8¦υίργ1

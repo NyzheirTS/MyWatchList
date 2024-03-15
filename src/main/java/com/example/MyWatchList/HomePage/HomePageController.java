@@ -1,7 +1,9 @@
 package com.example.MyWatchList.HomePage;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
-import com.example.MyWatchList.DataClasses.*;
+import com.example.MyWatchList.DataModels.*;
+import com.example.MyWatchList.DataModels.MovieModels.MoviePosterModel;
+import com.example.MyWatchList.DataModels.TvModels.TvPosterModel;
 import javafx.application.Platform;
 import org.jetbrains.annotations.NotNull;
 
@@ -56,7 +58,7 @@ public class HomePageController {
 
     private void movieTrendingWeekArray(){
             String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TRENDING_WEEK);
-            TMDBMovieModel[] movies = TMDBMovieModel.fromJson(jsonResponse);
+            MoviePosterModel[] movies = MoviePosterModel.fromJson(jsonResponse);
             final Carousel movieTrendingCarousel = getCarouselMovie(new Carousel(trending.getTrendingMovieHbox(), trending.getForwardButtonMovieTrending(), trending.getBackButtonMovieTrending()), movies);
             trending.getForwardButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(1));
             trending.getBackButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(-1));
@@ -64,7 +66,7 @@ public class HomePageController {
 
     private void movieUpcomingArray(){
             String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_UPCOMING);
-            TMDBMovieModel[] movieUpcoming = TMDBMovieModel.fromJson(jsonResponse);
+            MoviePosterModel[] movieUpcoming = MoviePosterModel.fromJson(jsonResponse);
             final Carousel movieUcomingCarousel = getCarouselMovie(new Carousel(upcoming.getUpcomingMovieHbox(),upcoming.getForwardButtonUpcomingMovie(), upcoming.getBackButtonMovieUpcoming()), movieUpcoming);
             upcoming.getForwardButtonUpcomingMovie().setOnAction(event -> movieUcomingCarousel.navigate(1));
             upcoming.getBackButtonMovieUpcoming().setOnAction(event -> movieUcomingCarousel.navigate(-1));
@@ -72,7 +74,7 @@ public class HomePageController {
 
     private void movieTopRatedArray(){
             String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TOPRATED);
-            TMDBMovieModel[] movieTopRated = TMDBMovieModel.fromJson(jsonResponse);
+            MoviePosterModel[] movieTopRated = MoviePosterModel.fromJson(jsonResponse);
             final Carousel movieTopRatedCarousel = getCarouselMovie(new Carousel(toprated.getTopRatedMovieHbox(),toprated.getForwardButtonTopRatedMovie(),toprated.getBackButtonTopRatedMovies()), movieTopRated);
             toprated.getForwardButtonTopRatedMovie().setOnAction(event -> movieTopRatedCarousel.navigate(1));
             toprated.getBackButtonTopRatedMovies().setOnAction(event -> movieTopRatedCarousel.navigate(-1));
@@ -80,7 +82,7 @@ public class HomePageController {
 
     private  void tvTrendingArray(){
             String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TRENDING_WEEK);
-            TMDBTvModel[] tvs = TMDBTvModel.fromJson(jsonResponse);
+            TvPosterModel[] tvs = TvPosterModel.fromJson(jsonResponse);
             final Carousel tvCarousel = getCarouselTV(new Carousel(trending.getTrendingTvHbox(), trending.getForwardButtonTvTrending(), trending.getBackButtonTVTrending()), tvs);
             trending.getForwardButtonTvTrending().setOnAction(event -> tvCarousel.navigate(1));
             trending.getBackButtonTVTrending().setOnAction(event -> tvCarousel.navigate(-1));
@@ -88,7 +90,7 @@ public class HomePageController {
 
     private void tvUpcomingArray(){
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_UPCOMING);
-        TMDBTvModel[] tvUpcoming = TMDBTvModel.fromJson(jsonResponse);
+        TvPosterModel[] tvUpcoming = TvPosterModel.fromJson(jsonResponse);
         final Carousel tvUpcomingCarousel = getCarouselTV(new Carousel(upcoming.getUpcomingTvHbox(),upcoming.getForwardButtonUpcomingTv(), upcoming.getBackButtonUpcomingTv()), tvUpcoming);
         upcoming.getForwardButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(1));
         upcoming.getBackButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(-1));
@@ -96,7 +98,7 @@ public class HomePageController {
 
     private void tvTopRatedArray(){
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TOPRATED);
-        TMDBTvModel[] tvTopRated = TMDBTvModel.fromJson(jsonResponse);
+        TvPosterModel[] tvTopRated = TvPosterModel.fromJson(jsonResponse);
         final Carousel tvTopRatedCarousel = getCarouselTV(new Carousel(toprated.getTopRatedTvHbox(),toprated.getForwardButtonTopRatedTv(),toprated.getBackButtonTopRatedTv()), tvTopRated);
         toprated.getForwardButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(1));
         toprated.getBackButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(-1));
@@ -104,12 +106,13 @@ public class HomePageController {
 
 
     @NotNull
-    private Carousel getCarouselMovie(Carousel carousel, TMDBMovieModel[] movies) {
-        for (TMDBMovieModel movie : movies) {
+    private Carousel getCarouselMovie(Carousel carousel, MoviePosterModel[] movies) {
+        for (MoviePosterModel movie : movies) {
             PosterNode node = new PosterNode(
                     movie.getPosterPath(),
                     movie.getId(),
                     movie.getVote_average(),
+                    movie.getTitle(),
                     movie.getMedia_type()
             );
             carousel.addItem(node);
@@ -119,12 +122,13 @@ public class HomePageController {
     }
 
     @NotNull
-    private Carousel getCarouselTV(Carousel carousel, TMDBTvModel[] tvs) {
-        for (TMDBTvModel tv : tvs) {
+    private Carousel getCarouselTV(Carousel carousel, TvPosterModel[] tvs) {
+        for (TvPosterModel tv : tvs) {
             PosterNode node = new PosterNode(
                     tv.getPoster_path(),
                     tv.getId(),
                     tv.getVote_average(),
+                    tv.getName(),
                     tv.getMedia_type()
             );
             carousel.addItem(node);

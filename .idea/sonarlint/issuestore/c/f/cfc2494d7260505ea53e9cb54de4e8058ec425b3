@@ -1,0 +1,20 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Èşá™8§¦‡øã1
+V
+java:S1118":Add a private constructor to hide the implicit public one.(¢Œ¤`8Õ¦‡øã1
+L	java:S106"+Replace this use of System.err by a logger.(şã¹Áıÿÿÿÿ8Û¦‡øã1
+H	java:S106©"+Replace this use of System.out by a logger.(Ÿ²³€8ì¦‡øã1
+K
+java:S1128")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ8î¦‡øã1
+M
+java:S1128"0Remove this unused import 'java.nio.file.Files'.(‚ƒü8î¦‡øã1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8î¦‡øã1
+L
+java:S1068"/Remove this unused "imagesCache" private field.(»á8ï¦‡øã1
+Q
+java:S1144h"4Remove this unused private "imageCompresser" method.(ùûÁ8ï¦‡øã1
+S
+java:S1144}"6Remove this unused private "imageDecompressor" method.(å÷Âë8ğ¦‡øã1
+Z
+java:S1144”"7Remove this unused private "imageColorAnalyzer" method.(¦ÍÜ¥ûÿÿÿÿ8ğ¦‡øã1

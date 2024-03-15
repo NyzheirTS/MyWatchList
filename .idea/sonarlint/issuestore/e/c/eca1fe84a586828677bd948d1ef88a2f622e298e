@@ -1,0 +1,7 @@
+
+b	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(„®Òæ8–ı†ä1
+€
+java:S1488r"^Immediately return this expression instead of assigning it to the temporary variable "shadow".(€ñ²øÿÿÿÿ8˜ı†ä1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å€ò©8™ı†ä1
+L	java:S106h"+Replace this use of System.out by a logger.(Ô—üõıÿÿÿÿ8Åı†ä1
+F	java:S106i"+Replace this use of System.out by a logger.(Ô¢Íb8Åı†ä1

@@ -10,8 +10,8 @@ module com.example.test_uijfx {
 
     opens com.example.MyWatchList to javafx.fxml, com.google.gson;
     exports com.example.MyWatchList;
-    exports com.example.MyWatchList.DataClasses;
-    opens com.example.MyWatchList.DataClasses to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.DataModels;
+    opens com.example.MyWatchList.DataModels to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Caching;
     opens com.example.MyWatchList.Caching to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.ApiClass;
@@ -25,4 +25,8 @@ module com.example.test_uijfx {
     opens com.example.MyWatchList.SettingsPage to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.InfoPage;
     opens com.example.MyWatchList.InfoPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.DataModels.MovieModels;
+    opens com.example.MyWatchList.DataModels.MovieModels to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.DataModels.TvModels;
+    opens com.example.MyWatchList.DataModels.TvModels to com.google.gson, javafx.fxml;
 }

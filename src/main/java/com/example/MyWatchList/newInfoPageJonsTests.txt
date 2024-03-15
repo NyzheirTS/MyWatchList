@@ -92,3 +92,57 @@
             System.out.println(companies.getOrigin_country());
         }
     }
+
+
+
+
+    //method to filter table by input in a txtfield
+            FilteredList<WatchedShows> filterData = new FilteredList<>(data, b -> true);
+            FilteredList<WantToWatch> filterData_W = new FilteredList<>(data_W, f -> true);
+            filterTxtField.textProperty().addListener((observable, oldValue, newValue) -> {
+                //uses a predicate to determine compare input and determine whether true or false. b
+                filterData.setPredicate(Shows -> {
+                    if (newValue == null || newValue.isEmpty()){
+                        return true;
+                    }
+                    //cast toLower for easy comparison
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (Shows.getName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true; // filter match to name
+                    }
+                    else if(Shows.getType().toLowerCase().contains(lowerCaseFilter)){
+                        return true; // filter match to type
+                    }
+                    else if(String.valueOf(Shows.getScore()).contains(lowerCaseFilter)) {
+                        return true; // filter match to score
+                    }
+                    else
+                        return false;
+                });
+                filterData_W.setPredicate(wantToWatch -> {
+                    if (newValue == null || newValue.isEmpty()){
+                        return true;
+                    }
+                    //cast toLower for easy comparison
+                    String lowerCaseFilter_w = newValue.toLowerCase();
+                    if (wantToWatch.getName_w().toLowerCase().contains(lowerCaseFilter_w)) {
+                        return true; // filter match to name
+                    }
+                    else if(wantToWatch.getType_w().toLowerCase().contains(lowerCaseFilter_w)){
+                        return true; // filter match to type
+                    }
+                    else if(wantToWatch.getGenre_w().toLowerCase().contains(lowerCaseFilter_w)) {
+                        return true; // filter match to genre
+                    }
+                    else
+                        return false;
+                });
+            });
+            // new sorted list base upon inputed txt field.
+            SortedList<WatchedShows> sortedData = new SortedList<>(filterData);
+            sortedData.comparatorProperty().bind(allShowsTable.comparatorProperty());
+            allShowsTable.setItems(sortedData);
+
+            SortedList<WantToWatch> sortedData_W = new SortedList<>(filterData_W);
+            sortedData_W.comparatorProperty().bind(wantToWatchTable.comparatorProperty());
+            wantToWatchTable.setItems(sortedData_W);

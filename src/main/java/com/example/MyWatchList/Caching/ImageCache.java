@@ -28,7 +28,7 @@ public class ImageCache {
         }
     }
 
-
+/*
     public static Image getImage(String url) throws IOException {
         String fileName = url.substring(url.lastIndexOf('/') +1);
         String localFilePath = CACHE_DIRECTORY + File.separator + fileName;
@@ -46,6 +46,7 @@ public class ImageCache {
                 boolean lumin = imageColorAnalyzer(new ByteArrayInputStream(decompressedData));
                 System.out.println("Overall image color: " + (lumin ? "Light" : "Dark"));
             } else {
+
                 try (InputStream inputStream = new URL(url).openStream();
                      FileOutputStream outputStream = new FileOutputStream(cachedImageFile)) {
 
@@ -75,6 +76,8 @@ public class ImageCache {
         System.out.println("Size of Cache: " + folderSize() + " kB");
         return image;
     }
+
+ */
 
     public static long folderSize () {
         long length = 0;

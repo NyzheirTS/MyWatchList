@@ -6,11 +6,13 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.effect.BlurType;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
@@ -21,33 +23,33 @@ import java.util.Objects;
 public class PosterNode  {
     private final Node node;
     private final ImageView image;
-    private final DropShadow shadow = new DropShadow();
     private final int nodeNumber;
     private final ProgressBar bar;
     private final String text;
     private final String mediaType;
+    private final String title;
     private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
 
-    public PosterNode(String text, int nodeNumber, Double score, String mediaType){
+    public PosterNode(String text, int nodeNumber, Double score,String title, String mediaType){
     try {
         node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("carousel-poster-template.fxml")));
-
-        Scale scale = new Scale(1, 1);
-        node.getTransforms().add(scale);
-        node.setEffect(shadow);
 
         bar = (ProgressBar) node.lookup("#scoreBar");
         image = (ImageView) node.lookup("#imgViewrPics");
 
         this.nodeNumber = nodeNumber;
         this.text = text;
+        this.title = title;
         this.mediaType = mediaType;
 
-        nodeGrowEvents();
+        node.getTransforms().add(nodeGrowEvents());
+        node.setEffect(dropShadowEffects());
+
         nodeClickEvent();
+        tooltipSettings();
         progressbar(score/10);
 
     } catch(IOException e){
@@ -58,7 +60,9 @@ public class PosterNode  {
 
     public Node getNode() {return node;}
 
-    private void nodeGrowEvents(){
+    private Scale nodeGrowEvents(){
+        Scale scale = new Scale(1, 1);
+
         ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),node);
         growTransition.setToX(1.08);
         growTransition.setToY(1.08);
@@ -69,6 +73,7 @@ public class PosterNode  {
 
         node.setOnMouseEntered(e -> growTransition.play());
         node.setOnMouseExited(e -> shrinkTransition.play());
+        return scale;
     }
 
     public void loadImg(){
@@ -105,11 +110,23 @@ public class PosterNode  {
         bar.setProgress(score);
     }
 
-    final void dropShadowEffects(){
-        shadow.setRadius(10);
-        shadow.setSpread(1000);
-        shadow.setBlurType(BlurType.GAUSSIAN);
-        shadow.setColor(Color.BLACK);
+    final DropShadow dropShadowEffects(){
+        DropShadow shadow = new DropShadow();
+        //shadow.setRadius(10);
+        //shadow.setSpread(1000);
+        //shadow.setBlurType(BlurType.GAUSSIAN);
+        //shadow.setColor(Color.BLACK);
+        return shadow;
+    }
+
+    final void tooltipSettings(){
+       Tooltip tip = new Tooltip(title);
+       tip.setHideDelay(Duration.millis(0));
+       tip.setShowDelay(Duration.millis(500));
+       tip.setFont(Font.font("Verdana", FontPosture.ITALIC, 15 ));
+       tip.setTextAlignment(TextAlignment.CENTER);
+       tip.setAutoHide(true);
+       Tooltip.install(node, tip);
     }
 
 }
