@@ -68,10 +68,6 @@ c
 3src/main/java/com/example/MyWatchList/Launcher.java,5\8\5827a09cfcaf39376a49b03aafec9b57f5d148f4
 ~
 Nsrc/main/java/com/example/MyWatchList/DataModels/TvModels/TvInfoPageModel.java,f\b\fbe50e706f4b04eab24c5bf49cbfe836611c8b9a
-ã
-[src/main/java/com/example/MyWatchList/DataModels/MovieModels/MovieRecommendationsModel.java,8\a\8ac63874ecca83bdcb13e8710cfc1dd1f26e22cd
-
-Osrc/main/java/com/example/MyWatchList/DataModels/MovieRecommendationsModel.java,4\4\44370ab41b9db3805204e5f852ba441ba23e5b8f
 z
 Jsrc/main/java/com/example/MyWatchList/DataModels/RecommendationsModel.java,e\5\e5af84ae77d45e41bf8d95ecb4a01521ac3e2230
 y
@@ -140,3 +136,7 @@ Q.idea/sonarlint/securityhotspotstore/d/f/df0a27c39c0ab9119790da8d566f8e392f9f77
 Q.idea/sonarlint/securityhotspotstore/f/f/ff8c726aee25db43365c70e0b40abb3b6e9b92f6,8\c\8cecfb8e5a84dc0777750bb9ecf4b28104b23013
 Å
 Q.idea/sonarlint/securityhotspotstore/2/2/22ebd90bc3bfcd378f67a669218fd56b84a3c327,f\b\fbd2f89da9ea9807af95f0835d083e7218d0a56b
+l
+<src/main/java/com/example/MyWatchList/DataModels/Genres.java,c\6\c6d084cb12c7a4eeaaadbe91c450c6f35d760624
+y
+Isrc/main/java/com/example/MyWatchList/DataModels/ProductionCompanies.java,4\5\450506f72964baf138712ffe9b4fcb053eedc12f

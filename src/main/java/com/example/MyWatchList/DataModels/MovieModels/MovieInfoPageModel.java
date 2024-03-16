@@ -1,9 +1,6 @@
 package com.example.MyWatchList.DataModels.MovieModels;
 
-import com.example.MyWatchList.DataModels.CreditsModel;
-import com.example.MyWatchList.DataModels.VideosModel;
-import com.example.MyWatchList.DataModels.ReviewsModel;
-import com.example.MyWatchList.DataModels.RecommendationsModel;
+import com.example.MyWatchList.DataModels.*;
 import com.google.gson.Gson;
 
 public class MovieInfoPageModel {
@@ -90,30 +87,5 @@ public class MovieInfoPageModel {
         public void setPoster_path(String poster_path) {this.poster_path = poster_path;}
         public String getBackdrop_path() {return backdrop_path;}
         public void setBackdrop_path(String backdrop_path) {this.backdrop_path = backdrop_path;}
-    }
-
-    public static class Genres{
-        int id;
-        String name;
-        public int getId() {return id;}
-        public void setId(int id) {this.id = id;}
-        public String getName() {return name;}
-        public void setName(String name) {this.name = name;}
-    }
-
-    public static class ProductionCompanies {
-        int id;
-        String logo_path;
-        String name;
-        String origin_country;
-
-        public int getId() {return id;}
-        public void setId(int id) {this.id = id;}
-        public String getLogo_path() {return logo_path;}
-        public void setLogo_path(String logo_path) {this.logo_path = logo_path;}
-        public String getName() {return name;}
-        public void setName(String name) {this.name = name;}
-        public String getOrigin_country() {return origin_country;}
-        public void setOrigin_country(String origin_country) {this.origin_country = origin_country;}
     }
 }
