@@ -13,7 +13,7 @@ public class HomePageController {
     private final TopRatedCarouselView toprated;
     private final UpcomingCarouselView upcoming;
 
-        //TODO: work on creating a info page so when you click on a object it brings a new page making a call to an api endpoint for that media type and id for more info
+    //TODO: work on creating a info page so when you click on a object it brings a new page making a call to an api endpoint for that media type and id for more info
 
     public HomePageController(TrendingCarouselView trending, TopRatedCarouselView toprated, UpcomingCarouselView upcoming) {
         this.trending = trending;
@@ -57,35 +57,35 @@ public class HomePageController {
 
 
     private void movieTrendingWeekArray(){
-            String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TRENDING_WEEK);
-            MoviePosterModel[] movies = MoviePosterModel.fromJson(jsonResponse);
-            final Carousel movieTrendingCarousel = getCarouselMovie(new Carousel(trending.getTrendingMovieHbox(), trending.getForwardButtonMovieTrending(), trending.getBackButtonMovieTrending()), movies);
-            trending.getForwardButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(1));
-            trending.getBackButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(-1));
+        String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TRENDING_WEEK);
+        MoviePosterModel[] movies = MoviePosterModel.fromJson(jsonResponse);
+        final Carousel movieTrendingCarousel = getCarouselMovie(new Carousel(trending.getTrendingMovieHbox(), trending.getForwardButtonMovieTrending(), trending.getBackButtonMovieTrending()), movies);
+        trending.getForwardButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(1));
+        trending.getBackButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(-1));
     }
 
     private void movieUpcomingArray(){
-            String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_UPCOMING);
-            MoviePosterModel[] movieUpcoming = MoviePosterModel.fromJson(jsonResponse);
-            final Carousel movieUcomingCarousel = getCarouselMovie(new Carousel(upcoming.getUpcomingMovieHbox(),upcoming.getForwardButtonUpcomingMovie(), upcoming.getBackButtonMovieUpcoming()), movieUpcoming);
-            upcoming.getForwardButtonUpcomingMovie().setOnAction(event -> movieUcomingCarousel.navigate(1));
-            upcoming.getBackButtonMovieUpcoming().setOnAction(event -> movieUcomingCarousel.navigate(-1));
+        String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_UPCOMING);
+        MoviePosterModel[] movieUpcoming = MoviePosterModel.fromJson(jsonResponse);
+        final Carousel movieUcomingCarousel = getCarouselMovie(new Carousel(upcoming.getUpcomingMovieHbox(),upcoming.getForwardButtonUpcomingMovie(), upcoming.getBackButtonMovieUpcoming()), movieUpcoming);
+        upcoming.getForwardButtonUpcomingMovie().setOnAction(event -> movieUcomingCarousel.navigate(1));
+        upcoming.getBackButtonMovieUpcoming().setOnAction(event -> movieUcomingCarousel.navigate(-1));
     }
 
     private void movieTopRatedArray(){
-            String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TOPRATED);
-            MoviePosterModel[] movieTopRated = MoviePosterModel.fromJson(jsonResponse);
-            final Carousel movieTopRatedCarousel = getCarouselMovie(new Carousel(toprated.getTopRatedMovieHbox(),toprated.getForwardButtonTopRatedMovie(),toprated.getBackButtonTopRatedMovies()), movieTopRated);
-            toprated.getForwardButtonTopRatedMovie().setOnAction(event -> movieTopRatedCarousel.navigate(1));
-            toprated.getBackButtonTopRatedMovies().setOnAction(event -> movieTopRatedCarousel.navigate(-1));
+        String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TOPRATED);
+        MoviePosterModel[] movieTopRated = MoviePosterModel.fromJson(jsonResponse);
+        final Carousel movieTopRatedCarousel = getCarouselMovie(new Carousel(toprated.getTopRatedMovieHbox(),toprated.getForwardButtonTopRatedMovie(),toprated.getBackButtonTopRatedMovies()), movieTopRated);
+        toprated.getForwardButtonTopRatedMovie().setOnAction(event -> movieTopRatedCarousel.navigate(1));
+        toprated.getBackButtonTopRatedMovies().setOnAction(event -> movieTopRatedCarousel.navigate(-1));
     }
 
     private  void tvTrendingArray(){
-            String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TRENDING_WEEK);
-            TvPosterModel[] tvs = TvPosterModel.fromJson(jsonResponse);
-            final Carousel tvCarousel = getCarouselTV(new Carousel(trending.getTrendingTvHbox(), trending.getForwardButtonTvTrending(), trending.getBackButtonTVTrending()), tvs);
-            trending.getForwardButtonTvTrending().setOnAction(event -> tvCarousel.navigate(1));
-            trending.getBackButtonTVTrending().setOnAction(event -> tvCarousel.navigate(-1));
+        String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TRENDING_WEEK);
+        TvPosterModel[] tvs = TvPosterModel.fromJson(jsonResponse);
+        final Carousel tvCarousel = getCarouselTV(new Carousel(trending.getTrendingTvHbox(), trending.getForwardButtonTvTrending(), trending.getBackButtonTVTrending()), tvs);
+        trending.getForwardButtonTvTrending().setOnAction(event -> tvCarousel.navigate(1));
+        trending.getBackButtonTVTrending().setOnAction(event -> tvCarousel.navigate(-1));
     }
 
     private void tvUpcomingArray(){

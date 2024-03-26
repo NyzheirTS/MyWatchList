@@ -7,11 +7,18 @@
     <groupId>com.example</groupId>
     <artifactId>Test_UI-JFX</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Test_UI-JFX</name>
+    <name>MyShowList</name>
+    <packaging>jar</packaging>
 
     <properties>
+        <jpro.version>2024.1.0</jpro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.9.2</junit.version>
+        <java.version>20</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <javafx.version>21.0.2</javafx.version>
+        <junit.version>5.10.1</junit.version>
     </properties>
 
     <dependencies>
@@ -55,6 +62,12 @@
             <artifactId>caffeine</artifactId>
             <version>3.1.8</version>
         </dependency>
+        <dependency>
+            <groupId>com.sandec.jpro</groupId>
+            <artifactId>jpro-webapi</artifactId>
+            <version>${jpro.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
@@ -67,6 +80,14 @@
                 <configuration>
                     <source>20</source>
                     <target>20</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>one.jpro</groupId>
+                <artifactId>jpro-maven-plugin</artifactId>
+                <version>${jpro.version}</version>
+                <configuration>
+                    <mainClassName>com.example.MyWatchList.Main</mainClassName>
                 </configuration>
             </plugin>
             <plugin>
@@ -91,4 +112,16 @@
             </plugin>
         </plugins>
     </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jpro - sandec repository</id>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>jpro - sandec repository</id>
+            <url>https://sandec.jfrog.io/artifactory/repo</url>
+        </repository>
+    </repositories>
 </project>
