@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="carouselItem" alignment="CENTER" prefWidth="1665.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.HomePage.CarouselController">
+<HBox fx:id="carouselItem" alignment="CENTER" prefWidth="1665.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.HomePage.CarouselController">
    <children>
       <Button fx:id="backward" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
          <font>

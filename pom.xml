@@ -87,7 +87,7 @@
                 <artifactId>jpro-maven-plugin</artifactId>
                 <version>${jpro.version}</version>
                 <configuration>
-                    <mainClassName>com.example.MyWatchList.Main</mainClassName>
+                    <mainClassName>com.example.MyWatchList.AppEntry.Main</mainClassName>
                 </configuration>
             </plugin>
             <plugin>

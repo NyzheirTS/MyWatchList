@@ -8,23 +8,29 @@ module com.example.test_uijfx {
     requires annotations;
 
 
-    opens com.example.MyWatchList to javafx.fxml, com.google.gson;
-    exports com.example.MyWatchList;
     exports com.example.MyWatchList.DataModels;
     opens com.example.MyWatchList.DataModels to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Caching;
     opens com.example.MyWatchList.Caching to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.ApiClass;
-    opens com.example.MyWatchList.HomePage to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.AppConfig;
     opens com.example.MyWatchList.AppConfig to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.WatchedList;
-    opens com.example.MyWatchList.WatchedList to com.google.gson, javafx.fxml;
-    opens com.example.MyWatchList.SettingsPage to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.InfoPage;
-    opens com.example.MyWatchList.InfoPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.WatchedList;
+    opens com.example.MyWatchList.Controllers.WatchedList to com.google.gson, javafx.fxml;
+    opens com.example.MyWatchList.Controllers.SettingsPage to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.DataModels.MovieModels;
     opens com.example.MyWatchList.DataModels.MovieModels to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.DataModels.TvModels;
     opens com.example.MyWatchList.DataModels.TvModels to com.google.gson, javafx.fxml;
+    opens com.example.MyWatchList.Controllers.HomePage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.InfoPage;
+    opens com.example.MyWatchList.Controllers.InfoPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.AppEntry;
+    opens com.example.MyWatchList.AppEntry to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.TestFolder;
+    opens com.example.MyWatchList.TestFolder to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.HomePage;
+    exports com.example.MyWatchList.Controllers.CommonComponent;
+    opens com.example.MyWatchList.Controllers.CommonComponent to com.google.gson, javafx.fxml;
+
 }
