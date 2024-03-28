@@ -140,7 +140,15 @@ l
 <src/main/java/com/example/MyWatchList/DataModels/Genres.java,c\6\c6d084cb12c7a4eeaaadbe91c450c6f35d760624
 y
 Isrc/main/java/com/example/MyWatchList/DataModels/ProductionCompanies.java,4\5\450506f72964baf138712ffe9b4fcb053eedc12f
-l
-<src/main/java/com/example/MyWatchList/HomePage/HomePage.java,5\1\5163531624c4c652b62365adf6300d831f568dda
 v
 Fsrc/main/java/com/example/MyWatchList/HomePage/HomePagecontroller.java,8\8\884a142a9059228496e5146a07ba51e13b6d3f10
+x
+Hsrc/main/java/com/example/MyWatchList/InfoPage/InfoPageRequestEvent.java,5\6\569538c7d9ae973473e8f84a321c1f96710e32ac
+k
+;src/main/java/com/example/MyWatchList/ComponentFactory.java,3\a\3ab6b39aa864d729f8a88b864f88ba67a4db33dc
+x
+Hsrc/main/java/com/example/MyWatchList/HomePage/PosterNodeController.java,f\3\f3b623064dd681887aa35ce6e8520e7d264e231c
+t
+Dsrc/main/java/com/example/MyWatchList/HomePage/ComponentFactory.java,9\3\93de427650a622141dddabfc45a81385a42ac927
+v
+Fsrc/main/java/com/example/MyWatchList/HomePage/CarouselController.java,8\d\8d9b50993236f1eaf9e38cbaa05662f455d511e4

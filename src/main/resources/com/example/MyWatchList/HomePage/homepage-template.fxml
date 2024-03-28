@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="homePageBase" prefHeight="1080.0" prefWidth="1665.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.HomePage.HomePageController">
+   <center>
+      <StackPane>
+         <children>
+            <VBox fx:id="topRatedPane" alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="340.0" text="Top Rated Movies" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="533.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="topRatedMovieContainer" alignment="CENTER" prefHeight="341.0" prefWidth="1665.0" spacing="10.0" />
+                  <Label prefHeight="40.0" prefWidth="411.0" text="Top Rated Television Shows" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="544.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="41.0" />
+                     </padding>
+                  </Label>
+                  <HBox fx:id="topRatedTvContainer" alignment="CENTER" prefHeight="341.0" spacing="10.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="upcomingPane" alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="340.0" text="Upcoming Moives" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="533.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="upcomingMovieContainer" alignment="CENTER" prefHeight="341.0" prefWidth="1665.0" spacing="10.0" />
+                  <Label prefHeight="40.0" prefWidth="396.0" text="Upcoming Television Shows" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="544.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="35.0" />
+                     </padding>
+                  </Label>
+                  <HBox fx:id="upcomingTvContainer" alignment="CENTER" prefHeight="341.0" spacing="10.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="trendingPane" alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="340.0" text="Trending Movies this Week" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="533.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="trendingMovieContainer" alignment="CENTER" prefHeight="341.0" prefWidth="1665.0" spacing="10.0" />
+                  <Label prefHeight="40.0" prefWidth="329.0" text="Trending Shows this Week" underline="true">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="544.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="trendingTvContainer" alignment="CENTER" prefHeight="341.0" prefWidth="1665.0" spacing="10.0" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+   <top>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="trendingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Trending" />
+            <Button fx:id="upcomingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Upcoming" />
+            <Button fx:id="topRatedPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="TopRated" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

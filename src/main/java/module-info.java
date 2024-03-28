@@ -15,8 +15,6 @@ module com.example.test_uijfx {
     exports com.example.MyWatchList.Caching;
     opens com.example.MyWatchList.Caching to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.ApiClass;
-    opens com.example.MyWatchList.ApiClass to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.Interfaces;
     opens com.example.MyWatchList.HomePage to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.AppConfig;
     opens com.example.MyWatchList.AppConfig to com.google.gson, javafx.fxml;

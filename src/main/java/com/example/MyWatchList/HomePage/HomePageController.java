@@ -1,33 +1,67 @@
 package com.example.MyWatchList.HomePage;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.ComponentFactory;
 import com.example.MyWatchList.DataModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MoviePosterModel;
 import com.example.MyWatchList.DataModels.TvModels.TvPosterModel;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import org.jetbrains.annotations.NotNull;
+import java.io.IOException;
+
 
 
 public class HomePageController {
-    private final TrendingCarouselView trending;
-    private final TopRatedCarouselView toprated;
-    private final UpcomingCarouselView upcoming;
+    @FXML
+    public BorderPane homePageBase;
+    @FXML
+    private  VBox trendingPane;
+    @FXML
+    private  Button trendingPaneButton;
+    @FXML
+    private  VBox upcomingPane;
+    @FXML
+    private  Button upcomingPaneButton;
+    @FXML
+    private  VBox topRatedPane;
+    @FXML
+    private  Button topRatedPaneButton;
+    @FXML
+    private  HBox trendingTvContainer;
+    @FXML
+    private  HBox trendingMovieContainer;
+    @FXML
+    private  HBox upcomingTvContainer;
+    @FXML
+    private  HBox upcomingMovieContainer;
+    @FXML
+    private  HBox topRatedTvContainer;
+    @FXML
+    private  HBox topRatedMovieContainer;
 
-    //TODO: work on creating a info page so when you click on a object it brings a new page making a call to an api endpoint for that media type and id for more info
 
-    public HomePageController(TrendingCarouselView trending, TopRatedCarouselView toprated, UpcomingCarouselView upcoming) {
-        this.trending = trending;
-        this.toprated = toprated;
-        this.upcoming = upcoming;
+    public void initHomePage(){
+        homePageNavControl();
         setTrendingCarousel(true);
     }
+
 
     private boolean trendingLoaded = false;
     public void setTrendingCarousel(boolean state){
         if (!trendingLoaded){
             Platform.runLater(() -> {
-                movieTrendingWeekArray();
-                tvTrendingArray();
+                try {
+                    movieTrendingWeekArray();
+                    tvTrendingArray();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 trendingLoaded = state;
             });
         }
@@ -37,8 +71,12 @@ public class HomePageController {
     public void setUpcomingCarousel(boolean state){
         if(!upcomingLoaded) {
             Platform.runLater(() -> {
-                movieUpcomingArray();
-                tvUpcomingArray();
+                try {
+                    movieUpcomingArray();
+                    tvUpcomingArray();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 upcomingLoaded = state;
             });
         }
@@ -48,92 +86,112 @@ public class HomePageController {
     public void setTopratedCarousel(boolean state){
         if (!topratedLoaded) {
             Platform.runLater(() -> {
-                movieTopRatedArray();
-                tvTopRatedArray();
+                try {
+                    movieTopRatedArray();
+                    tvTopRatedArray();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
                 topratedLoaded = state;
             });
         }
     }
 
 
-    private void movieTrendingWeekArray(){
+
+
+    private void movieTrendingWeekArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TRENDING_WEEK);
         MoviePosterModel[] movies = MoviePosterModel.fromJson(jsonResponse);
-        final Carousel movieTrendingCarousel = getCarouselMovie(new Carousel(trending.getTrendingMovieHbox(), trending.getForwardButtonMovieTrending(), trending.getBackButtonMovieTrending()), movies);
-        trending.getForwardButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(1));
-        trending.getBackButtonMovieTrending().setOnAction(event -> movieTrendingCarousel.navigate(-1));
+        final HBox trendingCarouselMovie = getCarouselMovie(ComponentFactory.createCarousel(), movies);
+       trendingMovieContainer.getChildren().add(trendingCarouselMovie);
     }
 
-    private void movieUpcomingArray(){
+    private void movieUpcomingArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_UPCOMING);
         MoviePosterModel[] movieUpcoming = MoviePosterModel.fromJson(jsonResponse);
-        final Carousel movieUcomingCarousel = getCarouselMovie(new Carousel(upcoming.getUpcomingMovieHbox(),upcoming.getForwardButtonUpcomingMovie(), upcoming.getBackButtonMovieUpcoming()), movieUpcoming);
-        upcoming.getForwardButtonUpcomingMovie().setOnAction(event -> movieUcomingCarousel.navigate(1));
-        upcoming.getBackButtonMovieUpcoming().setOnAction(event -> movieUcomingCarousel.navigate(-1));
+        final HBox upcomginCarouselMovie = getCarouselMovie(ComponentFactory.createCarousel(), movieUpcoming);
+        upcomingMovieContainer.getChildren().add(upcomginCarouselMovie);
     }
 
-    private void movieTopRatedArray(){
+    private void movieTopRatedArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.MOVIE_TOPRATED);
         MoviePosterModel[] movieTopRated = MoviePosterModel.fromJson(jsonResponse);
-        final Carousel movieTopRatedCarousel = getCarouselMovie(new Carousel(toprated.getTopRatedMovieHbox(),toprated.getForwardButtonTopRatedMovie(),toprated.getBackButtonTopRatedMovies()), movieTopRated);
-        toprated.getForwardButtonTopRatedMovie().setOnAction(event -> movieTopRatedCarousel.navigate(1));
-        toprated.getBackButtonTopRatedMovies().setOnAction(event -> movieTopRatedCarousel.navigate(-1));
+        final HBox topRatedCarouselMovie = getCarouselMovie(ComponentFactory.createCarousel(), movieTopRated);
+        topRatedMovieContainer.getChildren().add(topRatedCarouselMovie);
+
     }
 
-    private  void tvTrendingArray(){
+    private  void tvTrendingArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TRENDING_WEEK);
         TvPosterModel[] tvs = TvPosterModel.fromJson(jsonResponse);
-        final Carousel tvCarousel = getCarouselTV(new Carousel(trending.getTrendingTvHbox(), trending.getForwardButtonTvTrending(), trending.getBackButtonTVTrending()), tvs);
-        trending.getForwardButtonTvTrending().setOnAction(event -> tvCarousel.navigate(1));
-        trending.getBackButtonTVTrending().setOnAction(event -> tvCarousel.navigate(-1));
+        final HBox trendingCarouselTv = getCarouselTV(ComponentFactory.createCarousel(), tvs);
+        trendingTvContainer.getChildren().add(trendingCarouselTv);
+
     }
 
-    private void tvUpcomingArray(){
+    private void tvUpcomingArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_UPCOMING);
         TvPosterModel[] tvUpcoming = TvPosterModel.fromJson(jsonResponse);
-        final Carousel tvUpcomingCarousel = getCarouselTV(new Carousel(upcoming.getUpcomingTvHbox(),upcoming.getForwardButtonUpcomingTv(), upcoming.getBackButtonUpcomingTv()), tvUpcoming);
-        upcoming.getForwardButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(1));
-        upcoming.getBackButtonUpcomingTv().setOnAction(event -> tvUpcomingCarousel.navigate(-1));
+        final HBox upcomingCarouselTv = getCarouselTV(ComponentFactory.createCarousel(), tvUpcoming);
+        upcomingTvContainer.getChildren().add(upcomingCarouselTv);
     }
 
-    private void tvTopRatedArray(){
+    private void tvTopRatedArray() throws IOException {
         String jsonResponse = ApiConnection.getResponseData(ApiCallType.TV_TOPRATED);
         TvPosterModel[] tvTopRated = TvPosterModel.fromJson(jsonResponse);
-        final Carousel tvTopRatedCarousel = getCarouselTV(new Carousel(toprated.getTopRatedTvHbox(),toprated.getForwardButtonTopRatedTv(),toprated.getBackButtonTopRatedTv()), tvTopRated);
-        toprated.getForwardButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(1));
-        toprated.getBackButtonTopRatedTv().setOnAction(event -> tvTopRatedCarousel.navigate(-1));
+        final HBox topratedCarouselTv = getCarouselTV(ComponentFactory.createCarousel(), tvTopRated);
+        topRatedTvContainer.getChildren().add(topratedCarouselTv);
     }
+
+    private void homePageNavControl(){
+        topRatedPaneButton.setOnAction(event -> {
+            setTopratedCarousel(true);
+            topRatedPane.toFront();
+        });
+        upcomingPaneButton.setOnAction(event -> {
+            setUpcomingCarousel(true);
+            upcomingPane.toFront();
+        });
+        trendingPaneButton.setOnAction(event -> trendingPane.toFront());
+    }
+
+
 
 
     @NotNull
-    private Carousel getCarouselMovie(Carousel carousel, MoviePosterModel[] movies) {
+    private HBox getCarouselMovie(HBox movieCarousel, MoviePosterModel[] movies) {
         for (MoviePosterModel movie : movies) {
-            PosterNode node = new PosterNode(
+            Node posterNode = ComponentFactory.createPosterNode(
                     movie.getPosterPath(),
                     movie.getId(),
                     movie.getVote_average(),
                     movie.getTitle(),
                     movie.getMedia_type()
             );
-            carousel.addItem(node);
+                getControllerFromCarousel(movieCarousel).addItem(posterNode);
         }
-        carousel.updateDisplay();
-        return carousel;
+        getControllerFromCarousel(movieCarousel).updateDisplay();
+        return movieCarousel;
     }
 
     @NotNull
-    private Carousel getCarouselTV(Carousel carousel, TvPosterModel[] tvs) {
+    private HBox getCarouselTV(HBox tvCarousel, TvPosterModel[] tvs) {
         for (TvPosterModel tv : tvs) {
-            PosterNode node = new PosterNode(
+            Node posterNode = ComponentFactory.createPosterNode(
                     tv.getPoster_path(),
                     tv.getId(),
                     tv.getVote_average(),
                     tv.getName(),
                     tv.getMedia_type()
             );
-            carousel.addItem(node);
+            getControllerFromCarousel(tvCarousel).addItem(posterNode);
         }
-        carousel.updateDisplay();
-        return carousel;
+        getControllerFromCarousel(tvCarousel).updateDisplay();
+        return tvCarousel;
+    }
+
+    private CarouselController getControllerFromCarousel(HBox node){
+        return (CarouselController) node.getProperties().get("controller");
     }
 }

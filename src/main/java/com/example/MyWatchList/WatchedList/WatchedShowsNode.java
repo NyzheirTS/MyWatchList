@@ -1,6 +1,5 @@
 package com.example.MyWatchList.WatchedList;
 
-import com.example.MyWatchList.Interfaces.NodeInterface;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class WatchedShowsNode implements NodeInterface {
+public class WatchedShowsNode {
     private final Node node;
     private final Button editSaveButton;
     private final TextField exitText;
@@ -51,8 +50,8 @@ public class WatchedShowsNode implements NodeInterface {
         }
     }
 
-    @Override
-     public void handleEditMode(){
+
+    private void handleEditMode(){
         editSaveButton.setCursor(Cursor.HAND);
         editSaveButton.setOnAction(event ->{
             if("Edit".equals(editSaveButton.getText())){
@@ -75,8 +74,8 @@ public class WatchedShowsNode implements NodeInterface {
         });
     }
 
-    @Override
-    public void handleDeleteMode() {
+
+    private void handleDeleteMode() {
         deleteButton.setCursor(Cursor.HAND);
         deleteButton.setOnAction(event -> {
             conformationPopup();
@@ -93,8 +92,8 @@ public class WatchedShowsNode implements NodeInterface {
         });
     }
 
-    @Override
-    public void conformationPopup(){
+
+    private void conformationPopup(){
         alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Deletion");
         alert.setContentText("Confirm Deletion of Row: " + (nodeNumber+1));
@@ -105,19 +104,18 @@ public class WatchedShowsNode implements NodeInterface {
 
     }
 
-    @Override
-    public void setNodeMouseEvents(){
+
+    private void setNodeMouseEvents(){
         node.setOnMouseEntered(event -> node.setStyle("-fx-background-color : #0A0E3F"));
         node.setOnMouseExited(event -> node.setStyle("-fx-background-color : black"));
     }
 
-    @Override
     public void bindWidth(VBox vbox){
         HBox hbox = (HBox) node;
         hbox.prefWidthProperty().bind(vbox.widthProperty());
     }
 
-    @Override
+
     public Node getNode(){
         return node;
     }

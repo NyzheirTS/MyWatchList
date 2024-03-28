@@ -1,78 +1,74 @@
 package com.example.MyWatchList.HomePage;
 
+import com.example.MyWatchList.InfoPage.InfoPageRequestEvent;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.FXML;
+
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Objects;
 
-public class PosterNode  {
-    private final Node node;
-    private final ImageView image;
-    private final int nodeNumber;
-    private final ProgressBar bar;
-    private final String text;
-    private final String mediaType;
-    private final String title;
+public class PosterNodeController {
+    @FXML
+    private AnchorPane posterPane;
+    @FXML
+    private ImageView posterImageView;
+    @FXML
+    private ProgressBar scoreBar;
+
+
+    private int nodeNumber;
+    private String mediaType;
+    private String imgID;
+    private String title;
     private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
 
-    public PosterNode(String text, int nodeNumber, Double score,String title, String mediaType){
-    try {
-        node = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("carousel-poster-template.fxml")));
-
-        bar = (ProgressBar) node.lookup("#scoreBar");
-        image = (ImageView) node.lookup("#imgViewrPics");
-
+    public void initPosterNode(String imgID, int nodeNumber, Double score, String title, String mediaType){
         this.nodeNumber = nodeNumber;
-        this.text = text;
-        this.title = title;
         this.mediaType = mediaType;
+        this.imgID = imgID;
+        this.title = title;
 
-        node.getTransforms().add(nodeGrowEvents());
-        node.setEffect(dropShadowEffects());
+
 
         nodeClickEvent();
+        nodeGrowEvents();
         tooltipSettings();
-        progressbar(score/10);
+        posterPane.setEffect(dropShadowEffects());
+        scoreBar.setProgress(score/10);
 
-    } catch(IOException e){
-        throw new RuntimeException(Arrays.toString(e.getStackTrace()));
-    }
 }
 
 
-    public Node getNode() {return node;}
+
 
     private Scale nodeGrowEvents(){
         Scale scale = new Scale(1, 1);
 
-        ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),node);
+        ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),posterPane);
         growTransition.setToX(1.08);
         growTransition.setToY(1.08);
 
-        ScaleTransition shrinkTransition = new ScaleTransition(Duration.millis(200),node);
+        ScaleTransition shrinkTransition = new ScaleTransition(Duration.millis(200),posterPane);
         shrinkTransition.setToY(1);
         shrinkTransition.setToX(1);
 
-        node.setOnMouseEntered(e -> growTransition.play());
-        node.setOnMouseExited(e -> shrinkTransition.play());
+        posterPane.setOnMouseEntered(e -> growTransition.play());
+        posterPane.setOnMouseExited(e -> shrinkTransition.play());
         return scale;
     }
 
@@ -86,8 +82,8 @@ public class PosterNode  {
         Task<Void> imageLoadingTask = new  Task<>(){
             @Override
             protected Void call(){
-                Image loadedImage = new Image(baseImgURL + text ); //true to enable Background loading
-                Platform.runLater(() -> image.setImage(loadedImage));
+                Image loadedImage = new Image(baseImgURL + imgID ); //true to enable Background loading
+                Platform.runLater(() -> posterImageView.setImage(loadedImage));
                 return null;
             }
         };
@@ -96,19 +92,19 @@ public class PosterNode  {
     }
 
     public void unloadImg(){
-        image.setImage(null);
+        posterImageView.setImage(null);
     }
 
     private void nodeClickEvent(){
-        node.setOnMouseClicked(event -> {
+        posterPane.setOnMouseClicked(event -> {
+            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent();
+
             System.out.println(nodeNumber);
             System.out.println(mediaType);
+            posterPane.fireEvent(infoPageRequestEvent);
         });
     }
 
-    private void progressbar(Double score){
-        bar.setProgress(score);
-    }
 
     final DropShadow dropShadowEffects(){
         DropShadow shadow = new DropShadow();
@@ -126,7 +122,7 @@ public class PosterNode  {
        tip.setFont(Font.font("Verdana", FontPosture.ITALIC, 15 ));
        tip.setTextAlignment(TextAlignment.CENTER);
        tip.setAutoHide(true);
-       Tooltip.install(node, tip);
+       Tooltip.install(posterPane, tip);
     }
 
 }

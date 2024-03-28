@@ -1,20 +1,22 @@
 package com.example.MyWatchList;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.InfoPage.InfoPageRequestEvent;
 import com.example.MyWatchList.WatchedList.WatchedListController;
-import com.example.MyWatchList.HomePage.HomePageController;
-import com.example.MyWatchList.HomePage.TopRatedCarouselView;
-import com.example.MyWatchList.HomePage.TrendingCarouselView;
-import com.example.MyWatchList.HomePage.UpcomingCarouselView;
-import javafx.animation.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +25,7 @@ public class MainController implements Initializable {
 
     //Main Scene Controls
     @FXML
-    public BorderPane pnlHome;
+    public VBox pnlHome;
     @FXML
     public AnchorPane pnlWatched;
     @FXML
@@ -42,6 +44,8 @@ public class MainController implements Initializable {
     public Button menuCloseButton;
     @FXML
     public Button menuOpenButton;
+    @FXML
+    public BorderPane infoPageBorderPane;
 
     //Watched List Section
     @FXML
@@ -49,64 +53,11 @@ public class MainController implements Initializable {
     @FXML
     public VBox pnItems;
 
-
-    ////////////////////////////////////////// HomePage Section ////////////////////////////////////////////////////////
-    //Trending Home Pane Section
-    @FXML
-    public VBox trendingPane;
-    @FXML
-    public Button forwardButtonTrendingTv;
-    @FXML
-    public Button backButtonTrendingTv;
-    @FXML
-    public Button forwardButtonTrendingMovie;
-    @FXML
-    public Button backButtonTrendingMovie;
-    @FXML
-    public HBox trendingMovieHbox;
-    @FXML
-    public HBox trendingTvHbox;
-    @FXML
-    public Button trendingPaneButton;
-    //Upcoming Home Pane Section
-    @FXML
-    public VBox upcomingPane;
-    @FXML
-    public Button upcomingPaneButton;
-    @FXML
-    public HBox upcomingTvHbox;
-    @FXML
-    public HBox upcomingMovieHbox;
-    @FXML
-    public Button forwardButtonUpcomingMovie;
-    @FXML
-    public Button backButtonMovieUpcoming;
-    @FXML
-    public Button backButtonUpcomingTv;
-    @FXML
-    public Button forwardButtonUpcomingTv;
-    //Top Rated Home Pane Section
-    @FXML
-    public VBox topRatedPane;
-    @FXML
-    public Button topRatedPaneButton;
-    @FXML
-    public HBox topRatedMovieHbox;
-    @FXML
-    public HBox topRatedTvHbox;
-    @FXML
-    public Button backButtonTopRatedMovies;
-    @FXML
-    public Button forwardButtonTopRatedMovie;
-    @FXML
-    public Button backButtonTopRatedTv;
-    @FXML
-    public Button forwardButtonTopRatedTv;
+    private BorderPane homepage = ComponentFactory.createHomepage();
 
 
     //Other Variables
     ApiConnection api = new ApiConnection();
-    HomePageController homeController;
 
 
 
@@ -114,15 +65,11 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         api.fetchData(this::setMethods);
         menuAction();
-        homePageNavControl();
     }
 
-    private void setMethods(){
-        TrendingCarouselView trending = new TrendingCarouselView(trendingMovieHbox, trendingTvHbox, forwardButtonTrendingMovie, forwardButtonTrendingTv, backButtonTrendingMovie, backButtonTrendingTv);
-        TopRatedCarouselView toprated = new TopRatedCarouselView(topRatedMovieHbox, topRatedTvHbox, forwardButtonTopRatedMovie, forwardButtonTopRatedTv, backButtonTopRatedMovies, backButtonTopRatedTv);
-        UpcomingCarouselView upcoming = new UpcomingCarouselView(upcomingMovieHbox, upcomingTvHbox, forwardButtonUpcomingMovie, forwardButtonUpcomingTv, backButtonMovieUpcoming, backButtonUpcomingTv);
-
-        homeController = new HomePageController(trending, toprated, upcoming);
+    private void setMethods() {
+        mainBorderPane.addEventFilter(InfoPageRequestEvent.INFO_PAGE_REQUEST, event -> infoPageBorderPane.toFront());
+        pnlHome.getChildren().add(homepage);
         new WatchedListController(pnItems, addNodeButton);
     }
 
@@ -134,17 +81,6 @@ public class MainController implements Initializable {
         if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
 
-    private void homePageNavControl(){
-        topRatedPaneButton.setOnAction(event -> {
-            homeController.setTopratedCarousel(true);
-            topRatedPane.toFront();
-        });
-        upcomingPaneButton.setOnAction(event -> {
-            homeController.setUpcomingCarousel(true);
-            upcomingPane.toFront();
-        });
-        trendingPaneButton.setOnAction(event -> trendingPane.toFront());
-    }
 
 
     Runnable pnlHomeToFront = () -> {
@@ -223,5 +159,6 @@ public class MainController implements Initializable {
             }
         });
     }
+
 
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.MainController">
+<BorderPane fx:id="mainBorderPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.MainController">
    <left>
       <AnchorPane fx:id="menuPnl" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1090.0" prefWidth="246.0" styleClass="homepane" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
@@ -112,7 +112,15 @@
    <center>
         <StackPane prefHeight="1080.0" prefWidth="1665.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
             <children>
-            <VBox fx:id="infoPageVbox" prefHeight="200.0" prefWidth="100.0" />
+            <BorderPane fx:id="infoPageBorderPane" style="-fx-background-color: blue;">
+               <center>
+                  <Label style="-fx-border-color: black;" text="Hello">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
             <AnchorPane fx:id="pnlSettings" style="-fx-background-color: grey;" stylesheets="@style.css">
                <children>
                   <Label layoutX="61.0" layoutY="36.0" prefHeight="58.0" prefWidth="116.0" text="Settings" textFill="#e7e5e5">
@@ -177,226 +185,7 @@
                   <Button fx:id="addNodeButton" layoutX="567.0" layoutY="57.0" mnemonicParsing="false" text="Add" AnchorPane.rightAnchor="214.0" />
                </children>
             </AnchorPane>
-            <BorderPane fx:id="pnlHome">
-               <center>
-                  <StackPane>
-                     <children>
-                        <VBox fx:id="topRatedPane" alignment="CENTER" style="-fx-background-color: white;">
-                           <children>
-                              <Label prefHeight="42.0" prefWidth="340.0" text="Top Rated Movies" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="533.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" prefWidth="1665.0" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonTopRatedMovies" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <HBox fx:id="topRatedMovieHbox" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <HBox.margin>
-                                          <Insets bottom="99.0" />
-                                       </HBox.margin>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonTopRatedMovie" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <Label prefHeight="40.0" prefWidth="411.0" text="Top Rated Television Shows" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="544.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="41.0" />
-                                 </padding>
-                              </Label>
-                              <HBox alignment="CENTER" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonTopRatedTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                    <HBox fx:id="topRatedTvHbox" alignment="CENTER" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <padding>
-                                          <Insets left="11.0" top="10.0" />
-                                       </padding>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonTopRatedTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="upcomingPane" alignment="CENTER" style="-fx-background-color: white;">
-                           <children>
-                              <Label prefHeight="42.0" prefWidth="340.0" text="Upcoming Moives" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="533.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" prefWidth="1665.0" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonMovieUpcoming" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <HBox fx:id="upcomingMovieHbox" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <padding>
-                                          <Insets left="11.0" top="10.0" />
-                                       </padding>
-                                       <HBox.margin>
-                                          <Insets bottom="99.0" />
-                                       </HBox.margin>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonUpcomingMovie" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <Label prefHeight="40.0" prefWidth="396.0" text="Upcoming Television Shows" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="544.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets left="35.0" />
-                                 </padding>
-                              </Label>
-                              <HBox alignment="CENTER" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonUpcomingTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                    <HBox fx:id="upcomingTvHbox" alignment="CENTER" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <padding>
-                                          <Insets left="11.0" top="10.0" />
-                                       </padding>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonUpcomingTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="trendingPane" alignment="CENTER" style="-fx-background-color: white;">
-                           <children>
-                              <Label prefHeight="42.0" prefWidth="340.0" text="Trending Movies this Week" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="533.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" prefWidth="1665.0" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonTrendingMovie" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <HBox fx:id="trendingMovieHbox" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <padding>
-                                          <Insets left="11.0" top="10.0" />
-                                       </padding>
-                                       <HBox.margin>
-                                          <Insets bottom="99.0" />
-                                       </HBox.margin>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonTrendingMovie" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets bottom="100.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <Label prefHeight="40.0" prefWidth="329.0" text="Trending Shows this Week" underline="true">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets right="544.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" spacing="10.0">
-                                 <children>
-                                    <Button fx:id="backButtonTrendingTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="B" visible="false">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                    <HBox fx:id="trendingTvHbox" alignment="CENTER" prefHeight="313.0" prefWidth="876.0" spacing="25.0" style="-fx-background-color: grey;">
-                                       <padding>
-                                          <Insets left="11.0" top="10.0" />
-                                       </padding>
-                                    </HBox>
-                                    <Button fx:id="forwardButtonTrendingTv" mnemonicParsing="false" prefHeight="30.0" prefWidth="40.0" text="F">
-                                       <font>
-                                          <Font size="22.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </StackPane>
-               </center>
-               <top>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
-                     <children>
-                        <Button fx:id="trendingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Trending" />
-                        <Button fx:id="upcomingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Upcoming" />
-                        <Button fx:id="topRatedPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="TopRated" />
-                     </children></HBox>
-               </top>
-            </BorderPane>
+            <VBox fx:id="pnlHome" style="-fx-background-color: white;" />
             <Button fx:id="menuOpenButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="21.0" prefWidth="25.0" visible="false" StackPane.alignment="TOP_LEFT">
                <padding>
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />

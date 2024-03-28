@@ -1,4 +1,17 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å€ò©8äØãôâ1
-O
-java:S1135"2Complete the task associated to this TODO comment.(¨‹Ö†8Â©ÙÙç1
+g	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‚ø“è1
+g	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‚ø“è1
+g	java:S112]"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‚ø“è1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å€ò©8•ñÙ’è1
+
+java:S1130g"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(É¥ÈÑşÿÿÿÿ8ªø“è1
+‰
+java:S1130n"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ê¡áñ8«ø“è1
+
+java:S1130u"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ì‘óÅşÿÿÿÿ8«ø“è1
+‰
+java:S1130}"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Œï÷ö8¬ø“è1
+
+java:S1130…"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ú—ıİøÿÿÿÿ8­ø“è1
+Š
+java:S1130Œ"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(…ß¢8­ø“è1
