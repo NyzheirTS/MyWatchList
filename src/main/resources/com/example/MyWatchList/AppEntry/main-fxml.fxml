@@ -110,7 +110,7 @@
       </AnchorPane>
    </left>
    <center>
-        <StackPane prefHeight="1080.0" prefWidth="1665.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+        <StackPane prefHeight="1080.0" prefWidth="1674.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
             <children>
             <BorderPane fx:id="infoPageBorderPane" style="-fx-background-color: blue;">
                <center>

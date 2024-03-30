@@ -6,6 +6,9 @@ module com.example.test_uijfx {
     requires com.github.benmanes.caffeine;
     requires java.desktop;
     requires annotations;
+    requires io.nayuki.qrcodegen;
+    requires javafx.swing;
+    requires org.controlsfx.controls;
 
 
     exports com.example.MyWatchList.DataModels;

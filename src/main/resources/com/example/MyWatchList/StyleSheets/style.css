@@ -2,6 +2,8 @@
 /* Showlist App Css */
 /* ---------------------------------------------------------------- */
 
+
+
 .button
 {
 -fx-text-fill : #e7e5e5;
@@ -60,6 +62,7 @@
 }
 
 
+
 /* ================================================================= */
 /* Card Raiting Bar */
 
@@ -105,5 +108,22 @@
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
 }
+
+/* ================================================================= */
+/* Movie Header */
+
+.header-poster-border {
+    -fx-border-color: black;
+    -fx-border-width: 5;
+}
+
+.base-movie-header-pane {
+    -fx-border-color: black;
+    -fx-border-width: 0;
+}
+
+
+
+
 
 /* ================================================================= */

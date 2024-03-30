@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
+import com.example.MyWatchList.Controllers.ImageUrlBuilder;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -31,7 +32,7 @@ public class PosterNodeController {
     private String mediaType;
     private String imgID;
     private String title;
-    private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
+   // private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
@@ -81,7 +82,7 @@ public class PosterNodeController {
         Task<Void> imageLoadingTask = new  Task<>(){
             @Override
             protected Void call(){
-                Image loadedImage = new Image(baseImgURL + imgID ); //true to enable Background loading
+                Image loadedImage = new Image(ImageUrlBuilder.getPosterImageURL(imgID)); //true to enable Background loading
                 Platform.runLater(() -> posterImageView.setImage(loadedImage));
                 return null;
             }
