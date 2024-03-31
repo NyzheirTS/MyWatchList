@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<HBox alignment="CENTER" prefHeight="350.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieHeaderController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="350.0" fitWidth="1920.0" opacity="0.4" pickOnBounds="true">
+         <viewport>
+            <Rectangle2D height="233.0" minY="80.0" width="1280.0" />
+         </viewport>
+         <HBox.margin>
+            <Insets right="-1920.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="431.0">
+         <children>
+            <AnchorPane prefHeight="360.0" prefWidth="337.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
+               <children>
+                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w300.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="-5.0" right="-1.0" />
+               </padding>
+            </AnchorPane>
+         </children>
+         <HBox.margin>
+            <Insets left="-82.0" right="-1.0" />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="-56.0" left="116.0" right="42.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" prefHeight="350.0" prefWidth="1348.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <children>
+            <Label fx:id="taglineLabel" stylesheets="@../../StyleSheets/style.css" text="&quot;Long live the fighters.&quot;" textFill="#8a8a8a">
+               <font>
+                  <Font name="Arimo Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="titleLabel" text="Dune: Part Two">
+               <font>
+                  <Font name="Arimo Regular" size="40.0" />
+               </font>
+               <padding>
+                  <Insets bottom="9.0" />
+               </padding>
+            </Label>
+            <Label fx:id="genresLabel" text="Scinece Fiction, Advanture">
+               <font>
+                  <Font name="Arimo Italic" size="20.0" />
+               </font>
+               <padding>
+                  <Insets top="-9.0" />
+               </padding>
+            </Label>
+            <Label text="Synopsis:">
+               <font>
+                  <Font name="Arimo Regular" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="49.0" />
+               </VBox.margin>
+            </Label>
+            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../../StyleSheets/style.css" text="Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee." wrapText="true">
+               <font>
+                  <Font name="Arimo Regular" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-32.0" left="-9.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+         <padding>
+            <Insets left="44.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="13.0" spacing="10.0">
+         <children>
+            <ImageView fx:id="qrCodeImageView" fitHeight="75.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="24.0" left="268.0" right="2.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@../../../../../../../../../Downloads/qr-code%20(1).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="percentRatingLabel" text="84%">
+               <font>
+                  <Font name="Zen Dots Regular" size="48.0" />
+               </font>
+            </Label>
+            <Rating fx:id="showRating" partialRating="true" prefHeight="32.0" prefWidth="244.0" rating="4.0" styleClass="rating-bar">
+               <stylesheets>
+                  <URL value="@../../StyleSheets/style.css" />
+                  <URL value="@../../StyleSheets/customRatingsFX/newratingstyle.css" />
+               </stylesheets>
+            </Rating>
+            <Label fx:id="votesLabel" text="Votes: 1484">
+               <font>
+                  <Font name="Arimo Regular" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="79.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

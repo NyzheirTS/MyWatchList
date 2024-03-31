@@ -84,8 +84,8 @@
         }
     }
 
-    public static void retrieveProductionCompanies(InfoPageModel productionCompanies){
-        for (InfoPageModel.ProductionCompanies companies : productionCompanies.getProduction_companies()){
+    public static void retrieveProductionCompanies(InfoPageModel productionCompanyModels){
+        for (InfoPageModel.ProductionCompanies companies : productionCompanyModels.getProduction_companies()){
             System.out.println(companies.getId());
             System.out.println(companies.getLogo_path());
             System.out.println(companies.getName());

@@ -10,7 +10,7 @@ public class TvInfoPageModel {
     private int[] episode_run_time;
     private String first_air_date;
     private String next_episode_to_air;
-    private Genres[] genres;
+    private GenresModel[] genres;
     private String homepage;
     private Seasons[] seasons;
     private int id;
@@ -21,7 +21,7 @@ public class TvInfoPageModel {
     private int number_of_episodes;
     private int number_of_seasons;
     private String overview;
-    private ProductionCompanies[] production_companies;
+    private ProductionCompaniesModel[] production_companies;
     private String status;
     private String tagline;
     private String type;
@@ -39,7 +39,7 @@ public class TvInfoPageModel {
     public String getFirst_air_date() {return first_air_date;}
     public String getNext_episode_to_air() {return next_episode_to_air;}
     public Seasons[] getSeasons() {return seasons;}
-    public Genres[] getGenres() {return genres;}
+    public GenresModel[] getGenres() {return genres;}
     public String getHomepage() {return homepage;}
     public int getId() {return id;}
     public boolean isIn_production() {return in_production;}
@@ -49,7 +49,7 @@ public class TvInfoPageModel {
     public int getNumber_of_episodes() {return number_of_episodes;}
     public int getNumber_of_seasons() {return number_of_seasons;}
     public String getOverview() {return overview;}
-    public ProductionCompanies[] getProduction_companies() {return production_companies;}
+    public ProductionCompaniesModel[] getProduction_companies() {return production_companies;}
     public String getStatus() {return status;}
     public String getTagline() {return tagline;}
     public String getType() {return type;}

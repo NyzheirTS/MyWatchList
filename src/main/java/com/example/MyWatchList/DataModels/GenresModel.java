@@ -1,6 +1,6 @@
 package com.example.MyWatchList.DataModels;
 
-public class Genres {
+public class GenresModel {
         private int id;
         private String name;
         public int getId() {return id;}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox fx:id="innerParentVbox" prefWidth="305.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieLeftPanelController">
+   <children>
+      <Label text="Runtime:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="runtimeLabel" prefHeight="22.0" prefWidth="283.0" text="3h 47m">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Collection:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="collectionLabel" prefHeight="22.0" prefWidth="283.0" text="Dune Collection">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Production Companies:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <VBox fx:id="productionCompanieVBox" prefWidth="288.0">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </VBox>
+      <Label text="Production Countries:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <VBox fx:id="productionCountriesVBox" prefWidth="288.0">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </VBox>
+      <Label text="Budget:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="budgetLabel" prefHeight="22.0" prefWidth="283.0" text="budget here">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Revenue:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="revenueLabel" prefHeight="22.0" prefWidth="283.0" text="revenue here">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Release Date:" underline="true" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="releasedateLabel" prefHeight="22.0" prefWidth="283.0" text="release date here">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="15.0" top="39.0" />
+   </padding>
+</VBox>

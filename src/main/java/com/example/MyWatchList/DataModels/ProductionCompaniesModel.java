@@ -1,6 +1,6 @@
 package com.example.MyWatchList.DataModels;
 
-public class ProductionCompanies {
+public class ProductionCompaniesModel {
     private int id;
     private String logo_path;
     private String name;

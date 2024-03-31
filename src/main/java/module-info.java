@@ -9,6 +9,7 @@ module com.example.test_uijfx {
     requires io.nayuki.qrcodegen;
     requires javafx.swing;
     requires org.controlsfx.controls;
+    requires junit;
 
 
     exports com.example.MyWatchList.DataModels;
@@ -35,5 +36,9 @@ module com.example.test_uijfx {
     exports com.example.MyWatchList.Controllers.HomePage;
     exports com.example.MyWatchList.Controllers.CommonComponent;
     opens com.example.MyWatchList.Controllers.CommonComponent to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
+    opens com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.TestFolder.JUnitTest;
+    opens com.example.MyWatchList.TestFolder.JUnitTest to javafx.fxml;
 
 }

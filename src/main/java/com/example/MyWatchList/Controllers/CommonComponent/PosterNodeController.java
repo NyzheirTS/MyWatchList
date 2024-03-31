@@ -1,6 +1,7 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
-import com.example.MyWatchList.Controllers.ImageUrlBuilder;
+import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
+import com.example.MyWatchList.Controllers.UrlBuilder;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -82,7 +83,7 @@ public class PosterNodeController {
         Task<Void> imageLoadingTask = new  Task<>(){
             @Override
             protected Void call(){
-                Image loadedImage = new Image(ImageUrlBuilder.getPosterImageURL(imgID)); //true to enable Background loading
+                Image loadedImage = new Image(UrlBuilder.getPosterImageURL(imgID)); //true to enable Background loading
                 Platform.runLater(() -> posterImageView.setImage(loadedImage));
                 return null;
             }
@@ -97,8 +98,7 @@ public class PosterNodeController {
 
     private void nodeClickEvent(){
         posterPane.setOnMouseClicked(event -> {
-            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent();
-
+            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageFactory.createInfoPage(nodeNumber, mediaType));
             System.out.println(nodeNumber);
             System.out.println(mediaType);
             posterPane.fireEvent(infoPageRequestEvent);

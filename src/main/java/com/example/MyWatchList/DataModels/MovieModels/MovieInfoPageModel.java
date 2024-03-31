@@ -7,12 +7,13 @@ public class MovieInfoPageModel {
     private String backdrop_path;
     private BelongsToCollection belongs_to_collection;
     private int budget;
-    private Genres[] genres;
+    private GenresModel[] genres;
     private String homepage;
     private int id;
     private String overview;
     private String poster_path;
-    private ProductionCompanies[] production_companies;
+    private ProductionCompaniesModel[] production_companies;
+    private ProductionCountriesModel[] production_countries;
     private String release_date;
     private int revenue;
     private int runtime;
@@ -29,12 +30,13 @@ public class MovieInfoPageModel {
     public String getBackdrop_path() {return backdrop_path;}
     public BelongsToCollection getBelongs_to_collection() {return belongs_to_collection;}
     public int getBudget() {return budget;}
-    public Genres[] getGenres() {return genres;}
+    public GenresModel[] getGenres() {return genres;}
     public String getHomepage() {return homepage;}
     public int getId() {return id;}
     public String getOverview() {return overview;}
     public String getPoster_path() {return poster_path;}
-    public ProductionCompanies[] getProduction_companies() {return production_companies;}
+    public ProductionCompaniesModel[] getProduction_companies() {return production_companies;}
+    public ProductionCountriesModel[] getProduction_countries() {return production_countries;}
     public String getRelease_date() {return release_date;}
     public int getRevenue() {return revenue;}
     public int getRuntime() {return runtime;}

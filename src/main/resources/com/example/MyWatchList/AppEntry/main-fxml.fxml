@@ -112,15 +112,7 @@
    <center>
         <StackPane prefHeight="1080.0" prefWidth="1674.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
             <children>
-            <BorderPane fx:id="infoPageBorderPane" style="-fx-background-color: blue;">
-               <center>
-                  <Label style="-fx-border-color: black;" text="Hello">
-                     <font>
-                        <Font size="96.0" />
-                     </font>
-                  </Label>
-               </center>
-            </BorderPane>
+            <BorderPane fx:id="infoPageBorderPane" />
             <AnchorPane fx:id="pnlSettings" style="-fx-background-color: grey;" stylesheets="@../StyleSheets/style.css">
                <children>
                   <Label layoutX="61.0" layoutY="36.0" prefHeight="58.0" prefWidth="116.0" text="Settings" textFill="#e7e5e5">

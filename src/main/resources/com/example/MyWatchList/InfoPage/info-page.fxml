@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1674.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.InfoPageController" />
+<BorderPane fx:id="InfopageHome" prefHeight="1080.0" prefWidth="1674.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.InfoPageController">
+   <left>
+      <ScrollPane fx:id="leftPanelContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <ScrollPane fx:id="footerContainer" fitToHeight="true" fitToWidth="true" pannable="true" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ScrollPane>
+   </bottom>
+   <right>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

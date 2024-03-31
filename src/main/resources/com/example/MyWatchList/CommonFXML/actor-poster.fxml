@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.ActorPosterController">
+   <children>
+      <AnchorPane prefWidth="177.0" style="-fx-border-width: 3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="actorImageView" fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/lJloTOheuQSirSLXNA3JHsrMNfH.jpg" />
+               </image>
+               <viewport>
+                  <Rectangle2D height="152.0" minX="-1.0" minY="64.0" width="185.0" />
+               </viewport>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets left="-3.0" top="-3.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="-1.0" />
+         </padding>
+      </AnchorPane>
+      <TextArea fx:id="actorNameArea" editable="false" prefHeight="50.0" prefWidth="179.0" stylesheets="@../StyleSheets/style.css" text="fadfasdfasdfasdfasdfasdfasdfasdf" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="16.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="actorRoleTextArea" editable="false" prefHeight="50.0" prefWidth="179.0" stylesheets="@../StyleSheets/style.css" text="asdfasdfasdfasdfasdfasdfasdfasdf" wrapText="true">
+         <font>
+            <Font name="Arimo Regular" size="14.0" />
+         </font>
+      </TextArea>
+   </children>
+</VBox>

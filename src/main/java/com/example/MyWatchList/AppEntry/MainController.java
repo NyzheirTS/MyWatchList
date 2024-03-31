@@ -4,6 +4,7 @@ import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListController;
+import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -12,11 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -67,7 +67,11 @@ public class MainController implements Initializable {
     }
 
     private void setMethods() {
-        mainBorderPane.addEventFilter(InfoPageRequestEvent.INFO_PAGE_REQUEST, event -> infoPageBorderPane.toFront());
+        mainBorderPane.addEventFilter(InfoPageRequestEvent.INFO_PAGE_REQUEST, event -> {
+            infoPageBorderPane.toFront();
+            infoPageBorderPane.setCenter(event.getBorderPane());
+            //VBox.setVgrow(event.getBorderPane(), Priority.ALWAYS);
+        });
         pnlHome.getChildren().add(homepage);
         new WatchedListController(pnItems, addNodeButton);
     }

@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 public class TestJsonStringHolder {
 
     public static String getJsonString() throws IOException {
-        String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\json.txt";
+        String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\TestFolder\\json.txt";
         return Files.readString(Paths.get(filepath));
     }
 
