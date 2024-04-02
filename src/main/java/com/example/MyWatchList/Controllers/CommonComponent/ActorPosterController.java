@@ -1,6 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
-import com.example.MyWatchList.Controllers.UrlBuilder;
+import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;

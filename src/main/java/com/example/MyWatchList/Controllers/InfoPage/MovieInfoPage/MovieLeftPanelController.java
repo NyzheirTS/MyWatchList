@@ -2,8 +2,9 @@ package com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
 
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFormatter;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
-import com.example.MyWatchList.DataModels.ProductionCompaniesModel;
-import com.example.MyWatchList.DataModels.ProductionCountriesModel;
+import com.example.MyWatchList.DataModels.CommonModels.ProductionCompaniesModel;
+import com.example.MyWatchList.DataModels.CommonModels.ProductionCountriesModel;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -31,11 +32,11 @@ public class MovieLeftPanelController {
 
     public void initLeftPanel(MovieInfoPageModel jsonString){
         this.jsonString = jsonString;
-        setLabels();
-        setProductionCompanies();
-        setProductionCountries();
-
-
+        Platform.runLater(() -> {
+            setLabels();
+            setProductionCompanies();
+            setProductionCountries();
+        });
     }
 
     private void setLabels(){

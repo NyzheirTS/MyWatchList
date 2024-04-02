@@ -1,4 +1,4 @@
-package com.example.MyWatchList.DataModels;
+package com.example.MyWatchList.DataModels.CommonModels;
 
 public class RecommendationsModel {
     private Recommendations[] results;

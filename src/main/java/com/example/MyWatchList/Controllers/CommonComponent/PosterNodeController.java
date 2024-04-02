@@ -1,13 +1,12 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
-import com.example.MyWatchList.Controllers.UrlBuilder;
+import com.example.MyWatchList.DataModels.UrlBuilder;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -25,39 +24,62 @@ public class PosterNodeController {
     private AnchorPane posterPane;
     @FXML
     private ImageView posterImageView;
-    @FXML
-    private ProgressBar scoreBar;
-
 
     private int nodeNumber;
     private String mediaType;
     private String imgID;
     private String title;
+    private boolean enableGrowEvents;
+    private boolean enableDropShadow;
+    private boolean enableTooltip;
+
    // private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
 
 
 
-    public void initPosterNode(String imgID, int nodeNumber, Double score, String title, String mediaType){
+    public void initPosterNode(String imgID, int nodeNumber, String title, String mediaType){
         this.nodeNumber = nodeNumber;
         this.mediaType = mediaType;
         this.imgID = imgID;
         this.title = title;
 
-
-
         nodeClickEvent();
-        nodeGrowEvents();
-        tooltipSettings();
-        posterPane.setEffect(dropShadowEffects());
-        scoreBar.setProgress(score/10);
 
-}
+        if (enableGrowEvents) {
+            nodeGrowEvents();
+        }
+        if (enableDropShadow) {
+            posterPane.setEffect(dropShadowEffects());
+        }
+        if (enableTooltip) {
+            tooltipSettings();
+        }
+    }
+
+    public void setEnableGrowEvents(boolean enableGrowEvents) {
+        this.enableGrowEvents = enableGrowEvents;
+        if (enableGrowEvents) {
+            nodeGrowEvents();
+        }
+    }
+
+    public void setEnableDropShadow(boolean enableDropShadow){
+        this.enableDropShadow = enableDropShadow;
+        if(enableDropShadow){
+            dropShadowEffects();
+        }
+    }
+
+    public void setEnableTooltip(boolean enableTooltip){
+        this.enableTooltip = enableTooltip;
+        if (enableTooltip){
+            tooltipSettings();
+        }
+    }
 
 
-
-
-    private Scale nodeGrowEvents(){
+    private void nodeGrowEvents(){
         Scale scale = new Scale(1, 1);
 
         ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),posterPane);
@@ -70,8 +92,8 @@ public class PosterNodeController {
 
         posterPane.setOnMouseEntered(e -> growTransition.play());
         posterPane.setOnMouseExited(e -> shrinkTransition.play());
-        return scale;
     }
+
 
     public void loadImg(){
         //Async load image
@@ -105,6 +127,26 @@ public class PosterNodeController {
         });
     }
 
+    public void setPosterHeight(double height){
+        posterImageView.setFitHeight(height);
+        posterPane.setPrefHeight(height);
+    }
+
+    public void setPosterWidth(double width){
+        posterImageView.setFitWidth(width);
+        posterPane.setPrefWidth(width - 8);
+    }
+    /*
+    public void setPosterDimensions(double width){
+        double aspectRatio = 1.41;
+        double height = width * aspectRatio;
+
+        posterImageView.setFitWidth(width);
+        posterImageView.setFitHeight(height);
+        posterPane.setPrefWidth(width - 8);
+        posterPane.setPrefHeight(height);
+    }
+    */
 
     final DropShadow dropShadowEffects(){
         DropShadow shadow = new DropShadow();

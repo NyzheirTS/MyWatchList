@@ -136,32 +136,33 @@ public class MainController implements Initializable {
         });
     };
 
+
+    //TODO seems to be a problem in the secen where parts of the center are overlaping ontop of the menu section making it impossible to press some buttons only happens after clicking a posternode and bringing infopage to front
     private void menuAction(){
         menuCloseButton.setOnAction(event -> menuClose.run());
         menuOpenButton.setOnAction(event -> menuOpen.run());
     }
 
-    public void setSceneListeners(Scene scene){
+
+    public void setSceneListeners(Scene scene) {
         scene.setOnKeyPressed(e -> {
             if (ShortCuts.shiftEsc.match(e)) {
                 if (menuCloseButton.isVisible()) menuClose.run();
                 else menuOpen.run();
                 e.consume();
             }
-            if (ShortCuts.shift1.match(e)){
+            if (ShortCuts.shift1.match(e)) {
                 pnlHomeToFront.run();
                 e.consume();
             }
-            if (ShortCuts.shift2.match(e)){
+            if (ShortCuts.shift2.match(e)) {
                 pnlWatchedToFront.run();
                 e.consume();
             }
-            if (ShortCuts.shift5.match(e)){
+            if (ShortCuts.shift5.match(e)) {
                 pnlSettingsToFront.run();
                 e.consume();
             }
         });
     }
-
-
 }

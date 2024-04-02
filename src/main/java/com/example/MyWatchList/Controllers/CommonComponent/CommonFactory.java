@@ -8,13 +8,18 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class CommonFactory {
-    public static AnchorPane createPosterNode (String text, int nodeNumber, Double score, String title, String mediaType) {
+    public static AnchorPane createPosterNode (String text, int nodeNumber, String title, String mediaType, boolean enableGrowEvents, boolean enableDropShadow, boolean enableTooltip) {
         try {
-            FXMLLoader loader = new FXMLLoader(HomePageFactory.class.getResource("/com/example/MyWatchList/CommonFXML/poster-template.fxml"));
+            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/poster-template.fxml"));
             AnchorPane posterNode = loader.load();
 
             PosterNodeController controller = loader.getController();
-            controller.initPosterNode(text, nodeNumber, score, title, mediaType);
+
+            controller.setEnableGrowEvents(enableGrowEvents);
+            controller.setEnableDropShadow(enableDropShadow);
+            controller.setEnableTooltip(enableTooltip);
+            controller.initPosterNode(text, nodeNumber, title, mediaType);
+
             posterNode.getProperties().put("posterController", controller);
 
             return posterNode;

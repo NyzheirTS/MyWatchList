@@ -1,4 +1,4 @@
-package com.example.MyWatchList.DataModels;
+package com.example.MyWatchList.DataModels.CommonModels;
 
 public class ProductionCountriesModel {
     private String iso_3166_1;

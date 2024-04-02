@@ -1,5 +1,5 @@
 package com.example.MyWatchList.DataModels.MovieModels;
-import com.example.MyWatchList.DataModels.JsonResponse;
+import com.example.MyWatchList.DataModels.CommonModels.JsonResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

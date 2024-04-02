@@ -163,9 +163,11 @@ public class HomePageController {
             AnchorPane posterNode = CommonFactory.createPosterNode(
                     movie.getPosterPath(),
                     movie.getId(),
-                    movie.getVote_average(),
                     movie.getTitle(),
-                    movie.getMedia_type()
+                    movie.getMedia_type(),
+                    true,
+                    true,
+                    true
             );
                 getControllerFromCarousel(movieCarousel).addItem(posterNode);
         }
@@ -179,9 +181,11 @@ public class HomePageController {
             AnchorPane posterNode = CommonFactory.createPosterNode(
                     tv.getPoster_path(),
                     tv.getId(),
-                    tv.getVote_average(),
                     tv.getName(),
-                    tv.getMedia_type()
+                    tv.getMedia_type(),
+                    true,
+                    true,
+                    true
             );
             getControllerFromCarousel(tvCarousel).addItem(posterNode);
         }

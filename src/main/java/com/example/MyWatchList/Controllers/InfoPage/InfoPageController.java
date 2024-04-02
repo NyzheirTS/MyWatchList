@@ -1,55 +1,52 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
-import com.example.MyWatchList.Controllers.CommonComponent.PosterNodeController;
-import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieLeftPanelController;
+import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
+import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelFactory;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
+import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class InfoPageController {
-    @FXML
-    private ScrollPane leftPanelContainer;
-    @FXML
-    private BorderPane InfopageHome;
-    @FXML
-    private ScrollPane footerContainer;
+
+    @FXML private ScrollPane rightPanel;
+    @FXML private ScrollPane testMiddlepane;
+    @FXML private ScrollPane leftPanelContainer;
+    @FXML private BorderPane InfopageHome;
+    @FXML private ScrollPane footerContainer;
+
     private int mediaID;
-    private String media_type;
+    private String mediaType;
 
-    MovieInfoPageModel infoPageModels = MovieInfoPageModel.fromJson(TestJsonStringHolder.getJsonString());
+    //TODO: Work on middle panel and reviews object
 
-    public InfoPageController() throws IOException {
-        // TODO document why this constructor is empty
-    }
 
-    public void initInfoPage(int MediaID, String MediaType){
-        this.media_type = MediaType;
+    public void initInfoPage(int MediaID, String MediaType) throws IOException {
+        this.mediaType = MediaType;
         this.mediaID = MediaID;
-        setBorderContraints();
-        if (media_type.equals("movie")){
-            buildMoviepage();
-        } else{
-            System.out.println("TV not here yet");
+        MediaInfoPageModel infoPageModel = MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonString(), mediaType);
+        if (infoPageModel instanceof MovieInfoPageModel){
+            buildMoviePage((MovieInfoPageModel) infoPageModel);
+        } else if (infoPageModel instanceof TvInfoPageModel) {
+            System.out.println("To Be Implemented");
+        } else {
+            throw new IllegalStateException("Unsupported Media Type");
         }
     }
 
-    private void buildMoviepage(){
+
+    private void buildMoviePage(MovieInfoPageModel infoPageModels){
         footerContainer.setContent(InfoPageFactory.createFooter(infoPageModels));
+        rightPanel.setContent(InfoPageFactory.createRightPanel(infoPageModels, mediaType));
         leftPanelContainer.setContent(InfoPageFactory.createMovieLeftPanel(infoPageModels));
         InfopageHome.setTop(InfoPageFactory.createMovieHeader(infoPageModels));
     }
-    //TODO: mess with the layout of the borderpane potentially look for new layout to match what i want
-    private void setBorderContraints(){
-        //footerContainer.setMaxWidth(300);
-        leftPanelContainer.setMaxHeight(1920);
-    }
+
+
 
 
 }

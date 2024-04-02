@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.RightPanelController">
+   <children>
+      <Label fx:id="rightLabel" text="Recommended" underline="true">
+         <font>
+            <Font name="Arimo Regular" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox fx:id="vbox1" spacing="5.0" />
+            <VBox fx:id="vbox2" spacing="5.0" />
+         </children>
+         <padding>
+            <Insets left="3.0" right="3.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

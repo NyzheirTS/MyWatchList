@@ -2,12 +2,10 @@ package com.example.MyWatchList.Controllers.InfoPage;
 
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieHeaderController;
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieLeftPanelController;
+import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 
 import java.io.IOException;
@@ -66,20 +64,39 @@ public class InfoPageFactory {
         }
     }
 
-    public static HBox createFooter(MovieInfoPageModel jsonString){
+    public static HBox createFooter(MediaInfoPageModel jsonString){
         try {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/footer.fxml"));
-            HBox movieLeftPanel = loader.load();
+            HBox footer = loader.load();
 
-            FooterController controller = loader.getController();
+            FooterPanelController controller = loader.getController();
             controller.initFooter(jsonString);
 
-            movieLeftPanel.getProperties().put("footerController", controller);
+            footer.getProperties().put("footerController", controller);
 
-            return movieLeftPanel;
+            return footer;
         } catch (IOException e){
             e.printStackTrace();
             return null;
         }
     }
+
+    public static VBox createRightPanel(MediaInfoPageModel jsonString, String MediaType){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/right-panel.fxml"));
+            VBox rightPanel = loader.load();
+
+            RightPanelController controller = loader.getController();
+            controller.initRightPanel(jsonString, MediaType);
+
+            rightPanel.getProperties().put("rightPanelController", controller);
+
+            return  rightPanel;
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }

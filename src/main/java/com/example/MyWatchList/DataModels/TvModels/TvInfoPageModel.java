@@ -1,69 +1,39 @@
 package com.example.MyWatchList.DataModels.TvModels;
 
-import com.example.MyWatchList.DataModels.*;
-import com.google.gson.Gson;
+import com.example.MyWatchList.DataModels.CommonModels.ContentRatingsModel;
+import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 
 
-public class TvInfoPageModel {
-    private String backdrop_path;
+public class TvInfoPageModel extends MediaInfoPageModel {
     private CreatedBy[] created_by;
     private int[] episode_run_time;
     private String first_air_date;
     private String next_episode_to_air;
-    private GenresModel[] genres;
-    private String homepage;
     private Seasons[] seasons;
-    private int id;
     private boolean in_production;
     private String last_air_date;
     private String name;
     private Networks[] networks;
     private int number_of_episodes;
     private int number_of_seasons;
-    private String overview;
-    private ProductionCompaniesModel[] production_companies;
-    private String status;
-    private String tagline;
     private String type;
-    private double vote_average;
-    private CreditsModel credits;
-    private RecommendationsModel recommendations;
-    private ReviewsModel reviews;
-    private VideosModel videos;
     private ContentRatingsModel content_ratings;
 
 
-    public String getBackdrop_path() {return backdrop_path;}
     public CreatedBy[] getCreated_by() {return created_by;}
     public int[] getEpisode_run_time() {return episode_run_time;}
     public String getFirst_air_date() {return first_air_date;}
     public String getNext_episode_to_air() {return next_episode_to_air;}
     public Seasons[] getSeasons() {return seasons;}
-    public GenresModel[] getGenres() {return genres;}
-    public String getHomepage() {return homepage;}
-    public int getId() {return id;}
     public boolean isIn_production() {return in_production;}
     public String getLast_air_date() {return last_air_date;}
     public String getName() {return name;}
     public Networks[] getNetworks() {return networks;}
     public int getNumber_of_episodes() {return number_of_episodes;}
     public int getNumber_of_seasons() {return number_of_seasons;}
-    public String getOverview() {return overview;}
-    public ProductionCompaniesModel[] getProduction_companies() {return production_companies;}
-    public String getStatus() {return status;}
-    public String getTagline() {return tagline;}
     public String getType() {return type;}
-    public double getVote_average() {return vote_average;}
-    public CreditsModel getCredits() {return credits;}
-    public RecommendationsModel getRecommendations() {return recommendations;}
-    public ReviewsModel getReviews() {return reviews;}
-    public VideosModel getVideos() {return videos;}
     public ContentRatingsModel getContent_ratings() {return content_ratings;}
 
-    public static TvInfoPageModel fromJson(String Json){
-        Gson gson = new Gson();
-        return gson.fromJson(Json, TvInfoPageModel.class);
-    }
 
     public static class CreatedBy{
         private int id;

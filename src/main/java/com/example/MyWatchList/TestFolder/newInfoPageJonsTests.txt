@@ -146,3 +146,10 @@
             SortedList<WantToWatch> sortedData_W = new SortedList<>(filterData_W);
             sortedData_W.comparatorProperty().bind(wantToWatchTable.comparatorProperty());
             wantToWatchTable.setItems(sortedData_W);
+
+
+
+
+
+
+

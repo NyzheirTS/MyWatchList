@@ -23,10 +23,10 @@
             <Insets right="-1920.0" />
          </HBox.margin>
          <image>
-            <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg" />
+            <Image url="@../../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/k6EOrckWFuz7I4z4wiRwz8zsj4H.jpg" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" prefHeight="350.0" prefWidth="431.0">
+      <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
             <AnchorPane prefHeight="360.0" prefWidth="337.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
                <children>
@@ -37,7 +37,7 @@
                   </ImageView>
                </children>
                <VBox.margin>
-                  <Insets />
+                  <Insets left="-100.0" right="14.0" />
                </VBox.margin>
                <padding>
                   <Insets left="-5.0" right="-1.0" />
@@ -45,7 +45,7 @@
             </AnchorPane>
          </children>
          <HBox.margin>
-            <Insets left="-82.0" right="-1.0" />
+            <Insets right="-1.0" />
          </HBox.margin>
          <padding>
             <Insets bottom="-56.0" left="116.0" right="42.0" />
@@ -111,7 +111,7 @@
                   <Insets bottom="24.0" left="268.0" right="2.0" />
                </VBox.margin>
                <image>
-                  <Image url="@../../../../../../../../../Downloads/qr-code%20(1).png" />
+                  <Image url="@../../../../../../../../../../Downloads/qr-code%20(1).png" />
                </image>
             </ImageView>
             <Label fx:id="percentRatingLabel" text="84%">

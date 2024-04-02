@@ -1,4 +1,4 @@
-package com.example.MyWatchList.DataModels;
+package com.example.MyWatchList.DataModels.CommonModels;
 
 public class CreditsModel {
     private Cast[] cast;

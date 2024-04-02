@@ -17,7 +17,7 @@
 
 <BorderPane fx:id="mainBorderPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.AppEntry.MainController">
    <left>
-      <AnchorPane fx:id="menuPnl" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="1090.0" prefWidth="246.0" styleClass="homepane" stylesheets="@../StyleSheets/style.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="menuPnl" maxWidth="-Infinity" minWidth="-Infinity" styleClass="homepane" stylesheets="@../StyleSheets/style.css" BorderPane.alignment="CENTER">
          <children>
                 <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="241.0" styleClass="homepane" stylesheets="@../StyleSheets/style.css" text="Home" textFill="#e7e5e5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0">
                     <graphic>
@@ -107,12 +107,15 @@
                </padding>
             </Button>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </AnchorPane>
    </left>
    <center>
-        <StackPane prefHeight="1080.0" prefWidth="1674.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">
+        <StackPane style="-fx-background-color: red;" BorderPane.alignment="CENTER">
             <children>
-            <BorderPane fx:id="infoPageBorderPane" />
+            <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
             <AnchorPane fx:id="pnlSettings" style="-fx-background-color: grey;" stylesheets="@../StyleSheets/style.css">
                <children>
                   <Label layoutX="61.0" layoutY="36.0" prefHeight="58.0" prefWidth="116.0" text="Settings" textFill="#e7e5e5">
