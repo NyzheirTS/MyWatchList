@@ -33,7 +33,7 @@
             </VBox>
          </bottom>
          <center>
-            <ScrollPane fx:id="testMiddlepane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+            <ScrollPane fx:id="middleContainer" fitToWidth="true" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </center>

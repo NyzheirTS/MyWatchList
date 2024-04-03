@@ -2,7 +2,6 @@ package com.example.MyWatchList.Controllers.CommonComponent;
 
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import com.example.MyWatchList.DataModels.UrlBuilder;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -120,10 +119,10 @@ public class PosterNodeController {
 
     private void nodeClickEvent(){
         posterPane.setOnMouseClicked(event -> {
-            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageFactory.createInfoPage(nodeNumber, mediaType));
+            EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, InfoPageFactory.createInfoPage(nodeNumber, mediaType));
             System.out.println(nodeNumber);
             System.out.println(mediaType);
-            posterPane.fireEvent(infoPageRequestEvent);
+            posterPane.fireEvent(eventRequest);
         });
     }
 

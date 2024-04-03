@@ -9,81 +9,45 @@
 -fx-text-fill : #e7e5e5;
 }
 .button:hover{
--fx-background-color : #10165F;
+-fx-background-color : #ff0000;
 }
 .button:pressed
 {
--fx-background-color : #1620A1;
+-fx-background-color : #ffffff;
 }
 
-.scroll-pane {
-    -fx-background-color: #02030A;
-}
+
+/* ---------------------------------------------------------------- */
+/* ---------------------- ScrolePane Skin --------------------------*/
+
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
 }
 
-.increment-button, .decrement-button {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+
+.text-area:readonly .scroll-pane:fitToWidth .scroll-bar:vertical .thumb {
+    -fx-background-size: 1;
+    -fx-background-color: rgb(185, 185, 185);
+    -fx-background-radius: 2;
+    
+
+
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-radius: 9;
+
 }
 
-.scroll-bar:horizontal .track,
-.scroll-bar:vertical .track{
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-background-radius: 0em;
-}
+.text-area:readonly .scroll-pane:fitToWidth .scroll-bar:vertical {
+    -fx-border-width: 1;
+    -fx-background-size: 1;
 
-.scroll-bar:horizontal .thumb,
-.scroll-bar:vertical .thumb {
-    -fx-background-color: #10165F;
-    -fx-background-radius: 5em;
-}
-
-.scroll-pane > .corner {
-    -fx-background-color: black;
-}
-
-.homepane{
-    -fx-background-color : #3c3b3f;
-}
-
-.split-pane-divider {
-    -fx-background-color: black;
-    -fx-padding: 10;
-}
-
-.split-pane {
-    -fx-padding: 0;
-    -fx-border-style: none;
-    -fx-background-radius: 10;
 }
 
 
 
-/* ================================================================= */
-/* Card Raiting Bar */
 
-.progress-bar {
-    -fx-background-insets: 0;
-    -fx-padding: 0;
-    -fx-border-radius: 0; /* Remove border radius */
-    -fx-border-color: black; /* Set border color to transparent */
-}
-
-.progress-bar .track {
-    -fx-background-color: rgba(73, 73, 73, 0.3); /* Set track background to transparent */
-}
-
-.progress-bar .bar {
-    -fx-background-insets: 0;
-    -fx-border-width: 0; /* Remove border radius */
-    -fx-border-color: black; /* Set border color to black */
-    -fx-background-color: green; /* Customize the progress bar color */
-    -fx-background-radius: 0 0 0 0; /* Remove border radius */
-}
 
 
 /* ================================================================= */
@@ -108,23 +72,4 @@
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
 }
-
-/* ================================================================= */
-/* Movie Header */
-
-.header-poster-border {
-    -fx-border-color: black;
-    -fx-border-width: 5;
-}
-
-.base-movie-header-pane {
-    -fx-border-color: black;
-    -fx-border-width: 0;
-}
-
-
-
-
-
-
 /* ================================================================= */

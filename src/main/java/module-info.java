@@ -10,6 +10,7 @@ module com.example.test_uijfx {
     requires javafx.swing;
     requires org.controlsfx.controls;
     requires junit;
+    requires javafx.web;
 
 
     exports com.example.MyWatchList.DataModels;

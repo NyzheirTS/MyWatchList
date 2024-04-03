@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="reviewHbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="265.0" style="-fx-border-color: black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.ReviewsController">
+   <children>
+      <VBox prefHeight="75.0" prefWidth="262.0" spacing="11.0">
+         <children>
+            <Label fx:id="authorLabel" prefHeight="19.0" prefWidth="186.0" text="Manuel São Bento">
+               <font>
+                  <Font name="Arimo Regular" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameLabel" prefHeight="17.0" prefWidth="138.0" text="msbreviews">
+               <font>
+                  <Font name="Arimo Regular" size="10.0" />
+               </font>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="6.0" top="9.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="75.0" prefWidth="142.0" spacing="4.0">
+         <children>
+            <Label text="Rating">
+               <font>
+                  <Font name="Arimo Regular" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="-6.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="ratingLabel" prefHeight="37.0" prefWidth="36.0" text="10">
+               <font>
+                  <Font name="Arimo Regular" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

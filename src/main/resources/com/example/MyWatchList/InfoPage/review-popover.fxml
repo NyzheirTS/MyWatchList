@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.ReviewPopOverController">
+   <children>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="48.0" prefWidth="597.0">
+         <children>
+            <Label fx:id="userNameLabel" prefHeight="25.0" prefWidth="344.0" text="UserName" underline="true" wrapText="true">
+               <font>
+                  <Font name="Arimo Regular" size="21.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="11.0" right="144.0" />
+               </HBox.margin>
+            </Label>
+            <VBox alignment="BOTTOM_RIGHT">
+               <children>
+                  <Label fx:id="createdAtLabel" contentDisplay="RIGHT" prefHeight="15.0" prefWidth="120.0" text="Created: 2024-03-01">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastUpdatedLabel" contentDisplay="RIGHT" prefHeight="15.0" prefWidth="120.0" text="Last Update: 2024-03-01">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <TextArea fx:id="contentArea" editable="false" prefHeight="208.0" prefWidth="575.0" stylesheets="@../StyleSheets/style.css" text="This is certainly a great looking film to see on a big screen with some really effective, almost industrially sounding, audio - but what happened to the story? It's wafer thin and really stretched out for 2¾ hours. We pick up with \&quot;Paul\&quot; (Timothée Chalamet) and his mother (Rebecca Ferguson) trying to convince the \&quot;Fremen\&quot; that they are worth the hassle. Fortunately, leader \&quot;Stilgar\&quot; (Javier Bardem) is convinced of the messianic state of the young refugee, whilst their own reverend mother is on her last legs which might give \&quot;Jessica\&quot; a chance to prove her own worth, and provide an opportunity to peddle some embellished mythology about her son's ascendant propheteering. All of this manoeuvring and politicking is having quite an impact on \&quot;Chani\&quot; (the under-used Zendaya) and on the relationship between her and the increasingly worshipped new Duke. Meantime, now fully reinvigorated and emerged from his bath of recuperative Guinness, the evil \&quot;Baron Harkonnen\&quot; (an almost Zeppelin-like Stellan Skarsgård) has recruited his lethal nephew \&quot;Feyd-Rautha\&quot; (Austin Butler) to get to grips with the rebellion on \&quot;Arrakis\&quot; that is bringing him into the gaze of an ill-satisfied emperor (Christopher Walken). Battle lines are drawn! Now whilst I did enjoy this, the rest of the film is a gloriously photographed but slowly paced hybrid of \&quot;Khartoum\&quot; (1966) and \&quot;Lawrence of Arabia\&quot; (1962) with a bit of the \&quot;Phantom Menace\&quot; (1999) thrown in for good measure. The acting is adequate but the characterisations are all too routinely sacrificed at the altar of the stunning visuals and from about an hour to go, I was convinced this this was but part two of three (or maybe even more). Walken and Charlotte Rampling feature all too sparingly to make much difference, indeed even Zendaya's warrior-like tendencies seem to have been neutered rather and I though that Chalamet just tried far too hard to imbue his character with a strength that he was far more successful with first time round. That said, it does work well enough as a classy and well produced sci-fi adventure with plenty of action and mysticism but I needed more meat on it's bones. I still get distinctly squeamish when I watch what they do with the water, let alone where they get it from!!" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="3.0" right="3.0" />
+         </VBox.margin>
+      </TextArea>
+   </children>
+</VBox>

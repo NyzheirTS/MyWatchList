@@ -3,6 +3,7 @@ package com.example.MyWatchList.Controllers.InfoPage;
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieHeaderController;
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieLeftPanelController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
+import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.*;
@@ -97,6 +98,76 @@ public class InfoPageFactory {
             return null;
         }
     }
+
+    public static VBox createMiddlePanel(MediaInfoPageModel jsonString){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/middle-panel.fxml"));
+            VBox middlePanel = loader.load();
+
+            MiddlePanelController controller = loader.getController();
+            controller.initMiddlePanel(jsonString);
+
+            middlePanel.getProperties().put("middlePanelController", controller);
+
+            return middlePanel;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static HBox createEmbedYoutube(MediaInfoPageModel jsonString){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/youtube-embed.fxml"));
+            HBox embedObject = loader.load();
+
+            YoutubeEmbedController controller = loader.getController();
+            controller.initEmbedController(jsonString);
+
+            embedObject.getProperties().put("embedController", controller);
+
+            return embedObject;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static HBox createReviews(String authorName, String userName, int rating){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/review.fxml"));
+            HBox reviewObject = loader.load();
+
+            ReviewsController controller = loader.getController();
+            controller.initReviews(authorName, userName, rating);
+
+            reviewObject.getProperties().put("reviewController", controller);
+
+            return reviewObject;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static VBox createPopOver(String content, String createdAt, String updatedAt, String userName){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/review-popover.fxml"));
+            VBox popOverObject = loader.load();
+
+            ReviewPopOverController controller = loader.getController();
+            controller.initPopOver(content, createdAt, updatedAt, userName);
+
+            popOverObject.getProperties().put("popOverController", controller);
+
+            return popOverObject;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 
 
 }

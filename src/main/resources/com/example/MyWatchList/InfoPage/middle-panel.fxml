@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="7.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.MiddlePanelController">
+   <children>
+      <Label text="Official Trailers" underline="true">
+         <font>
+            <Font name="Arimo Regular" size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="youtubeContainer" fitToHeight="true" fitToWidth="true">
+         <VBox.margin>
+            <Insets bottom="25.0" />
+         </VBox.margin>
+      </ScrollPane>
+      <Label text="Reviews" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="reviewsContainer" fitToHeight="true">
+         <VBox.margin>
+            <Insets bottom="3.0" />
+         </VBox.margin>
+      </ScrollPane>
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+</VBox>

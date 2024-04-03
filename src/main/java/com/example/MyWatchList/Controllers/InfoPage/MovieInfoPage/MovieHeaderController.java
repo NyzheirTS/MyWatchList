@@ -67,7 +67,7 @@ public class MovieHeaderController {
         Platform.runLater(() -> {
             taglineLabel.setText(String.format("\"%s\"",jsonString.getTagline()));
             titleLabel.setText(jsonString.getTitle());
-            genresLabel.setText(String.format("(%s,%s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
+            genresLabel.setText(String.format("(%s, %s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
             descriptionTextfield.setText(jsonString.getOverview());
         });
     }

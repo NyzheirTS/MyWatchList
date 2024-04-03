@@ -1,7 +1,9 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -44,4 +46,5 @@ public class CommonFactory {
             return null;
         }
     }
+
 }

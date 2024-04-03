@@ -2,21 +2,21 @@ package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageRequestEvent;
+import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListController;
-import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,13 +52,9 @@ public class MainController implements Initializable {
     @FXML
     private VBox pnItems;
 
-    private final BorderPane homepage = HomePageFactory.createHomepage();
-
 
     //Other Variables
     ApiConnection api = new ApiConnection();
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,12 +63,14 @@ public class MainController implements Initializable {
     }
 
     private void setMethods() {
-        mainBorderPane.addEventFilter(InfoPageRequestEvent.INFO_PAGE_REQUEST, event -> {
-            infoPageBorderPane.toFront();
-            infoPageBorderPane.setCenter(event.getBorderPane());
-            //VBox.setVgrow(event.getBorderPane(), Priority.ALWAYS);
+        mainBorderPane.addEventFilter(Event.ANY, event -> {
+            if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
+                infoPageBorderPane.getChildren().clear();
+                infoPageBorderPane.toFront();
+                infoPageBorderPane.setCenter(((EventRequest) event).getContentNode());
+            }
         });
-        pnlHome.getChildren().add(homepage);
+        pnlHome.getChildren().add(HomePageFactory.createHomepage());
         new WatchedListController(pnItems, addNodeButton);
     }
 
@@ -137,8 +135,8 @@ public class MainController implements Initializable {
     };
 
 
-    //TODO seems to be a problem in the secen where parts of the center are overlaping ontop of the menu section making it impossible to press some buttons only happens after clicking a posternode and bringing infopage to front
     private void menuAction(){
+        menuClose.run();
         menuCloseButton.setOnAction(event -> menuClose.run());
         menuOpenButton.setOnAction(event -> menuOpen.run());
     }
