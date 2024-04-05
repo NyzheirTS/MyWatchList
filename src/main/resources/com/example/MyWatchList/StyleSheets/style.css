@@ -2,59 +2,13 @@
 /* Showlist App Css */
 /* ---------------------------------------------------------------- */
 
-
-
-.button
-{
--fx-text-fill : #e7e5e5;
-}
-.button:hover{
--fx-background-color : #ff0000;
-}
-.button:pressed
-{
--fx-background-color : #ffffff;
-}
-
-
-/* ---------------------------------------------------------------- */
-/* ---------------------- ScrolePane Skin --------------------------*/
-
-
-.scroll-bar:horizontal, .scroll-bar:vertical{
-    -fx-background-color:transparent;
-}
-
-
-.text-area:readonly .scroll-pane:fitToWidth .scroll-bar:vertical .thumb {
-    -fx-background-size: 1;
-    -fx-background-color: rgb(185, 185, 185);
-    -fx-background-radius: 2;
-    
-
-
-    -fx-border-width: 2;
-    -fx-border-color: black;
-    -fx-border-radius: 9;
-
-}
-
-.text-area:readonly .scroll-pane:fitToWidth .scroll-bar:vertical {
-    -fx-border-width: 1;
-    -fx-background-size: 1;
-
+.panesbackgroundcolor {
+-fx-background-color: #051336;
 }
 
 
 
-
-
-
-/* ================================================================= */
-
-/* ================================================================= */
-/* vvvv Card Text Box css vvvv */
-
+/* used for making TextArea Transparent */
 .text-area {
     -fx-background-color: transparent;
     -fx-text-fill: black;
@@ -66,10 +20,22 @@
 
 .text-area .scroll-pane .viewport{
     -fx-background-color: transparent;
+    -fx-padding: 0;
 }
-
 
 .text-area .scroll-pane .content{
     -fx-background-color: transparent;
+
+    -fx-padding: 0 5;
 }
-/* ================================================================= */
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+    
+}
+
+/*Actor Portrait bottem text */
+.bottemText {
+    -fx-text-fill: rgb(154, 154, 154);
+}
+/* ----------------------------------------------------------------*/

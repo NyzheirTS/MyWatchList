@@ -11,9 +11,9 @@
 
 <BorderPane fx:id="homePageBase" prefHeight="1080.0" prefWidth="1665.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.HomePage.HomePageController">
    <center>
-      <StackPane>
+      <StackPane style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
-            <VBox fx:id="topRatedPane" alignment="CENTER" style="-fx-background-color: white;">
+            <VBox fx:id="topRatedPane" alignment="CENTER" styleClass="vbox">
                <children>
                   <Label prefHeight="42.0" prefWidth="340.0" text="Top Rated Movies" underline="true">
                      <font>
@@ -38,7 +38,7 @@
                   <HBox fx:id="topRatedTvContainer" alignment="CENTER" prefHeight="341.0" spacing="10.0" />
                </children>
             </VBox>
-            <VBox fx:id="upcomingPane" alignment="CENTER" style="-fx-background-color: white;">
+            <VBox fx:id="upcomingPane" alignment="CENTER" styleClass="vbox">
                <children>
                   <Label prefHeight="42.0" prefWidth="340.0" text="Upcoming Moives" underline="true">
                      <font>
@@ -63,7 +63,7 @@
                   <HBox fx:id="upcomingTvContainer" alignment="CENTER" prefHeight="341.0" spacing="10.0" />
                </children>
             </VBox>
-            <VBox fx:id="trendingPane" alignment="CENTER" style="-fx-background-color: white;">
+            <VBox fx:id="trendingPane" alignment="CENTER" styleClass="vbox">
                <children>
                   <Label prefHeight="42.0" prefWidth="340.0" text="Trending Movies this Week" underline="true">
                      <font>
@@ -89,11 +89,11 @@
       </StackPane>
    </center>
    <top>
-      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 2;" styleClass="hbox">
          <children>
-            <Button fx:id="trendingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Trending" />
-            <Button fx:id="upcomingPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Upcoming" />
-            <Button fx:id="topRatedPaneButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="TopRated" />
+            <Button fx:id="trendingPaneButton" mnemonicParsing="false" prefHeight="34.0" text="Trending" />
+            <Button fx:id="upcomingPaneButton" mnemonicParsing="false" prefHeight="34.0" text="Upcoming" />
+            <Button fx:id="topRatedPaneButton" mnemonicParsing="false" prefHeight="34.0" text="TopRated" />
          </children>
       </HBox>
    </top>

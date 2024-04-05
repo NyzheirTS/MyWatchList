@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.RightPanelController">
+<VBox alignment="TOP_CENTER" styleClass="vbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.RightPanelController">
    <children>
       <Label fx:id="rightLabel" text="Recommended" underline="true">
          <font>
@@ -17,10 +16,10 @@
             <Insets bottom="10.0" />
          </VBox.margin>
       </Label>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" styleClass="hbox" VBox.vgrow="ALWAYS">
          <children>
-            <VBox fx:id="vbox1" spacing="5.0" />
-            <VBox fx:id="vbox2" spacing="5.0" />
+            <VBox fx:id="vbox1" spacing="5.0" styleClass="vbox" />
+            <VBox fx:id="vbox2" spacing="5.0" styleClass="vbox" />
          </children>
          <padding>
             <Insets left="3.0" right="3.0" />

@@ -3,6 +3,7 @@ package com.example.MyWatchList.AppEntry;
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
+import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
@@ -28,7 +30,7 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane pnlWatched;
     @FXML
-    private AnchorPane pnlSettings;
+    private ScrollPane pnlSettings;
     @FXML
     private Button btnOverview;
     @FXML
@@ -53,6 +55,8 @@ public class MainController implements Initializable {
     private VBox pnItems;
 
 
+    //TODO: work on style look for themes and such
+
     //Other Variables
     ApiConnection api = new ApiConnection();
 
@@ -70,6 +74,7 @@ public class MainController implements Initializable {
                 infoPageBorderPane.setCenter(((EventRequest) event).getContentNode());
             }
         });
+        pnlSettings.setContent(SettingsPageFactory.createSettingsPage());
         pnlHome.getChildren().add(HomePageFactory.createHomepage());
         new WatchedListController(pnItems, addNodeButton);
     }

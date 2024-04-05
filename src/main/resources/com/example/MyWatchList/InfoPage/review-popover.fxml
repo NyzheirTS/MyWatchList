@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.ReviewPopOverController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="597.0" styleClass="vbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.ReviewPopOverController">
    <children>
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="48.0" prefWidth="597.0">
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="48.0" prefWidth="597.0" styleClass="hbox">
          <children>
             <Label fx:id="userNameLabel" prefHeight="25.0" prefWidth="344.0" text="UserName" underline="true" wrapText="true">
                <font>
@@ -19,7 +19,7 @@
                   <Insets bottom="11.0" right="144.0" />
                </HBox.margin>
             </Label>
-            <VBox alignment="BOTTOM_RIGHT">
+            <VBox alignment="BOTTOM_RIGHT" prefHeight="48.0" prefWidth="150.0" styleClass="vbox">
                <children>
                   <Label fx:id="createdAtLabel" contentDisplay="RIGHT" prefHeight="15.0" prefWidth="120.0" text="Created: 2024-03-01">
                      <font>
