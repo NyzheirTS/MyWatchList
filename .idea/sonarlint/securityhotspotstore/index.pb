@@ -66,8 +66,6 @@ Rsrc/main/java/com/example/MyWatchList/Controllers/HomePage/CarouselController.j
 Rsrc/main/java/com/example/MyWatchList/Controllers/HomePage/HomePageController.java,3\d\3d20a70004df44ffaab24780af0927e132c2b624
 y
 Isrc/main/java/com/example/MyWatchList/TestFolder/newInfoPageJonsTests.txt,c\2\c25608d0604b0b7e4461889ca4e4fd45880694fd
-ƒ
-Ssrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchedShowsNode.java,2\f\2f996618fdf4cc549526aa0ca58f35466f18806f
 Š
 Zsrc/main/java/com/example/MyWatchList/Controllers/SettingsPage/SettingsPageController.java,4\7\474ca23fa9ac73255023b3bd1c05f01e2db57da0
 i
@@ -150,9 +148,11 @@ E
 Usrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchedListFactory.java,3\f\3f3af93a2ac8a9553f306bcbd4b8e791a11ff1f5
 Š
 Zsrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchListNodeController.java,9\e\9e844e088012b9b0917b466ce58264c75a2a2410
-u
-Esrc/main/java/com/example/MyWatchList/AppEntry/NavigationManager.java,0\d\0d8f0527732e57cffc0536c130f9927783f3a07c
-v
-Fsrc/main/java/com/example/MyWatchList/AppEntry/NodeHistoryManager.java,b\7\b7010ab519529185ed62964df62861026d8d3a2c
 v
 Fsrc/main/java/com/example/MyWatchList/AppEntry/PageHistoryManager.java,c\f\cf6dd6f7d5c1ade7978feedfa4dbb9574d6b49cb
+t
+Dsrc/main/java/com/example/MyWatchList/AppEntry/oldPageHistoryManager,7\9\79b453abb1ebeb2476cc1ce067621d0d9d6f211f
+n
+>src/main/java/com/example/MyWatchList/AppConfig/Cleanable.java,8\d\8d107ed14bfe87aa48d9e24c68aa0007734f43d7
+o
+?src/main/java/com/example/MyWatchList/AppConfig/AppCleaner.java,0\9\097ab7c7cdca3b6a4700f9463117e67568718449

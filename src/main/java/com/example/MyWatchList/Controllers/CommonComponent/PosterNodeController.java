@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.animation.ScaleTransition;
@@ -18,7 +19,7 @@ import javafx.scene.transform.Scale;
 import javafx.util.Duration;
 
 
-public class PosterNodeController {
+public class PosterNodeController implements AppCleaner {
     @FXML
     private AnchorPane posterPane;
     @FXML
@@ -164,6 +165,13 @@ public class PosterNodeController {
        tip.setTextAlignment(TextAlignment.CENTER);
        tip.setAutoHide(true);
        Tooltip.install(posterPane, tip);
+    }
+    @Override
+    public void cleanup(){
+        unloadImg();
+        posterPane.setOnMouseClicked(null);
+        posterPane.setOnMouseEntered(null);
+        posterPane.setOnMouseExited(null);
     }
 
 }

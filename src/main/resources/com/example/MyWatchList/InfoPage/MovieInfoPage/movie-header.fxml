@@ -5,7 +5,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -22,19 +21,12 @@
          <HBox.margin>
             <Insets right="-1920.0" />
          </HBox.margin>
-         <image>
-            <Image url="@../../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/k6EOrckWFuz7I4z4wiRwz8zsj4H.jpg" />
-         </image>
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
             <AnchorPane prefHeight="360.0" prefWidth="337.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
                <children>
-                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w300.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <VBox.margin>
                   <Insets left="-100.0" right="14.0" />
@@ -56,7 +48,7 @@
             <Insets />
          </HBox.margin>
          <children>
-            <Label fx:id="taglineLabel" stylesheets="@../../StyleSheets/style.css" text="&quot;Long live the fighters.&quot;" textFill="#8a8a8a">
+            <Label fx:id="taglineLabel" stylesheets="@../../StyleSheets/style.css" textFill="#8a8a8a">
                <font>
                   <Font name="Arimo Italic" size="15.0" />
                </font>
@@ -67,7 +59,7 @@
                   <Insets bottom="5.0" />
                </padding>
             </Label>
-            <Label fx:id="titleLabel" text="Dune: Part Two">
+            <Label fx:id="titleLabel">
                <font>
                   <Font name="Arimo Regular" size="40.0" />
                </font>
@@ -75,7 +67,7 @@
                   <Insets bottom="9.0" />
                </padding>
             </Label>
-            <Label fx:id="genresLabel" text="Scinece Fiction, Advanture">
+            <Label fx:id="genresLabel">
                <font>
                   <Font name="Arimo Italic" size="20.0" />
                </font>
@@ -83,7 +75,7 @@
                   <Insets top="-9.0" />
                </padding>
             </Label>
-            <Label text="Synopsis:">
+            <Label>
                <font>
                   <Font name="Arimo Regular" size="17.0" />
                </font>
@@ -91,7 +83,7 @@
                   <Insets top="49.0" />
                </VBox.margin>
             </Label>
-            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../../StyleSheets/style.css" text="Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee." wrapText="true">
+            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../../StyleSheets/style.css" wrapText="true">
                <font>
                   <Font name="Arimo Regular" size="16.0" />
                </font>
@@ -110,22 +102,19 @@
                <VBox.margin>
                   <Insets bottom="24.0" left="268.0" right="2.0" />
                </VBox.margin>
-               <image>
-                  <Image url="@../../../../../../../../../../Downloads/qr-code%20(1).png" />
-               </image>
             </ImageView>
-            <Label fx:id="percentRatingLabel" text="84%">
+            <Label fx:id="percentRatingLabel">
                <font>
                   <Font name="Zen Dots Regular" size="48.0" />
                </font>
             </Label>
-            <Rating fx:id="showRating" partialRating="true" prefHeight="32.0" prefWidth="244.0" rating="4.0" styleClass="rating-bar">
+            <Rating fx:id="showRating" partialRating="true" prefHeight="32.0" prefWidth="244.0" rating="0.0" styleClass="rating-bar">
                <stylesheets>
                   <URL value="@../../StyleSheets/style.css" />
                   <URL value="@../../StyleSheets/customRatingsFX/newratingstyle.css" />
                </stylesheets>
             </Rating>
-            <Label fx:id="votesLabel" text="Votes: 1484">
+            <Label fx:id="votesLabel">
                <font>
                   <Font name="Arimo Regular" size="13.0" />
                </font>

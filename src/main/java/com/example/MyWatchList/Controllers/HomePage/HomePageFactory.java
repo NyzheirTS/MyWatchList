@@ -15,7 +15,7 @@ public class HomePageFactory {
 
             CarouselController controller = loader.getController();
             controller.initCarousel();
-            carousel.getProperties().put("carouselController", controller);
+            carousel.getProperties().put("controller", controller);
 
             return carousel;
         } catch (IOException e){

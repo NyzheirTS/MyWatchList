@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.QrCodeGen;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
@@ -12,7 +13,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Rating;
 
-public class MovieHeaderController {
+import java.lang.ref.Cleaner;
+
+public class MovieHeaderController implements AppCleaner {
 
     @FXML private Label votesLabel;
     @FXML private Rating showRating;
@@ -26,8 +29,6 @@ public class MovieHeaderController {
     @FXML private ImageView backgroundImage;
 
     private MovieInfoPageModel jsonString;
-
-    //TODO: Continue to work on this Page Look At the ControlsFx Rating Source Code to change look of it.
 
     public void initMovieHeader(MovieInfoPageModel jsonString){
         this.jsonString = jsonString;
@@ -91,5 +92,15 @@ public class MovieHeaderController {
         return (float) num/2;
     }
 
+    public void unloadImg(){
+        backgroundImage.setImage(null);
+        qrCodeImageView.setImage(null);
+        staticPosterImage.setImage(null);
+    }
 
+
+    @Override
+    public void cleanup() {
+        unloadImg();
+    }
 }

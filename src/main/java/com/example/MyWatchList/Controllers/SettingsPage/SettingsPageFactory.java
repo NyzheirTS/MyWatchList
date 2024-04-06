@@ -17,7 +17,7 @@ public class SettingsPageFactory {
             SettingsPageController controller = loader.getController();
             controller.initSettingsPage();
 
-            settingsPage.getProperties().put("SettingsController", controller);
+            settingsPage.getProperties().put("controller", controller);
 
             return settingsPage;
         } catch (IOException e){

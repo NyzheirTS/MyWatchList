@@ -1,17 +1,19 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelFactory;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
 
-public class InfoPageController {
+public class InfoPageController implements AppCleaner {
 
     @FXML private ScrollPane rightPanel;
     @FXML private ScrollPane middleContainer;
@@ -21,6 +23,7 @@ public class InfoPageController {
 
     private int mediaID;
     private String mediaType;
+
 
 
     public void initInfoPage(int MediaID, String MediaType) throws IOException {
@@ -59,6 +62,27 @@ public class InfoPageController {
     }
 
 
+    @Override
+    public void cleanup() {
+        cleanupContent(rightPanel.getContent());
+        rightPanel.setContent(null);
+        cleanupContent(middleContainer.getContent());
+        middleContainer.setContent(null);
+        cleanupContent(leftPanelContainer.getContent());
+        leftPanelContainer.setContent(null);
+        cleanupContent(footerContainer.getContent());
+        footerContainer.setContent(null);
+        cleanupContent(InfopageHome.getTop());
+        InfopageHome.setTop(null);
+    }
 
+    private void cleanupContent(Node node){
+        if (node != null){
+            Object controller = node.getProperties().get("controller");
+            if (controller instanceof AppCleaner){
+                ((AppCleaner)controller).cleanup();
+            }
+        }
+    }
 
 }

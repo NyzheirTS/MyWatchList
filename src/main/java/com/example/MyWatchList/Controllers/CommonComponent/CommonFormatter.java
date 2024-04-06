@@ -1,6 +1,8 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
 public class CommonFormatter {
+    private CommonFormatter(){
+    }
 
     public static String formatMoney(int money) {
         return String.format("$ %,d USD", money);

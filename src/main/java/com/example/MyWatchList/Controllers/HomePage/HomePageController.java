@@ -194,6 +194,6 @@ public class HomePageController {
     }
 
     private CarouselController getControllerFromCarousel(HBox node){
-        return (CarouselController) node.getProperties().get("carouselController");
+        return (CarouselController) node.getProperties().get("controller");
     }
 }

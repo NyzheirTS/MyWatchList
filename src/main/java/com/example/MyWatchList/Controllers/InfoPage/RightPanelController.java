@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.PosterNodeController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
@@ -10,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class RightPanelController {
+public class RightPanelController implements AppCleaner {
 
     @FXML private Label rightLabel;
     @FXML private VBox vbox1;
@@ -81,14 +82,28 @@ public class RightPanelController {
         }
         return null;
     }
-    private PosterNodeController getControllerFromNode(AnchorPane node){
-        return (PosterNodeController) node.getProperties().get("posterController");
+
+    @Override
+    public void cleanup() {
+        vbox1.getChildren().forEach(node -> {
+            PosterNodeController controller = getControllerFromNode((AnchorPane) node);
+            if (controller != null){
+                controller.cleanup();
+            }
+        });
+        vbox2.getChildren().forEach(node -> {
+            PosterNodeController controller = getControllerFromNode((AnchorPane) node);
+            if (controller != null){
+                controller.cleanup();
+            }
+        });
+        vbox1.getChildren().clear();
+        vbox2.getChildren().clear();
     }
 
-
-
-
-
+    private PosterNodeController getControllerFromNode(AnchorPane node){
+        return (PosterNodeController) node.getProperties().get("controller");
+    }
 
 }
 

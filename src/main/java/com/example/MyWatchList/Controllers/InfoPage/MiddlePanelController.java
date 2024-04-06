@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.HomePage.CarouselController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
@@ -7,11 +8,12 @@ import com.example.MyWatchList.DataModels.CommonModels.VideosModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class MiddlePanelController {
+public class MiddlePanelController implements AppCleaner {
 
     @FXML private ScrollPane youtubeContainer;
     @FXML private ScrollPane reviewsContainer;
@@ -70,9 +72,43 @@ public class MiddlePanelController {
     }
 
     private ReviewsController getControllerFromCarousel(HBox node) {
-        return (ReviewsController) node.getProperties().get("reviewController");
+        return (ReviewsController) node.getProperties().get("controller");
     }
 
 
+    @Override
+    public void cleanup() {
+        cleanAndClear(reviewHBox);
+        cleanAndClearIMGVEW(thumbnailHbox);
+        reviewsContainer.setContent(null);
+        youtubeContainer.setContent(null);
+    }
+
+    private void cleanAndClear(HBox hBox){
+        if (hBox != null){
+            for (Node child : hBox.getChildren()) {
+                if (child instanceof HBox){
+                    Object controller = child.getProperties().get("controller");
+                    if (controller instanceof AppCleaner){
+                        ((AppCleaner)controller).cleanup();
+                    }
+                }
+            }
+        }
+        hBox.getChildren().clear();
+    }
+    private void cleanAndClearIMGVEW(HBox hBox){
+        if (hBox != null){
+            for (Node child : hBox.getChildren()) {
+                if (child instanceof ImageView){
+                    Object controller = child.getProperties().get("controller");
+                    if (controller instanceof AppCleaner){
+                        ((AppCleaner)controller).cleanup();
+                    }
+                }
+            }
+        }
+        hBox.getChildren().clear();
+    }
 
 }

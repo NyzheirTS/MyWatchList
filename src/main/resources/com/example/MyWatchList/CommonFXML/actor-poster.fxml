@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,9 +13,6 @@
       <AnchorPane prefHeight="100.0" style="-fx-border-width: 3; -fx-border-color: black;">
          <children>
             <ImageView fx:id="actorImageView" fitHeight="119.0" fitWidth="136.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/IShnFg6ijWhpbu29dFBd9PtqQg.jpg" />
-               </image>
                <viewport>
                   <Rectangle2D height="168.0" minY="48.0" width="185.0" />
                </viewport>
@@ -26,7 +22,7 @@
             <Insets left="-3.0" right="-3.0" top="-3.0" />
          </VBox.margin>
       </AnchorPane>
-      <TextArea fx:id="actorNameArea" editable="false" prefHeight="43.0" prefWidth="0.0" stylesheets="@../StyleSheets/style.css" text="fadfasdfasdfasdfasdfasdfasdfasdf" wrapText="true" VBox.vgrow="ALWAYS">
+      <TextArea fx:id="actorNameArea" editable="false" prefHeight="43.0" prefWidth="0.0" stylesheets="@../StyleSheets/style.css" wrapText="true" VBox.vgrow="ALWAYS">
          <font>
             <Font name="Arimo Regular" size="16.0" />
          </font>
@@ -37,7 +33,7 @@
             <Insets top="2.0" />
          </padding>
       </TextArea>
-      <TextArea fx:id="actorRoleTextArea" editable="false" prefHeight="44.0" prefWidth="136.0" styleClass="bottemText" stylesheets="@../StyleSheets/style.css" text="asdfasdfasdfasdfasdfasdfasdfasdf" wrapText="true">
+      <TextArea fx:id="actorRoleTextArea" editable="false" prefHeight="44.0" prefWidth="136.0" styleClass="bottemText" stylesheets="@../StyleSheets/style.css" wrapText="true">
          <font>
             <Font name="Arimo Italic" size="14.0" />
          </font>

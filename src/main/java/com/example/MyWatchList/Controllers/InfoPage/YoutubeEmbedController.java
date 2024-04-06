@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.VideosModel;
 import com.example.MyWatchList.DataModels.UrlBuilder;
@@ -13,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.web.WebView;
 
-public class YoutubeEmbedController {
+public class YoutubeEmbedController implements AppCleaner {
 
     private static HostServices hostServices;
     @FXML private ImageView youtubethumbnail;
@@ -44,5 +45,13 @@ public class YoutubeEmbedController {
 
     public static void setHostServices(HostServices hostServices){
         YoutubeEmbedController.hostServices = hostServices;
+    }
+
+
+    @Override
+    public void cleanup() {
+        youtubethumbnail.setImage(null);
+        youtubethumbnail.setOnMouseClicked(null);
+        youtubethumbnail.setCursor(null);
     }
 }

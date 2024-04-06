@@ -12,7 +12,7 @@
             <Font name="Arimo Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="runtimeLabel" prefHeight="22.0" prefWidth="283.0" text="3h 47m">
+      <Label fx:id="runtimeLabel" prefHeight="22.0" prefWidth="283.0">
          <font>
             <Font name="Arimo Regular" size="20.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font name="Arimo Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="collectionLabel" prefHeight="22.0" prefWidth="283.0" text="Dune Collection">
+      <Label fx:id="collectionLabel" prefHeight="22.0" prefWidth="283.0">
          <font>
             <Font name="Arimo Regular" size="20.0" />
          </font>
@@ -58,7 +58,7 @@
             <Font name="Arimo Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="budgetLabel" prefHeight="22.0" prefWidth="283.0" text="budget here">
+      <Label fx:id="budgetLabel" prefHeight="22.0" prefWidth="283.0">
          <font>
             <Font name="Arimo Regular" size="20.0" />
          </font>
@@ -71,7 +71,7 @@
             <Font name="Arimo Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="revenueLabel" prefHeight="22.0" prefWidth="283.0" text="revenue here">
+      <Label fx:id="revenueLabel" prefHeight="22.0" prefWidth="283.0">
          <font>
             <Font name="Arimo Regular" size="20.0" />
          </font>
@@ -84,7 +84,7 @@
             <Font name="Arimo Regular" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="releasedateLabel" prefHeight="22.0" prefWidth="283.0" text="release date here">
+      <Label fx:id="releasedateLabel" prefHeight="22.0" prefWidth="283.0">
          <font>
             <Font name="Arimo Regular" size="20.0" />
          </font>

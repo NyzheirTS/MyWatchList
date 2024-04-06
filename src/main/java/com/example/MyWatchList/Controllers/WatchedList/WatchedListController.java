@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.WatchedList;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -31,4 +32,5 @@ public class WatchedListController {
            listHome.getChildren().addAll(node);
         }
     }
+
 }

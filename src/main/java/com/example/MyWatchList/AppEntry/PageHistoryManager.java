@@ -1,5 +1,6 @@
 package com.example.MyWatchList.AppEntry;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -10,8 +11,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class PageHistoryManager {
-    private final Deque<WeakReference<Node>> backHistory = new ArrayDeque<>();
-    private final Deque<WeakReference<Node>> forwardHistory = new ArrayDeque<>();
+    private final Deque<Node> backHistory = new ArrayDeque<>();
+    private final Deque<Node> forwardHistory = new ArrayDeque<>();
     private final BorderPane mainPane;
     private final Button backButton;
     private final Button forwardButton;
@@ -27,21 +28,32 @@ public class PageHistoryManager {
     public void navigateTo(Node page) {
         Node lastPage = mainPane.getCenter();
         if (lastPage != null && lastPage != page) {
-            backHistory.push(new WeakReference<>(lastPage));
+            backHistory.push(lastPage);
         }
-        forwardHistory.clear();
+        clearAndClean();
+        ///Runtime.getRuntime().gc(); // this works like a charm but nono we better than that fix the mf code bum !!
         setCenterPage(page);
         System.out.println("Back History: " + backHistory);
         System.out.println("Forward History: " + forwardHistory);
     }
 
+    public void clearAndClean(){
+        for (Node node : forwardHistory) {
+            Object controller = node.getProperties().get("controller");
+            if (controller instanceof  AppCleaner){
+                ((AppCleaner) controller).cleanup();
+                System.out.println("Clean");
+            }
+        }
+        forwardHistory.clear();
+    }
+
     public void goBack() {
         if (!backHistory.isEmpty()) {
-            WeakReference<Node> previousPageRef = backHistory.pop();
-            Node previousPage = previousPageRef.get();
+            Node previousPage = backHistory.pop();
             if (previousPage != null) {
                 if (mainPane.getCenter() != null) {
-                    forwardHistory.push(new WeakReference<>(mainPane.getCenter()));
+                    forwardHistory.push(mainPane.getCenter());
                 }
                 setCenterPage(previousPage);
             }
@@ -51,11 +63,10 @@ public class PageHistoryManager {
 
     public void goForward() {
         if (!forwardHistory.isEmpty()) {
-            WeakReference<Node> nextPageRef = forwardHistory.pop();
-            Node nextPage = nextPageRef.get();
+            Node nextPage = forwardHistory.pop();
             if (nextPage != null) {
                 if (mainPane.getCenter() != null) {
-                    backHistory.push(new WeakReference<>(mainPane.getCenter()));
+                    backHistory.push(mainPane.getCenter());
                 }
                 setCenterPage(nextPage);
             }
@@ -75,8 +86,8 @@ public class PageHistoryManager {
         forwardButton.setDisable(forwardHistory.isEmpty());
     }
     private void logHistory() {
-        System.out.println("Back History: " + backHistory.size());
-        System.out.println("Forward History: " + forwardHistory.size());
+        System.out.println("Back History: " + backHistory);
+        System.out.println("Forward History: " + forwardHistory);
     }
 
 }

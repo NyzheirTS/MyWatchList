@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFormatter;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.ProductionCompaniesModel;
@@ -10,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class MovieLeftPanelController {
+public class MovieLeftPanelController implements AppCleaner {
     @FXML
     private VBox innerParentVbox;
     @FXML
@@ -68,5 +69,9 @@ public class MovieLeftPanelController {
     }
 
 
-
+    @Override
+    public void cleanup() {
+        productionCompanieVBox.getChildren().clear();
+        productionCountriesVBox.getChildren().clear();
+    }
 }

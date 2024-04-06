@@ -23,7 +23,7 @@ public class InfoPageFactory {
             InfoPageController controller = loader.getController();
             controller.initInfoPage(MediaID, MediaType);
 
-            infoPage.getProperties().put("infoPageController", controller);
+            infoPage.getProperties().put("controller", controller);
 
 
             return infoPage;
@@ -41,7 +41,7 @@ public class InfoPageFactory {
             MovieHeaderController controller = loader.getController();
             controller.initMovieHeader(jsonString);
 
-            movieHeader.getProperties().put("movieHeaderController", controller);
+            movieHeader.getProperties().put("controller", controller);
 
             return movieHeader;
         } catch (IOException e){
@@ -58,7 +58,7 @@ public class InfoPageFactory {
             MovieLeftPanelController controller = loader.getController();
             controller.initLeftPanel(jsonString);
 
-            movieLeftPanel.getProperties().put("movieLeftPanelController", controller);
+            movieLeftPanel.getProperties().put("controller", controller);
 
             return movieLeftPanel;
         } catch (IOException e){
@@ -75,7 +75,7 @@ public class InfoPageFactory {
             FooterPanelController controller = loader.getController();
             controller.initFooter(jsonString);
 
-            footer.getProperties().put("footerController", controller);
+            footer.getProperties().put("controller", controller);
 
             return footer;
         } catch (IOException e){
@@ -92,7 +92,7 @@ public class InfoPageFactory {
             RightPanelController controller = loader.getController();
             controller.initRightPanel(jsonString, MediaType);
 
-            rightPanel.getProperties().put("rightPanelController", controller);
+            rightPanel.getProperties().put("controller", controller);
 
             return  rightPanel;
         } catch (IOException e){
@@ -109,7 +109,7 @@ public class InfoPageFactory {
             MiddlePanelController controller = loader.getController();
             controller.initMiddlePanel(jsonString);
 
-            middlePanel.getProperties().put("middlePanelController", controller);
+            middlePanel.getProperties().put("controller", controller);
 
             return middlePanel;
         } catch ( IOException e){
@@ -126,7 +126,7 @@ public class InfoPageFactory {
             YoutubeEmbedController controller = loader.getController();
             controller.initEmbedController(key);
 
-            embedObject.getProperties().put("embedController", controller);
+            embedObject.getProperties().put("controller", controller);
 
             return embedObject;
         } catch ( IOException e){
@@ -143,7 +143,7 @@ public class InfoPageFactory {
             ReviewsController controller = loader.getController();
             controller.initReviews(authorName, userName, rating);
 
-            reviewObject.getProperties().put("reviewController", controller);
+            reviewObject.getProperties().put("controller", controller);
 
             return reviewObject;
         } catch ( IOException e){
@@ -160,7 +160,7 @@ public class InfoPageFactory {
             ReviewPopOverController controller = loader.getController();
             controller.initPopOver(content, createdAt, updatedAt, userName);
 
-            popOverObject.getProperties().put("popOverController", controller);
+            popOverObject.getProperties().put("controller", controller);
 
             return popOverObject;
         } catch ( IOException e){

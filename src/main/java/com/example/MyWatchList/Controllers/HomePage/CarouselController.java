@@ -100,7 +100,7 @@ public class CarouselController {
     }
 
     private PosterNodeController getControllerFromNode(AnchorPane node){
-        return (PosterNodeController) node.getProperties().get("posterController");
+        return (PosterNodeController) node.getProperties().get("controller");
     }
 
     public void clearCarousel(){posterContainer.getChildren().clear();}

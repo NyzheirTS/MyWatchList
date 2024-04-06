@@ -9,6 +9,8 @@ import java.util.Objects;
 
 
 public class QrCodeGen {
+    private QrCodeGen(){
+    }
 
     public static Image genQrCode(String text) {
         QrCode qrCode = QrCode.encodeText(text, QrCode.Ecc.LOW);

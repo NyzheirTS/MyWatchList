@@ -40,6 +40,7 @@ public class MainController implements Initializable {
 
     //TODO: work on style look for themes and such
     //TODO: work on optimization for info-page and maybe lazy load them in history most important to unload images while not seen
+    //TODO: fuck the infopage mem leak there dont know what to do kms
 
 
 

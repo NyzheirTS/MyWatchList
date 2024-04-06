@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="posterPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="169.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.PosterNodeController">
    <children>
-      <ImageView fx:id="posterImageView" fitHeight="258.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w185.jpg" />
-         </image></ImageView>
+      <ImageView fx:id="posterImageView" fitHeight="258.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

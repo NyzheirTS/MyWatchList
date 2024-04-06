@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
@@ -10,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 
-public class ReviewsController {
+public class ReviewsController implements AppCleaner {
     @FXML private HBox reviewHbox;
     @FXML private Label authorLabel;
     @FXML private Label usernameLabel;
@@ -51,5 +52,10 @@ public class ReviewsController {
                  pop.show(reviewHbox, targetX, targetY);
              }
          });
+    }
+
+    @Override
+    public void cleanup() {
+        reviewHbox.getChildren().clear();
     }
 }
