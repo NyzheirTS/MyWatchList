@@ -22,8 +22,6 @@ public class InfoPageController {
     private int mediaID;
     private String mediaType;
 
-    //TODO: Work on middle panel and reviews object
-
 
     public void initInfoPage(int MediaID, String MediaType) throws IOException {
         this.mediaType = MediaType;

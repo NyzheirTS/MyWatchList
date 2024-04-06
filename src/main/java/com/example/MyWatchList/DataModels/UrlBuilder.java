@@ -10,7 +10,8 @@ public class UrlBuilder {
     private static final String BASE_LOGO_URL = "https://image.tmdb.org/t/p/w154";
     private static final String BASE_PROFILE_URL = "https://image.tmdb.org/t/p/w185";
     private static final String BASE_TMDB_WATCH_PAGE = "https://www.themoviedb.org/movie/%d/watch";
-    private static final String BASE_YOUTUBE_EMBED_LINK = "https://www.youtube.com/embed/%s?controls=0&widget_referrer";
+    private static final String BASE_YOUTUBE_THUMBNAIL = "https://img.youtube.com/vi/%s/0.jpg";
+    private static final String BASE_YOUTUBE_WATCH_LINK = "https://www.youtube.com/watch?v=%s";
 
     @NotNull
     @Contract(pure = true)
@@ -31,5 +32,8 @@ public class UrlBuilder {
     public static String getWatchLink (int pageID){return String.format(BASE_TMDB_WATCH_PAGE,pageID);}
     @NotNull
     @Contract(pure = true)
-    public static String getYoutubeLink(String ytKey){return String.format(BASE_YOUTUBE_EMBED_LINK, ytKey);}
+    public static String getYoutubeThumbnail(String ytKey){return String.format(BASE_YOUTUBE_THUMBNAIL, ytKey);}
+    @NotNull
+    @Contract(pure = true)
+    public static String getBaseYoutubeWatchLink(String ytKey){return String.format(BASE_YOUTUBE_WATCH_LINK, ytKey);}
 }

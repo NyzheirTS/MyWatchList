@@ -2,176 +2,18 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="mainBorderPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.AppEntry.MainController">
-   <left>
-      <AnchorPane fx:id="menuPnl" maxWidth="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
-         <children>
-                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="241.0" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Home%20Page.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-                </Button>
-                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutY="122.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="241.0" text="Watched Shows" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0">
-                    <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Gallery.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-                </Button>
-                <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutY="194.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="241.0" text="Want To Watch" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0">
-                    <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Add%20Image.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-                </Button>
-                <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutY="266.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="241.0" text="Recommendations" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0">
-                    <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Infinity.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-                </Button>
-                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-1.0" layoutY="990.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="50.0" prefWidth="241.0" text="Settings" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="6.0">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Four%20Squares.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                    <padding>
-                        <Insets left="25.0" />
-                    </padding>
-                </Button>
-                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="-1.0" layoutY="1040.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="241.0" text="Sign Out" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="6.0">
-                    <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/Logout.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-               <padding>
-                  <Insets left="25.0" />
-               </padding>
-                </Button>
-            <Button fx:id="menuCloseButton" contentDisplay="CENTER" layoutX="220.0" layoutY="1.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="25.0">
-               <graphic>
-                  <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                     <image>
-                        <Image url="@../images/Double%20Left.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
-               </padding>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </AnchorPane>
-   </left>
    <center>
         <StackPane BorderPane.alignment="CENTER">
             <children>
             <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
-            <ScrollPane fx:id="pnlSettings" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" />
-            <AnchorPane fx:id="pnlWatched" styleClass="panesbackgroundcolor" stylesheets="@../StyleSheets/style.css">
-               <children>
-                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" layoutX="21.0" layoutY="157.0" prefHeight="925.0" prefWidth="1390.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="157.0">
-                            <content>
-                        <AnchorPane prefWidth="1392.0">
-                           <children>
-                              <VBox fx:id="pnItems" layoutX="-254.0" prefHeight="923.0" prefWidth="1388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
-                            </content>
-                        </ScrollPane>
-                        <HBox alignment="CENTER_LEFT" layoutX="23.0" layoutY="103.0" prefHeight="42.0" prefWidth="1388.0" snapToPixel="false" spacing="80.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="18.0">
-                            <children>
-                                <Label prefHeight="17.0" prefWidth="80.0" text="Name" textFill="#e7e5e5">
-                                    <HBox.margin>
-                                        <Insets left="50.0" />
-                                    </HBox.margin>
-                                </Label>
-                                <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="65.0" text="Type" textFill="#e7e5e5" textOverrun="CLIP">
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </Label>
-                                <Label prefHeight="17.0" prefWidth="69.0" text="Score" textFill="#e7e5e5">
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </Label>
-                                <Label prefHeight="17.0" prefWidth="116.0" text="Episodes" textFill="#e7e5e5">
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </Label>
-                                <Label prefHeight="17.0" prefWidth="63.0" text="Genre" textFill="#e7e5e5">
-                                    <HBox.margin>
-                                        <Insets />
-                                    </HBox.margin>
-                                </Label>
-                            </children>
-                        </HBox>
-                        <TextField layoutX="632.0" layoutY="55.0" prefHeight="27.0" prefWidth="183.0" promptText="search" AnchorPane.rightAnchor="18.0" />
-                        <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="791.0" layoutY="61.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="26.0">
-                            <image>
-                                <Image url="@../images/icons8_Search_52px.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="23.0" layoutY="41.0" prefHeight="56.0" prefWidth="211.0" text="Watched Shows" textFill="#e7e5e5">
-                            <font>
-                                <Font size="24.0" />
-                            </font>
-                        </Label>
-                  <Button fx:id="addNodeButton" layoutX="567.0" layoutY="57.0" mnemonicParsing="false" text="Add" AnchorPane.rightAnchor="214.0" />
-               </children>
-            </AnchorPane>
-            <VBox fx:id="pnlHome" />
-            <Button fx:id="menuOpenButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="21.0" prefWidth="25.0" visible="false" StackPane.alignment="TOP_LEFT">
+            <Button fx:id="menuOpenButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="21.0" prefWidth="25.0" rotate="90.0" visible="false" StackPane.alignment="TOP_LEFT">
                <padding>
                   <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
                </padding>
@@ -189,4 +31,91 @@
             </children>
         </StackPane>
    </center>
+   <top>
+      <HBox fx:id="menuPnl" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="menuCloseButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" smooth="false">
+                     <image>
+                        <Image url="@../images/Double%20Left.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+               </padding>
+            </Button>
+                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" text="Home">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Home%20Page.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Watched Shows">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Gallery.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Want To Watch">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Add%20Image.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnMenus" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Recommendations">
+                    <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Infinity.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Settings">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Four%20Squares.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" text="Sign Out">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/Logout.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </Button>
+            <Button fx:id="backTestButon" mnemonicParsing="false" text="BackTest">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="forwardTestButton" mnemonicParsing="false" text="ForwardTest" />
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

@@ -12,7 +12,7 @@ public class SettingsPageController {
     private final Preferences prefs = Preferences.userNodeForPackage(SettingsPageController.class);
 
     @FXML private ChoiceBox<String> themeChoiceBox;
-    private final String[] themelist = {
+    private final String[] themeList = {
             Theme.CupertinoLight.getName(),
             Theme.CupertinoDark.getName(),
             Theme.Dracula.getName(),
@@ -32,7 +32,7 @@ public class SettingsPageController {
 
 
     private void setThemeChoiceBox(){
-        themeChoiceBox.setItems(FXCollections.observableArrayList(themelist));
+        themeChoiceBox.setItems(FXCollections.observableArrayList(themeList));
         themeChoiceBox.setOnAction(event -> updateTheme(themeChoiceBox.getValue()));
     }
     public void initTheme(){

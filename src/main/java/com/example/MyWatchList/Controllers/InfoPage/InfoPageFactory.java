@@ -3,17 +3,19 @@ package com.example.MyWatchList.Controllers.InfoPage;
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieHeaderController;
 import com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieLeftPanelController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
-import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 
 import java.io.IOException;
 
 public class InfoPageFactory {
+    private InfoPageFactory(){
+    }
 
-    public static BorderPane createInfoPage (int MediaID, String MediaType) {
+    public static BorderPane createInfoPage (Integer MediaID, String MediaType) {
         try {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/info-page.fxml"));
             BorderPane infoPage = loader.load();
@@ -116,13 +118,13 @@ public class InfoPageFactory {
         }
     }
 
-    public static HBox createEmbedYoutube(MediaInfoPageModel jsonString){
+    public static ImageView createEmbedYoutube(String key){
         try {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/youtube-embed.fxml"));
-            HBox embedObject = loader.load();
+            ImageView embedObject = loader.load();
 
             YoutubeEmbedController controller = loader.getController();
-            controller.initEmbedController(jsonString);
+            controller.initEmbedController(key);
 
             embedObject.getProperties().put("embedController", controller);
 

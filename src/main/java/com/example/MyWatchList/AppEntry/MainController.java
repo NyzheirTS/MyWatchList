@@ -1,10 +1,12 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.Controllers.HomePage.CarouselController;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
+import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
 import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
-import com.example.MyWatchList.Controllers.WatchedList.WatchedListController;
+import com.example.MyWatchList.Controllers.WatchedList.WatchedListFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -15,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
@@ -25,58 +26,45 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
-    @FXML
-    private VBox pnlHome;
-    @FXML
-    private AnchorPane pnlWatched;
-    @FXML
-    private ScrollPane pnlSettings;
-    @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private AnchorPane menuPnl;
-    @FXML
-    private BorderPane mainBorderPane;
-    @FXML
-    private Button menuCloseButton;
-    @FXML
-    private Button menuOpenButton;
-    @FXML
-    private BorderPane infoPageBorderPane;
-
-    //Watched List Section
-    @FXML
-    private Button addNodeButton; //this will be removed later when working on list section follow new design see HomePage for examples.
-    @FXML
-    private VBox pnItems;
+    @FXML private Button forwardTestButton;
+    @FXML private Button backTestButon;
+    @FXML private Button btnOverview;
+    @FXML private Button btnOrders;
+    @FXML private Button btnSettings;
+    @FXML private HBox menuPnl;
+    @FXML private BorderPane mainBorderPane;
+    @FXML private Button menuCloseButton;
+    @FXML private Button menuOpenButton;
+    @FXML private BorderPane infoPageBorderPane;
 
 
     //TODO: work on style look for themes and such
+    //TODO: work on optimization for info-page and maybe lazy load them in history most important to unload images while not seen
 
-    //Other Variables
+
+
+    //Static Variables ??
     ApiConnection api = new ApiConnection();
+    private final VBox watchedList = WatchedListFactory.createWatchedList();
+    private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
+    private final BorderPane homePage = HomePageFactory.createHomepage();
+    private PageHistoryManager pageHistoryManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        pageHistoryManager = new PageHistoryManager(infoPageBorderPane, backTestButon, forwardTestButton);
         api.fetchData(this::setMethods);
         menuAction();
     }
 
     private void setMethods() {
+        infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                infoPageBorderPane.getChildren().clear();
-                infoPageBorderPane.toFront();
-                infoPageBorderPane.setCenter(((EventRequest) event).getContentNode());
+                pageHistoryManager.navigateTo(((EventRequest) event).getContentNode());
+                menuOpenButton.toFront();
             }
         });
-        pnlSettings.setContent(SettingsPageFactory.createSettingsPage());
-        pnlHome.getChildren().add(HomePageFactory.createHomepage());
-        new WatchedListController(pnItems, addNodeButton);
     }
 
 
@@ -89,18 +77,10 @@ public class MainController implements Initializable {
 
 
 
-    Runnable pnlHomeToFront = () -> {
-        pnlHome.toFront();
-        menuOpenButton.toFront();
-    };
-    Runnable pnlSettingsToFront = () -> {
-        pnlSettings.toFront();
-        menuOpenButton.toFront();
-    };
-    Runnable pnlWatchedToFront = () -> {
-        pnlWatched.toFront();
-        menuOpenButton.toFront();
-    };
+
+    Runnable pnlHomeToFront = () -> pageHistoryManager.navigateTo(homePage);
+    Runnable pnlSettingsToFront = () -> pageHistoryManager.navigateTo(settingsPage);
+    Runnable pnlWatchedToFront = () -> pageHistoryManager.navigateTo(watchedList);
 
 
     Runnable menuClose = () -> {
@@ -117,14 +97,14 @@ public class MainController implements Initializable {
         timeline.setOnFinished(e -> {
             menuCloseButton.setVisible(false);
             menuOpenButton.setVisible(true);
-            mainBorderPane.setLeft(menuPnl);
+            mainBorderPane.setTop(menuPnl);
         });
     };
 
 
     Runnable menuOpen = () -> {
         menuPnl.setPrefWidth(0);
-        mainBorderPane.setLeft(menuPnl);
+        mainBorderPane.setTop(menuPnl);
 
         Timeline timeline = new Timeline();
         KeyValue kv = new KeyValue(menuPnl.prefWidthProperty(), 246);
@@ -144,6 +124,8 @@ public class MainController implements Initializable {
         menuClose.run();
         menuCloseButton.setOnAction(event -> menuClose.run());
         menuOpenButton.setOnAction(event -> menuOpen.run());
+        backTestButon.setOnAction(event -> pageHistoryManager.goBack());
+        forwardTestButton.setOnAction(event -> pageHistoryManager.goForward());
     }
 
 

@@ -5,55 +5,41 @@ import com.example.MyWatchList.DataModels.CommonModels.VideosModel;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.application.HostServices;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.web.WebView;
 
 public class YoutubeEmbedController {
 
-    //TODO: fix video still playing after going to different page;
-
-    @FXML private HBox embedContainer;
-    private MediaInfoPageModel jsonString;
-    private WebView webView;
     private static HostServices hostServices;
-    public void initEmbedController(MediaInfoPageModel jsonString){
-        this.jsonString = jsonString;
-        Platform.runLater(this::buildHBox);
+    @FXML private ImageView youtubethumbnail;
+    String ytKey;
+    public void initEmbedController(String ytKey){
+        this.ytKey = ytKey;
+        getImage();
+        setEvents();
     }
 
 
-    private void buildHBox(){
-        VideosModel.Videos[] videos = jsonString.getVideos().getResults();
-        for (VideosModel.Videos video : videos){
-            if(video.getType().equals("Trailer") && video.getOfficial()) {
-                webView = new WebView();
-                webView.getEngine().load(UrlBuilder.getYoutubeLink(video.getKey()));
-                webView.setPrefSize(400, 250);
-                webView.cacheProperty().set(true);
-                setAfter(webView);
-                embedContainer.getChildren().add(webView);
+    public void getImage(){
+        Task<Void> imageLoadingTask = new  Task<>(){
+            @Override
+            protected Void call(){
+                Image loadedImage = new Image(UrlBuilder.getYoutubeThumbnail(ytKey)); //true to enable Background loading
+                Platform.runLater(() -> youtubethumbnail.setImage(loadedImage));
+                return null;
             }
-        }
+        };
+        new Thread(imageLoadingTask).start();
     }
 
-    public void setVisability(){
-    }
-
-    private void setAfter(WebView webView){
-        final String ogUrl = webView.getEngine().getLocation();
-        webView.getEngine().locationProperty().addListener((observable, oldvalue, newvalue) -> {
-            if (newvalue.contains("https://www.youtube.com/watch")){
-                try{
-                    hostServices.showDocument(newvalue);
-                    Platform.runLater(() -> webView.getEngine().load(ogUrl));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Platform.runLater(() -> webView.getEngine().load(ogUrl));
-            }
-        });
+    public void setEvents(){
+        youtubethumbnail.setCursor(Cursor.HAND);
+        youtubethumbnail.setOnMouseClicked(event -> hostServices.showDocument(UrlBuilder.getBaseYoutubeWatchLink(ytKey)));
     }
 
     public static void setHostServices(HostServices hostServices){

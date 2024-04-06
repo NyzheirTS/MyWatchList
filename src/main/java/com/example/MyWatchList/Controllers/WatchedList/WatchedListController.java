@@ -1,35 +1,34 @@
 package com.example.MyWatchList.Controllers.WatchedList;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class WatchedListController {
-    VBox pnItems;
-    Button  addNodeButton;
+    @FXML private Button addNodeButton;
+    @FXML private VBox listHome;
 
-    public WatchedListController(VBox pnItems, Button addNodeButton){
-        this.pnItems = pnItems;
-        this.addNodeButton = addNodeButton;
-        initializeShowNodes();
+
+    public void initWatchedList() {
         addNewItem();
+        initializeShowNodes();
     }
-
 
 
     private void addNewItem() {
         addNodeButton.setOnMouseClicked(event -> {
-            int index = pnItems.getChildren().size();
-            WatchedShowsNode newNode = new WatchedShowsNode(String.format("%.2f", 10 * 100 * Math.random()), index);
-            newNode.bindWidth(pnItems);
-            pnItems.getChildren().add(newNode.getNode());
+            int index = listHome.getChildren().size();
+            HBox newNode = WatchedListFactory.createListItem(String.format("%.2f", 10 * 100 * Math.random()),index);
+            listHome.getChildren().add(newNode);
         });
     }
 
     private void initializeShowNodes(){
         for ( int i = 0; i<10; ++i){
-            WatchedShowsNode node = new WatchedShowsNode(String.format("%.2f", 10 * 100 * Math.random()),i);
-            node.bindWidth(pnItems);
-            pnItems.getChildren().add(node.getNode());
+           HBox node = WatchedListFactory.createListItem(String.format("%.2f", 10 * 100 * Math.random()),i);
+           listHome.getChildren().addAll(node);
         }
     }
 }

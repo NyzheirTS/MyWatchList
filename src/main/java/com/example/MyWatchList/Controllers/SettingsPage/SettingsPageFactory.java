@@ -6,6 +6,8 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class SettingsPageFactory {
+    private SettingsPageFactory(){
+    }
 
     public static VBox createSettingsPage(){
         try {

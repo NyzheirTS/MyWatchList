@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<HBox fx:id="itemC" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="768.0" spacing="80.0" style="-fx-background-color: black; -fx-background-insets: 0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="baseContainer" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="300.0" style="-fx-border-color: grey;" styleClass="hbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.WatchedList.WatchListNodeController">
     <children>
         <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -31,28 +31,28 @@
                 <Insets />
             </HBox.margin>
         </Label>
-      <StackPane prefHeight="53.0" prefWidth="56.0">
+      <StackPane>
          <HBox.margin>
             <Insets />
          </HBox.margin>
          <children>
             <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
                <children>
-                  <Label prefHeight="17.0" prefWidth="13.0" text="\$" textFill="#b7c3d7">
+                  <Label text="\$" textFill="#b7c3d7">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                    <Label fx:id="titleLabel" prefHeight="17.0" prefWidth="43.0" text="200" textFill="#b7c3d7" />
+                    <Label fx:id="titleLabel" text="200" textFill="#b7c3d7" />
                </children>
             </HBox>
-            <TextField fx:id="moneyTxtField" prefHeight="25.0" prefWidth="45.0" visible="false" />
+            <TextField fx:id="moneyTxtField" visible="false" />
          </children>
       </StackPane>
       <HBox alignment="CENTER" spacing="4.0">
          <children>
-              <Button fx:id="editButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="46.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../../StyleSheets/style.css" text="Edit" wrapText="true" />
-            <Button fx:id="deletButton" alignment="CENTER" mnemonicParsing="false" prefHeight="18.0" prefWidth="20.0" style="-fx-border-color: red; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../../StyleSheets/style.css" wrapText="true">
+              <Button fx:id="editButton" mnemonicParsing="false" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../../StyleSheets/style.css" text="Edit" wrapText="true" />
+            <Button fx:id="deletButton" alignment="CENTER" mnemonicParsing="false" style="-fx-border-color: red; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@../../StyleSheets/style.css" wrapText="true">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="10.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>

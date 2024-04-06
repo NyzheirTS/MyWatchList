@@ -3,10 +3,12 @@ package com.example.MyWatchList.Controllers.InfoPage;
 import com.example.MyWatchList.Controllers.HomePage.CarouselController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
+import com.example.MyWatchList.DataModels.CommonModels.VideosModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class MiddlePanelController {
@@ -15,6 +17,7 @@ public class MiddlePanelController {
     @FXML private ScrollPane reviewsContainer;
     private MediaInfoPageModel jsonString;
     private final HBox reviewHBox = new HBox();
+    private final HBox thumbnailHbox = new HBox();
 
 
     public void initMiddlePanel(MediaInfoPageModel jsonString){
@@ -25,8 +28,19 @@ public class MiddlePanelController {
     }
 
     private void setMiddleContainers(){
-        youtubeContainer.setContent(InfoPageFactory.createEmbedYoutube(jsonString));
+        youtubeContainer.setContent(makeThumbnails());
         reviewsContainer.setContent(makeReviews());
+    }
+
+    private HBox makeThumbnails(){
+        VideosModel.Videos[] videos = jsonString.getVideos().getResults();
+        for (VideosModel.Videos video : videos){
+            if(video.getType().equals("Trailer") && video.getOfficial()) {
+                ImageView node = InfoPageFactory.createEmbedYoutube(video.getKey());
+                thumbnailHbox.getChildren().add(node);
+            }
+        }
+        return thumbnailHbox;
     }
 
     private HBox makeReviews(){
@@ -50,7 +64,9 @@ public class MiddlePanelController {
 
     private void setHboxStyle(){
         reviewHBox.setSpacing(10);
+        thumbnailHbox.setSpacing(10);
         reviewHBox.setPadding(new Insets(5,5,5,5));
+        thumbnailHbox.setPadding(new Insets(5,5,5,5));
     }
 
     private ReviewsController getControllerFromCarousel(HBox node) {
