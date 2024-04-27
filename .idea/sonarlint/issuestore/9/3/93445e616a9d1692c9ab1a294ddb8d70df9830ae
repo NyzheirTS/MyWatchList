@@ -1,0 +1,4 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8ğÚÈğ1
+s	java:S116"WRename this field "profile_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éèà…8ùÚÈğ1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÒÂüıÿÿÿÿ8ıÚÈğ1

@@ -1,0 +1,7 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ
+i	java:S116"TRename this field "logo_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡³®ï
+n	java:S116"YRename this field "origin_country" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Æäõ
+c	java:S100
+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•üÔø
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰‡†Ë

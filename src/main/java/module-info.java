@@ -44,5 +44,7 @@ module com.example.test_uijfx {
     opens com.example.MyWatchList.TestFolder.JUnitTest to javafx.fxml;
     exports com.example.MyWatchList.DataModels.CommonModels;
     opens com.example.MyWatchList.DataModels.CommonModels to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages;
+    opens com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages to com.google.gson, javafx.fxml;
 
 }

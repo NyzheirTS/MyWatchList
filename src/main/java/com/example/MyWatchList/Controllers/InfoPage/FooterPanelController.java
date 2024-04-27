@@ -21,23 +21,21 @@ public class FooterPanelController implements AppCleaner {
     }
 
     private void buildHBox(){
-        Platform.runLater(() -> {
-            CreditsModel.Cast[] cast = jsonString.getCredits().getCast();
-            for ( int i = 0; i <= 10; i++){
-                VBox actorNode = CommonFactory.createActorPosterNode(
-                        cast[i].getProfile_path(),
-                        cast[i].getName(),
-                        cast[i].getCharacter()
-                );
-                actorHbox.getChildren().addAll(actorNode);
-            }
-        });
+        CreditsModel.Cast[] cast = jsonString.getCredits().getCast();
+        for ( int i = 0; i <= 10; i++){
+            VBox actorNode = CommonFactory.createActorPosterNode(
+                    cast[i].getProfile_path(),
+                    cast[i].getName(),
+                    cast[i].getCharacter()
+            );
+            actorHbox.getChildren().addAll(actorNode);
+        }
     }
 
     @Override
     public void cleanup() {
         for (Node child : actorHbox.getChildren()) {
-            if (child instanceof  VBox){
+            if (child instanceof VBox){
                 Object controller = child.getProperties().get("controller");
                 if (controller instanceof AppCleaner){
                     ((AppCleaner)controller).cleanup();
@@ -45,5 +43,7 @@ public class FooterPanelController implements AppCleaner {
             }
         }
         actorHbox.getChildren().clear();
+        jsonString = null;
+        //System.out.println("Footer Cleaned");
     }
 }

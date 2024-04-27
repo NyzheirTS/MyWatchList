@@ -15,14 +15,13 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 public class ApiConnection {
-    private final OkHttpClient client;
+    private static final OkHttpClient client = new OkHttpClient();
     private static final Map<ApiCallType, String> responseData = new EnumMap<>(ApiCallType.class);
     private final Map<ApiCallType, String> endpoints = new EnumMap<>(ApiCallType.class);
     private final JsonCache jsonCache = new JsonCache();
 
     public ApiConnection() {
         initEndpoints();
-        this.client = new OkHttpClient();
     }
 
     private void initEndpoints(){
@@ -33,7 +32,6 @@ public class ApiConnection {
         endpoints.put(ApiCallType.MOVIE_UPCOMING,"https://api.themoviedb.org/3/movie/upcoming");
         endpoints.put(ApiCallType.MOVIE_TRENDING_WEEK,"https://api.themoviedb.org/3/trending/movie/week?language=en-US");
     }
-
 
     public void batchApiCall(ApiCallType callType, CountDownLatch latch) throws IOException { //TMDB API Handler
         String url = endpoints.get(callType);
@@ -71,26 +69,6 @@ public class ApiConnection {
         }
     }
 
-    public void onDemandApiCall(String url, ResponseHandler responseHandler){ //TMDB API Handler
-        Thread networkThread = new Thread(() -> {
-            Response response;
-            Request request = new Request.Builder()
-                    .url(url)
-                    .addHeader("accept", "application/json")
-                    .addHeader("Authorization", AppConfig.getTMDBKey())
-                    .build();
-            try{
-                response = client.newCall(request).execute();
-                ResponseBody responseBody = response.body();
-                assert responseBody != null;
-                responseHandler.handleResponse(responseBody.string());
-            } catch (IOException e){
-                throw new RuntimeException();
-            }
-        });
-        networkThread.start();
-    }
-
     public void fetchData(Runnable callback){
         final CountDownLatch latch = new CountDownLatch(endpoints.size());
         endpoints.keySet().forEach(callType -> {
@@ -110,6 +88,45 @@ public class ApiConnection {
         Platform.runLater(callback);
     }
 
+    public static String onDemandApiCall(String url) {
+        final CountDownLatch latch = new CountDownLatch(1);
+        final String[] result = new String[1]; // Use an array to hold the response since lambda requires final or effectively final variables
+
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("accept", "application/json")
+                .addHeader("Authorization", AppConfig.getTMDBKey())
+                .build();
+        Thread networkThread = new Thread(() -> {
+            try {
+                Response response = client.newCall(request).execute();
+                if (!response.isSuccessful()) {
+                    result[0] = "Error: Server responded with status " + response.code();
+                    return;
+                }
+                ResponseBody responseBody = response.body();
+                if (responseBody != null) {
+                    result[0] = responseBody.string();
+                } else {
+                    result[0] = "Error: Response body was null";
+                }
+            } catch (IOException e) {
+                result[0] = "Error: Network request failed due to an IOException";
+            } finally {
+                latch.countDown(); // Decrease the count of the latch, releasing all waiting threads
+            }
+        });
+        networkThread.start();
+        try {
+            latch.await(); // Wait for the network thread to finish
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Set the interrupt flag again
+            return "Error: Thread was interrupted";
+        }
+        return result[0];
+    }
+
     public static String getResponseData(ApiCallType callType){
         synchronized (responseData) {
             return responseData.get(callType);
@@ -118,7 +135,6 @@ public class ApiConnection {
 
     public interface ResponseHandler{
         void handleResponse(String jsonResponse);
-
     }
 
 }

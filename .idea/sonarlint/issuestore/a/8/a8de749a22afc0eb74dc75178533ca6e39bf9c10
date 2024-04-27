@@ -1,0 +1,17 @@
+
+	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ύω8‘τε”π1J$c27a27d5-6815-4b33-9cf7-7d732ebd12dc
+	java:S116"WRename this field "InfopageHome" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬γλσϊÿÿÿÿ8³τε”π1J$cc5b7f26-4f89-4118-9de3-41b557173053
+Ι
+java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ξϊνωÿÿÿÿ8΄τε”π1J$48304bb3-3b9e-4c32-82d1-a655c05cb55c
+
+java:S1450"VRemove the "mediaID" field and declare it as a local variable in the relevant methods.(²Η”®ύÿÿÿÿ8µτε”π1J$83db2a67-f1b5-4b83-b127-89da7909fc73
+r	java:S106("+Replace this use of System.out by a logger.(ν”ώΪύÿÿÿÿ8Ήτε”π1J$2d488bbd-9038-403f-9278-ad52f9a42bf0
+|
+java:S11728"4Remove this unused method parameter "infoPageModel".(ξϊνωÿÿÿÿ8»τε”π1J$5ecc485f-f162-4394-8d1a-d23227bc54da
+m	java:S106\"+Replace this use of System.out by a logger.(Υ›ΎÒ8μΟΙ…ς1J$79ee9c5b-6803-4cb0-b5e8-8a91c29aa91a
+
+java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(φ²­ÿÿÿÿÿ8τΈ•π1J$be742870-3ee0-492a-b897-f8161a757934
+s
+java:S1068"+Remove this unused "mediaID" private field.(²Η”®ύÿÿÿÿ8Βτε”π1J$4edd62c5-e2a6-4964-a47f-027c48b4274e
+x
+java:S11448"0Remove this unused private "buildTvPage" method.(ξϊνωÿÿÿÿ8Βτε”π1J$496c4cd3-2ea2-48d5-a418-139211a517af

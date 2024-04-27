@@ -18,7 +18,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1100, 800);
 
         MainController controller = fxmlLoader.getController();
-        YoutubeEmbedController.setHostServices(getHostServices());
+        //YoutubeEmbedController.setHostServices(getHostServices());
         controller.setSceneListeners(scene);
 
         stage.setTitle("Hello!");

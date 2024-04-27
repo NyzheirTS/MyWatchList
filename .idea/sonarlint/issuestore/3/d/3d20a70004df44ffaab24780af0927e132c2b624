@@ -1,0 +1,17 @@
+
+g	java:S112?"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8Δ”λ1
+g	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8‹Δ”λ1
+g	java:S112]"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8‹Δ”λ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦ε‡ΰ8Δ”λ1
+
+java:S1130g"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Ι¥ΘΡώÿÿÿÿ8­Δ”λ1
+‰
+java:S1130n"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Κ΅αρ8­Δ”λ1
+
+java:S1130u"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Μ‘σΕώÿÿÿÿ8®Δ”λ1
+‰
+java:S1130}"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(οχφ8―Δ”λ1
+
+java:S1130…"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ϊ—ύέψÿÿÿÿ8°Δ”λ1
+
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(…ίΆ8±Δ”λ1

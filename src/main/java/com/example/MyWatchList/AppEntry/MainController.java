@@ -49,7 +49,7 @@ public class MainController implements Initializable {
     private final VBox watchedList = WatchedListFactory.createWatchedList();
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
     private final BorderPane homePage = HomePageFactory.createHomepage();
-    private PageHistoryManager pageHistoryManager;
+    PageHistoryManager pageHistoryManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,10 +62,18 @@ public class MainController implements Initializable {
         infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                pageHistoryManager.navigateTo(((EventRequest) event).getContentNode());
-                menuOpenButton.toFront();
+                getEventPage((EventRequest) event);
+            }
+            else if (event.getEventType() == EventRequest.CAST_CREW_PAGE_REQUEST) {
+                getEventPage((EventRequest) event);
             }
         });
+    }
+
+    private void getEventPage(EventRequest event){
+        pageHistoryManager.navigateTo(event.getContentNode());
+        menuOpenButton.toFront();
+        event.consume();
     }
 
 

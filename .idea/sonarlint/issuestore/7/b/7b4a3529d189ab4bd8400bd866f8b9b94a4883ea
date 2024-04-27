@@ -1,0 +1,10 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(–“Åıÿÿÿÿ8àêÄ¯é1
+	java:S116"`Rename this field "belongs_to_collection" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”çã¸üÿÿÿÿ8åêÄ¯é1
+s	java:S116"WRename this field "release_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹›ºì8æêÄ¯é1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶Ü¡8´’¨ãé1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ùöÿùÿÿÿÿ8µ’¨ãé1
+w	java:S116"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À§Ş¼ıÿÿÿÿ8ñêÄ¯é1
+t	java:S116"XRename this field "backdrop_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öùµª8ñêÄ¯é1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óó‡‰8¬Â´âé1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êƒšİ8¬Â´âé1

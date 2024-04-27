@@ -12,8 +12,8 @@ import javafx.scene.layout.*;
 import java.io.IOException;
 
 public class InfoPageFactory {
-    private InfoPageFactory(){
-    }
+     private static final String ComponentController = "controller";
+     private InfoPageFactory(){}
 
     public static BorderPane createInfoPage (Integer MediaID, String MediaType) {
         try {
@@ -21,9 +21,11 @@ public class InfoPageFactory {
             BorderPane infoPage = loader.load();
 
             InfoPageController controller = loader.getController();
+            controller.cleanup();
+
             controller.initInfoPage(MediaID, MediaType);
 
-            infoPage.getProperties().put("controller", controller);
+            infoPage.getProperties().put(ComponentController, controller);
 
 
             return infoPage;
@@ -39,9 +41,11 @@ public class InfoPageFactory {
             HBox movieHeader = loader.load();
 
             MovieHeaderController controller = loader.getController();
+            controller.cleanup();
+
             controller.initMovieHeader(jsonString);
 
-            movieHeader.getProperties().put("controller", controller);
+            movieHeader.getProperties().put(ComponentController, controller);
 
             return movieHeader;
         } catch (IOException e){
@@ -56,9 +60,11 @@ public class InfoPageFactory {
             VBox movieLeftPanel = loader.load();
 
             MovieLeftPanelController controller = loader.getController();
+            controller.cleanup();
+
             controller.initLeftPanel(jsonString);
 
-            movieLeftPanel.getProperties().put("controller", controller);
+            movieLeftPanel.getProperties().put(ComponentController, controller);
 
             return movieLeftPanel;
         } catch (IOException e){
@@ -73,9 +79,11 @@ public class InfoPageFactory {
             HBox footer = loader.load();
 
             FooterPanelController controller = loader.getController();
+            controller.cleanup();
+
             controller.initFooter(jsonString);
 
-            footer.getProperties().put("controller", controller);
+            footer.getProperties().put(ComponentController, controller);
 
             return footer;
         } catch (IOException e){
@@ -90,9 +98,11 @@ public class InfoPageFactory {
             VBox rightPanel = loader.load();
 
             RightPanelController controller = loader.getController();
+            controller.cleanup();
+
             controller.initRightPanel(jsonString, MediaType);
 
-            rightPanel.getProperties().put("controller", controller);
+            rightPanel.getProperties().put(ComponentController, controller);
 
             return  rightPanel;
         } catch (IOException e){
@@ -107,9 +117,11 @@ public class InfoPageFactory {
             VBox middlePanel = loader.load();
 
             MiddlePanelController controller = loader.getController();
+            controller.cleanup();
+
             controller.initMiddlePanel(jsonString);
 
-            middlePanel.getProperties().put("controller", controller);
+            middlePanel.getProperties().put(ComponentController, controller);
 
             return middlePanel;
         } catch ( IOException e){
@@ -124,9 +136,11 @@ public class InfoPageFactory {
             ImageView embedObject = loader.load();
 
             YoutubeEmbedController controller = loader.getController();
+            controller.cleanup();
+
             controller.initEmbedController(key);
 
-            embedObject.getProperties().put("controller", controller);
+            embedObject.getProperties().put(ComponentController, controller);
 
             return embedObject;
         } catch ( IOException e){
@@ -141,9 +155,10 @@ public class InfoPageFactory {
             HBox reviewObject = loader.load();
 
             ReviewsController controller = loader.getController();
+
             controller.initReviews(authorName, userName, rating);
 
-            reviewObject.getProperties().put("controller", controller);
+            reviewObject.getProperties().put(ComponentController, controller);
 
             return reviewObject;
         } catch ( IOException e){
@@ -160,7 +175,7 @@ public class InfoPageFactory {
             ReviewPopOverController controller = loader.getController();
             controller.initPopOver(content, createdAt, updatedAt, userName);
 
-            popOverObject.getProperties().put("controller", controller);
+            popOverObject.getProperties().put(ComponentController, controller);
 
             return popOverObject;
         } catch ( IOException e){

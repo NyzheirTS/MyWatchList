@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -16,11 +18,16 @@
          <bottom>
             <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 2;" styleClass="vbox" BorderPane.alignment="BOTTOM_LEFT">
                <children>
-                  <Label text="Top Cast" underline="true">
-                     <font>
-                        <Font name="Arimo Regular" size="20.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Top Cast" underline="true">
+                           <font>
+                              <Font name="Arimo Regular" size="20.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="linkToCastCrewPage" text="Full Cast/Crew" />
+                     </children>
+                  </HBox>
                   <ScrollPane fx:id="footerContainer" fitToWidth="true" pannable="true" prefViewportHeight="235.0" vbarPolicy="NEVER">
                      <padding>
                         <Insets left="5.0" right="5.0" top="5.0" />

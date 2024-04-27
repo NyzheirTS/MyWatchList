@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.ActorPosterController">
+<VBox fx:id="actorPosterItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: black; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.ActorPosterController">
    <children>
       <AnchorPane prefHeight="100.0" style="-fx-border-width: 3; -fx-border-color: black;">
          <children>

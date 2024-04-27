@@ -28,23 +28,23 @@ public class MovieHeaderController implements AppCleaner {
     @FXML private ImageView staticPosterImage;
     @FXML private ImageView backgroundImage;
 
+    private Task<Void> imageLoadingTask;
     private MovieInfoPageModel jsonString;
 
     public void initMovieHeader(MovieInfoPageModel jsonString){
         this.jsonString = jsonString;
-        Platform.runLater(() -> {
-            setBackgroundImage();
-            setLeftHeader();
-            setMiddleHeader();
-            setRightHeader();
-        });
+        setBackgroundImage();
+        setLeftHeader();
+        setMiddleHeader();
+        setRightHeader();
     }
 
     private void setBackgroundImage(){
-        Task<Void> imageLoadingTask = new  Task<>(){
+        backgroundImage.setImage(null);
+        imageLoadingTask = new Task<>() {
             @Override
-            protected Void call(){
-                Image loadedImage = new Image(UrlBuilder.getBackDropImageURL(jsonString.getBackdrop_path())); //true to enable Background loading
+            protected Void call() {
+                Image loadedImage = new Image(UrlBuilder.getBackDropImageURL(jsonString.getBackdrop_path()));
                 Platform.runLater(() -> backgroundImage.setImage(loadedImage));
                 return null;
             }
@@ -53,10 +53,11 @@ public class MovieHeaderController implements AppCleaner {
     }
 
     private void setLeftHeader(){
-        Task<Void> imageLoadingTask = new  Task<>(){
+        staticPosterImage.setImage(null);
+        imageLoadingTask = new Task<>() {
             @Override
-            protected Void call(){
-                Image loadedImage = new Image(UrlBuilder.getPosterImageURL(jsonString.getPoster_path())); //true to enable Background loading
+            protected Void call() {
+                Image loadedImage = new Image(UrlBuilder.getBackDropImageURL(jsonString.getPoster_path()));
                 Platform.runLater(() -> staticPosterImage.setImage(loadedImage));
                 return null;
             }
@@ -65,21 +66,17 @@ public class MovieHeaderController implements AppCleaner {
     }
 
     private void setMiddleHeader(){
-        Platform.runLater(() -> {
-            taglineLabel.setText(String.format("\"%s\"",jsonString.getTagline()));
-            titleLabel.setText(jsonString.getTitle());
-            genresLabel.setText(String.format("(%s, %s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
-            descriptionTextfield.setText(jsonString.getOverview());
-        });
+        taglineLabel.setText(String.format("\"%s\"",jsonString.getTagline()));
+        titleLabel.setText(jsonString.getTitle());
+        genresLabel.setText(String.format("(%s, %s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
+        descriptionTextfield.setText(jsonString.getOverview());
     }
 
     private void setRightHeader(){
-        Platform.runLater(() -> {
-            qrCodeImageView.setImage(QrCodeGen.genQrCode(UrlBuilder.getWatchLink(jsonString.getId())));
-            percentRatingLabel.setText(formatPercent(jsonString.getVote_average() ) + "%");
-            showRating.setRating(formatRating(jsonString.getVote_average()));
-            votesLabel.setText(String.format("Votes: %d", jsonString.getVote_count()));
-        });
+        qrCodeImageView.setImage(QrCodeGen.genQrCode(UrlBuilder.getWatchLink(jsonString.getId())));
+        percentRatingLabel.setText(formatPercent(jsonString.getVote_average() ) + "%");
+        showRating.setRating(formatRating(jsonString.getVote_average()));
+        votesLabel.setText(String.format("Votes: %d", jsonString.getVote_count()));
     }
 
     private String formatPercent(double num){
@@ -93,14 +90,26 @@ public class MovieHeaderController implements AppCleaner {
     }
 
     public void unloadImg(){
-        backgroundImage.setImage(null);
-        qrCodeImageView.setImage(null);
-        staticPosterImage.setImage(null);
+        this.backgroundImage.setImage(null);
+        this.qrCodeImageView.setImage(null);
+        this.staticPosterImage.setImage(null);
     }
 
+
+    public void nullText(){
+        this.votesLabel.setText(null);
+        this.percentRatingLabel.setText(null);
+        this.descriptionTextfield.setText(null);
+        this.genresLabel.setText(null);
+        this.titleLabel.setText(null);
+        this.taglineLabel.setText(null);
+    }
 
     @Override
     public void cleanup() {
         unloadImg();
+        nullText();
+        jsonString = null;
+        //System.out.println("MovieHeader Cleaned");
     }
 }

@@ -25,7 +25,7 @@ public class MiddlePanelController implements AppCleaner {
     public void initMiddlePanel(MediaInfoPageModel jsonString){
         this.jsonString = jsonString;
         setHboxStyle();
-        Platform.runLater(this::setMiddleContainers);
+        setMiddleContainers();
 
     }
 
@@ -82,6 +82,8 @@ public class MiddlePanelController implements AppCleaner {
         cleanAndClearIMGVEW(thumbnailHbox);
         reviewsContainer.setContent(null);
         youtubeContainer.setContent(null);
+        jsonString = null;
+        //System.out.println("MiddlePanel Cleaned");
     }
 
     private void cleanAndClear(HBox hBox){
@@ -95,6 +97,7 @@ public class MiddlePanelController implements AppCleaner {
                 }
             }
         }
+        assert hBox != null;
         hBox.getChildren().clear();
     }
     private void cleanAndClearIMGVEW(HBox hBox){
@@ -108,6 +111,7 @@ public class MiddlePanelController implements AppCleaner {
                 }
             }
         }
+        assert hBox != null;
         hBox.getChildren().clear();
     }
 

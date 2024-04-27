@@ -1,0 +1,11 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8µÄº‹ê1
+z	java:S116
+"YRename this field "author_details" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑÝõ•ýÿÿÿÿ8¹Äº‹ê1
+q	java:S116"URename this field "created_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù“ƒÍ8¹Äº‹ê1
+q	java:S116"URename this field "updated_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á›‚Ö8¹Äº‹ê1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë§·Ï8»Äº‹ê1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÔüþùÿÿÿÿ8œëº‹ê1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âíƒðüÿÿÿÿ8œëº‹ê1
+r	java:S116"VRename this field "avatar_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âƒƒ–8»Äº‹ê1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ñø™ÿÿÿÿÿ8¼Äº‹ê1

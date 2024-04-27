@@ -1,18 +1,22 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.AppConfig.AppCleaner;
+import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Pair;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Stack;
 
 public class PageHistoryManager {
     private final Deque<Node> backHistory = new ArrayDeque<>();
     private final Deque<Node> forwardHistory = new ArrayDeque<>();
+
     private final BorderPane mainPane;
     private final Button backButton;
     private final Button forwardButton;
@@ -31,7 +35,7 @@ public class PageHistoryManager {
             backHistory.push(lastPage);
         }
         clearAndClean();
-        ///Runtime.getRuntime().gc(); // this works like a charm but nono we better than that fix the mf code bum !!
+        Runtime.getRuntime().gc();
         setCenterPage(page);
         System.out.println("Back History: " + backHistory);
         System.out.println("Forward History: " + forwardHistory);

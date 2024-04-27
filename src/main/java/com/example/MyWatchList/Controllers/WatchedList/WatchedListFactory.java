@@ -7,7 +7,23 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class WatchedListFactory {
-    private WatchedListFactory(){
+    private WatchedListFactory(){}
+
+    public static HBox createListItem(String labelText, int nodeNumber){
+        try {
+            FXMLLoader loader = new FXMLLoader(WatchedListFactory.class.getResource("/com/example/MyWatchList/Controllers/WatchedList/list-item-template.fxml"));
+            HBox listItem = loader.load();
+
+            WatchListNodeController controller = loader.getController();
+            controller.initWatchListNode(labelText, nodeNumber);
+
+            listItem.getProperties().put("listItemController", controller);
+
+            return listItem;
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static VBox createWatchedList(){
@@ -27,21 +43,4 @@ public class WatchedListFactory {
         }
     }
 
-
-    public static HBox createListItem(String labelText, int nodeNumber){
-        try {
-            FXMLLoader loader = new FXMLLoader(WatchedListFactory.class.getResource("/com/example/MyWatchList/Controllers/WatchedList/list-item-template.fxml"));
-            HBox listItem = loader.load();
-
-            WatchListNodeController controller = loader.getController();
-            controller.initWatchListNode(labelText, nodeNumber);
-
-            listItem.getProperties().put("listItemController", controller);
-
-            return listItem;
-        } catch (IOException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

@@ -34,13 +34,13 @@ public class RightPanelController implements AppCleaner {
     }
 
     private void buildVbox1(){
-        RecommendationsModel.Recommendations[] movies = jsonString.getRecommendations().getResults();
+        RecommendationsModel.Recommendations[] recommendations = jsonString.getRecommendations().getResults();
         for (int i = 0; i <= 9; i++){
             AnchorPane node = CommonFactory.createPosterNode(
-                    movies[i].getPoster_path(),
-                    movies[i].getId(),
-                    movies[i].getTitleMovie(),
-                    movies[i].getMedia_type(),
+                    recommendations[i].getPoster_path(),
+                    recommendations[i].getId(),
+                    recommendations[i].getTitleMovie(),
+                    recommendations[i].getMedia_type(),
                     false,
                     false,
                     true
@@ -51,13 +51,13 @@ public class RightPanelController implements AppCleaner {
     }
 
     private void buildVbox2(){
-        RecommendationsModel.Recommendations[] movies = jsonString.getRecommendations().getResults();
+        RecommendationsModel.Recommendations[] recommendations = jsonString.getRecommendations().getResults();
         for (int i = 10; i <= 19; i++){
             AnchorPane node = CommonFactory.createPosterNode(
-                    movies[i].getPoster_path(),
-                    movies[i].getId(),
-                    movies[i].getTitleMovie(),
-                    movies[i].getMedia_type(),
+                    recommendations[i].getPoster_path(),
+                    recommendations[i].getId(),
+                    recommendations[i].getTitleMovie(),
+                    recommendations[i].getMedia_type(),
                     false,
                     false,
                     true
@@ -99,11 +99,15 @@ public class RightPanelController implements AppCleaner {
         });
         vbox1.getChildren().clear();
         vbox2.getChildren().clear();
+        rightLabel.setText(null);
+        this.jsonString = null;
+        //System.out.println("RightPanel Cleaned");
     }
 
     private PosterNodeController getControllerFromNode(AnchorPane node){
         return (PosterNodeController) node.getProperties().get("controller");
     }
+
 
 }
 

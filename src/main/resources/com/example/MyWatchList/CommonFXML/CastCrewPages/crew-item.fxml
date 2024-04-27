@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="crewItem" prefHeight="57.0" spacing="2.0" style="-fx-border-color: black;" styleClass="vbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CrewItemController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="7.0">
+         <children>
+            <Label text="Name:">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="nameLabel" prefHeight="17.0" text="asdfasd" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="7.0">
+         <children>
+            <Label text="Job:">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="jobLabel" prefHeight="17.0" text="Character" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="7.0">
+         <children>
+            <Label text="Department:">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="departmentLabel" prefHeight="17.0" text="Character" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="4.0" />
+   </padding>
+</VBox>

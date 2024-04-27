@@ -33,11 +33,9 @@ public class MovieLeftPanelController implements AppCleaner {
 
     public void initLeftPanel(MovieInfoPageModel jsonString){
         this.jsonString = jsonString;
-        Platform.runLater(() -> {
-            setLabels();
-            setProductionCompanies();
-            setProductionCountries();
-        });
+        setLabels();
+        setProductionCompanies();
+        setProductionCountries();
     }
 
     private void setLabels(){
@@ -73,5 +71,12 @@ public class MovieLeftPanelController implements AppCleaner {
     public void cleanup() {
         productionCompanieVBox.getChildren().clear();
         productionCountriesVBox.getChildren().clear();
+        runtimeLabel.setText(null);
+        releasedateLabel.setText(null);
+        revenueLabel.setText(null);
+        budgetLabel.setText(null);
+        collectionLabel.setText(null);
+        jsonString = null;
+        //System.out.println("Movie Left Panel Cleaned");
     }
 }

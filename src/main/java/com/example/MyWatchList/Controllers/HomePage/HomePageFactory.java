@@ -7,7 +7,7 @@ import java.io.IOException;
 
 
 public class HomePageFactory {
-
+    private HomePageFactory(){}
     public static HBox createCarousel () {
         try {
             FXMLLoader loader = new FXMLLoader(HomePageFactory.class.getResource("/com/example/MyWatchList/HomePage/carousel-template.fxml"));

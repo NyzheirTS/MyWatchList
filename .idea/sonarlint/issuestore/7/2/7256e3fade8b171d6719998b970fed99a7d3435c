@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ
+p	java:S116"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛçþÆùÿÿÿÿ
+j	java:S116"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´þä”
+l	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ùª‘
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óó‡‰
+b	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰•‡n
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤–ëÎÿÿÿÿÿ

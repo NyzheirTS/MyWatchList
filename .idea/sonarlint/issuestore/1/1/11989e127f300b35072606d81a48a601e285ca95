@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰εςώϊÿÿÿÿ8Θό‡ς1
+‚
+java:S1128"`Remove this unused import 'com.example.MyWatchList.Controllers.InfoPage.YoutubeEmbedController'.(¥‘‹ψÿÿÿÿ8δό‡ς1
+†
+java:S1128"dRemove this unused import 'com.example.MyWatchList.Controllers.SettingsPage.SettingsPageController'.(΄ΎΒψÿÿÿÿ8δό‡ς1
+K
+java:S1128")Remove this unused import 'java.net.URL'.(ρμΑ„όÿÿÿÿ8δό‡ς1

@@ -1,0 +1,8 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¶è¡öşÿÿÿÿJ$395dad84-c08c-409c-b968-52a1d9208b66
+–	java:S116	"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛçşÆùÿÿÿÿJ$dc27eeef-a053-44b1-95d4-1841cb3940e6
+’	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èËµïJ$e494699a-99a5-46d9-8f44-258b4069e1a7
+•	java:S116"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïùì®ÿÿÿÿÿJ$7f3bfde8-d9de-4754-b446-8e0781a2b753
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óó‡‰8Ï…ú¼ç1J$4732e724-9538-4662-bdc1-d02fa432a00d
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¯­¯şÿÿÿÿ8Ğ…ú¼ç1J$5cb236c4-9bd7-4247-b802-e559506a96f2
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰•‡n8Ğ…ú¼ç1J$4dcc7a28-a37c-4fd9-bfbe-ea94dad803e5

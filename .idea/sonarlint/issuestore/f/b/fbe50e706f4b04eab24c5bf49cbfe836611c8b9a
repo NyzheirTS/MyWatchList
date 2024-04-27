@@ -1,0 +1,33 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¶è¡öþÿÿÿÿ8‘ó‹Ñç1
+v	java:S116"URename this field "created_by" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÔÐãüÿÿÿÿ8˜ó‹Ñç1
+|	java:S116	"[Rename this field "episode_run_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ðÃùðùÿÿÿÿ8˜ó‹Ñç1
+u	java:S116
+"YRename this field "first_air_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÍÔÕ8˜ó‹Ñç1
+	java:S116"^Rename this field "next_episode_to_air" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°”é¢þÿÿÿÿ8˜ó‹Ñç1
+t	java:S116"XRename this field "in_production" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÃ³›8˜ó‹Ñç1
+t	java:S116"XRename this field "last_air_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ÈüÀ8˜ó‹Ñç1
+~	java:S116"]Rename this field "number_of_episodes" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø†«²ûÿÿÿÿ8˜ó‹Ñç1
+}	java:S116"\Rename this field "number_of_seasons" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÝÜ²½þÿÿÿÿ8˜ó‹Ñç1
+v	java:S116"ZRename this field "content_ratings" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ·Ž¾8˜ó‹Ñç1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìžÅœ8¶³¹ãé1
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ò× 8¶³¹ãé1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ²“¦ûÿÿÿÿ8·³¹ãé1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Ðù¿8·³¹ãé1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥õçàûÿÿÿÿ8¸³¹ãé1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñèùúÿÿÿÿ8¸³¹ãé1
+i	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï€ò8¹³¹ãé1
+o	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¼¾ûýÿÿÿÿ8¹³¹ãé1
+j	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ‰ôÛ8º³¹ãé1
+s	java:S116*"WRename this field "profile_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éèà…8¤ó‹Ñç1
+o	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÒÂüýÿÿÿÿ8¥ó‹Ñç1
+o	java:S1164"SRename this field "air_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øžÆá8¥ó‹Ñç1
+y	java:S1165"XRename this field "episode_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÄ×•øÿÿÿÿ8¥ó‹Ñç1
+s	java:S1168"XRename this field "season_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÞ¥I8¥ó‹Ñç1
+o	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ž¨Ðøÿÿÿÿ8¦ó‹Ñç1
+o	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ŒŸ„ÿÿÿÿÿ8¦ó‹Ñç1
+j	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓµË‡8§ó‹Ñç1
+p	java:S116C"TRename this field "logo_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡³®ï8§ó‹Ñç1
+u	java:S116E"YRename this field "origin_country" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Æäõ8§ó‹Ñç1
+j	java:S100H"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•üÔø8¨ó‹Ñç1
+j	java:S100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰‡†Ë8¨ó‹Ñç1

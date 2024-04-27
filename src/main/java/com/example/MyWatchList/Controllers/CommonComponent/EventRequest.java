@@ -8,7 +8,8 @@ import java.io.Serializable;
 
 public class EventRequest extends Event {
     public static final EventType<EventRequest> INFO_PAGE_REQUEST = new EventType<>(Event.ANY, "INFO_PAGE_REQUEST");
-    private Node contentNode;
+    public static final EventType<EventRequest> CAST_CREW_PAGE_REQUEST = new EventType<>(Event.ANY, "CAST_CREW_PAGE_REQUEST");
+    private final transient Node contentNode;
     public EventRequest(EventType<? extends Event> eventType, Node borderPane) {
         super(eventType);
         this.contentNode = borderPane;

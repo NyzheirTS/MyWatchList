@@ -57,5 +57,6 @@ public class ReviewsController implements AppCleaner {
     @Override
     public void cleanup() {
         reviewHbox.getChildren().clear();
+        //System.out.println("Reviews Cleaned");
     }
 }

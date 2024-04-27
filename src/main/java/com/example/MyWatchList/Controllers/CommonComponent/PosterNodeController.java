@@ -7,6 +7,7 @@ import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -17,6 +18,8 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Scale;
 import javafx.util.Duration;
+
+import java.util.WeakHashMap;
 
 
 public class PosterNodeController implements AppCleaner {
@@ -32,6 +35,9 @@ public class PosterNodeController implements AppCleaner {
     private boolean enableGrowEvents;
     private boolean enableDropShadow;
     private boolean enableTooltip;
+    private final Tooltip tip = new Tooltip();
+
+    private static final WeakHashMap<String, Image> imageCache = new WeakHashMap<>();
 
    // private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
 
@@ -80,7 +86,7 @@ public class PosterNodeController implements AppCleaner {
 
 
     private void nodeGrowEvents(){
-        Scale scale = new Scale(1, 1);
+        new Scale(1, 1);
 
         ScaleTransition growTransition = new ScaleTransition(Duration.millis(200),posterPane);
         growTransition.setToX(1.08);
@@ -96,22 +102,15 @@ public class PosterNodeController implements AppCleaner {
 
 
     public void loadImg(){
-        //Async load image
-        /*
-        if (image.getImage() != null){
-            return;
+        Image image = imageCache.get(imgID);
+        if ( image == null) {
+            image = new Image(UrlBuilder.getPosterImageURL(imgID), true);
+            imageCache.put(imgID, image);
         }
-         */
-        Task<Void> imageLoadingTask = new  Task<>(){
-            @Override
-            protected Void call(){
-                Image loadedImage = new Image(UrlBuilder.getPosterImageURL(imgID)); //true to enable Background loading
-                Platform.runLater(() -> posterImageView.setImage(loadedImage));
-                return null;
-            }
-        };
+        Image finalImage = image;
+        Platform.runLater(() -> posterImageView.setImage(finalImage));
 
-        new Thread(imageLoadingTask).start();
+        //new Thread(imageLoadingTask).start();
     }
 
     public void unloadImg(){
@@ -119,11 +118,13 @@ public class PosterNodeController implements AppCleaner {
     }
 
     private void nodeClickEvent(){
+        posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
             EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, InfoPageFactory.createInfoPage(nodeNumber, mediaType));
             System.out.println(nodeNumber);
             System.out.println(mediaType);
             posterPane.fireEvent(eventRequest);
+            eventRequest.consume();
         });
     }
 
@@ -158,7 +159,7 @@ public class PosterNodeController implements AppCleaner {
     }
 
     final void tooltipSettings(){
-       Tooltip tip = new Tooltip(title);
+       tip.setText(title);
        tip.setHideDelay(Duration.millis(0));
        tip.setShowDelay(Duration.millis(500));
        tip.setFont(Font.font("Verdana", FontPosture.ITALIC, 15 ));
@@ -172,6 +173,8 @@ public class PosterNodeController implements AppCleaner {
         posterPane.setOnMouseClicked(null);
         posterPane.setOnMouseEntered(null);
         posterPane.setOnMouseExited(null);
+        Tooltip.uninstall(posterPane, tip);
+        //System.out.println("PosterNode Clean");
     }
 
 }

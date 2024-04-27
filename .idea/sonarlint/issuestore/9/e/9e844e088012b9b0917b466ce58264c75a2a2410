@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“‚ØŸüÿÿÿÿ8øŒ‚ë1
+v
+java:S1450"YRemove the "nodeNumber" field and declare it as a local variable in the relevant methods.(¥üÉ¡8£úœë1
+W
+java:S1128"5Remove this unused import 'javafx.scene.layout.VBox'.(íÆáÂùÿÿÿÿ8›ÄÒ“ë1
+K
+java:S1068".Remove this unused "nodeNumber" private field.(¥üÉ¡8¨úœë1
