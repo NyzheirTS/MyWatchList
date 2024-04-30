@@ -3,18 +3,23 @@ import javafx.event.Event;
 import javafx.event.EventType;
 import javafx.scene.Node;
 
-import java.beans.Transient;
-import java.io.Serializable;
-
 public class EventRequest extends Event {
     public static final EventType<EventRequest> INFO_PAGE_REQUEST = new EventType<>(Event.ANY, "INFO_PAGE_REQUEST");
-    public static final EventType<EventRequest> CAST_CREW_PAGE_REQUEST = new EventType<>(Event.ANY, "CAST_CREW_PAGE_REQUEST");
-    private final transient Node contentNode;
-    public EventRequest(EventType<? extends Event> eventType, Node borderPane) {
+
+    private final int nodeNumber;
+    private final String media_type;
+
+    public EventRequest(EventType<? extends Event> eventType, int nodeNumber, String media_type) {
         super(eventType);
-        this.contentNode = borderPane;
+        this.nodeNumber = nodeNumber;
+        this.media_type = media_type;
     }
-    public Node getContentNode() {
-        return contentNode;
+
+    public int getNodeNumber() {
+        return nodeNumber;
+    }
+
+    public String getMedia_type() {
+        return media_type;
     }
 }

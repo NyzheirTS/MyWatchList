@@ -1,17 +1,13 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.AppConfig.AppCleaner;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Pair;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class PageHistoryManager {
     private final Deque<Node> backHistory = new ArrayDeque<>();

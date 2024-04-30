@@ -340,3 +340,5 @@ w
 G.idea/sonarlint/issuestore/c/0/c0b41e90ba60983bdd46945a07926191e1f152af,c\f\cf88bfd5aaa4b97bc4751788d38509d6cf4665d7
 Å
 Q.idea/sonarlint/securityhotspotstore/f/b/fbe50e706f4b04eab24c5bf49cbfe836611c8b9a,6\b\6b4ee804827b08ffa5b3759175041f18d31b2749
+Ä
+Psrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/DataEvent.java,c\c\ccf3dae3ea1381adf31cff526af7b825ac933452

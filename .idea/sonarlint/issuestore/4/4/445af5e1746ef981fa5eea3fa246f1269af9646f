@@ -1,10 +1,7 @@
 
 §
-java:S1488™"^Immediately return this expression instead of assigning it to the temporary variable "shadow".(€ñ²øÿÿÿÿ8³¥­„ò1J$ce5900b8-c13d-45c5-9aa8-2fea5d2e31a2
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8·¥­„ò1J$5511f62a-a336-4df5-908a-bfaa93c6959b
+java:S1488œ"^Immediately return this expression instead of assigning it to the temporary variable "shadow".(€ñ²øÿÿÿÿ8ÂÚŠó1J$b1abb240-5841-4ec6-bef2-472766342b58
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8ÄÚŠó1J$987cd436-1f01-46ca-993e-f72be25be35d
 ‘
-java:S3824i"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(¯Øª¥8å¥­„ò1J$966b5713-c0c5-44e7-a224-a008b818d765
-r	java:S106|"+Replace this use of System.out by a logger.(Ô—üõıÿÿÿÿ8¦­„ò1J$03bcd80d-1825-4f5f-b24e-a3d5d9e5ec54
-l	java:S106}"+Replace this use of System.out by a logger.(Ô¢Íb8¦­„ò1J$82c84751-cea6-4e51-aa76-ed47c68df020
-O
-java:S1128"3Remove this unused import 'javafx.concurrent.Task'.(Úåôg8ŞÖ‡ò1
+java:S3824i"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(¯Øª¥8éÚŠó1J$cf4effe0-fd05-4e8d-ba78-1ed515ba46e1
+r	java:S106~"+Replace this use of System.out by a logger.(Ù¿éûÿÿÿÿ8şÚŠó1J$91ef0f6a-846d-48b8-9c07-98acb2fedb27

@@ -1,10 +1,10 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
-import com.example.MyWatchList.Controllers.HomePage.CarouselController;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
+import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListFactory;
 import javafx.animation.KeyFrame;
@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
@@ -49,6 +48,7 @@ public class MainController implements Initializable {
     private final VBox watchedList = WatchedListFactory.createWatchedList();
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
     private final BorderPane homePage = HomePageFactory.createHomepage();
+    private final BorderPane infoPage = InfoPageFactory.createInfoPage();
     PageHistoryManager pageHistoryManager;
 
     @Override
@@ -62,18 +62,18 @@ public class MainController implements Initializable {
         infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                getEventPage((EventRequest) event);
-            }
-            else if (event.getEventType() == EventRequest.CAST_CREW_PAGE_REQUEST) {
-                getEventPage((EventRequest) event);
+                handleInfoPageRequest(event);
             }
         });
     }
 
-    private void getEventPage(EventRequest event){
-        pageHistoryManager.navigateTo(event.getContentNode());
-        menuOpenButton.toFront();
-        event.consume();
+    private void handleInfoPageRequest(Event event) {
+        if (infoPage != null && infoPage.getProperties().containsKey("controller")) {
+            InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
+            infoPageController.updatepage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_type());
+            pageHistoryManager.navigateTo(infoPage);
+            event.consume();
+        }
     }
 
 

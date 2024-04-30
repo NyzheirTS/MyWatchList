@@ -1,11 +1,10 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
 import com.example.MyWatchList.AppConfig.AppCleaner;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
+import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.Tooltip;
@@ -36,6 +35,7 @@ public class PosterNodeController implements AppCleaner {
     private boolean enableDropShadow;
     private boolean enableTooltip;
     private final Tooltip tip = new Tooltip();
+    private InfoPageController controller;
 
     private static final WeakHashMap<String, Image> imageCache = new WeakHashMap<>();
 
@@ -120,11 +120,14 @@ public class PosterNodeController implements AppCleaner {
     private void nodeClickEvent(){
         posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
-            EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, InfoPageFactory.createInfoPage(nodeNumber, mediaType));
-            System.out.println(nodeNumber);
-            System.out.println(mediaType);
+
+
+            if (controller != null) {
+                System.out.println("Hello");
+                controller.updatepage(nodeNumber, mediaType);
+            }
+            EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, nodeNumber, mediaType);
             posterPane.fireEvent(eventRequest);
-            eventRequest.consume();
         });
     }
 
@@ -175,6 +178,10 @@ public class PosterNodeController implements AppCleaner {
         posterPane.setOnMouseExited(null);
         Tooltip.uninstall(posterPane, tip);
         //System.out.println("PosterNode Clean");
+    }
+
+    public void setInfoPageController(InfoPageController controller){
+        this.controller = controller;
     }
 
 }
