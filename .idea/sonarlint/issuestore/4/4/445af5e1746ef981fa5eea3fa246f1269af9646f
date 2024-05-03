@@ -1,7 +1,10 @@
 
 §
-java:S1488œ"^Immediately return this expression instead of assigning it to the temporary variable "shadow".(€ñ²øÿÿÿÿ8ÂÚŠó1J$b1abb240-5841-4ec6-bef2-472766342b58
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8ÄÚŠó1J$987cd436-1f01-46ca-993e-f72be25be35d
+java:S1488–"^Immediately return this expression instead of assigning it to the temporary variable "shadow".(€ñ²øÿÿÿÿ8Ìª‹ó1J$44737d5e-bfd1-430e-9bc9-afda5c412723
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8ÄÚŠó1J$aa8098b5-7493-472e-8622-f76c8cacd2ee
 ‘
-java:S3824i"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(¯Øª¥8éÚŠó1J$cf4effe0-fd05-4e8d-ba78-1ed515ba46e1
-r	java:S106~"+Replace this use of System.out by a logger.(Ù¿éûÿÿÿÿ8şÚŠó1J$91ef0f6a-846d-48b8-9c07-98acb2fedb27
+java:S3824i"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(¯Øª¥8ëª‹ó1J$10ac25ef-1067-4a59-bbfb-53ff08bd45b1
+v
+java:S1450&"YRemove the "controller" field and declare it as a local variable in the relevant methods.(Ô×â8ß†ïÔó1
+K
+java:S1068&".Remove this unused "controller" private field.(Ô×â8Œ‡ïÔó1

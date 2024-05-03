@@ -1,12 +1,2 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8¹°Ã‚ó1J$9f2254f5-d347-4e6a-92fa-a7e3ad9e5173
-‚
-java:S1118":Add a private constructor to hide the implicit public one.(ôü‹øÿÿÿÿ8â®É‚ó1J$6138b20d-5669-4c10-b497-b772f20948ee
-¬
-java:S1128"dRemove this unused import 'com.example.MyWatchList.Controllers.SettingsPage.SettingsPageController'.(´¾ÂŸøÿÿÿÿ8©­¬ƒó1J$f48ede7a-338f-4d40-86c0-2212d38d2df1
-©
-java:S1128"aRemove this unused import 'com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory'.(·’÷×ıÿÿÿÿ8³çíƒó1J$5235b186-90ec-47d9-9042-75d7ad729d19
-}
-java:S1128"5Remove this unused import 'javafx.scene.layout.VBox'.(íÆáÂùÿÿÿÿ8©­¬ƒó1J$2d991b5a-3370-48da-ab1d-782c281ac7b4
-‡
-java:S1144"?Remove this unused private "createPosterNodeController" method.(˜ó†úÿÿÿÿ8´çíƒó1J$e03878a8-aaab-4c01-9465-d7d30c0df04b
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8î·ˆÜó1J$16d89fe9-5b17-4888-a28a-e406b086aa7e

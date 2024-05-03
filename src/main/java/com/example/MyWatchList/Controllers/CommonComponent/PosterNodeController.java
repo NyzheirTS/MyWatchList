@@ -120,12 +120,6 @@ public class PosterNodeController implements AppCleaner {
     private void nodeClickEvent(){
         posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
-
-
-            if (controller != null) {
-                System.out.println("Hello");
-                controller.updatepage(nodeNumber, mediaType);
-            }
             EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, nodeNumber, mediaType);
             posterPane.fireEvent(eventRequest);
         });

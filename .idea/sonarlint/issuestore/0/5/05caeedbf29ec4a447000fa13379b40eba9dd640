@@ -1,7 +1,4 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8Š´ÙŠó1J$48c500e9-c9ab-4514-9c51-8a8d136db073
-—	java:S116
-"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÒ³¥8´ÙŠó1J$bd2b7a88-3281-428d-97a4-739b5dded9c7
-•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´®ÿÿÿÿÿ8ÔÌéŠó1J$d146efc7-0d50-429a-b5bf-61440ce737c6
-q
-java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8‘´ÙŠó1J$4e5c76d6-27f6-4198-8844-35dc45a4cbb7
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8Š´ÙŠó1J$296dc132-f8d9-42ff-8b28-9bb1f3b6ec49
+—	java:S116	"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÒ³¥8¾ª‹ó1J$adc1e774-164b-4484-b193-38b8852914a0
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºåÁöøÿÿÿÿ8Ãª‹ó1J$d1ddc456-b186-4f4f-a838-5597db1ed2f4

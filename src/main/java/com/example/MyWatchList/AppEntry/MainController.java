@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,15 +63,19 @@ public class MainController implements Initializable {
         infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                handleInfoPageRequest(event);
+                try {
+                    handleInfoPageRequest(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
 
-    private void handleInfoPageRequest(Event event) {
+    private void handleInfoPageRequest(Event event) throws IOException {
         if (infoPage != null && infoPage.getProperties().containsKey("controller")) {
             InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
-            infoPageController.updatepage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_type());
+            infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_Type());
             pageHistoryManager.navigateTo(infoPage);
             event.consume();
         }

@@ -1,8 +1,0 @@
-
-
-java:S1192K"KDefine a constant instead of duplicating this literal "controller" 3 times.(ω¤¥χ8—©Έ“λ1J$5958b312-fd41-4674-b932-ab80ed453ef6
-	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ύω8™©Έ“λ1J$2e23bfa3-8d13-491d-b4bc-36cda4b7576e
-
-java:S1128"\Remove this unused import 'com.example.MyWatchList.Controllers.HomePage.CarouselController'.(λΉ¬©8ζ©Έ“λ1J$d61de5a7-c97d-4333-a11d-f0361f3c4c82
-€
-java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“σωÿÿÿÿ8γεÒμ1J$3fe44af0-6a64-4a08-9c41-3b6eae1d953c

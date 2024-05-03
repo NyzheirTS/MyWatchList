@@ -1,8 +1,9 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòþúÿÿÿÿ8œ‰Á‰ó1J$2c23a9e7-e5cd-4536-9959-6ad0e9394d3f
+g	java:S112E"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¾¡ŸÛó1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòþúÿÿÿÿ8œ‰Á‰ó1J$36360ce3-2e18-446f-bae2-bc476290cd2a
 u
-java:S1135("2Complete the task associated to this TODO comment.(—àŽÚ8¼‰Á‰ó1J$fb73b8d0-1b1c-4d95-bb48-2d36e8dd6a4b
+java:S1135)"2Complete the task associated to this TODO comment.(—àŽÚ8ÅŽª‹ó1J$b481fe2d-130a-424a-aff1-95bf2dda28f6
 z
-java:S1135)"2Complete the task associated to this TODO comment.(óŒ©Þûÿÿÿÿ8½‰Á‰ó1J$c2f9f397-0648-4e36-860b-942e55fa9aab
+java:S1135*"2Complete the task associated to this TODO comment.(óŒ©Þûÿÿÿÿ8ÅŽª‹ó1J$d48e17ee-40ad-4dcb-8d77-71b2c3576e02
 z
-java:S1135*"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8½‰Á‰ó1J$685dfd4a-242c-4518-a249-276dd5c0a652
+java:S1135+"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8ÅŽª‹ó1J$ae1f67c6-4474-45b4-b95d-f4b378353e84

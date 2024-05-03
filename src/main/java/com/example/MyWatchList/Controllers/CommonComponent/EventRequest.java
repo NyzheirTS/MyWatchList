@@ -1,7 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 import javafx.event.Event;
 import javafx.event.EventType;
-import javafx.scene.Node;
 
 public class EventRequest extends Event {
     public static final EventType<EventRequest> INFO_PAGE_REQUEST = new EventType<>(Event.ANY, "INFO_PAGE_REQUEST");
@@ -19,7 +18,7 @@ public class EventRequest extends Event {
         return nodeNumber;
     }
 
-    public String getMedia_type() {
+    public String getMedia_Type() {
         return media_type;
     }
 }

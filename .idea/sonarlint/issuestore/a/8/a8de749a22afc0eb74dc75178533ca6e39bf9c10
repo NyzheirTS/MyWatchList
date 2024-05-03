@@ -1,3 +1,5 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8úžÝŠó1J$21e250af-08fc-4e5e-80b1-ac0f9eec8457
-ž	java:S116"WRename this field "InfopageHome" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ãëóúÿÿÿÿ8“ŸÝŠó1J$5f6a0831-a461-416d-b6ff-d6cf4a33df42
+u
+java:S11999"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8Ò²‹àó1J$da502a2d-c86d-4320-b69f-abb83f8380ae
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8Ó²‹àó1J$176164da-649b-4de2-98c6-b77bff1855bb
+r	java:S106,"+Replace this use of System.out by a logger.(í”þÚýÿÿÿÿ8þ²‹àó1J$07dc8275-a35c-422b-84b9-2d0b9ed98958
