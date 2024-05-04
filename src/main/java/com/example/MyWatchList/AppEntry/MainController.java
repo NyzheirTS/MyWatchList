@@ -63,11 +63,7 @@ public class MainController implements Initializable {
         infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                try {
-                    handleInfoPageRequest(event);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                try { handleInfoPageRequest(event); } catch (IOException e) { throw new RuntimeException(e); }
             }
         });
     }
@@ -75,22 +71,17 @@ public class MainController implements Initializable {
     private void handleInfoPageRequest(Event event) throws IOException {
         if (infoPage != null && infoPage.getProperties().containsKey("controller")) {
             InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
-            infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_Type());
             pageHistoryManager.navigateTo(infoPage);
+            infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_Type());
             event.consume();
         }
     }
-
-
 
     public void handleClicks(ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnOverview) pnlHomeToFront.run();
         if(actionEvent.getSource() == btnOrders) pnlWatchedToFront.run();
         if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
-
-
-
 
     Runnable pnlHomeToFront = () -> pageHistoryManager.navigateTo(homePage);
     Runnable pnlSettingsToFront = () -> pageHistoryManager.navigateTo(settingsPage);

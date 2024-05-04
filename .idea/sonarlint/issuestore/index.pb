@@ -134,8 +134,6 @@ Usrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchedListFactor
 Zsrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchListNodeController.java,9\e\9e844e088012b9b0917b466ce58264c75a2a2410
 v
 Fsrc/main/java/com/example/MyWatchList/AppEntry/PageHistoryManager.java,c\f\cf6dd6f7d5c1ade7978feedfa4dbb9574d6b49cb
-t
-Dsrc/main/java/com/example/MyWatchList/AppEntry/oldPageHistoryManager,7\9\79b453abb1ebeb2476cc1ce067621d0d9d6f211f
 o
 ?src/main/java/com/example/MyWatchList/AppConfig/AppCleaner.java,0\9\097ab7c7cdca3b6a4700f9463117e67568718449
 e
@@ -156,8 +154,6 @@ asrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/CommonScrollP
 gsrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/CastCrewPages/CrewItemController.java,d\8\d84c6e4bfab88d7c0eca95a14884c42527a1a76d
 ó
 gsrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/CastCrewPages/CastItemController.java,7\0\70ee10b019565ae243d74905100bfd7904ca97a2
-p
-@src/main/java/com/example/MyWatchList/AppEntry/HistoryEntry.java,9\6\96606d6a980500700f106a75fe240522484f9309
 Å
 Q.idea/sonarlint/securityhotspotstore/3/f/3f3af93a2ac8a9553f306bcbd4b8e791a11ff1f5,1\9\1998e87a3818edeb47879c857a61511d66092376
 Å
@@ -273,10 +269,6 @@ Q.idea/sonarlint/securityhotspotstore/c/7/c7c80569e0e1fc02f11554a00b0f96b8822e57
 Å
 Q.idea/sonarlint/securityhotspotstore/7/5/75e7c86a67d74f9709301a0c346b6a2c07a33018,3\a\3a5ccd0c89cf45bc80f8c1b6ea89ead9cf751799
 Å
-Q.idea/sonarlint/securityhotspotstore/7/9/79b453abb1ebeb2476cc1ce067621d0d9d6f211f,a\7\a7fa7f04b86fe565ada9026abcef85648b75c4cb
-w
-G.idea/sonarlint/issuestore/7/9/79b453abb1ebeb2476cc1ce067621d0d9d6f211f,b\c\bc4a6c940988602f0133f5c0fac27ea6e9ec9295
-Å
 Q.idea/sonarlint/securityhotspotstore/5/b/5bbc7fc2938f2190fabccb85ee0112ab0ecfef7e,f\b\fb03a37b550ace0a6624b00e3c83c82ea7c36f50
 w
 G.idea/sonarlint/issuestore/1/2/123b7d251ed96c5c208ea5b3f959368af7eb0b1b,5\6\56da770568f29805bfb59af73c7ef9ffd6daf1fc
@@ -318,3 +310,9 @@ Psrc/main/java/com/example/MyWatchList/Controllers/InfoPage/HeaderController.jav
 Ssrc/main/java/com/example/MyWatchList/Controllers/InfoPage/LeftPanelController.java,3\a\3a7201ec5de3d315dec4c129f2e40762eb87ff63
 Ä
 Psrc/main/java/com/example/MyWatchList/Controllers/InfoPage/FooterController.java,f\f\ff14d5bb233c3fd5ceb262cc3a14b7def803dbfa
+h
+8src/main/java/com/example/MyWatchList/AppEntry/Pair.java,9\c\9c2c191e5521dfe385d1125203d4ebb35ed3bf22
+r
+Bsrc/main/java/com/example/MyWatchList/AppEntry/HistoryManager.java,4\4\44443c54804459fb8c2f5af6ac109ac4d1d1572b
+u
+Esrc/main/java/com/example/MyWatchList/AppEntry/StaticPageHistory.java,1\3\13d82b9a47fa8c9b4b3aa4b8ea2822ced385341a
