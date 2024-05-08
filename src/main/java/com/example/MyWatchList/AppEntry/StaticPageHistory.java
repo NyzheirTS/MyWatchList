@@ -61,6 +61,7 @@ public class StaticPageHistory implements HistoryManager{
         thisNode = node;
     }
 
+    @Override
     public void logHistory(){
         System.out.println("Back History: " + backHistory);
         System.out.println("Forward History: " + forwardHistory);

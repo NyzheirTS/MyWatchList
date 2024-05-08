@@ -5,8 +5,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
+import java.util.HashMap;
+
 public class PageHistoryManager {
-    private final StaticPageHistory history = new StaticPageHistory();
+    private final HashMap<String, HistoryManager> map = new HashMap<>();
+    private HistoryManager historyManager;
     private final BorderPane mainPane;
     private final Button backButton;
     private final Button forwardButton;
@@ -15,32 +18,50 @@ public class PageHistoryManager {
         this.mainPane = mainPane;
         this.backButton = backButton;
         this.forwardButton = forwardButton;
+        initMap();
         updateButtonStates();
     }
 
+    private void initMap(){
+        map.put("staticpage", new StaticPageHistory());
+        map.put("infopage", new InfoPageHistory());
+        this.historyManager = map.get("staticpage");
+    }
+
     public void navigateTo(Node page) {
-        history.setNode(mainPane.getCenter());
-        history.setHistory(page);
-        setCenterPage(history.getNode());
-        history.logHistory();
-    }
-    public void navigateTot(Node page) {
-        history.setNode(mainPane.getCenter());
-        history.setHistory(page);
+        getHistory();
+        historyManager.setNode(mainPane.getCenter());
+        historyManager.setHistory(page);
+        setCenterPage(historyManager.getNode());
+        historyManager.logHistory();
     }
 
-
+    private void getHistory(){
+        historyManager = map.get(mainPane.getCenter().getId());
+        System.out.println("Was On " + mainPane.getCenter().getId());
+    }
 
     public void goBack() {
-        history.goBack();
-        setCenterPage(history.getNode());
-        history.logHistory();
+        historyManager.goBack();
+        if (!historyManager.canGoBack() && mainPane.getCenter().getId().equals("infopage")) {
+            switchToStaticPageHistory();
+        }
+        setCenterPage(historyManager.getNode());
+        historyManager.logHistory();
+    }
+
+    private void switchToStaticPageHistory() {
+        historyManager = map.get("staticpage");
+        setCenterPage(historyManager.getNode());
     }
 
     public void goForward() {
-        history.goForward();
-        setCenterPage(history.getNode());
-        history.logHistory();
+        historyManager.goForward();
+        if(!historyManager.canGoForward() && mainPane.getCenter().getId().equals("infopage")){
+            switchToStaticPageHistory();
+        }
+        setCenterPage(historyManager.getNode());
+        historyManager.logHistory();
     }
 
     private void setCenterPage(Node page) {
@@ -51,8 +72,8 @@ public class PageHistoryManager {
     }
 
     private void updateButtonStates() {
-        backButton.setDisable(!history.canGoBack());
-        forwardButton.setDisable(!history.canGoForward());
+        backButton.setDisable(!historyManager.canGoBack());
+        forwardButton.setDisable(!historyManager.canGoForward());
     }
 
 }

@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class HomePageController {
     @FXML
-    public BorderPane homePageBase;
+    public BorderPane staticpage;
     @FXML
     private  VBox trendingPane;
     @FXML

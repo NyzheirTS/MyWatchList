@@ -316,3 +316,5 @@ r
 Bsrc/main/java/com/example/MyWatchList/AppEntry/HistoryManager.java,4\4\44443c54804459fb8c2f5af6ac109ac4d1d1572b
 u
 Esrc/main/java/com/example/MyWatchList/AppEntry/StaticPageHistory.java,1\3\13d82b9a47fa8c9b4b3aa4b8ea2822ced385341a
+s
+Csrc/main/java/com/example/MyWatchList/AppEntry/InfoPageHistory.java,b\c\bcee5dd68fc767ed39669cef01414302945a4bf5

@@ -10,4 +10,5 @@ public interface HistoryManager {
     public boolean canGoForward();
     public Node getNode();
     public void setNode(Node node);
+    public void logHistory();
 }

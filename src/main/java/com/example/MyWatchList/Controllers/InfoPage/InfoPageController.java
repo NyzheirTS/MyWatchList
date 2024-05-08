@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class InfoPageController {
 
-    @FXML private BorderPane infopageHome;
+    @FXML private BorderPane infopage;
     @FXML private Hyperlink linkToCastCrewPage;
     @FXML private ScrollPane rightPanelContainer;
     @FXML private ScrollPane middleContainer;
@@ -74,7 +74,7 @@ public class InfoPageController {
         if (header != null && header.getProperties().containsKey(ComponentController)) {
             HeaderController headerController = (HeaderController) header.getProperties().get(ComponentController);
             headerController.updateHeader(string);
-            infopageHome.setTop(header);
+            infopage.setTop(header);
         }
     }
 
