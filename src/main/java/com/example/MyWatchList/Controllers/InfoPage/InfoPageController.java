@@ -94,10 +94,7 @@ public class InfoPageController {
         }
     }
 
-
-
-
-    public MediaInfoPageModel getJsonTestString(String mediaType) throws IOException {
+    private MediaInfoPageModel getJsonTestString(String mediaType) throws IOException {
         if (mediaType.equals("movie")){
             return MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonStringMovie(),mediaType);
         } else if (mediaType.equals("tv")){

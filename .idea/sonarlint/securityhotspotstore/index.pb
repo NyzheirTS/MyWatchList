@@ -318,3 +318,11 @@ u
 Esrc/main/java/com/example/MyWatchList/AppEntry/StaticPageHistory.java,1\3\13d82b9a47fa8c9b4b3aa4b8ea2822ced385341a
 s
 Csrc/main/java/com/example/MyWatchList/AppEntry/InfoPageHistory.java,b\c\bcee5dd68fc767ed39669cef01414302945a4bf5
+}
+Msrc/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/Command.java,a\6\a696b2a90b2cd38b9681fdd7825650c4b82aa821
+}
+Msrc/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/History.java,e\0\e05b7fea69b9dd258e57baa14dd9720b40f963ff
+ã
+[src/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/UpdateInfoPageCommand.java,8\a\8ab95292598dedabe88a12b941f3d4aee4615aac
+ç
+]src/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/UpdateStaticPageCommand.java,e\d\ed10f8cb3780f75e5464c7eac7e7ef0d6f7437a5

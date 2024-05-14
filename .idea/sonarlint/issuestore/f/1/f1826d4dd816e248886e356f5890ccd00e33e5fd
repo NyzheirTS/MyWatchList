@@ -1,9 +1,15 @@
 
-	java:S112B"FDefine and throw a dedicated exception instead of using a generic one.(Ââ–ÿÿÿÿÿ8Ë®…ıó1J$9cb434c7-89cb-4389-a1b1-eb8dc506f6d4
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8Ï®…ıó1J$64924170-a78a-49d3-bcd3-1ea7ca63665b
+	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8˜¤÷1J$85f176f1-a707-4256-97f6-7a8df8d850eb
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8¤÷1J$5576829c-0190-4067-9767-744d65ce914d
 u
-java:S1135)"2Complete the task associated to this TODO comment.(—àÚ8ì®…ıó1J$8baeacf9-ae3b-4297-a85f-33623cb797bc
+java:S1135."2Complete the task associated to this TODO comment.(—àÚ8À¤÷1J$e215d849-8622-4237-a17e-77efa0bccc7e
 z
-java:S1135*"2Complete the task associated to this TODO comment.(óŒ©Şûÿÿÿÿ8í®…ıó1J$a0ac9f24-0980-4c81-815f-ff698d7c6c77
+java:S1135/"2Complete the task associated to this TODO comment.(óŒ©Şûÿÿÿÿ8À¤÷1J$a344100f-5030-4cf5-8c38-ca834a539eb4
 z
-java:S1135+"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8í®…ıó1J$31ef4a14-df9b-48d3-8327-e98ea8f7614d
+java:S11350"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8À¤÷1J$40a1679e-74fe-4c8f-b452-0e2099db4259
+¨
+java:S1128"eRemove this unused import 'com.example.MyWatchList.AppEntry.HistoryManagement.UpdateInfoPageCommand'.(ç§Ú8â¤÷1J$00669cb8-66b7-487a-929e-42c60b1163a1
+¯
+java:S1128"gRemove this unused import 'com.example.MyWatchList.AppEntry.HistoryManagement.UpdateStaticPageCommand'.(¥ïæ¡ÿÿÿÿÿ8â¤÷1J$e5f12c11-8605-403b-907d-6b9aca1b0169
+y
+java:S1068b"6Remove this unused "pnlInfoPageToFront" private field.(®ÒêØ8ã¤÷1J$c3b6e279-1910-4e41-9039-74dab5c5df96

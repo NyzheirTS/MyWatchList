@@ -1,6 +1,9 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.AppEntry.HistoryManagement.History;
+import com.example.MyWatchList.AppEntry.HistoryManagement.UpdateInfoPageCommand;
+import com.example.MyWatchList.AppEntry.HistoryManagement.UpdateStaticPageCommand;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
@@ -10,10 +13,12 @@ import com.example.MyWatchList.Controllers.WatchedList.WatchedListFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
@@ -50,11 +55,11 @@ public class MainController implements Initializable {
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
     private final BorderPane homePage = HomePageFactory.createHomepage();
     private final BorderPane infoPage = InfoPageFactory.createInfoPage();
-    PageHistoryManager pageHistoryManager;
+    History history;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        pageHistoryManager = new PageHistoryManager(infoPageBorderPane, backTestButon, forwardTestButton);
+        history = new History(forwardTestButton, backTestButon);
         api.fetchData(this::setMethods);
         menuAction();
     }
@@ -62,19 +67,23 @@ public class MainController implements Initializable {
     private void setMethods() {
         infoPageBorderPane.setCenter(homePage);
         mainBorderPane.addEventFilter(Event.ANY, event -> {
-            if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST) {
-                try { handleInfoPageRequest(event); } catch (IOException e) { throw new RuntimeException(e); }
+            if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST && (infoPage != null && infoPage.getProperties().containsKey("controller"))) {
+                InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
+                try {
+                    infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest) event).getMedia_Type());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                event.consume();
             }
         });
     }
 
-    private void handleInfoPageRequest(Event event) throws IOException {
-        if (infoPage != null && infoPage.getProperties().containsKey("controller")) {
-            InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
-            pageHistoryManager.navigateTo(infoPage);
-            infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest)event).getMedia_Type());
-            event.consume();
-        }
+    public void clearAndSet(Node node){
+        Platform.runLater(() -> {
+            infoPageBorderPane.getChildren().clear();
+            infoPageBorderPane.setCenter(node);
+        });
     }
 
     public void handleClicks(ActionEvent actionEvent) {
@@ -83,9 +92,11 @@ public class MainController implements Initializable {
         if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
 
-    Runnable pnlHomeToFront = () -> pageHistoryManager.navigateTo(homePage);
-    Runnable pnlSettingsToFront = () -> pageHistoryManager.navigateTo(settingsPage);
-    Runnable pnlWatchedToFront = () -> pageHistoryManager.navigateTo(watchedList);
+    private final Runnable pnlHomeToFront = () -> clearAndSet(homePage);
+    private final Runnable pnlSettingsToFront = () -> clearAndSet(settingsPage);
+    private final Runnable pnlWatchedToFront = () -> clearAndSet(watchedList);
+    private final Runnable pnlInfoPageToFront = () -> clearAndSet(infoPage);
+
 
 
     Runnable menuClose = () -> {
@@ -129,8 +140,8 @@ public class MainController implements Initializable {
         menuClose.run();
         menuCloseButton.setOnAction(event -> menuClose.run());
         menuOpenButton.setOnAction(event -> menuOpen.run());
-        backTestButon.setOnAction(event -> pageHistoryManager.goBack());
-        forwardTestButton.setOnAction(event -> pageHistoryManager.goForward());
+        //backTestButon.setOnAction(event -> );
+        //forwardTestButton.setOnAction(event -> );
     }
 
 
