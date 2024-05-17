@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
+import com.example.MyWatchList.AppEntry.Pair;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelFactory;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
@@ -7,17 +8,22 @@ import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.w3c.dom.events.Event;
 
 import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class InfoPageController {
 
+    @FXML private Button backButton;
     @FXML private BorderPane infopage;
     @FXML private Hyperlink linkToCastCrewPage;
     @FXML private ScrollPane rightPanelContainer;
@@ -32,15 +38,34 @@ public class InfoPageController {
     private final HBox header = InfoPageFactory.createHeader();
     private final VBox leftPanel = InfoPageFactory.createLeftPanel();
     private final HBox footer = InfoPageFactory.createFooter();
+    private final Label label = new Label();
+    private final DynamicPageHistory history = new DynamicPageHistory(backButton);
+    private Pair<Integer, String> lastPair;
+    private Boolean historyInit = false;
 
-    
+
+    public void initProperties() {
+        setBackButton();
+    }
+
     public void updatePage(int nodeID, String media_type) throws IOException {
         this.nodeID = nodeID;
         this.mediaType = media_type;
         MediaInfoPageModel infoPageModel = getJsonTestString(mediaType);
-        if (infoPageModel instanceof MovieInfoPageModel){
-            buildMoviePage((MovieInfoPageModel) infoPageModel);
-        } else if (infoPageModel instanceof TvInfoPageModel) {
+        getAndBuild(infoPageModel);
+        if (Boolean.TRUE.equals(historyInit)) {
+            history.addBack(lastPair);
+            lastPair = new Pair<>(nodeID, media_type);
+        } else {
+            lastPair = new Pair<>(nodeID, media_type);
+            historyInit = true;
+        }
+    }
+
+    private void getAndBuild(MediaInfoPageModel infopage){
+        if (infopage instanceof MovieInfoPageModel){
+            buildMoviePage((MovieInfoPageModel) infopage);
+        } else if (infopage instanceof TvInfoPageModel) {
             System.out.println("To Be Implemented");
         } else {
             throw new IllegalStateException("Unsupported Media Type");
@@ -52,15 +77,8 @@ public class InfoPageController {
         setHeader(jsonString);
         setLeftPanel(jsonString);
         setFooter(jsonString);
-
-
-        {
-            Label label = new Label(String.valueOf(nodeID) + "  " + mediaType);
-            label.setAlignment(Pos.CENTER);
-            middleContainer.setContent(label);
-        }
+        showpageInfo();
     }
-
 
     private void setRightPanelContainer(MovieInfoPageModel string){
         if (rightPanel != null && rightPanel.getProperties().containsKey(ComponentController)) {
@@ -102,7 +120,20 @@ public class InfoPageController {
         }
         return null;
     }
-
     public int getNodeID() {return nodeID;}
+
     public String getMediaType() {return mediaType;}
+
+    private void showpageInfo(){
+        label.setText(String.valueOf(nodeID) + "  " + mediaType);
+        label.setAlignment(Pos.CENTER);
+        middleContainer.setContent(label);
+    }
+
+    public void setBackButton() {
+        backButton.setOnMouseClicked(event -> {
+            System.out.println(event.getEventType());
+            history.goback();
+        });
+    }
 }

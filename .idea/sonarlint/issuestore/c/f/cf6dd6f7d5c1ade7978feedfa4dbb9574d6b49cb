@@ -1,7 +1,0 @@
-
-m
-java:S1192"KDefine a constant instead of duplicating this literal "staticpage" 3 times.(õÕ¯¿øÿÿÿÿ8›‰óÕõ1
-f
-java:S1192"IDefine a constant instead of duplicating this literal "infopage" 3 times.(›ºñ§8¡‰óÕõ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8¤‰óÕõ1
-L	java:S106)"+Replace this use of System.out by a logger.(ì¦á¥úÿÿÿÿ8Ò‰óÕõ1

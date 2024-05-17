@@ -1,5 +1,10 @@
 
-u
-java:S11999"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8¸÷´øó1J$602bbf29-d049-4aa4-b7f0-da8cb98bd38e
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8º÷´øó1J$da688977-ad04-407c-96c4-d306b3513d00
-r	java:S106,"+Replace this use of System.out by a logger.(í”þÚýÿÿÿÿ8è÷´øó1J$bf4632d8-3600-46b9-9a30-1ab4b474a404
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8¬šè¿ø1J$6efb23bd-3b8a-4623-baff-064a7c402ee5
+r	java:S106E"+Replace this use of System.out by a logger.(í”þÚýÿÿÿÿ8Ýšè¿ø1J$48748100-8e61-4e70-bff2-db7af73e71dc
+m	java:S106‡"+Replace this use of System.out by a logger.(˜ßŒI8èšè¿ø1J$6559725f-41ac-4274-9b73-54b1c4172de6
+}
+java:S1128"5Remove this unused import 'org.w3c.dom.events.Event'.(í¶°ãþÿÿÿÿ8ôÏ€Àø1J$1275df19-ca0b-4264-8a68-9f9cbcaf325e
+y
+java:S1128"1Remove this unused import 'java.util.ArrayDeque'.(†®ÞÖúÿÿÿÿ8õÏ€Àø1J$e1a2b74f-1ac6-4c9e-b1ec-0c7663ee0dbc
+t
+java:S1128",Remove this unused import 'java.util.Deque'.(³Ã¯¥þÿÿÿÿ8õÏ€Àø1J$6b139ca7-9bfa-48fc-8203-b008feba4852
