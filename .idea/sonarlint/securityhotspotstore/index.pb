@@ -312,3 +312,11 @@ h
 Xsrc/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/PageHistoryManager.java,4\d\4dd283040653c1d63c8f1fb8cd722e86ca391506
 Ç
 Rsrc/main/java/com/example/MyWatchList/Controllers/InfoPage/DynamicPageHistory.java,1\0\10ec563ed224039b101fa4f25d80137b3ccb3c0a
+Ö
+Usrc/main/java/com/example/MyWatchList/Controllers/InfoPage/MiddlePanelController.java,a\5\a596d7cf3db966e95e7667bddf4162fb31010c25
+ç
+]src/main/java/com/example/MyWatchList/Controllers/CommonComponent/YoutubeEmbedController.java,3\6\368e6e731b00af55101a8a5f7d48d4cea16fadae
+é
+^src/main/java/com/example/MyWatchList/Controllers/CommonComponent/ReviewPopOverController.java,0\8\0885fca1406c4e27c60c4d377030e16757f3e094
+à
+Xsrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/ReviewsController.java,f\2\f2faaadaaf105854500fc683d0bee7ed6eb9d86f

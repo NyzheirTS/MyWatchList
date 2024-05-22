@@ -17,7 +17,7 @@ public class InfoPageFactory {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/info-page.fxml"));
             BorderPane infoPage = loader.load();
             InfoPageController controller = loader.getController();
-
+            controller.initProperties();
             infoPage.getProperties().put(ComponentController, controller);  // Store controller in properties
             return infoPage;
         } catch (IOException e) {
@@ -73,6 +73,19 @@ public class InfoPageFactory {
             footer.getProperties().put(ComponentController, controller);
             return footer;
         } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static VBox createMiddlePanel(){
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/middle-panel.fxml"));
+            VBox middlePanel = loader.load();
+            MiddlePanelController controller = loader.getController();
+            middlePanel.getProperties().put(ComponentController, controller);
+            return middlePanel;
+        } catch ( IOException e){
             e.printStackTrace();
             return null;
         }

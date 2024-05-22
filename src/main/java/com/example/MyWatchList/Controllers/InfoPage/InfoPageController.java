@@ -15,11 +15,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.w3c.dom.events.Event;
 
 import java.io.IOException;
-import java.util.ArrayDeque;
-import java.util.Deque;
 
 public class InfoPageController {
 
@@ -38,28 +35,24 @@ public class InfoPageController {
     private final HBox header = InfoPageFactory.createHeader();
     private final VBox leftPanel = InfoPageFactory.createLeftPanel();
     private final HBox footer = InfoPageFactory.createFooter();
-    private final Label label = new Label();
-    private final DynamicPageHistory history = new DynamicPageHistory(backButton);
-    private Pair<Integer, String> lastPair;
-    private Boolean historyInit = false;
+    private final VBox middle = InfoPageFactory.createMiddlePanel();
+    private final DynamicPageHistory history = new DynamicPageHistory();
 
-
-    public void initProperties() {
-        setBackButton();
-    }
-
-    public void updatePage(int nodeID, String media_type) throws IOException {
+    public void externalUpdateMethod(int nodeID, String media_type) throws IOException {
         this.nodeID = nodeID;
         this.mediaType = media_type;
         MediaInfoPageModel infoPageModel = getJsonTestString(mediaType);
         getAndBuild(infoPageModel);
-        if (Boolean.TRUE.equals(historyInit)) {
-            history.addBack(lastPair);
-            lastPair = new Pair<>(nodeID, media_type);
-        } else {
-            lastPair = new Pair<>(nodeID, media_type);
-            historyInit = true;
-        }
+        history.addBack(new Pair<>(nodeID, media_type));
+        buttonChecker();
+    }
+
+    private void internalUpdateMethod(int nodeID, String mediaType) throws IOException {
+        this.nodeID = nodeID;
+        this.mediaType = mediaType;
+        MediaInfoPageModel infoPageModel = getJsonTestString(mediaType);
+        buttonChecker();
+        getAndBuild(infoPageModel);
     }
 
     private void getAndBuild(MediaInfoPageModel infopage){
@@ -77,7 +70,7 @@ public class InfoPageController {
         setHeader(jsonString);
         setLeftPanel(jsonString);
         setFooter(jsonString);
-        showpageInfo();
+        setMiddlePanel(jsonString);
     }
 
     private void setRightPanelContainer(MovieInfoPageModel string){
@@ -112,6 +105,14 @@ public class InfoPageController {
         }
     }
 
+    private void setMiddlePanel(MovieInfoPageModel string){
+        if (middle != null && middle.getProperties().containsKey(ComponentController)){
+            MiddlePanelController middleController = (MiddlePanelController) middle.getProperties().get(ComponentController);
+            middleController.updateMiddle(string);
+            middleContainer.setContent(middle);
+        }
+    }
+
     private MediaInfoPageModel getJsonTestString(String mediaType) throws IOException {
         if (mediaType.equals("movie")){
             return MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonStringMovie(),mediaType);
@@ -120,20 +121,25 @@ public class InfoPageController {
         }
         return null;
     }
-    public int getNodeID() {return nodeID;}
-
-    public String getMediaType() {return mediaType;}
-
-    private void showpageInfo(){
-        label.setText(String.valueOf(nodeID) + "  " + mediaType);
-        label.setAlignment(Pos.CENTER);
-        middleContainer.setContent(label);
-    }
 
     public void setBackButton() {
         backButton.setOnMouseClicked(event -> {
-            System.out.println(event.getEventType());
-            history.goback();
+            Pair<Integer, String> newpair = history.goBack();
+            if (newpair != null) {
+                try {
+                    internalUpdateMethod(newpair.getFirst(), newpair.getSecond());
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
         });
+    }
+
+    private void buttonChecker(){
+        backButton.setVisible(!history.historyIsEmpty());
+    }
+
+    public void initProperties() {
+        setBackButton();
     }
 }

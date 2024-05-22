@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 //짜장 불닭 볶음면
 public class UrlBuilder {
+    private UrlBuilder(){}
     private static final String BASE_POSTER_URL = "https://image.tmdb.org/t/p/w300";
     private static final String BASE_BACKDROP_URL = "https://image.tmdb.org/t/p/w1280";
     private static final String BASE_LOGO_URL = "https://image.tmdb.org/t/p/w154";

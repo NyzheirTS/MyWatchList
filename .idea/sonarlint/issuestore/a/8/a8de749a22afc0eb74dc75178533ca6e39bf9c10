@@ -1,10 +1,10 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8¬šè¿ø1J$6efb23bd-3b8a-4623-baff-064a7c402ee5
-r	java:S106E"+Replace this use of System.out by a logger.(í”þÚýÿÿÿÿ8Ýšè¿ø1J$48748100-8e61-4e70-bff2-db7af73e71dc
-m	java:S106‡"+Replace this use of System.out by a logger.(˜ßŒI8èšè¿ø1J$6559725f-41ac-4274-9b73-54b1c4172de6
-}
-java:S1128"5Remove this unused import 'org.w3c.dom.events.Event'.(í¶°ãþÿÿÿÿ8ôÏ€Àø1J$1275df19-ca0b-4264-8a68-9f9cbcaf325e
-y
-java:S1128"1Remove this unused import 'java.util.ArrayDeque'.(†®ÞÖúÿÿÿÿ8õÏ€Àø1J$e1a2b74f-1ac6-4c9e-b1ec-0c7663ee0dbc
-t
-java:S1128",Remove this unused import 'java.util.Deque'.(³Ã¯¥þÿÿÿÿ8õÏ€Àø1J$6b139ca7-9bfa-48fc-8203-b008feba4852
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8Ž¶¨þù1J$0bd5123d-fe95-458e-8591-d58e9ac33e33
+r	java:S106>"+Replace this use of System.out by a logger.(í”þÚýÿÿÿÿ8È¶¨þù1J$3a848db5-0e9e-47be-a6c1-64a6223b7889
+x
+java:S1128
+"0Remove this unused import 'javafx.geometry.Pos'.(ÌÆ÷Ùøÿÿÿÿ8Ú¶¨þù1J$0c0d3e9f-a656-4049-945f-0be52629ed69
+
+java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(ö²­žÿÿÿÿÿ8Ú¶¨þù1J$49bd3cdc-60dc-4995-99a1-db834fc51842
+r
+java:S1068"*Remove this unused "nodeID" private field.(‘†ªÌøÿÿÿÿ8Û¶¨þù1J$9c94024e-0490-4138-b23f-a8eb25b07901

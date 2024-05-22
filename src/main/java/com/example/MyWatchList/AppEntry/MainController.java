@@ -56,7 +56,7 @@ public class MainController implements Initializable {
             if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST && (infoPage != null && infoPage.getProperties().containsKey("controller"))) {
                 InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
                 try {
-                    infoPageController.updatePage(((EventRequest) event).getNodeNumber(), ((EventRequest) event).getMedia_Type());
+                    infoPageController.externalUpdateMethod(((EventRequest) event).getNodeNumber(), ((EventRequest) event).getMedia_Type());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

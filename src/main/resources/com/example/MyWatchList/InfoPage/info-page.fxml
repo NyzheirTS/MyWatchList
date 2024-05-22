@@ -5,11 +5,12 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.InfoPageController">
    <center>
@@ -43,9 +44,9 @@
                      </BorderPane.margin>
                   </VBox>
                </bottom>
-               <top>
+               <center>
                   <ScrollPane fx:id="middleContainer" fitToWidth="true" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
-               </top>
+               </center>
             </BorderPane>
          </center>
          <right>
@@ -58,16 +59,29 @@
       </BorderPane>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="21.0" prefWidth="1674.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" BorderPane.alignment="TOP_LEFT">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" text="Back" />
+            <Button fx:id="backButton" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="-3.0" right="-3.0" top="-1.0" />
+               </padding></Button>
          </children>
-         <padding>
-            <Insets bottom="1.0" />
-         </padding>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
+         <padding>
+            <Insets bottom="-59.0" left="11.0" />
+         </padding>
       </HBox>
    </top>
 </BorderPane>

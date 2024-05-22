@@ -3,4 +3,4 @@
 <?import javafx.scene.image.ImageView?>
 
 
-<ImageView fx:id="youtubethumbnail" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.YoutubeEmbedController" />
+<ImageView fx:id="youtubethumbnail" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.CommonComponent.YoutubeEmbedController" />

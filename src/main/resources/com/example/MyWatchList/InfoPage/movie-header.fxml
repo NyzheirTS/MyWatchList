@@ -5,6 +5,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -24,12 +25,15 @@
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
-            <AnchorPane prefHeight="360.0" prefWidth="337.0" styleClass="header-poster-border" stylesheets="@../StyleSheets/style.css">
+            <AnchorPane prefHeight="351.0" prefWidth="234.0" styleClass="header-poster-border" stylesheets="@../StyleSheets/style.css">
                <children>
-                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w300.jpg" />
+                     </image></ImageView>
                </children>
                <VBox.margin>
-                  <Insets left="-100.0" right="14.0" />
+                  <Insets left="-62.0" right="5.0" />
                </VBox.margin>
                <padding>
                   <Insets left="-5.0" right="-1.0" />
@@ -37,10 +41,10 @@
             </AnchorPane>
          </children>
          <HBox.margin>
-            <Insets right="-1.0" />
+            <Insets />
          </HBox.margin>
          <padding>
-            <Insets bottom="-56.0" left="116.0" right="42.0" />
+            <Insets bottom="-56.0" left="116.0" />
          </padding>
       </VBox>
       <VBox alignment="CENTER_LEFT" prefHeight="350.0" prefWidth="1348.0">
