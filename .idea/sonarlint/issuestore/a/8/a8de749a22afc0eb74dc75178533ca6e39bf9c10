@@ -1,17 +1,10 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8‘ôå”ğ1J$c27a27d5-6815-4b33-9cf7-7d732ebd12dc
-	java:S116"WRename this field "InfopageHome" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ãëóúÿÿÿÿ8³ôå”ğ1J$cc5b7f26-4f89-4118-9de3-41b557173053
-É
-java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(îúíùÿÿÿÿ8´ôå”ğ1J$48304bb3-3b9e-4c32-82d1-a655c05cb55c
-
-java:S1450"VRemove the "mediaID" field and declare it as a local variable in the relevant methods.(²Ç”®ıÿÿÿÿ8µôå”ğ1J$83db2a67-f1b5-4b83-b127-89da7909fc73
-r	java:S106("+Replace this use of System.out by a logger.(í”şÚıÿÿÿÿ8¹ôå”ğ1J$2d488bbd-9038-403f-9278-ad52f9a42bf0
-|
-java:S11728"4Remove this unused method parameter "infoPageModel".(îúíùÿÿÿÿ8»ôå”ğ1J$5ecc485f-f162-4394-8d1a-d23227bc54da
-m	java:S106\"+Replace this use of System.out by a logger.(Õ›¾Ò8ìÏÉ…ò1J$79ee9c5b-6803-4cb0-b5e8-8a91c29aa91a
-
-java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(ö²­ÿÿÿÿÿ8ô¸š•ğ1J$be742870-3ee0-492a-b897-f8161a757934
-s
-java:S1068"+Remove this unused "mediaID" private field.(²Ç”®ıÿÿÿÿ8Âôå”ğ1J$4edd62c5-e2a6-4964-a47f-027c48b4274e
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ÿ¾ˆù8¶¨şù1J$0bd5123d-fe95-458e-8591-d58e9ac33e33
+r	java:S106>"+Replace this use of System.out by a logger.(í”şÚıÿÿÿÿ8È¶¨şù1J$3a848db5-0e9e-47be-a6c1-64a6223b7889
 x
-java:S11448"0Remove this unused private "buildTvPage" method.(îúíùÿÿÿÿ8Âôå”ğ1J$496c4cd3-2ea2-48d5-a418-139211a517af
+java:S1128
+"0Remove this unused import 'javafx.geometry.Pos'.(ÌÆ÷Ùøÿÿÿÿ8Ú¶¨şù1J$0c0d3e9f-a656-4049-945f-0be52629ed69
+
+java:S1128"7Remove this unused import 'javafx.scene.control.Label'.(ö²­ÿÿÿÿÿ8Ú¶¨şù1J$49bd3cdc-60dc-4995-99a1-db834fc51842
+r
+java:S1068"*Remove this unused "nodeID" private field.(‘†ªÌøÿÿÿÿ8Û¶¨şù1J$9c94024e-0490-4138-b23f-a8eb25b07901

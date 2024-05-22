@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -13,20 +14,26 @@
             <Font name="Arimo Regular" size="18.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="youtubeContainer" fitToHeight="true" fitToWidth="true">
+      <ScrollPane fitToHeight="true" fitToWidth="true">
          <VBox.margin>
             <Insets bottom="25.0" />
          </VBox.margin>
+         <content>
+            <HBox fx:id="youtubeContainer" spacing="10.0" />
+         </content>
       </ScrollPane>
       <Label text="Reviews" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="reviewsContainer" fitToHeight="true">
+      <ScrollPane fitToHeight="true">
          <VBox.margin>
             <Insets bottom="3.0" />
          </VBox.margin>
+         <content>
+            <HBox fx:id="reviewsContainer" spacing="10.0" />
+         </content>
       </ScrollPane>
    </children>
    <padding>

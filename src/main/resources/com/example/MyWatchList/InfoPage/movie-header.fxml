@@ -5,6 +5,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<HBox alignment="CENTER" prefHeight="350.0" prefWidth="1920.0" styleClass="hbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage.MovieHeaderController">
+<HBox alignment="CENTER" prefHeight="350.0" prefWidth="1920.0" styleClass="hbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.HeaderController">
    <children>
       <ImageView fx:id="backgroundImage" fitHeight="350.0" fitWidth="1920.0" opacity="0.45" pickOnBounds="true">
          <viewport>
@@ -24,12 +25,15 @@
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
-            <AnchorPane prefHeight="360.0" prefWidth="337.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
+            <AnchorPane prefHeight="351.0" prefWidth="234.0" styleClass="header-poster-border" stylesheets="@../StyleSheets/style.css">
                <children>
-                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w300.jpg" />
+                     </image></ImageView>
                </children>
                <VBox.margin>
-                  <Insets left="-100.0" right="14.0" />
+                  <Insets left="-62.0" right="5.0" />
                </VBox.margin>
                <padding>
                   <Insets left="-5.0" right="-1.0" />
@@ -37,10 +41,10 @@
             </AnchorPane>
          </children>
          <HBox.margin>
-            <Insets right="-1.0" />
+            <Insets />
          </HBox.margin>
          <padding>
-            <Insets bottom="-56.0" left="116.0" right="42.0" />
+            <Insets bottom="-56.0" left="116.0" />
          </padding>
       </VBox>
       <VBox alignment="CENTER_LEFT" prefHeight="350.0" prefWidth="1348.0">
@@ -48,7 +52,7 @@
             <Insets />
          </HBox.margin>
          <children>
-            <Label fx:id="taglineLabel" stylesheets="@../../StyleSheets/style.css" textFill="#8a8a8a">
+            <Label fx:id="taglineLabel" stylesheets="@../StyleSheets/style.css" textFill="#8a8a8a">
                <font>
                   <Font name="Arimo Italic" size="15.0" />
                </font>
@@ -83,7 +87,7 @@
                   <Insets top="49.0" />
                </VBox.margin>
             </Label>
-            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../../StyleSheets/style.css" wrapText="true">
+            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../StyleSheets/style.css" wrapText="true">
                <font>
                   <Font name="Arimo Regular" size="16.0" />
                </font>
@@ -110,8 +114,8 @@
             </Label>
             <Rating fx:id="showRating" partialRating="true" prefHeight="32.0" prefWidth="244.0" rating="0.0" styleClass="rating-bar">
                <stylesheets>
-                  <URL value="@../../StyleSheets/style.css" />
-                  <URL value="@../../StyleSheets/customRatingsFX/newratingstyle.css" />
+                  <URL value="@../StyleSheets/style.css" />
+                  <URL value="@../StyleSheets/customRatingsFX/newratingstyle.css" />
                </stylesheets>
             </Rating>
             <Label fx:id="votesLabel">

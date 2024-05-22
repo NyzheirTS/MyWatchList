@@ -1,6 +1,5 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.PosterNodeController;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
@@ -11,29 +10,24 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class RightPanelController implements AppCleaner {
+public class RightPanelController {
 
     @FXML private Label rightLabel;
     @FXML private VBox vbox1;
     @FXML private VBox vbox2;
-    private MediaInfoPageModel jsonString;
-    private String mediatype;
 
-    public void initRightPanel(MediaInfoPageModel jsonString, String MediaType){
-        this.jsonString = jsonString;
-        this.mediatype = MediaType;
-        buildPanel();
-    }
-
-    private void buildPanel(){
+    public void updateRightPanel(MediaInfoPageModel jsonString, String MediaType){
         Platform.runLater(() -> {
-            buildVbox1();
-            buildVbox2();
-            rightLabel.setText(formatLabel(mediatype));
+            buildVbox1(jsonString);
+            buildVbox2(jsonString);
+            rightLabel.setText(formatLabel(MediaType));
         });
     }
 
-    private void buildVbox1(){
+
+
+    private void buildVbox1(MediaInfoPageModel jsonString){
+        vbox1.getChildren().clear();
         RecommendationsModel.Recommendations[] recommendations = jsonString.getRecommendations().getResults();
         for (int i = 0; i <= 9; i++){
             AnchorPane node = CommonFactory.createPosterNode(
@@ -50,7 +44,8 @@ public class RightPanelController implements AppCleaner {
         }
     }
 
-    private void buildVbox2(){
+    private void buildVbox2(MediaInfoPageModel jsonString){
+        vbox2.getChildren().clear();
         RecommendationsModel.Recommendations[] recommendations = jsonString.getRecommendations().getResults();
         for (int i = 10; i <= 19; i++){
             AnchorPane node = CommonFactory.createPosterNode(
@@ -83,31 +78,8 @@ public class RightPanelController implements AppCleaner {
         return null;
     }
 
-    @Override
-    public void cleanup() {
-        vbox1.getChildren().forEach(node -> {
-            PosterNodeController controller = getControllerFromNode((AnchorPane) node);
-            if (controller != null){
-                controller.cleanup();
-            }
-        });
-        vbox2.getChildren().forEach(node -> {
-            PosterNodeController controller = getControllerFromNode((AnchorPane) node);
-            if (controller != null){
-                controller.cleanup();
-            }
-        });
-        vbox1.getChildren().clear();
-        vbox2.getChildren().clear();
-        rightLabel.setText(null);
-        this.jsonString = null;
-        //System.out.println("RightPanel Cleaned");
-    }
-
     private PosterNodeController getControllerFromNode(AnchorPane node){
         return (PosterNodeController) node.getProperties().get("controller");
     }
 
-
 }
-

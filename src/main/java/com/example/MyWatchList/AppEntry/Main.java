@@ -1,14 +1,11 @@
 package com.example.MyWatchList.AppEntry;
 
-import com.example.MyWatchList.Controllers.InfoPage.YoutubeEmbedController;
-import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class Main extends Application {
     @Override

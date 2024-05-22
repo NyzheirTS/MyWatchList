@@ -1,54 +1,40 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
-import com.example.MyWatchList.Controllers.HomePage.CarouselController;
-import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
+import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
+import com.example.MyWatchList.Controllers.CommonComponent.ReviewsController;
 import com.example.MyWatchList.DataModels.CommonModels.ReviewsModel;
 import com.example.MyWatchList.DataModels.CommonModels.VideosModel;
-import javafx.application.Platform;
+import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class MiddlePanelController implements AppCleaner {
+public class MiddlePanelController {
 
-    @FXML private ScrollPane youtubeContainer;
-    @FXML private ScrollPane reviewsContainer;
-    private MediaInfoPageModel jsonString;
-    private final HBox reviewHBox = new HBox();
-    private final HBox thumbnailHbox = new HBox();
+    @FXML private HBox reviewsContainer;
+    @FXML private HBox youtubeContainer;
 
-
-    public void initMiddlePanel(MediaInfoPageModel jsonString){
-        this.jsonString = jsonString;
-        setHboxStyle();
-        setMiddleContainers();
-
+    public void updateMiddle(MovieInfoPageModel string){
+        setYoutubeContainer(string);
+        setReviewsContainer(string);
     }
 
-    private void setMiddleContainers(){
-        youtubeContainer.setContent(makeThumbnails());
-        reviewsContainer.setContent(makeReviews());
-    }
-
-    private HBox makeThumbnails(){
-        VideosModel.Videos[] videos = jsonString.getVideos().getResults();
+    private void setYoutubeContainer(MovieInfoPageModel key){
+        youtubeContainer.getChildren().clear();
+        VideosModel.Videos[] videos = key.getVideos().getResults();
         for (VideosModel.Videos video : videos){
-            if(video.getType().equals("Trailer") && video.getOfficial()) {
-                ImageView node = InfoPageFactory.createEmbedYoutube(video.getKey());
-                thumbnailHbox.getChildren().add(node);
+            if (video.getType().equals("Trailer") && video.getOfficial()){
+                ImageView node = CommonFactory.createEmbedYoutube(video.getKey());
+                youtubeContainer.getChildren().add(node);
             }
         }
-        return thumbnailHbox;
     }
 
-    private HBox makeReviews(){
-        ReviewsModel.Reviews[] reviews = jsonString.getReviews().getResults();
+    private void setReviewsContainer(MovieInfoPageModel string){
+        reviewsContainer.getChildren().clear();
+        ReviewsModel.Reviews[] reviews = string.getReviews().getResults();
         for (ReviewsModel.Reviews review : reviews){
-            HBox node = InfoPageFactory.createReviews(
+            HBox node = CommonFactory.createReviews(
                     review.getAuthor(),
                     review.getAuthor_details().getUsername(),
                     review.getAuthor_details().getRating()
@@ -59,60 +45,12 @@ public class MiddlePanelController implements AppCleaner {
                     review.getCreated_at(),
                     review.getUpdated_at()
             );
-            reviewHBox.getChildren().add(node);
+            reviewsContainer.getChildren().add(node);
         }
-        return reviewHBox;
-    }
-
-    private void setHboxStyle(){
-        reviewHBox.setSpacing(10);
-        thumbnailHbox.setSpacing(10);
-        reviewHBox.setPadding(new Insets(5,5,5,5));
-        thumbnailHbox.setPadding(new Insets(5,5,5,5));
     }
 
     private ReviewsController getControllerFromCarousel(HBox node) {
         return (ReviewsController) node.getProperties().get("controller");
-    }
-
-
-    @Override
-    public void cleanup() {
-        cleanAndClear(reviewHBox);
-        cleanAndClearIMGVEW(thumbnailHbox);
-        reviewsContainer.setContent(null);
-        youtubeContainer.setContent(null);
-        jsonString = null;
-        //System.out.println("MiddlePanel Cleaned");
-    }
-
-    private void cleanAndClear(HBox hBox){
-        if (hBox != null){
-            for (Node child : hBox.getChildren()) {
-                if (child instanceof HBox){
-                    Object controller = child.getProperties().get("controller");
-                    if (controller instanceof AppCleaner){
-                        ((AppCleaner)controller).cleanup();
-                    }
-                }
-            }
-        }
-        assert hBox != null;
-        hBox.getChildren().clear();
-    }
-    private void cleanAndClearIMGVEW(HBox hBox){
-        if (hBox != null){
-            for (Node child : hBox.getChildren()) {
-                if (child instanceof ImageView){
-                    Object controller = child.getProperties().get("controller");
-                    if (controller instanceof AppCleaner){
-                        ((AppCleaner)controller).cleanup();
-                    }
-                }
-            }
-        }
-        assert hBox != null;
-        hBox.getChildren().clear();
     }
 
 }

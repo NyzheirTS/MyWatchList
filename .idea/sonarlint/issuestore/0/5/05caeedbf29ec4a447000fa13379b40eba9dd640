@@ -1,6 +1,4 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8éÜ¢„ò1J$06d22b6e-00b3-4d30-b839-714004248321
-y
-java:S1128"1Remove this unused import 'java.beans.Transient'.(–É³ÿÿÿÿÿ8‰•¦„ò1J$6fac92c2-68f4-4d6f-8ca9-4eb43b4f2198
-y
-java:S1128"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8Š•¦„ò1J$9ee52e3a-135d-461c-bc73-dd5381053df5
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8Š´ÙŠó1J$296dc132-f8d9-42ff-8b28-9bb1f3b6ec49
+—	java:S116	"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒÒ³¥8¾ª‹ó1J$adc1e774-164b-4484-b193-38b8852914a0
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºåÁöøÿÿÿÿ8Ãª‹ó1J$d1ddc456-b186-4f4f-a838-5597db1ed2f4

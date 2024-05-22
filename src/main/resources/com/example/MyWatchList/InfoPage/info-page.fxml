@@ -1,54 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="InfopageHome" prefHeight="1080.0" prefWidth="1674.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.InfoPageController">
-   <left>
-      <ScrollPane fx:id="leftPanelContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
-   </left>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.InfoPage.InfoPageController">
    <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <bottom>
-            <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 2;" styleClass="vbox" BorderPane.alignment="BOTTOM_LEFT">
-               <children>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label text="Top Cast" underline="true">
-                           <font>
-                              <Font name="Arimo Regular" size="20.0" />
-                           </font>
-                        </Label>
-                        <Hyperlink fx:id="linkToCastCrewPage" text="Full Cast/Crew" />
-                     </children>
-                  </HBox>
-                  <ScrollPane fx:id="footerContainer" fitToWidth="true" pannable="true" prefViewportHeight="235.0" vbarPolicy="NEVER">
-                     <padding>
-                        <Insets left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </ScrollPane>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </VBox>
-         </bottom>
+      <BorderPane fx:id="infopage" prefHeight="1080.0" prefWidth="1674.0" styleClass="root">
+         <left>
+            <ScrollPane fx:id="leftPanelContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+         </left>
          <center>
-            <ScrollPane fx:id="middleContainer" fitToWidth="true" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 2;" styleClass="vbox" BorderPane.alignment="BOTTOM_LEFT">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label text="Top Cast" underline="true">
+                                 <font>
+                                    <Font name="Arimo Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Hyperlink fx:id="linkToCastCrewPage" text="Full Cast/Crew" />
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="footerContainer" fitToWidth="true" pannable="true" prefViewportHeight="235.0" vbarPolicy="NEVER">
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ScrollPane>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </VBox>
+               </bottom>
+               <center>
+                  <ScrollPane fx:id="middleContainer" fitToWidth="true" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
          </center>
+         <right>
+            <ScrollPane fx:id="rightPanelContainer" prefViewportWidth="257.0" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="2.0" right="2.0" top="5.0" />
+               </padding>
+            </ScrollPane>
+         </right>
       </BorderPane>
    </center>
-   <right>
-      <ScrollPane fx:id="rightPanel" prefViewportWidth="257.0" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER">
+   <top>
+      <HBox alignment="CENTER_LEFT" BorderPane.alignment="TOP_LEFT">
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="-3.0" right="-3.0" top="-1.0" />
+               </padding></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
          <padding>
-            <Insets bottom="5.0" left="2.0" right="2.0" top="5.0" />
+            <Insets bottom="-59.0" left="11.0" />
          </padding>
-      </ScrollPane>
-   </right>
+      </HBox>
+   </top>
 </BorderPane>
