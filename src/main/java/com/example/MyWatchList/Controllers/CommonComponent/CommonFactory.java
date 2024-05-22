@@ -6,6 +6,7 @@ import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CrewIte
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -121,6 +122,58 @@ public class CommonFactory {
 
             return crewItem;
         } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static ImageView createEmbedYoutube(String key){
+        try {
+            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/InfoPage/youtube-embed.fxml"));
+            ImageView embedObject = loader.load();
+
+            YoutubeEmbedController controller = loader.getController();
+            controller.initEmbedController(key);
+
+            embedObject.getProperties().put(ComponentController, controller);
+
+            return embedObject;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static VBox createPopOver(String content, String createdAt, String updatedAt, String userName){
+        try {
+            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/InfoPage/review-popover.fxml"));
+            VBox popOverObject = loader.load();
+
+            ReviewPopOverController controller = loader.getController();
+            controller.initPopOver(content, createdAt, updatedAt, userName);
+
+            popOverObject.getProperties().put(ComponentController, controller);
+
+            return popOverObject;
+        } catch ( IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static HBox createReviews(String authorName, String userName, int rating){
+        try {
+            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/InfoPage/review.fxml"));
+            HBox reviewObject = loader.load();
+
+            ReviewsController controller = loader.getController();
+
+            controller.initReviews(authorName, userName, rating);
+
+            reviewObject.getProperties().put(ComponentController, controller);
+
+            return reviewObject;
+        } catch ( IOException e){
             e.printStackTrace();
             return null;
         }

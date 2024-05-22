@@ -1,44 +1,33 @@
-package com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
+package com.example.MyWatchList.Controllers.InfoPage;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFormatter;
-import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.ProductionCompaniesModel;
 import com.example.MyWatchList.DataModels.CommonModels.ProductionCountriesModel;
-import javafx.application.Platform;
+import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
-public class MovieLeftPanelController implements AppCleaner {
-    @FXML
-    private VBox innerParentVbox;
-    @FXML
-    private Label runtimeLabel;
-    @FXML
-    private Label collectionLabel;
-    @FXML
-    private VBox productionCompanieVBox;
-    @FXML
-    private VBox productionCountriesVBox;
-    @FXML
-    private Label budgetLabel;
-    @FXML
-    private Label revenueLabel;
-    @FXML
-    private Label releasedateLabel;
+public class LeftPanelController {
 
-    private MovieInfoPageModel jsonString;
+    @FXML private VBox innerParentVbox;
+    @FXML private Label runtimeLabel;
+    @FXML private Label collectionLabel;
+    @FXML private VBox productionCompanieVBox;
+    @FXML private VBox productionCountriesVBox;
+    @FXML private Label budgetLabel;
+    @FXML private Label revenueLabel;
+    @FXML private Label releasedateLabel;
 
-    public void initLeftPanel(MovieInfoPageModel jsonString){
-        this.jsonString = jsonString;
-        setLabels();
-        setProductionCompanies();
-        setProductionCountries();
+
+    public void updateLeftPanel(MovieInfoPageModel jsonString){
+        setLabels(jsonString);
+        setProductionCompanies(jsonString);
+        setProductionCountries(jsonString);
     }
 
-    private void setLabels(){
+    private void setLabels(MovieInfoPageModel jsonString){
         runtimeLabel.setText(CommonFormatter.formateRuntime(jsonString.getRuntime()));
         collectionLabel.setText(jsonString.getBelongs_to_collection().getName());
         budgetLabel.setText(CommonFormatter.formatMoney(jsonString.getBudget()));
@@ -46,14 +35,16 @@ public class MovieLeftPanelController implements AppCleaner {
         releasedateLabel.setText(jsonString.getRelease_date());
     }
 
-    private void setProductionCompanies(){
+    private void setProductionCompanies(MovieInfoPageModel jsonString){
+        productionCompanieVBox.getChildren().clear();
         ProductionCompaniesModel[] productionCompanyModels = jsonString.getProduction_companies();
         for (ProductionCompaniesModel companies : productionCompanyModels){
             productionCompanieVBox.getChildren().add(formattedLabel(companies.getName()));
         }
     }
 
-    private void setProductionCountries(){
+    private void setProductionCountries(MovieInfoPageModel jsonString){
+        productionCountriesVBox.getChildren().clear();
         ProductionCountriesModel[] productionCountriesModel = jsonString.getProduction_countries();
         for (ProductionCountriesModel countries : productionCountriesModel){
             productionCountriesVBox.getChildren().add(formattedLabel(countries.getName()));
@@ -64,19 +55,5 @@ public class MovieLeftPanelController implements AppCleaner {
         Label label = new Label(name);
         label.setFont(new Font("Arimo", 20));
         return label;
-    }
-
-
-    @Override
-    public void cleanup() {
-        productionCompanieVBox.getChildren().clear();
-        productionCountriesVBox.getChildren().clear();
-        runtimeLabel.setText(null);
-        releasedateLabel.setText(null);
-        revenueLabel.setText(null);
-        budgetLabel.setText(null);
-        collectionLabel.setText(null);
-        jsonString = null;
-        //System.out.println("Movie Left Panel Cleaned");
     }
 }

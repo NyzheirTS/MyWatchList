@@ -1,16 +1,9 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8 ×ê†ò1J$c61c97a0-a5c3-41ff-b147-62101c18d9b3
+	java:S112="FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¦ÿæÁø1J$3179bae5-bb9a-48dd-8798-f860c1958cae
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8÷ñ É÷1J$4cac66d6-a111-41a7-80ed-e152e83f7f32
 u
-java:S1135)"2Complete the task associated to this TODO comment.(—àÚ8¹×ê†ò1J$00a9bb81-5f48-4cad-8258-3c11d9639afe
+java:S1135#"2Complete the task associated to this TODO comment.(—àÚ8ÚÿæÁø1J$89a898fc-a7a9-4991-94c7-f1dca91b7986
 z
-java:S1135*"2Complete the task associated to this TODO comment.(óŒ©Şûÿÿÿÿ8º×ê†ò1J$be6cb3c2-2b6e-4a18-a5e9-063ae3aba173
+java:S1135$"2Complete the task associated to this TODO comment.(óŒ©Şûÿÿÿÿ8ÛÿæÁø1J$fe452c7e-effb-42c7-8a01-f9b8dc209c2f
 z
-java:S1135+"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8º×ê†ò1J$16fa3e15-6530-449a-94e1-f2484f060bb5
-
-java:S1871C"LThis branch's code block is the same as the block for the branch on line 64.(Ù‹ßü8 óì†ò1J$1c3b31e7-2384-484e-a39c-c0a320712d72
-Ÿ
-java:S1128"\Remove this unused import 'com.example.MyWatchList.Controllers.HomePage.CarouselController'.(ë¹¬©8Æ×ê†ò1J$772bc097-0eb9-4ec8-a979-747dd213404c
-¤
-java:S1128"\Remove this unused import 'com.example.MyWatchList.Controllers.InfoPage.InfoPageController'.(ÕøËçûÿÿÿÿ8Æ×ê†ò1J$fa99bed9-f246-4010-80fb-4a31a3cd6d73
-q
-java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8Æ×ê†ò1J$a0ca3cfc-f921-40fd-ad59-6017b2764ff1
+java:S1135%"2Complete the task associated to this TODO comment.(ÕÊ¸ºúÿÿÿÿ8ÛÿæÁø1J$522ebf44-1970-4706-b97f-ab3ceefc5e88

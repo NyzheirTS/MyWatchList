@@ -1,6 +1,5 @@
-package com.example.MyWatchList.Controllers.InfoPage.MovieInfoPage;
+package com.example.MyWatchList.Controllers.InfoPage;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.Controllers.CommonComponent.QrCodeGen;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
@@ -13,9 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Rating;
 
-import java.lang.ref.Cleaner;
+public class HeaderController {
 
-public class MovieHeaderController implements AppCleaner {
 
     @FXML private Label votesLabel;
     @FXML private Rating showRating;
@@ -29,17 +27,15 @@ public class MovieHeaderController implements AppCleaner {
     @FXML private ImageView backgroundImage;
 
     private Task<Void> imageLoadingTask;
-    private MovieInfoPageModel jsonString;
 
-    public void initMovieHeader(MovieInfoPageModel jsonString){
-        this.jsonString = jsonString;
-        setBackgroundImage();
-        setLeftHeader();
-        setMiddleHeader();
-        setRightHeader();
+    public void updateHeader(MovieInfoPageModel jsonString){
+        setBackgroundImage(jsonString);
+        setLeftHeader(jsonString);
+        setMiddleHeader(jsonString);
+        setRightHeader(jsonString);
     }
 
-    private void setBackgroundImage(){
+    private void setBackgroundImage(MovieInfoPageModel jsonString){
         backgroundImage.setImage(null);
         imageLoadingTask = new Task<>() {
             @Override
@@ -52,7 +48,7 @@ public class MovieHeaderController implements AppCleaner {
         new Thread(imageLoadingTask).start();
     }
 
-    private void setLeftHeader(){
+    private void setLeftHeader(MovieInfoPageModel jsonString){
         staticPosterImage.setImage(null);
         imageLoadingTask = new Task<>() {
             @Override
@@ -65,14 +61,14 @@ public class MovieHeaderController implements AppCleaner {
         new Thread(imageLoadingTask).start();
     }
 
-    private void setMiddleHeader(){
+    private void setMiddleHeader(MovieInfoPageModel jsonString){
         taglineLabel.setText(String.format("\"%s\"",jsonString.getTagline()));
         titleLabel.setText(jsonString.getTitle());
         genresLabel.setText(String.format("(%s, %s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
         descriptionTextfield.setText(jsonString.getOverview());
     }
 
-    private void setRightHeader(){
+    private void setRightHeader(MovieInfoPageModel jsonString){
         qrCodeImageView.setImage(QrCodeGen.genQrCode(UrlBuilder.getWatchLink(jsonString.getId())));
         percentRatingLabel.setText(formatPercent(jsonString.getVote_average() ) + "%");
         showRating.setRating(formatRating(jsonString.getVote_average()));
@@ -87,29 +83,5 @@ public class MovieHeaderController implements AppCleaner {
 
     private float formatRating(double num){
         return (float) num/2;
-    }
-
-    public void unloadImg(){
-        this.backgroundImage.setImage(null);
-        this.qrCodeImageView.setImage(null);
-        this.staticPosterImage.setImage(null);
-    }
-
-
-    public void nullText(){
-        this.votesLabel.setText(null);
-        this.percentRatingLabel.setText(null);
-        this.descriptionTextfield.setText(null);
-        this.genresLabel.setText(null);
-        this.titleLabel.setText(null);
-        this.taglineLabel.setText(null);
-    }
-
-    @Override
-    public void cleanup() {
-        unloadImg();
-        nullText();
-        jsonString = null;
-        //System.out.println("MovieHeader Cleaned");
     }
 }

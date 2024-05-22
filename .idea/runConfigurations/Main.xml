@@ -2,7 +2,7 @@
   <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="com.example.MyWatchList.AppEntry.Main" />
     <module name="Test_UI-JFX" />
-    <option name="PROGRAM_PARAMETERS" value="-Xms1024m -Xmx4096m -Xmn1536m -XX:MaxGCPauseMillis=200" />
+    <option name="PROGRAM_PARAMETERS" value="-Xms256m -Xmx1024m -XX:MaxGCPauseMillis=0" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

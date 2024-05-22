@@ -1,5 +1,4 @@
-package com.example.MyWatchList.Controllers.InfoPage;
-
+package com.example.MyWatchList.Controllers.CommonComponent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,7 +12,7 @@ public class ReviewPopOverController {
     private String content;
     private String createdAt;
     private String updatedAt;
-     private String userName;
+    private String userName;
 
     public void initPopOver(String content, String createdAt, String updatedAt, String userName) {
         this.content = content;
@@ -35,7 +34,7 @@ public class ReviewPopOverController {
     }
 
     private String formatContent(String content){
-        String formatted = content.replaceAll("<em>", "*").replaceAll("</em>", "*");
-        return formatted.replaceAll("\r\n", "\n");
+        String formatted = content.replace("<em>", "*").replace("</em>", "*");
+        return formatted.replace("\r\n", "\n");
     }
 }

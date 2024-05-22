@@ -1,8 +1,2 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8Èü‡ò1
-‚
-java:S1128"`Remove this unused import 'com.example.MyWatchList.Controllers.InfoPage.YoutubeEmbedController'.(¥‘‹øÿÿÿÿ8äü‡ò1
-†
-java:S1128"dRemove this unused import 'com.example.MyWatchList.Controllers.SettingsPage.SettingsPageController'.(´¾ÂŸøÿÿÿÿ8äü‡ò1
-K
-java:S1128")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ8äü‡ò1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8Èü‡ò1J$1fd99b10-2c69-45b2-bb03-14851604d38e
