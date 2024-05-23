@@ -23,7 +23,6 @@ public class CommonFactory {
             AnchorPane posterNode = loader.load();
 
             PosterNodeController controller = loader.getController();
-            controller.cleanup();
 
             controller.setEnableGrowEvents(enableGrowEvents);
             controller.setEnableDropShadow(enableDropShadow);
@@ -45,7 +44,6 @@ public class CommonFactory {
             VBox actorNode = loader.load();
 
             ActorPosterController controller = loader.getController();
-            controller.cleanup();
 
             controller.initActorPoster(urlKey, actorName, actorRole);
 

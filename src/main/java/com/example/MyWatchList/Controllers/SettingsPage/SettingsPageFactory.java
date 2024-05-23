@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.prefs.BackingStoreException;
 
 public class SettingsPageFactory {
     private SettingsPageFactory(){

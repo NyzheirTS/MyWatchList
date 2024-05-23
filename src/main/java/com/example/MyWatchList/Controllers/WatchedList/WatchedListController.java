@@ -1,9 +1,7 @@
 package com.example.MyWatchList.Controllers.WatchedList;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 

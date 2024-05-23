@@ -1,2 +1,4 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ή—δ‹8ογυόκ1
+	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ή—δ‹8ογυόκ1J$da2955dc-1a89-4666-aed0-7c7f0dfa7132
+d
+java:S1128"BRemove this unused import 'java.util.prefs.BackingStoreException'.(΅·ΐύÿÿÿÿ8Ε…Ώ“ϊ1

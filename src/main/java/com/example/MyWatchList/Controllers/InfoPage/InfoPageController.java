@@ -28,6 +28,8 @@ public class InfoPageController {
     @FXML private ScrollPane leftPanelContainer;
     @FXML private ScrollPane footerContainer;
 
+
+    //TODO: Implement the Api Call
     private int nodeID;
     private String mediaType;
     private static final String ComponentController = "controller";

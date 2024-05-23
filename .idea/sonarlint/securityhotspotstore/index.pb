@@ -132,10 +132,6 @@ E
 Usrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchedListFactory.java,3\f\3f3af93a2ac8a9553f306bcbd4b8e791a11ff1f5
 Š
 Zsrc/main/java/com/example/MyWatchList/Controllers/WatchedList/WatchListNodeController.java,9\e\9e844e088012b9b0917b466ce58264c75a2a2410
-o
-?src/main/java/com/example/MyWatchList/AppConfig/AppCleaner.java,0\9\097ab7c7cdca3b6a4700f9463117e67568718449
-e
-5src/main/java/com/example/MyWatchList/AppEntry/gc.log,9\5\956102894cee0961441958fd3c6c38b1b3277cd1
 6
 gc.log,a\c\ac108fc59de6d8cfadfc281570049671504865c9
 8
@@ -308,8 +304,6 @@ Ssrc/main/java/com/example/MyWatchList/Controllers/InfoPage/LeftPanelController.
 Psrc/main/java/com/example/MyWatchList/Controllers/InfoPage/FooterController.java,f\f\ff14d5bb233c3fd5ceb262cc3a14b7def803dbfa
 h
 8src/main/java/com/example/MyWatchList/AppEntry/Pair.java,9\c\9c2c191e5521dfe385d1125203d4ebb35ed3bf22
-ˆ
-Xsrc/main/java/com/example/MyWatchList/AppEntry/HistoryManagement/PageHistoryManager.java,4\d\4dd283040653c1d63c8f1fb8cd722e86ca391506
 ‚
 Rsrc/main/java/com/example/MyWatchList/Controllers/InfoPage/DynamicPageHistory.java,1\0\10ec563ed224039b101fa4f25d80137b3ccb3c0a
 …

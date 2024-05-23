@@ -1,7 +1,5 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -21,7 +19,7 @@ import javafx.util.Duration;
 import java.util.WeakHashMap;
 
 
-public class PosterNodeController implements AppCleaner {
+public class PosterNodeController {
     @FXML
     private AnchorPane posterPane;
     @FXML
@@ -35,13 +33,7 @@ public class PosterNodeController implements AppCleaner {
     private boolean enableDropShadow;
     private boolean enableTooltip;
     private final Tooltip tip = new Tooltip();
-    private InfoPageController controller;
-
     private static final WeakHashMap<String, Image> imageCache = new WeakHashMap<>();
-
-   // private static final String baseImgURL = "https://image.tmdb.org/t/p/w780";
-
-
 
 
     public void initPosterNode(String imgID, int nodeNumber, String title, String mediaType){
@@ -163,19 +155,6 @@ public class PosterNodeController implements AppCleaner {
        tip.setTextAlignment(TextAlignment.CENTER);
        tip.setAutoHide(true);
        Tooltip.install(posterPane, tip);
-    }
-    @Override
-    public void cleanup(){
-        unloadImg();
-        posterPane.setOnMouseClicked(null);
-        posterPane.setOnMouseEntered(null);
-        posterPane.setOnMouseExited(null);
-        Tooltip.uninstall(posterPane, tip);
-        //System.out.println("PosterNode Clean");
-    }
-
-    public void setInfoPageController(InfoPageController controller){
-        this.controller = controller;
     }
 
 }

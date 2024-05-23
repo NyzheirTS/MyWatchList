@@ -4,13 +4,15 @@ import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.DataModels.CommonModels.CreditsModel;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.skin.VirtualFlow;
 import javafx.scene.layout.VBox;
 
 public class CastCrewPageController {
     @FXML private VBox castVbox;
     @FXML private VBox crewVbox;
-
 
     private MediaInfoPageModel jsonString;
     public void initPage(MediaInfoPageModel jsonString){

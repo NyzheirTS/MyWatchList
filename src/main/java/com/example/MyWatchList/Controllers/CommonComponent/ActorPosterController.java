@@ -1,6 +1,5 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
-import com.example.MyWatchList.AppConfig.AppCleaner;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -11,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class ActorPosterController implements AppCleaner {
+public class ActorPosterController {
     @FXML private VBox actorPosterItem;
     @FXML private TextArea actorNameArea;
     @FXML private TextArea actorRoleTextArea;
@@ -50,16 +49,4 @@ public class ActorPosterController implements AppCleaner {
         new Thread(imageLoadingTask).start();
     }
 
-    private void unloadImg(){
-        actorImageView.setImage(null);
-    }
-
-    @Override
-    public void cleanup() {
-        unloadImg();
-        actorNameArea.setText(null);
-        actorRoleTextArea.setText(null);
-        actorPosterItem.setCursor(null);
-        //System.out.println("Actor Node Cleaned");
-    }
 }
