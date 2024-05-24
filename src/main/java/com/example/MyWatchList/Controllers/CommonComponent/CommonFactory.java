@@ -56,16 +56,12 @@ public class CommonFactory {
         }
     }
 
-    public static HBox createCastCrewPage(MediaInfoPageModel jsonString){
+    public static HBox createCastCrewPage(){
         try{
             FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/CastCrewPages/cast-crew-page.fxml"));
             HBox castcrewpage = loader.load();
-
             CastCrewPageController controller = loader.getController();
-            controller.initPage(jsonString);
-
             castcrewpage.getProperties().put(ComponentController, controller);
-
             return castcrewpage;
         } catch(IOException e){
             e.printStackTrace();

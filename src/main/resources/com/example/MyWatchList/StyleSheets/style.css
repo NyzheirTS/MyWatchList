@@ -1,0 +1,41 @@
+/* ---------------------------------------------------------------- */
+/* Showlist App Css */
+/* ---------------------------------------------------------------- */
+
+.panesbackgroundcolor {
+-fx-background-color: #051336;
+}
+
+
+
+/* used for making TextArea Transparent */
+.text-area {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+
+    -fx-padding: 0 5;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+    
+}
+
+/*Actor Portrait bottem text */
+.bottemText {
+    -fx-text-fill: rgb(154, 154, 154);
+}
+/* ----------------------------------------------------------------*/

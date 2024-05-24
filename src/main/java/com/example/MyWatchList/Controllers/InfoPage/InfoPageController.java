@@ -1,16 +1,17 @@
 package com.example.MyWatchList.Controllers.InfoPage;
 
 import com.example.MyWatchList.AppEntry.Pair;
+import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CastCrewRequestEvent;
+import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
+import com.example.MyWatchList.Controllers.CommonComponent.InfoPageRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelFactory;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -20,6 +21,7 @@ import java.io.IOException;
 
 public class InfoPageController {
 
+    @FXML private BorderPane additionalInfo;
     @FXML private Button backButton;
     @FXML private BorderPane infopage;
     @FXML private Hyperlink linkToCastCrewPage;
@@ -38,6 +40,7 @@ public class InfoPageController {
     private final VBox leftPanel = InfoPageFactory.createLeftPanel();
     private final HBox footer = InfoPageFactory.createFooter();
     private final VBox middle = InfoPageFactory.createMiddlePanel();
+    private final HBox castCrewPage = CommonFactory.createCastCrewPage();
     private final DynamicPageHistory history = new DynamicPageHistory();
 
     public void externalUpdateMethod(int nodeID, String media_type) throws IOException {
@@ -73,6 +76,7 @@ public class InfoPageController {
         setLeftPanel(jsonString);
         setFooter(jsonString);
         setMiddlePanel(jsonString);
+        setHyperLink(jsonString);
     }
 
     private void setRightPanelContainer(MovieInfoPageModel string){
@@ -115,6 +119,14 @@ public class InfoPageController {
         }
     }
 
+    private void setHyperLink(MediaInfoPageModel string){
+        linkToCastCrewPage.setOnMouseClicked(event -> {
+            CastCrewRequestEvent infoPageRequestEvent = new CastCrewRequestEvent(CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST, string);
+            linkToCastCrewPage.fireEvent(infoPageRequestEvent);
+            infoPageRequestEvent.consume();
+        });
+    }
+
     private MediaInfoPageModel getJsonTestString(String mediaType) throws IOException {
         if (mediaType.equals("movie")){
             return MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonStringMovie(),mediaType);
@@ -126,6 +138,7 @@ public class InfoPageController {
 
     public void setBackButton() {
         backButton.setOnMouseClicked(event -> {
+
             Pair<Integer, String> newpair = history.goBack();
             if (newpair != null) {
                 try {

@@ -112,8 +112,8 @@ public class PosterNodeController {
     private void nodeClickEvent(){
         posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
-            EventRequest eventRequest = new EventRequest(EventRequest.INFO_PAGE_REQUEST, nodeNumber, mediaType);
-            posterPane.fireEvent(eventRequest);
+            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.INFO_PAGE_REQUEST, nodeNumber, mediaType);
+            posterPane.fireEvent(infoPageRequestEvent);
         });
     }
 

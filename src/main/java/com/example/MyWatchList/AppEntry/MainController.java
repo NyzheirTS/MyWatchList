@@ -2,7 +2,7 @@ package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
-import com.example.MyWatchList.Controllers.CommonComponent.EventRequest;
+import com.example.MyWatchList.Controllers.CommonComponent.InfoPageRequestEvent;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
 import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
 import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
@@ -53,10 +53,10 @@ public class MainController implements Initializable {
     private void setMethods() {
         infoPageBorderPane.setCenter(homePage);
         motherContainer.addEventFilter(Event.ANY, event -> {
-            if (event.getEventType() == EventRequest.INFO_PAGE_REQUEST && (infoPage != null && infoPage.getProperties().containsKey("controller"))) {
+            if (event.getEventType() == InfoPageRequestEvent.INFO_PAGE_REQUEST && (infoPage != null && infoPage.getProperties().containsKey("controller"))) {
                 InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
                 try {
-                    infoPageController.externalUpdateMethod(((EventRequest) event).getNodeNumber(), ((EventRequest) event).getMedia_Type());
+                    infoPageController.externalUpdateMethod(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

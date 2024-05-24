@@ -114,8 +114,6 @@ Wsrc/main/java/com/example/MyWatchList/DataModels/CommonModels/RecommendationsMo
 [src/main/java/com/example/MyWatchList/DataModels/CommonModels/ProductionCountriesModel.java,4\f\4f8ad77248c30db84feda902c1e36a18734e5753
 ~
 Nsrc/main/java/com/example/MyWatchList/DataModels/CommonModels/GenresModel.java,5\b\5bbc7fc2938f2190fabccb85ee0112ab0ecfef7e
-É
-Ssrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/EventRequest.java,0\5\05caeedbf29ec4a447000fa13379b40eba9dd640
 k
 ;src/main/java/com/example/MyWatchList/TestFolder/jsonTV.txt,3\6\36f2d10e8bc1e932624617b39efaee7d0ea2866e
 á
@@ -199,10 +197,6 @@ Q.idea/sonarlint/securityhotspotstore/c/9/c9abf5e18649e010c1def0e9011fd5e3b11c1f
 w
 G.idea/sonarlint/issuestore/5/5/556db713e65f20928379949175ff12d99f937091,2\e\2e554a21df7bca74cb643226fef1180dd097bd45
 w
-G.idea/sonarlint/issuestore/9/5/956102894cee0961441958fd3c6c38b1b3277cd1,c\2\c261e351687aaf6b2c3a081d50362f7002912c40
-Å
-Q.idea/sonarlint/securityhotspotstore/9/5/956102894cee0961441958fd3c6c38b1b3277cd1,e\0\e018034979f09cd047dfd5d400475be5303f148c
-w
 G.idea/sonarlint/issuestore/2/1/2180e5161d58c6ad9b214500dc48faa93144efdc,f\4\f441d31afb5c860fd96bf3c55dafef8bf5b78da2
 w
 G.idea/sonarlint/issuestore/a/c/ac108fc59de6d8cfadfc281570049671504865c9,1\0\10799efe1cd3e319f85389c1e21399923ab4887b
@@ -267,8 +261,6 @@ Q.idea/sonarlint/securityhotspotstore/5/b/5bbc7fc2938f2190fabccb85ee0112ab0ecfef
 w
 G.idea/sonarlint/issuestore/1/2/123b7d251ed96c5c208ea5b3f959368af7eb0b1b,5\6\56da770568f29805bfb59af73c7ef9ffd6daf1fc
 Å
-Q.idea/sonarlint/securityhotspotstore/0/9/097ab7c7cdca3b6a4700f9463117e67568718449,5\e\5eb70af636e49d292ee8cc20e0ee5c34bcf2f55b
-Å
 Q.idea/sonarlint/securityhotspotstore/0/5/05caeedbf29ec4a447000fa13379b40eba9dd640,3\e\3e1265a67dc3bdae6d66d375eacb6f5c7c9983a4
 Å
 Q.idea/sonarlint/securityhotspotstore/2/e/2e9f066abbc0d2af5271bf2e6d0d7dee81ad0d90,b\e\be7521d1bf6cc25046155167535a6016a221abe1
@@ -314,3 +306,9 @@ Usrc/main/java/com/example/MyWatchList/Controllers/InfoPage/MiddlePanelControlle
 ^src/main/java/com/example/MyWatchList/Controllers/CommonComponent/ReviewPopOverController.java,0\8\0885fca1406c4e27c60c4d377030e16757f3e094
 à
 Xsrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/ReviewsController.java,f\2\f2faaadaaf105854500fc683d0bee7ed6eb9d86f
+è
+_src/main/java/com/example/MyWatchList/Controllers/CommonComponent/CastCrewPages/SecondMain.java,4\a\4a8e196c44a970a2c987951caf4eac116270565a
+ã
+[src/main/java/com/example/MyWatchList/Controllers/CommonComponent/InfoPageRequestEvent.java,6\6\66947be1d720de61b05b8584a4b3b36510445c78
+ô
+isrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/CastCrewPages/CastCrewRequestEvent.java,4\1\412f1482ba5252860a57ead5f790ab3618d68dbb

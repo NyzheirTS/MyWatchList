@@ -4,24 +4,20 @@ import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.DataModels.CommonModels.CreditsModel;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.skin.VirtualFlow;
 import javafx.scene.layout.VBox;
 
 public class CastCrewPageController {
     @FXML private VBox castVbox;
     @FXML private VBox crewVbox;
 
-    private MediaInfoPageModel jsonString;
-    public void initPage(MediaInfoPageModel jsonString){
-        this.jsonString = jsonString;
-        buildCastList();
-        buildCrewList();
+    public void updatePage(MediaInfoPageModel jsonString){
+        buildCastList(jsonString);
+        buildCrewList(jsonString);
     }
 
-    private void buildCastList(){
+    private void buildCastList(MediaInfoPageModel jsonString){
+        castVbox.getChildren().clear();
         CreditsModel.Cast[] cast = jsonString.getCredits().getCast();
         for(CreditsModel.Cast casts : cast){
             VBox castItem = CommonFactory.createCastItem(
@@ -33,7 +29,8 @@ public class CastCrewPageController {
         }
     }
 
-    private void buildCrewList(){
+    private void buildCrewList(MediaInfoPageModel jsonString){
+        crewVbox.getChildren().clear();
         CreditsModel.Crew[] crew = jsonString.getCredits().getCrew();
         for(CreditsModel.Crew crews : crew){
             VBox castItem = CommonFactory.createCrewItem(
@@ -46,3 +43,4 @@ public class CastCrewPageController {
         }
     }
 }
+

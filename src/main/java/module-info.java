@@ -12,6 +12,7 @@ module com.example.test_uijfx {
     requires junit;
     requires javafx.web;
     requires java.prefs;
+    requires org.fxmisc.flowless;
 
 
     exports com.example.MyWatchList.DataModels;
