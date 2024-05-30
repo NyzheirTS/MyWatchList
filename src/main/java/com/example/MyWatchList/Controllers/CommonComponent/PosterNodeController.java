@@ -1,5 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
+import com.example.MyWatchList.Controllers.EventHandlers.InfoPageRequestEvent;
 import com.example.MyWatchList.DataModels.UrlBuilder;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -112,8 +113,13 @@ public class PosterNodeController {
     private void nodeClickEvent(){
         posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
-            InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.INFO_PAGE_REQUEST, nodeNumber, mediaType);
-            posterPane.fireEvent(infoPageRequestEvent);
+            if (mediaType.equals("movie")) {
+                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.MOVIE_PAGE_REQUEST, nodeNumber, mediaType);
+                posterPane.fireEvent(infoPageRequestEvent);
+            } else if (mediaType.equals("tv")) {
+                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.TV_PAGE_REQUEST, nodeNumber, mediaType);
+                posterPane.fireEvent(infoPageRequestEvent);
+            }
         });
     }
 
@@ -126,25 +132,13 @@ public class PosterNodeController {
         posterImageView.setFitWidth(width);
         posterPane.setPrefWidth(width - 8);
     }
-    /*
-    public void setPosterDimensions(double width){
-        double aspectRatio = 1.41;
-        double height = width * aspectRatio;
-
-        posterImageView.setFitWidth(width);
-        posterImageView.setFitHeight(height);
-        posterPane.setPrefWidth(width - 8);
-        posterPane.setPrefHeight(height);
-    }
-    */
 
     final DropShadow dropShadowEffects(){
-        DropShadow shadow = new DropShadow();
         //shadow.setRadius(10);
         //shadow.setSpread(1000);
         //shadow.setBlurType(BlurType.GAUSSIAN);
         //shadow.setColor(Color.BLACK);
-        return shadow;
+        return new DropShadow();
     }
 
     final void tooltipSettings(){

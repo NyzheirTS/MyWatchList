@@ -6,6 +6,7 @@ import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CrewIte
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -56,12 +57,11 @@ public class CommonFactory {
         }
     }
 
-    public static HBox createCastCrewPage(){
+    public static ScrollPane createCastCrewPage(){
         try{
             FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/CastCrewPages/cast-crew-page.fxml"));
-            HBox castcrewpage = loader.load();
-            CastCrewPageController controller = loader.getController();
-            castcrewpage.getProperties().put(ComponentController, controller);
+            ScrollPane castcrewpage = loader.load();
+            CastCrewPageController.setInstance(loader.getController());
             return castcrewpage;
         } catch(IOException e){
             e.printStackTrace();

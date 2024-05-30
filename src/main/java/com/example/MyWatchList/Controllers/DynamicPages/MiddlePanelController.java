@@ -1,4 +1,4 @@
-package com.example.MyWatchList.Controllers.InfoPage;
+package com.example.MyWatchList.Controllers.DynamicPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.Controllers.CommonComponent.ReviewsController;

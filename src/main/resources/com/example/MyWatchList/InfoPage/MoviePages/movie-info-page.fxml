@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:id="infopage" prefHeight="1080.0" prefWidth="1674.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.MovieInfoPageController">
+   <left>
+      <ScrollPane fx:id="leftPanelContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <VBox alignment="TOP_CENTER" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 2;" styleClass="vbox" BorderPane.alignment="BOTTOM_LEFT">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Top Cast" underline="true">
+                           <font>
+                              <Font name="Arimo Regular" size="20.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink fx:id="linkToCastCrewPage" text="Full Cast/Crew" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="footerContainer" fitToWidth="true" pannable="true" prefViewportHeight="235.0" vbarPolicy="NEVER">
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </ScrollPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </bottom>
+         <center>
+            <ScrollPane fx:id="middleContainer" fitToWidth="true" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </center>
+   <right>
+      <ScrollPane fx:id="rightPanelContainer" prefViewportWidth="257.0" style="-fx-border-color: black; -fx-border-width: 2;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="5.0" left="2.0" right="2.0" top="5.0" />
+         </padding>
+      </ScrollPane>
+   </right>
+</BorderPane>

@@ -2,7 +2,6 @@ package com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.DataModels.CommonModels.CreditsModel;
-import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
@@ -11,14 +10,16 @@ public class CastCrewPageController {
     @FXML private VBox castVbox;
     @FXML private VBox crewVbox;
 
-    public void updatePage(MediaInfoPageModel jsonString){
+    private static CastCrewPageController instance;
+
+    public void update(CreditsModel jsonString){
         buildCastList(jsonString);
         buildCrewList(jsonString);
     }
 
-    private void buildCastList(MediaInfoPageModel jsonString){
+    private void buildCastList(CreditsModel jsonString){
         castVbox.getChildren().clear();
-        CreditsModel.Cast[] cast = jsonString.getCredits().getCast();
+        CreditsModel.Cast[] cast = jsonString.getCast();
         for(CreditsModel.Cast casts : cast){
             VBox castItem = CommonFactory.createCastItem(
                     casts.getName(),
@@ -29,9 +30,9 @@ public class CastCrewPageController {
         }
     }
 
-    private void buildCrewList(MediaInfoPageModel jsonString){
+    private void buildCrewList(CreditsModel jsonString){
         crewVbox.getChildren().clear();
-        CreditsModel.Crew[] crew = jsonString.getCredits().getCrew();
+        CreditsModel.Crew[] crew = jsonString.getCrew();
         for(CreditsModel.Crew crews : crew){
             VBox castItem = CommonFactory.createCrewItem(
                     crews.getName(),
@@ -42,5 +43,11 @@ public class CastCrewPageController {
             Platform.runLater(() -> crewVbox.getChildren().add(castItem));
         }
     }
+
+    public static CastCrewPageController getInstance(){
+        return CastCrewPageController.instance;
+    }
+
+    public static void setInstance(CastCrewPageController instance){CastCrewPageController.instance = instance;}
 }
 

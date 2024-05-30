@@ -1,4 +1,4 @@
-package com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages;
+package com.example.MyWatchList.TestFolder;
 
 import com.example.MyWatchList.AppEntry.Main;
 import com.example.MyWatchList.AppEntry.MainController;

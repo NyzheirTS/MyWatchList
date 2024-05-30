@@ -30,8 +30,10 @@ module com.example.test_uijfx {
     exports com.example.MyWatchList.DataModels.TvModels;
     opens com.example.MyWatchList.DataModels.TvModels to com.google.gson, javafx.fxml;
     opens com.example.MyWatchList.Controllers.HomePage to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.Controllers.InfoPage;
-    opens com.example.MyWatchList.Controllers.InfoPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
+    opens com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.DynamicPages.TvInfoPages;
+    opens com.example.MyWatchList.Controllers.DynamicPages.TvInfoPages to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.AppEntry;
     opens com.example.MyWatchList.AppEntry to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.TestFolder;
@@ -45,5 +47,9 @@ module com.example.test_uijfx {
     opens com.example.MyWatchList.DataModels.CommonModels to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages;
     opens com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.DynamicPages;
+    opens com.example.MyWatchList.Controllers.DynamicPages to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.EventHandlers;
+    opens com.example.MyWatchList.Controllers.EventHandlers to com.google.gson, javafx.fxml;
 
 }

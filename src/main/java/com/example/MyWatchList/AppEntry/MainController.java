@@ -1,10 +1,14 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
+import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
+import com.example.MyWatchList.Controllers.HistoryManager.History;
+import com.example.MyWatchList.Controllers.HistoryManager.UpdateCastCrewPageCommand;
+import com.example.MyWatchList.Controllers.HistoryManager.UpdateInfoPageCommand;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
-import com.example.MyWatchList.Controllers.CommonComponent.InfoPageRequestEvent;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageController;
-import com.example.MyWatchList.Controllers.InfoPage.InfoPageFactory;
+import com.example.MyWatchList.Controllers.EventHandlers.InfoPageRequestEvent;
+import com.example.MyWatchList.Controllers.DynamicPages.InfoPageFactory;
 import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListFactory;
 import javafx.application.Platform;
@@ -15,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
@@ -24,6 +29,7 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
+    @FXML private Button historyBack;
     @FXML private Button btnOverview;
     @FXML private Button btnOrders;
     @FXML private Button btnSettings;
@@ -43,25 +49,35 @@ public class MainController implements Initializable {
     private final VBox watchedList = WatchedListFactory.createWatchedList();
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
     private final BorderPane homePage = HomePageFactory.createHomepage();
-    private final BorderPane infoPage = InfoPageFactory.createInfoPage();
+    private final BorderPane movieInfoPage = InfoPageFactory.createMovieInfoPage();
+    private final BorderPane tvInfoPage = InfoPageFactory.createTvInfoPage();
+    private final ScrollPane castCrewPage = CommonFactory.createCastCrewPage();
+
+    private History history;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        history = new History(historyBack);
         api.fetchData(this::setMethods);
+        activateButtons();
     }
 
     private void setMethods() {
         infoPageBorderPane.setCenter(homePage);
         motherContainer.addEventFilter(Event.ANY, event -> {
-            if (event.getEventType() == InfoPageRequestEvent.INFO_PAGE_REQUEST && (infoPage != null && infoPage.getProperties().containsKey("controller"))) {
-                InfoPageController infoPageController = (InfoPageController) infoPage.getProperties().get("controller");
-                try {
-                    infoPageController.externalUpdateMethod(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+            try {
+                if (event.getEventType() == InfoPageRequestEvent.MOVIE_PAGE_REQUEST && movieInfoPage != null) {
+                    history.executeCommand(new UpdateInfoPageCommand(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type(), pnlInfoPageToFront));
+                    event.consume();
+                } else if (event.getEventType() == InfoPageRequestEvent.TV_PAGE_REQUEST && tvInfoPage != null) {
+                    history.executeCommand(new UpdateInfoPageCommand(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type(), tvPnlToFront));
+                    event.consume();
+                } else if (event.getEventType() == CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST && castCrewPage != null) {
+                    history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
+                    event.consume();
                 }
-                pnlInfoPageToFront.run();
-                event.consume();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         });
     }
@@ -79,10 +95,26 @@ public class MainController implements Initializable {
         if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
 
-    private final Runnable pnlHomeToFront = () -> clearAndSet(homePage);
-    private final Runnable pnlSettingsToFront = () -> clearAndSet(settingsPage);
-    private final Runnable pnlWatchedToFront = () -> clearAndSet(watchedList);
-    private final Runnable pnlInfoPageToFront = () -> clearAndSet(infoPage);
+    private final Runnable pnlHomeToFront = () -> {
+        clearAndSet(homePage);
+        history.clearHistory();
+    };
+    private final Runnable pnlSettingsToFront = () -> {
+        clearAndSet(settingsPage);
+        history.clearHistory();
+    };
+    private final Runnable pnlWatchedToFront = () -> {
+        clearAndSet(watchedList);
+        history.clearHistory();
+    };
+    private final Runnable pnlInfoPageToFront = () -> clearAndSet(movieInfoPage);
+    private final Runnable tvPnlToFront = () -> clearAndSet(tvInfoPage);
+    private final Runnable castCrewPageToFront = () -> clearAndSet(castCrewPage);
+
+
+    private void activateButtons(){
+        historyBack.setOnAction(event -> history.goBack());
+    }
 
 
     public void setSceneListeners(Scene scene) {

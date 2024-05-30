@@ -10,11 +10,36 @@
 
 <BorderPane fx:id="motherContainer" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.AppEntry.MainController">
    <center>
-        <StackPane BorderPane.alignment="CENTER">
-            <children>
-            <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
-            </children>
-        </StackPane>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+              <StackPane>
+                  <children>
+                  <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
+                  </children>
+              </StackPane>
+         </center>
+         <top>
+            <HBox fillHeight="false" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="historyBack" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="-50.0" left="3.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="4.0" />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+      </BorderPane>
    </center>
    <top>
       <HBox fx:id="menuPnl" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">

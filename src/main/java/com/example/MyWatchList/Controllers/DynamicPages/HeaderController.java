@@ -1,4 +1,4 @@
-package com.example.MyWatchList.Controllers.InfoPage;
+package com.example.MyWatchList.Controllers.DynamicPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.QrCodeGen;
 import com.example.MyWatchList.DataModels.UrlBuilder;

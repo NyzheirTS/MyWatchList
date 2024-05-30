@@ -1,16 +1,13 @@
-package com.example.MyWatchList.Controllers.InfoPage;
+package com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
 
-import com.example.MyWatchList.AppEntry.Pair;
-import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CastCrewRequestEvent;
-import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
-import com.example.MyWatchList.Controllers.CommonComponent.InfoPageRequestEvent;
-import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
-import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.*;
+import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
+import com.example.MyWatchList.DataModels.CommonModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
@@ -19,10 +16,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class InfoPageController {
+public class MovieInfoPageController {
 
-    @FXML private BorderPane additionalInfo;
-    @FXML private Button backButton;
     @FXML private BorderPane infopage;
     @FXML private Hyperlink linkToCastCrewPage;
     @FXML private ScrollPane rightPanelContainer;
@@ -32,6 +27,8 @@ public class InfoPageController {
 
 
     //TODO: Implement the Api Call
+
+    private static MovieInfoPageController instance;
     private int nodeID;
     private String mediaType;
     private static final String ComponentController = "controller";
@@ -40,46 +37,29 @@ public class InfoPageController {
     private final VBox leftPanel = InfoPageFactory.createLeftPanel();
     private final HBox footer = InfoPageFactory.createFooter();
     private final VBox middle = InfoPageFactory.createMiddlePanel();
-    private final HBox castCrewPage = CommonFactory.createCastCrewPage();
-    private final DynamicPageHistory history = new DynamicPageHistory();
+    private MovieInfoPageModel model;
 
-    public void externalUpdateMethod(int nodeID, String media_type) throws IOException {
-        this.nodeID = nodeID;
-        this.mediaType = media_type;
-        MediaInfoPageModel infoPageModel = getJsonTestString(mediaType);
-        getAndBuild(infoPageModel);
-        history.addBack(new Pair<>(nodeID, media_type));
-        buttonChecker();
-    }
-
-    private void internalUpdateMethod(int nodeID, String mediaType) throws IOException {
+    public void update(int nodeID, String mediaType) throws IOException {
         this.nodeID = nodeID;
         this.mediaType = mediaType;
-        MediaInfoPageModel infoPageModel = getJsonTestString(mediaType);
-        buttonChecker();
-        getAndBuild(infoPageModel);
+        model = MediaInfoPageModelDeserializer.fromJson(TestJsonStringHolder.getJsonStringMovie(), MovieInfoPageModel.class); // when update set to model so the on init methods can use the current string
+        buildMoviePage(model);
     }
 
-    private void getAndBuild(MediaInfoPageModel infopage){
-        if (infopage instanceof MovieInfoPageModel){
-            buildMoviePage((MovieInfoPageModel) infopage);
-        } else if (infopage instanceof TvInfoPageModel) {
-            System.out.println("To Be Implemented");
-        } else {
-            throw new IllegalStateException("Unsupported Media Type");
-        }
+    public void initMethods(){
+        setHyperLink();
     }
+
 
     private void buildMoviePage(MovieInfoPageModel jsonString){
-        setRightPanelContainer(jsonString);
+        setRightPanelContainer(jsonString.getRecommendations());
         setHeader(jsonString);
         setLeftPanel(jsonString);
-        setFooter(jsonString);
+        setFooter(jsonString.getCredits());
         setMiddlePanel(jsonString);
-        setHyperLink(jsonString);
     }
 
-    private void setRightPanelContainer(MovieInfoPageModel string){
+    private void setRightPanelContainer(RecommendationsModel string){
         if (rightPanel != null && rightPanel.getProperties().containsKey(ComponentController)) {
             RightPanelController rightPanelController = (RightPanelController) rightPanel.getProperties().get(ComponentController);
             rightPanelController.updateRightPanel(string, mediaType);
@@ -103,7 +83,7 @@ public class InfoPageController {
         }
     }
 
-    private void setFooter(MovieInfoPageModel string){
+    private void setFooter(CreditsModel string){
         if(footer != null && footer.getProperties().containsKey(ComponentController)){
             FooterController footerController = (FooterController) footer.getProperties().get(ComponentController);
             footerController.updateFooter(string);
@@ -119,42 +99,19 @@ public class InfoPageController {
         }
     }
 
-    private void setHyperLink(MediaInfoPageModel string){
+    private void setHyperLink(){
         linkToCastCrewPage.setOnMouseClicked(event -> {
-            CastCrewRequestEvent infoPageRequestEvent = new CastCrewRequestEvent(CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST, string);
+            CastCrewRequestEvent infoPageRequestEvent = new CastCrewRequestEvent(CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST, model.getCredits());
             linkToCastCrewPage.fireEvent(infoPageRequestEvent);
             infoPageRequestEvent.consume();
         });
     }
 
-    private MediaInfoPageModel getJsonTestString(String mediaType) throws IOException {
-        if (mediaType.equals("movie")){
-            return MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonStringMovie(),mediaType);
-        } else if (mediaType.equals("tv")){
-            return MediaInfoPageModelFactory.fromJson(TestJsonStringHolder.getJsonStringTV(), mediaType);
-        }
-        return null;
+    public static MovieInfoPageController getInstance(){
+        return MovieInfoPageController.instance;
     }
 
-    public void setBackButton() {
-        backButton.setOnMouseClicked(event -> {
-
-            Pair<Integer, String> newpair = history.goBack();
-            if (newpair != null) {
-                try {
-                    internalUpdateMethod(newpair.getFirst(), newpair.getSecond());
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    private void buttonChecker(){
-        backButton.setVisible(!history.historyIsEmpty());
-    }
-
-    public void initProperties() {
-        setBackButton();
+    public static void setInstance(MovieInfoPageController instance){
+        MovieInfoPageController.instance = instance;
     }
 }

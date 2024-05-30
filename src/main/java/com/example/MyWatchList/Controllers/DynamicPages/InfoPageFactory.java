@@ -1,5 +1,7 @@
-package com.example.MyWatchList.Controllers.InfoPage;
+package com.example.MyWatchList.Controllers.DynamicPages;
 
+import com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.*;
+import com.example.MyWatchList.Controllers.DynamicPages.TvInfoPages.TvInfoPageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -8,17 +10,15 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class InfoPageFactory {
-
     private static final String ComponentController = "controller";
     private InfoPageFactory(){}
 
-    public static BorderPane createInfoPage() {
+    public static BorderPane createMovieInfoPage() {
         try {
-            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/info-page.fxml"));
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/MoviePages/movie-info-page.fxml"));
             BorderPane infoPage = loader.load();
-            InfoPageController controller = loader.getController();
-            controller.initProperties();
-            infoPage.getProperties().put(ComponentController, controller);  // Store controller in properties
+            MovieInfoPageController.setInstance(loader.getController());
+            MovieInfoPageController.getInstance().initMethods();
             return infoPage;
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,6 +26,17 @@ public class InfoPageFactory {
         }
     }
 
+    public static BorderPane createTvInfoPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/TVPages/tv-info-page.fxml"));
+            BorderPane infoPage = loader.load();
+            TvInfoPageController.setInstance(loader.getController());
+            return infoPage;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static VBox createRightPanel() {
         try {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/right-panel.fxml"));

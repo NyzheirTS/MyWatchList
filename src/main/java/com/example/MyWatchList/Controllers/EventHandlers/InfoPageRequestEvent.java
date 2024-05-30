@@ -1,9 +1,10 @@
-package com.example.MyWatchList.Controllers.CommonComponent;
+package com.example.MyWatchList.Controllers.EventHandlers;
 import javafx.event.Event;
 import javafx.event.EventType;
 
 public class InfoPageRequestEvent extends Event {
-    public static final EventType<InfoPageRequestEvent> INFO_PAGE_REQUEST = new EventType<>(Event.ANY, "INFO_PAGE_REQUEST");
+    public static final EventType<InfoPageRequestEvent> MOVIE_PAGE_REQUEST = new EventType<>(Event.ANY, "MOVIE_PAGE_REQUEST");
+    public static final EventType<InfoPageRequestEvent> TV_PAGE_REQUEST = new EventType<>(Event.ANY, "TV_PAGE_REQUEST");
 
     private final int nodeNumber;
     private final String media_type;
