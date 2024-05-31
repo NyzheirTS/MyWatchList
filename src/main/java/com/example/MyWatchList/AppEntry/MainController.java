@@ -37,14 +37,6 @@ public class MainController implements Initializable {
     @FXML private BorderPane motherContainer;
     @FXML private BorderPane infoPageBorderPane;
 
-
-    //TODO: work on style look for themes and such
-    //TODO: work on optimization for info-page and maybe lazy load them in history most important to unload images while not seen
-    //TODO: fuck the infopage mem leak there dont know what to do kms
-
-
-
-    //Static Variables ??
     ApiConnection api = new ApiConnection();
     private final VBox watchedList = WatchedListFactory.createWatchedList();
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
@@ -52,7 +44,6 @@ public class MainController implements Initializable {
     private final BorderPane movieInfoPage = InfoPageFactory.createMovieInfoPage();
     private final BorderPane tvInfoPage = InfoPageFactory.createTvInfoPage();
     private final ScrollPane castCrewPage = CommonFactory.createCastCrewPage();
-
     private History history;
 
     @Override
@@ -111,11 +102,9 @@ public class MainController implements Initializable {
     private final Runnable tvPnlToFront = () -> clearAndSet(tvInfoPage);
     private final Runnable castCrewPageToFront = () -> clearAndSet(castCrewPage);
 
-
     private void activateButtons(){
         historyBack.setOnAction(event -> history.goBack());
     }
-
 
     public void setSceneListeners(Scene scene) {
         scene.setOnKeyPressed(e -> {

@@ -25,10 +25,10 @@ public class ReviewsModel {
     public static class AuthorDetails {
         private String username;
         private String avatar_path;
-        private int rating;
+        private double rating;
 
         public String getUsername() {return username;}
         public String getAvatar_path() {return avatar_path;}
-        public int getRating() {return rating;}
+        public double getRating() {return rating;}
     }
 }

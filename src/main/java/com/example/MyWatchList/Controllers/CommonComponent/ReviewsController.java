@@ -17,9 +17,9 @@ public class ReviewsController {
 
     private String authorName;
     private String username;
-    private int rating;
+    private double rating;
 
-    public void initReviews(String authorName, String username, int rating) {
+    public void initReviews(String authorName, String username, double rating) {
         this.authorName = authorName;
         this.username = username;
         this.rating = rating;

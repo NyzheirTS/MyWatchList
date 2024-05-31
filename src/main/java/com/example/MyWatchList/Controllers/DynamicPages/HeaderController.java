@@ -64,8 +64,18 @@ public class HeaderController {
     private void setMiddleHeader(MovieInfoPageModel jsonString){
         taglineLabel.setText(String.format("\"%s\"",jsonString.getTagline()));
         titleLabel.setText(jsonString.getTitle());
-        genresLabel.setText(String.format("(%s, %s)",jsonString.getGenres()[0].getName(),jsonString.getGenres()[1].getName()));
+        genresLabel.setText(siftGenres(jsonString));
         descriptionTextfield.setText(jsonString.getOverview());
+    }
+
+    private String siftGenres(MovieInfoPageModel jsonString){
+        if (jsonString.getGenres().length > 1) {
+            return String.format("(%s, %s)", jsonString.getGenres()[0].getName(), jsonString.getGenres()[1].getName());
+        } else if (jsonString.getGenres().length == 1) {
+            return String.format("(%s)", jsonString.getGenres()[0].getName());
+        } else {
+            return "()";
+        }
     }
 
     private void setRightHeader(MovieInfoPageModel jsonString){

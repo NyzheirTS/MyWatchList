@@ -31,6 +31,7 @@ public class InfoPageFactory {
             FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/TVPages/tv-info-page.fxml"));
             BorderPane infoPage = loader.load();
             TvInfoPageController.setInstance(loader.getController());
+            TvInfoPageController.getInstance().initMethods();
             return infoPage;
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,11 +1,11 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8µÄº‹ê1
-z	java:S116
-"YRename this field "author_details" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñİõ•ıÿÿÿÿ8¹Äº‹ê1
-q	java:S116"URename this field "created_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù“ƒÍ8¹Äº‹ê1
-q	java:S116"URename this field "updated_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á›‚Ö8¹Äº‹ê1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë§·Ï8»Äº‹ê1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÔüşùÿÿÿÿ8œëº‹ê1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âíƒğüÿÿÿÿ8œëº‹ê1
-r	java:S116"VRename this field "avatar_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âƒƒ–8»Äº‹ê1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ñø™ÿÿÿÿÿ8¼Äº‹ê1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8µÄº‹ê1J$4ac017fe-11dc-4fcc-954a-1ca5b07f8f34
+ 	java:S116
+"YRename this field "author_details" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñİõ•ıÿÿÿÿ8¹Äº‹ê1J$e3d26221-0025-402b-b1ff-38951faae1c0
+—	java:S116"URename this field "created_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù“ƒÍ8¹Äº‹ê1J$6b5834cb-3a7e-4e78-8209-051fca0e3a46
+—	java:S116"URename this field "updated_at" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á›‚Ö8¹Äº‹ê1J$f5cb8fb2-4e67-4e44-b900-b38b38a72243
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë§·Ï8»Äº‹ê1J$8b1efa30-d34e-4fea-bdbc-39a4b6d6d461
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÔüşùÿÿÿÿ8œëº‹ê1J$ca51587b-3dda-486b-bc28-d17f4d08e55c
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âíƒğüÿÿÿÿ8œëº‹ê1J$93bc1b49-57e5-4143-8a8c-74127366d5b6
+˜	java:S116"VRename this field "avatar_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âƒƒ–8»Äº‹ê1J$9f9bf2d0-16eb-444c-9df0-fe1e1e2c20ae
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Ñø™ÿÿÿÿÿ8¼Äº‹ê1J$52664982-46f4-47d0-93b1-2fbc06c0c85b

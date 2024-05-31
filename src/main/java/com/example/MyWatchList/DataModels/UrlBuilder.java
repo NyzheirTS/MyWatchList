@@ -13,6 +13,7 @@ public class UrlBuilder {
     private static final String BASE_TMDB_WATCH_PAGE = "https://www.themoviedb.org/movie/%d/watch";
     private static final String BASE_YOUTUBE_THUMBNAIL = "https://img.youtube.com/vi/%s/0.jpg";
     private static final String BASE_YOUTUBE_WATCH_LINK = "https://www.youtube.com/watch?v=%s";
+    private static final String TMDB_MOVIE_PAGE = "https://api.themoviedb.org/3/movie/";
 
     @NotNull
     @Contract(pure = true)
@@ -37,4 +38,8 @@ public class UrlBuilder {
     @NotNull
     @Contract(pure = true)
     public static String getBaseYoutubeWatchLink(String ytKey){return String.format(BASE_YOUTUBE_WATCH_LINK, ytKey);}
+
+    @NotNull
+    @Contract(pure = true)
+    public static String getTmdbMoviePage(int Id, String ISO){return TMDB_MOVIE_PAGE + Id + "?append_to_response=credits%2Crecommendations%2Creviews%2Cvideos&language=" + ISO;}
 }

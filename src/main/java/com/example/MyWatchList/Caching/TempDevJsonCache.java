@@ -13,24 +13,38 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
 
-public class JsonCache {
-    private static final String CACHE_DIRECTORY = "Cache/json_cache";
+public class TempDevJsonCache {
+    private static final String CACHE_DIRECTORY = "Cache/temp_dev_cache";
     private static final Cache<String, String> apiJsonCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
     private static final Date date = new Date();
 
-    //TODO: Refactor to handle InfoPage Jsons based on the URL
+    //TODO: Implement method for deleting cache after season is over for the info page. only delete on shutdown.
 
 
     static {
-        if (!cacheDirectory.exists()){
-            boolean isDirCreated = cacheDirectory.mkdirs();
-            if(!isDirCreated){
-                System.out.println("Failed to create cache directory: " + cacheDirectory);
+        try {
+            if (!cacheDirectory.exists()){
+                boolean isDirCreated = cacheDirectory.mkdirs();
+                if(!isDirCreated){
+                    System.out.println("Failed to create cache directory: " + cacheDirectory);
+                }
             }
+            removeOldFromCache();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
+    private static void removeOldFromCache() throws IOException {
+        for (File file : Objects.requireNonNull(cacheDirectory.listFiles())){
+            LocalDate fileDate = LocalDate.parse(file.getName().substring(0,10), DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+            LocalDate todayDate = LocalDate.now();
+            if (fileDate.isBefore(todayDate) && !file.isDirectory()){
+                Files.delete(file.toPath());
+            }
+        }
+    }
 
     private String formatFilePath(String fileName){
         return CACHE_DIRECTORY + File.separator +
@@ -76,14 +90,6 @@ public class JsonCache {
 
             apiJsonCache.put(localFilePath, apiData);
 
-        }
-    }
-
-    public static void clearCacheOnShutdown() throws IOException {
-        for (File file : Objects.requireNonNull(cacheDirectory.listFiles())){
-            if (!file.isDirectory()){
-                java.nio.file.Files.delete(file.toPath());
-            }
         }
     }
 }

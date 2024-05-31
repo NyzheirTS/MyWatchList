@@ -29,7 +29,7 @@ public class LeftPanelController {
 
     private void setLabels(MovieInfoPageModel jsonString){
         runtimeLabel.setText(CommonFormatter.formateRuntime(jsonString.getRuntime()));
-        collectionLabel.setText(jsonString.getBelongs_to_collection().getName());
+        collectionLabel.setText(jsonString.getBelongs_to_collection() != null ? jsonString.getBelongs_to_collection().getName() : "N/A");
         budgetLabel.setText(CommonFormatter.formatMoney(jsonString.getBudget()));
         revenueLabel.setText(CommonFormatter.formatMoney(jsonString.getRevenue()));
         releasedateLabel.setText(jsonString.getRelease_date());

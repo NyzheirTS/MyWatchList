@@ -1,10 +1,12 @@
 package com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
 
+import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.DynamicPages.*;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
+import com.example.MyWatchList.DataModels.UrlBuilder;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class MovieInfoPageController {
 
@@ -37,19 +40,22 @@ public class MovieInfoPageController {
     private final VBox leftPanel = InfoPageFactory.createLeftPanel();
     private final HBox footer = InfoPageFactory.createFooter();
     private final VBox middle = InfoPageFactory.createMiddlePanel();
+    //
     private MovieInfoPageModel model;
 
     public void update(int nodeID, String mediaType) throws IOException {
         this.nodeID = nodeID;
         this.mediaType = mediaType;
-        model = MediaInfoPageModelDeserializer.fromJson(TestJsonStringHolder.getJsonStringMovie(), MovieInfoPageModel.class); // when update set to model so the on init methods can use the current string
+        model = MediaInfoPageModelDeserializer.fromJson(
+                ApiConnection.onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID, String.valueOf(Locale.getDefault()))),
+                MovieInfoPageModel.class
+        );                                  // when update set to model so the on init methods can use the current string
         buildMoviePage(model);
     }
 
     public void initMethods(){
         setHyperLink();
     }
-
 
     private void buildMoviePage(MovieInfoPageModel jsonString){
         setRightPanelContainer(jsonString.getRecommendations());

@@ -1,6 +1,7 @@
 package com.example.MyWatchList.ApiClass;
 import com.example.MyWatchList.AppConfig.AppConfig;
 import com.example.MyWatchList.Caching.JsonCache;
+import com.example.MyWatchList.Caching.TempDevJsonCache;
 import com.example.MyWatchList.DataModels.ApiCallType;
 import javafx.application.Platform;
 import okhttp3.OkHttpClient;
@@ -19,6 +20,7 @@ public class ApiConnection {
     private static final Map<ApiCallType, String> responseData = new EnumMap<>(ApiCallType.class);
     private final Map<ApiCallType, String> endpoints = new EnumMap<>(ApiCallType.class);
     private final JsonCache jsonCache = new JsonCache();
+    private final TempDevJsonCache tempDevJsonCache = new TempDevJsonCache();
 
     public ApiConnection() {
         initEndpoints();
@@ -35,9 +37,9 @@ public class ApiConnection {
 
     public void batchApiCall(ApiCallType callType, CountDownLatch latch) throws IOException { //TMDB API Handler
         String url = endpoints.get(callType);
-        if (jsonCache.getJsonCache(callType) != null) {
+        if (tempDevJsonCache.getJsonCache(callType) != null) {
             synchronized (responseData){
-                responseData.put(callType, jsonCache.getJsonCache(callType));
+                responseData.put(callType, tempDevJsonCache.getJsonCache(callType));
             }
             latch.countDown();
         } else {
@@ -55,7 +57,7 @@ public class ApiConnection {
                 assert responseBody != null;
                 String responseBodyString = responseBody.string();
 
-                jsonCache.setJsonCache(callType, responseBodyString);
+                tempDevJsonCache.setJsonCache(callType, responseBodyString);
                 synchronized (responseData) {
                     responseData.put(callType, responseBodyString);
                 }

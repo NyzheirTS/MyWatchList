@@ -1,3 +1,5 @@
 
-g	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ºâîøó1
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å‘£ô8•Äğ1J$9af4236d-4a70-410a-9408-65adc840f40f
+	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8è‚İü1J$8a38e69c-efbe-4734-871e-b58b5bd7b400
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å‘£ô8í‚İü1J$c2f87489-4b8e-4237-b852-cf2e16f758ae
+p
+java:S1068"-Remove this unused "jsonCache" private field.(¶ƒíæ8ßşİü1J$bb2af120-d4a3-4329-907e-30308064a574

@@ -13,16 +13,20 @@ public class FooterController {
         buildHBox(jsonString);
     }
 
-    private void buildHBox(CreditsModel jsonString){
+    private void buildHBox(CreditsModel jsonString) {
         actorHbox.getChildren().clear();
         CreditsModel.Cast[] cast = jsonString.getCast();
-        for ( int i = 0; i <= 10; i++){
-            VBox actorNode = CommonFactory.createActorPosterNode(
-                    cast[i].getProfile_path(),
-                    cast[i].getName(),
-                    cast[i].getCharacter()
-            );
-            actorHbox.getChildren().addAll(actorNode);
+        try {
+            for (int i = 0; i <= 10; i++) {
+                VBox actorNode = CommonFactory.createActorPosterNode(
+                        cast[i].getProfile_path(),
+                        cast[i].getName(),
+                        cast[i].getCharacter()
+                );
+                actorHbox.getChildren().addAll(actorNode);
+            }
+        } catch (ArrayIndexOutOfBoundsException ignore){
+            //exception is ignored
         }
     }
 }

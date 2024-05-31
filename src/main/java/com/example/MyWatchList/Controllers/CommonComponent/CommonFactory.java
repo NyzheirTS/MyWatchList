@@ -155,7 +155,7 @@ public class CommonFactory {
         }
     }
 
-    public static HBox createReviews(String authorName, String userName, int rating){
+    public static HBox createReviews(String authorName, String userName, double rating){
         try {
             FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/InfoPage/review.fxml"));
             HBox reviewObject = loader.load();
