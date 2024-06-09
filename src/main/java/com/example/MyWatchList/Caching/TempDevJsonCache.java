@@ -48,14 +48,12 @@ public class TempDevJsonCache {
 
     private String formatFilePath(String fileName){
         return CACHE_DIRECTORY + File.separator +
-                new SimpleDateFormat("MM-dd-yyyy_").format(date) + fileName;
+                new SimpleDateFormat("MM-dd-yyyy_").format(date) + fileName + ".json";
     }
 
 
-    public  String getJsonCache(ApiCallType apiCallType) throws IOException {
-        String fileName = apiCallType.name() + ".json";
-        String localFilePath = formatFilePath(fileName);
-
+    public String getJsonCache(ApiCallType apiCallType) throws IOException {
+        String localFilePath = formatFilePath(apiCallType.name());
 
         String apiData = apiJsonCache.getIfPresent(localFilePath);
         File cachedJson = new File(localFilePath);
@@ -69,8 +67,7 @@ public class TempDevJsonCache {
 
 
     public void setJsonCache(ApiCallType apiCallType, String apiInfo) throws IOException {
-        String fileName = apiCallType.name() + ".json";
-        String localFilePath = formatFilePath(fileName);
+        String localFilePath = formatFilePath(apiCallType.name());
 
         File cachedJson = new File(localFilePath);
         try (InputStream inputStream = new ByteArrayInputStream(apiInfo.getBytes(StandardCharsets.UTF_8));

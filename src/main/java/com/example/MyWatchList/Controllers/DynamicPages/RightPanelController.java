@@ -29,15 +29,19 @@ public class RightPanelController {
     private void buildVbox1(RecommendationsModel jsonString){
         vbox1.getChildren().clear();
         RecommendationsModel.Recommendations[] recommendations = jsonString.getResults();
-        for (int i = 0; i <= 9; i++){
-            AnchorPane node;
-            if (recommendations[i].getMedia_type().equals("movie")){
-                node = buildMovieNodes(recommendations, i);
-            } else {
-                node = buildTVNodes(recommendations, i);
+        try {
+            for (int i = 0; i <= 9; i++) {
+                AnchorPane node;
+                if (recommendations[i].getMedia_type().equals("movie")) {
+                    node = buildMovieNodes(recommendations, i);
+                } else {
+                    node = buildTVNodes(recommendations, i);
+                }
+                configurePosterNode(node);
+                vbox1.getChildren().add(node);
             }
-            configurePosterNode(node);
-            vbox1.getChildren().add(node);
+        } catch (ArrayIndexOutOfBoundsException ignored){
+            // Exception is ignored
         }
     }
 

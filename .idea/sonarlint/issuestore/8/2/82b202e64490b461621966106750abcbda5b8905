@@ -1,9 +1,27 @@
 
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Èşá™8Ü×úâü1J$5531b08b-ebfc-465b-a00b-09434fb4911a
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Èşá™8ıâñÕÿ1J$f4560560-97ed-4b17-8f4e-e5bc670f0965
+r	java:S106"+Replace this use of System.out by a logger.(‹şôÅıÿÿÿÿ8£ãñÕÿ1J$2b7317b6-cc29-4831-b2a0-25943169f771
+‹
+java:S1128"HRemove this unused import 'com.example.MyWatchList.AppConfig.AppConfig'.(‡é8½æ£Öÿ1J$ad3e3bd1-b631-4149-8b4a-50a4bfccbb6f
+“
+java:S1128"KRemove this unused import 'com.example.MyWatchList.DataModels.ApiCallType'.(¸ÃúÏşÿÿÿÿ8Äæ£Öÿ1J$9f1d47a7-3341-4795-8d57-0b5c30a6669f
+ˆ
+java:S1128"ERemove this unused import 'com.github.benmanes.caffeine.cache.Cache'.(¿·¢„8„…¯Öÿ1J$5f593f0d-7070-48f2-818c-a33b4c2ef42a
+‹
+java:S1128"HRemove this unused import 'com.github.benmanes.caffeine.cache.Caffeine'.(Ò¤Üÿ8„…¯Öÿ1J$4337baf8-8d2c-481a-8ef8-d4e2d5fab9f7
+t
+java:S1128",Remove this unused import 'okhttp3.Request'.(¬ßØÿÿÿÿÿ8Äæ£Öÿ1J$87e9d21e-e300-4efe-bee1-446512b57f2a
 u
-java:S1135"2Complete the task associated to this TODO comment.(ßºç„8î×úâü1J$9239f895-8fa1-46a3-8786-a6c6cce6e3f7
-r	java:S106"+Replace this use of System.out by a logger.(‹şôÅıÿÿÿÿ8ï×úâü1J$07859e4b-b380-4a04-8108-6e95405d01c0
+java:S1128"-Remove this unused import 'okhttp3.Response'.(Ï‚ñ—øÿÿÿÿ8Äæ£Öÿ1J$f8073915-675d-41bc-a623-07aadf1c2d11
+t
+java:S1128	"1Remove this unused import 'okhttp3.ResponseBody'.(Õ«ø8Åæ£Öÿ1J$7f621937-65f1-4ebd-b411-e3959eb0499a
+z
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8Åæ£Öÿ1J$d4407291-9db1-4016-a0b3-53883230a36d
 x
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ö×úâü1J$5318e4e0-b66e-4469-9f7b-a003a7ef4956
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8Åæ£Öÿ1J$0d968c69-e7e8-4860-a23a-1461107c4e98
 ‚
-java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8ö×úâü1J$7de072f5-e60b-452a-a01c-a69e9034931f
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8Åæ£Öÿ1J$b2533c31-f4ba-42a3-91a4-1d380f055fb7
+n
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8Åæ£Öÿ1J$532b1313-ea74-48bc-a674-2e5187c90ad5
+ƒ
+java:S1128"@Remove this unused import 'java.util.concurrent.CountDownLatch'.(¤ƒô§8Ææ£Öÿ1J$ef579679-f874-4031-9a30-f46890fdaec5

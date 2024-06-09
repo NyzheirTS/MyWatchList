@@ -1,5 +1,9 @@
 
-	java:S112P"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8è‚İü1J$8a38e69c-efbe-4734-871e-b58b5bd7b400
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å‘£ô8í‚İü1J$c2f87489-4b8e-4237-b852-cf2e16f758ae
-p
-java:S1068"-Remove this unused "jsonCache" private field.(¶ƒíæ8ßşİü1J$bb2af120-d4a3-4329-907e-30308064a574
+	java:S112T"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8›Œ©Òş1J$4d471dd3-938c-4897-988b-c4ef2d441176
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(å‘£ô8ŸŒ©Òş1J$6506c5ce-1fdd-4899-9cbf-575d347925f1
+t
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§8ëøÍÖş1J$c925acbe-584a-45a5-9aad-f77e20702945
+z
+java:S1128"7Remove this unused import 'com.google.gson.JsonObject'.(µÊ´½8ëøÍÖş1J$5624e569-3ec4-4195-b770-ac0984550ec4
+‚
+java:S1128"@Remove this unused import 'com.google.gson.JsonSyntaxException'.(èİ£68ëøÍÖş1J$d01d9b3e-5113-4c64-bdbb-130210e6545f

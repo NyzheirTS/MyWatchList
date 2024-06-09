@@ -32,22 +32,30 @@ public class LeftPanelController {
         collectionLabel.setText(jsonString.getBelongs_to_collection() != null ? jsonString.getBelongs_to_collection().getName() : "N/A");
         budgetLabel.setText(CommonFormatter.formatMoney(jsonString.getBudget()));
         revenueLabel.setText(CommonFormatter.formatMoney(jsonString.getRevenue()));
-        releasedateLabel.setText(jsonString.getRelease_date());
+        releasedateLabel.setText(jsonString.getRelease_date() != null ? jsonString.getRelease_date() : "N/A");
     }
 
     private void setProductionCompanies(MovieInfoPageModel jsonString){
         productionCompanieVBox.getChildren().clear();
         ProductionCompaniesModel[] productionCompanyModels = jsonString.getProduction_companies();
-        for (ProductionCompaniesModel companies : productionCompanyModels){
-            productionCompanieVBox.getChildren().add(formattedLabel(companies.getName()));
+        if (productionCompanyModels.length == 0) {
+            productionCompanieVBox.getChildren().add(formattedLabel("N/A"));
+        } else {
+            for (ProductionCompaniesModel companies : productionCompanyModels) {
+                productionCompanieVBox.getChildren().add(formattedLabel(companies.getName()));
+            }
         }
     }
 
     private void setProductionCountries(MovieInfoPageModel jsonString){
         productionCountriesVBox.getChildren().clear();
         ProductionCountriesModel[] productionCountriesModel = jsonString.getProduction_countries();
-        for (ProductionCountriesModel countries : productionCountriesModel){
-            productionCountriesVBox.getChildren().add(formattedLabel(countries.getName()));
+        if (productionCountriesModel.length == 0){
+            productionCompanieVBox.getChildren().add(formattedLabel("N/A"));
+        } else {
+            for (ProductionCountriesModel countries : productionCountriesModel) {
+                productionCountriesVBox.getChildren().add(formattedLabel(countries.getName()));
+            }
         }
     }
 

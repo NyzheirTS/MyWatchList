@@ -1,7 +1,7 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(–“Åıÿÿÿÿ8œûŸ¾ç1J$afb799e9-6e63-4c5d-984c-4e517b3e2e51
-	java:S116	"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛçşÆùÿÿÿÿ8ŸûŸ¾ç1J$fb109387-d580-486e-98a8-f7e40caeeadd
-™	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èËµï8ŸûŸ¾ç1J$2d94bcb8-b898-4e70-8ec0-ed2b643b14df
-—	java:S116"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û˜¯ş8ŸûŸ¾ç1J$6309a49c-157b-4062-81ed-2f247c216c21
-•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¯­¯şÿÿÿÿ8¢ûŸ¾ç1J$229b4dec-eff5-4bfd-b8b4-4cf369bf3750
-	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰•‡n8£ûŸ¾ç1J$a7e52894-1c3e-4ca2-8e33-0964cffa4b1a
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(–“Åıÿÿÿÿ8œûŸ¾ç1J$b790db48-ae20-4c03-9d57-b1aae3d2ab62
+	java:S116	"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛçşÆùÿÿÿÿ8ŸûŸ¾ç1J$dc8a5a68-a081-44d9-83a4-d89ada0b2989
+™	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èËµï8ŸûŸ¾ç1J$2a3c4feb-65af-4c9a-b048-21226596e560
+—	java:S116"URename this field "media_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û˜¯ş8ŸûŸ¾ç1J$1dc2fb3a-6ef0-42a3-bf00-2dda606d9a6b
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¯­¯şÿÿÿÿ8¢ûŸ¾ç1J$4c3d68d6-9271-4750-ab66-07a52aba2273
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰•‡n8£ûŸ¾ç1J$db9393e1-8678-4537-913d-b0921cd71e02

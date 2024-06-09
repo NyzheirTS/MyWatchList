@@ -1,6 +1,7 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
+import com.example.MyWatchList.Caching.JsonCache;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.Controllers.HistoryManager.History;
@@ -37,7 +38,6 @@ public class MainController implements Initializable {
     @FXML private BorderPane motherContainer;
     @FXML private BorderPane infoPageBorderPane;
 
-    ApiConnection api = new ApiConnection();
     private final VBox watchedList = WatchedListFactory.createWatchedList();
     private final VBox settingsPage = SettingsPageFactory.createSettingsPage();
     private final BorderPane homePage = HomePageFactory.createHomepage();
@@ -49,7 +49,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         history = new History(historyBack);
-        api.fetchData(this::setMethods);
+        ApiConnection.getInstance().fetchData(this::setMethods);
         activateButtons();
     }
 

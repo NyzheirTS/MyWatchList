@@ -22,15 +22,15 @@
          <HBox.margin>
             <Insets right="-1920.0" />
          </HBox.margin>
+         <image>
+            <Image url="@../../images/pexels-edward-jenner-4253063.jpg" />
+         </image>
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
-            <AnchorPane prefHeight="351.0" prefWidth="234.0" styleClass="header-poster-border" stylesheets="@../StyleSheets/style.css">
+            <AnchorPane prefHeight="351.0" prefWidth="234.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
                <children>
-                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../../../../../../../../../OneDrive/Pictures/MSL_Photos/HeaderPictureW1280/8b8R8l88Qje9dn9OE8PY05Nxl1X_poster_w300.jpg" />
-                     </image></ImageView>
+                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
                <VBox.margin>
                   <Insets left="-62.0" right="5.0" />
@@ -52,7 +52,7 @@
             <Insets />
          </HBox.margin>
          <children>
-            <Label fx:id="taglineLabel" stylesheets="@../StyleSheets/style.css" textFill="#8a8a8a">
+            <Label fx:id="taglineLabel" stylesheets="@../../StyleSheets/style.css" textFill="#8a8a8a">
                <font>
                   <Font name="Arimo Italic" size="15.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Insets top="49.0" />
                </VBox.margin>
             </Label>
-            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../StyleSheets/style.css" wrapText="true">
+            <TextArea fx:id="descriptionTextfield" editable="false" prefHeight="109.0" prefWidth="702.0" stylesheets="@../../StyleSheets/style.css" wrapText="true">
                <font>
                   <Font name="Arimo Regular" size="16.0" />
                </font>
@@ -114,8 +114,8 @@
             </Label>
             <Rating fx:id="showRating" partialRating="true" prefHeight="32.0" prefWidth="244.0" rating="0.0" styleClass="rating-bar">
                <stylesheets>
-                  <URL value="@../StyleSheets/style.css" />
-                  <URL value="@../StyleSheets/customRatingsFX/newratingstyle.css" />
+                  <URL value="@../../StyleSheets/style.css" />
+                  <URL value="@../../StyleSheets/customRatingsFX/newratingstyle.css" />
                </stylesheets>
             </Rating>
             <Label fx:id="votesLabel">

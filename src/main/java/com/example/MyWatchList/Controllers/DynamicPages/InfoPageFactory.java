@@ -53,7 +53,7 @@ public class InfoPageFactory {
 
     public static HBox createHeader(){
         try {
-            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/movie-header.fxml"));
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/MoviePages/movie-header.fxml"));
             HBox movieHeader = loader.load();
             HeaderController controller = loader.getController();
             movieHeader.getProperties().put(ComponentController, controller);
@@ -66,7 +66,7 @@ public class InfoPageFactory {
 
     public static VBox createLeftPanel(){
         try {
-            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/movie-left-panel.fxml"));
+            FXMLLoader loader = new FXMLLoader(InfoPageFactory.class.getResource("/com/example/MyWatchList/InfoPage/MoviePages/movie-left-panel.fxml"));
             VBox leftPanel = loader.load();
             LeftPanelController controller = loader.getController();
             leftPanel.getProperties().put(ComponentController, controller);

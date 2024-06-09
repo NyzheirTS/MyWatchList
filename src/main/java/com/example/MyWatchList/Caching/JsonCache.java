@@ -1,8 +1,12 @@
 package com.example.MyWatchList.Caching;
 
+import com.example.MyWatchList.AppConfig.AppConfig;
 import com.example.MyWatchList.DataModels.ApiCallType;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -12,14 +16,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 
 public class JsonCache {
     private static final String CACHE_DIRECTORY = "Cache/json_cache";
-    private static final Cache<String, String> apiJsonCache = Caffeine.newBuilder().maximumSize(100).build();
+    //private static final Cache<String, String> apiJsonCache = Caffeine.newBuilder().maximumSize(100).build();
     private static final File cacheDirectory = new File(CACHE_DIRECTORY);
-    private static final Date date = new Date();
-
-    //TODO: Refactor to handle InfoPage Jsons based on the URL
 
 
     static {
@@ -31,20 +33,18 @@ public class JsonCache {
         }
     }
 
-
-    private String formatFilePath(String fileName){
-        return CACHE_DIRECTORY + File.separator +
-                new SimpleDateFormat("MM-dd-yyyy_").format(date) + fileName;
+    private String formatName(String name){
+        return
+                CACHE_DIRECTORY + File.separator + name.replaceAll("[^a-zA-Z0-9]", "_") + ".json";
     }
 
 
-    public  String getJsonCache(ApiCallType apiCallType) throws IOException {
-        String fileName = apiCallType.name() + ".json";
-        String localFilePath = formatFilePath(fileName);
+    public String getJsonCache(String url) throws IOException {
+        String fileName = formatName(url);
 
-
-        String apiData = apiJsonCache.getIfPresent(localFilePath);
-        File cachedJson = new File(localFilePath);
+        //String apiData = apiJsonCache.getIfPresent(fileName);
+        String apiData = null;
+        File cachedJson = new File(fileName);
         if(cachedJson.exists()) {
             byte[] byteData = Files.readAllBytes(cachedJson.toPath());
             apiData = new String(byteData, StandardCharsets.UTF_8);
@@ -54,11 +54,11 @@ public class JsonCache {
     }
 
 
-    public void setJsonCache(ApiCallType apiCallType, String apiInfo) throws IOException {
-        String fileName = apiCallType.name() + ".json";
-        String localFilePath = formatFilePath(fileName);
+    public void setJsonCache(String url, String apiInfo) throws IOException {
+        //String localFilePath = formatName(url);
 
-        File cachedJson = new File(localFilePath);
+        File cachedJson = new File(formatName(url));
+        // Write the json string to the file
         try (InputStream inputStream = new ByteArrayInputStream(apiInfo.getBytes(StandardCharsets.UTF_8));
              FileOutputStream outputStream = new FileOutputStream(cachedJson)) {
 
@@ -72,12 +72,18 @@ public class JsonCache {
 
             outputStream.write(byteArrayOutputStream.toByteArray());
 
-            String apiData = String.valueOf(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+            //String apiData = String.valueOf(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
 
-            apiJsonCache.put(localFilePath, apiData);
-
+            //apiJsonCache.put(localFilePath, apiData);
         }
     }
+
+    /*
+    public static void printCache(){
+        System.out.println(apiJsonCache.estimatedSize());
+        System.out.println(apiJsonCache.asMap());
+    }
+    */
 
     public static void clearCacheOnShutdown() throws IOException {
         for (File file : Objects.requireNonNull(cacheDirectory.listFiles())){
@@ -87,3 +93,5 @@ public class JsonCache {
         }
     }
 }
+
+

@@ -47,7 +47,7 @@ public class MovieInfoPageController {
         this.nodeID = nodeID;
         this.mediaType = mediaType;
         model = MediaInfoPageModelDeserializer.fromJson(
-                ApiConnection.onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID, String.valueOf(Locale.getDefault()))),
+                ApiConnection.getInstance().onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID, String.valueOf(Locale.getDefault()))),
                 MovieInfoPageModel.class
         );                                  // when update set to model so the on init methods can use the current string
         buildMoviePage(model);

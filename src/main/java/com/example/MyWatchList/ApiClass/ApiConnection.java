@@ -3,6 +3,9 @@ import com.example.MyWatchList.AppConfig.AppConfig;
 import com.example.MyWatchList.Caching.JsonCache;
 import com.example.MyWatchList.Caching.TempDevJsonCache;
 import com.example.MyWatchList.DataModels.ApiCallType;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import javafx.application.Platform;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -16,6 +19,8 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 public class ApiConnection {
+
+    private static ApiConnection instance;
     private static final OkHttpClient client = new OkHttpClient();
     private static final Map<ApiCallType, String> responseData = new EnumMap<>(ApiCallType.class);
     private final Map<ApiCallType, String> endpoints = new EnumMap<>(ApiCallType.class);
@@ -50,7 +55,6 @@ public class ApiConnection {
                         .addHeader("accept", "application/json")
                         .addHeader("Authorization", AppConfig.getTMDBKey())
                         .build();
-
                 Response response = client.newCall(request).execute();
 
                 ResponseBody responseBody = response.body();
@@ -90,41 +94,44 @@ public class ApiConnection {
         Platform.runLater(callback);
     }
 
-    public static String onDemandApiCall(String url) {
+    public String onDemandApiCall(String url) throws IOException {
         final CountDownLatch latch = new CountDownLatch(1);
         final String[] result = new String[1]; // Use an array to hold the response since lambda requires final or effectively final variables
-
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("accept", "application/json")
-                .addHeader("Authorization", AppConfig.getTMDBKey())
-                .build();
-        Thread networkThread = new Thread(() -> {
+        if (jsonCache.getJsonCache(url) != null){
+            return jsonCache.getJsonCache(url);
+        } else {
+            Thread networkThread = new Thread(() -> {
             try {
+                Request request = new Request.Builder()
+                        .url(url)
+                        .addHeader("accept", "application/json")
+                        .addHeader("Authorization", AppConfig.getTMDBKey())
+                        .build();
                 Response response = client.newCall(request).execute();
+
                 if (!response.isSuccessful()) {
                     result[0] = "Error: Server responded with status " + response.code();
                     return;
                 }
                 ResponseBody responseBody = response.body();
-                if (responseBody != null) {
-                    result[0] = responseBody.string();
-                } else {
-                    result[0] = "Error: Response body was null";
+                assert responseBody != null;
+                String responseBodyString = responseBody.string();
+
+                jsonCache.setJsonCache(url, responseBodyString);
+                result[0] = responseBodyString;
+                } catch (IOException e) {
+                    result[0] = "Error: Network request failed due to an IOException";
+                } finally {
+                    latch.countDown(); // Decrease the count of the latch, releasing all waiting threads
                 }
-            } catch (IOException e) {
-                result[0] = "Error: Network request failed due to an IOException";
-            } finally {
-                latch.countDown(); // Decrease the count of the latch, releasing all waiting threads
+            });
+            networkThread.start();
+            try {
+                latch.await(); // Wait for the network thread to finish
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // Set the interrupt flag again
+                return "Error: Thread was interrupted";
             }
-        });
-        networkThread.start();
-        try {
-            latch.await(); // Wait for the network thread to finish
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Set the interrupt flag again
-            return "Error: Thread was interrupted";
         }
         return result[0];
     }
@@ -135,8 +142,11 @@ public class ApiConnection {
         }
     }
 
-    public interface ResponseHandler{
-        void handleResponse(String jsonResponse);
+    public static ApiConnection getInstance(){
+        if (ApiConnection.instance == null){
+            ApiConnection.instance = new ApiConnection();
+        }
+        return instance;
     }
 
 }
