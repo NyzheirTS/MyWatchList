@@ -5,7 +5,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -22,9 +21,6 @@
          <HBox.margin>
             <Insets right="-1920.0" />
          </HBox.margin>
-         <image>
-            <Image url="@../../images/pexels-edward-jenner-4253063.jpg" />
-         </image>
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>

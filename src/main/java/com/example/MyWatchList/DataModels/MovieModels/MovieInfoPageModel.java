@@ -21,12 +21,9 @@ public class MovieInfoPageModel extends MediaInfoPageModel {
     public static class BelongsToCollection{
         int id;
         String name;
-        String poster_path;
-        String backdrop_path;
+
 
         public int getId() {return id;}
         public String getName() {return name;}
-        public String getPoster_path() {return poster_path;}
-        public String getBackdrop_path() {return backdrop_path;}
     }
 }

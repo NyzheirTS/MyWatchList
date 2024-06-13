@@ -1,15 +1,15 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ιΚλ©ÿÿÿÿÿ
-t	java:S116"XRename this field "backdrop_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(΅ϋΥ8ÿ§ϋβι1
-w	java:S116"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ς―ΤΓύÿÿÿÿ8ξγι1
-€	java:S116	"_Rename this field "production_companies" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ΑΘΰψÿÿÿÿ8ξ£‚γι1
-{	java:S116
-"_Rename this field "production_countries" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Άƒφ8ξ£‚γι1
-x	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(τΪ¤Άύÿÿÿÿ8ζ†γι1
-q	java:S116"URename this field "vote_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›οΔ8ΏΈ£γι1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κƒέ8ι½™γι1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ϊ΄¥ΐϊÿÿÿÿ8ρ§¤γι1
-j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(σσ‡‰8³Ύγι1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ΫπΒώÿÿÿÿ8κ½™γι1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ύν“Μωÿÿÿÿ8κ½™γι1
-o	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤–λΞÿÿÿÿÿ8μ½™γι1
+	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ιΚλ©ÿÿÿÿÿJ$5733951e-834d-4163-aa16-7cf59063b472
+	java:S116"XRename this field "backdrop_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(΅ϋΥ8ÿ§ϋβι1J$8fef330f-f543-4523-a6d1-e310fdd6e3c1
+	java:S116"VRename this field "poster_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ς―ΤΓύÿÿÿÿ8ξγι1J$c35ae300-242f-4f12-a0a0-420d805317ed
+¦	java:S116	"_Rename this field "production_companies" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ΑΘΰψÿÿÿÿ8ξ£‚γι1J$dedf9567-a410-45e5-bf0f-b0bba3ee4418
+΅	java:S116
+"_Rename this field "production_countries" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Άƒφ8ξ£‚γι1J$f07c3a18-18a2-46d1-9751-15fa1873aaa1
+	java:S116"WRename this field "vote_average" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(τΪ¤Άύÿÿÿÿ8ζ†γι1J$4c75030f-9ff6-4b4f-8315-7670a5ee76d7
+—	java:S116"URename this field "vote_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›οΔ8ΏΈ£γι1J$5128b0c9-1976-4fd4-8b1a-a88f19ee90a2
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κƒέ8ι½™γι1J$455e32d8-e239-40aa-b022-8dbfc12d1184
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ϊ΄¥ΐϊÿÿÿÿ8ρ§¤γι1J$36cb9504-c62d-454b-bdc9-a6cd27380c72
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(σσ‡‰8³Ύγι1J$25819f82-faf8-41d3-8aa5-28c07785a718
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ΫπΒώÿÿÿÿ8κ½™γι1J$604041b5-9424-4341-b152-5b70d92d439a
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ύν“Μωÿÿÿÿ8κ½™γι1J$6747dbf3-beba-4b5d-94fb-336cceb3d841
+•	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤–λΞÿÿÿÿÿ8μ½™γι1J$a459aefc-adc8-4cdb-8762-df0bfe24a183

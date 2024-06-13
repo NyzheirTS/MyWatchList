@@ -3,6 +3,7 @@ package com.example.MyWatchList.AppEntry;
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Caching.JsonCache;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage.ActorActressPageFactory;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.Controllers.HistoryManager.History;
 import com.example.MyWatchList.Controllers.HistoryManager.UpdateCastCrewPageCommand;
@@ -44,6 +45,7 @@ public class MainController implements Initializable {
     private final BorderPane movieInfoPage = InfoPageFactory.createMovieInfoPage();
     private final BorderPane tvInfoPage = InfoPageFactory.createTvInfoPage();
     private final ScrollPane castCrewPage = CommonFactory.createCastCrewPage();
+    private final BorderPane actorActressPage = ActorActressPageFactory.createActorActressPage();
     private History history;
 
     @Override
@@ -101,6 +103,7 @@ public class MainController implements Initializable {
     private final Runnable pnlInfoPageToFront = () -> clearAndSet(movieInfoPage);
     private final Runnable tvPnlToFront = () -> clearAndSet(tvInfoPage);
     private final Runnable castCrewPageToFront = () -> clearAndSet(castCrewPage);
+    private final Runnable actorActressPageToFront = () -> clearAndSet(actorActressPage);
 
     private void activateButtons(){
         historyBack.setOnAction(event -> history.goBack());

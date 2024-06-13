@@ -1,4 +1,6 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8ğÚÈğ1
-s	java:S116"WRename this field "profile_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éèà…8ùÚÈğ1
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÒÂüıÿÿÿÿ8ıÚÈğ1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(éÊë©ÿÿÿÿÿ8ğÚÈğ1J$28a26659-f348-410f-95b4-91628d4069ab
+™	java:S116"WRename this field "profile_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éèà…8ùÚÈğ1J$5af12613-e4c3-4454-888d-2f43d2f6c27a
+•	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÒÂüıÿÿÿÿ8ıÚÈğ1J$d559e57e-ea1e-49d9-a6a1-488f971198af
+™	java:S116"WRename this field "profile_path" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Éèà…8÷ò½üÿ1J$098efa5e-b78e-4451-b957-a2f72db2c793
+•	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÒÂüıÿÿÿÿ8ùò½üÿ1J$c8ce3b58-6eb6-4833-8b30-2f6eace178cb

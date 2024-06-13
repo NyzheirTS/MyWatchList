@@ -5,7 +5,7 @@ import com.example.MyWatchList.Controllers.DynamicPages.RightPanelController;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelDeserializer;
 import com.example.MyWatchList.DataModels.CommonModels.RecommendationsModel;
-import com.example.MyWatchList.DataModels.TvModels.TvInfoPageModel;
+import com.example.MyWatchList.DataModels.TvModels.TvSeriesModel;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -26,14 +26,14 @@ public class TvInfoPageController {
     private int nodeID;
     private String mediaType;
     private final VBox rightPanel = InfoPageFactory.createRightPanel();
-    private TvInfoPageModel model;
+    private TvSeriesModel model;
 
 
 
     public void update(int nodeid, String mediaType) throws IOException {
         this.nodeID = nodeid;
         this.mediaType = mediaType;
-        model = MediaInfoPageModelDeserializer.fromJson(TestJsonStringHolder.getJsonStringTV(), TvInfoPageModel.class);
+        model = MediaInfoPageModelDeserializer.fromJson(TestJsonStringHolder.getJsonStringTV(), TvSeriesModel.class);
         buildTvPage(model);
     }
 
@@ -41,7 +41,7 @@ public class TvInfoPageController {
         setHyperLink();
     }
 
-    private void buildTvPage(TvInfoPageModel jsonString){
+    private void buildTvPage(TvSeriesModel jsonString){
         setRightPanelContainer(jsonString.getRecommendations());
 
     }

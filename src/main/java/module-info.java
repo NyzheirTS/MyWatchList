@@ -51,5 +51,9 @@ module com.example.test_uijfx {
     opens com.example.MyWatchList.Controllers.DynamicPages to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Controllers.EventHandlers;
     opens com.example.MyWatchList.Controllers.EventHandlers to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.DataModels.PersonModels;
+    opens com.example.MyWatchList.DataModels.PersonModels to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage;
+    opens com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage to com.google.gson, javafx.fxml;
 
 }

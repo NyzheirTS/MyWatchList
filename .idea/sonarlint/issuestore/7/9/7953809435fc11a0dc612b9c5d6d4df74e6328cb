@@ -1,9 +1,8 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ØÂÙÿÿÿÿÿÿ8ù±Ô„ê1
-W
-java:S1118":Add a private constructor to hide the implicit public one.(õÛËº8ş±Ô„ê1
-^
-java:S1075
-"ARefactor your code to get this URI from a customizable parameter.(Üü¢«8ÿ±Ô„ê1
-]
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(×ÓK8²Ô„ê1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ØÂÙÿÿÿÿÿÿ8Ù®‚õ€2J$50c5b7b8-174c-49a4-8619-be729f0003d7
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üü¢«8á®‚õ€2J$73ebc9f1-6f5b-4ab8-a99d-0d576ca84727
+ƒ
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(×ÓK8â®‚õ€2J$8f8997c9-c851-495e-a25e-7af01613745f
+‰
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(´‘ßúÿÿÿÿ8ä®‚õ€2J$869b07f8-cd97-42d0-9fe7-e42527e3258a
