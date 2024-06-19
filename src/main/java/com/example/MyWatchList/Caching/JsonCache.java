@@ -1,22 +1,9 @@
 package com.example.MyWatchList.Caching;
 
-import com.example.MyWatchList.AppConfig.AppConfig;
-import com.example.MyWatchList.DataModels.ApiCallType;
-import com.github.benmanes.caffeine.cache.Cache;
-import com.github.benmanes.caffeine.cache.Caffeine;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Objects;
-import java.util.concurrent.CountDownLatch;
 
 public class JsonCache {
     private static final String CACHE_DIRECTORY = "Cache/json_cache";

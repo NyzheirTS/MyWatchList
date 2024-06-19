@@ -1,4 +1,4 @@
-package com.example.MyWatchList.DataModels;
+package com.example.MyWatchList.DataModels.Utils;
 
 public enum ApiCallType {
     TV_TRENDING_WEEK,

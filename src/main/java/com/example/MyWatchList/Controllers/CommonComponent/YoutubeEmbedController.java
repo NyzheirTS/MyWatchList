@@ -1,6 +1,6 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
-import com.example.MyWatchList.DataModels.UrlBuilder;
+import com.example.MyWatchList.DataModels.Utils.UrlBuilder;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -33,7 +33,7 @@ public class YoutubeEmbedController {
         new Thread(imageLoadingTask).start();
     }
 
-    public void setEvents(String ytKey){
+    private void setEvents(String ytKey){
         youtubethumbnail.setCursor(Cursor.HAND);
         youtubethumbnail.setOnMouseClicked(event -> {
             try{

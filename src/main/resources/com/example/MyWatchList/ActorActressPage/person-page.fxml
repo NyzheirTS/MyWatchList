@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="actorActressBase" prefHeight="1080.0" prefWidth="1920.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonPageController">
+   <left>
+      <ScrollPane fx:id="leftScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="65.0" />
+         </BorderPane.margin></ScrollPane>
+   </left>
+</BorderPane>

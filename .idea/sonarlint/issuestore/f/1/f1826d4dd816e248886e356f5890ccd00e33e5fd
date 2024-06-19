@@ -1,5 +1,7 @@
 
-	java:S112I"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ƒ¡÷€2J$f41f83e2-2b29-47ad-bc47-9ae621c34b32
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8†¡÷€2J$10d0f0e3-95af-47ca-8381-22ddf654a9f1
-ƒ
-java:S1068j";Remove this unused "actorActressPageToFront" private field.(ı·Êşÿÿÿÿ8­¡÷€2J$07fc3c25-bc90-4ca5-bd75-1f845187eaf3
+	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8·‘ü¥2J$c2c45a1b-ee48-4c29-92b6-1d9402e0c474
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8»‘ü¥2J$c015fa8f-09e2-48d8-86ef-ebf365d5eff8
+n
+java:S1602j",Remove useless curly braces around statement(ãğ£8©Öˆ¦2J$5d2356d5-6a64-4792-ba9a-25dacc23a75c
+
+java:S1068o"7Remove this unused "castCrewPageToFront" private field.(åˆÉıÿÿÿÿ8“İù2J$34e9821d-5796-439a-816a-e5969bc8ea3f

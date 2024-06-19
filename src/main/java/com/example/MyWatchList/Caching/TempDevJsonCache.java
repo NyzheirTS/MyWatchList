@@ -1,6 +1,6 @@
 package com.example.MyWatchList.Caching;
 
-import com.example.MyWatchList.DataModels.ApiCallType;
+import com.example.MyWatchList.DataModels.Utils.ApiCallType;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 

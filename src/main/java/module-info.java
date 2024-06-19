@@ -15,8 +15,8 @@ module com.example.test_uijfx {
     requires org.fxmisc.flowless;
 
 
-    exports com.example.MyWatchList.DataModels;
-    opens com.example.MyWatchList.DataModels to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.DataModels.Utils;
+    opens com.example.MyWatchList.DataModels.Utils to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.Caching;
     opens com.example.MyWatchList.Caching to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.ApiClass;
@@ -53,7 +53,7 @@ module com.example.test_uijfx {
     opens com.example.MyWatchList.Controllers.EventHandlers to com.google.gson, javafx.fxml;
     exports com.example.MyWatchList.DataModels.PersonModels;
     opens com.example.MyWatchList.DataModels.PersonModels to com.google.gson, javafx.fxml;
-    exports com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage;
-    opens com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage to com.google.gson, javafx.fxml;
+    exports com.example.MyWatchList.Controllers.DynamicPages.PersonPage;
+    opens com.example.MyWatchList.Controllers.DynamicPages.PersonPage to com.google.gson, javafx.fxml;
 
 }

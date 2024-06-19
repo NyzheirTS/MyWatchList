@@ -35,6 +35,7 @@ public class History {
         if (!back.isEmpty()){
             try{
                 back.pop().execute();
+                clearHistory();
             } catch (IOException e){
                 e.printStackTrace();
             }

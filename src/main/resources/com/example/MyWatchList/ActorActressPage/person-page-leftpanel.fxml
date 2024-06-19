@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonLeftPanelController">
+   <children>
+      <Label text="Known for:">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="knownFor">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Date of Birth:">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateOfBirth">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Date of Death :">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateOfDeath">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="Also Known As :">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <VBox fx:id="alsoKnownAs">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </VBox>
+      <Label text="HomePage : ">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="homePage">
+         <font>
+            <Font name="Arimo Regular" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="10.0" right="18.0" />
+   </padding>
+</VBox>

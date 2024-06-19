@@ -1,8 +1,10 @@
-package com.example.MyWatchList.DataModels;
+package com.example.MyWatchList.DataModels.Utils;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 //짜장 불닭 볶음면
@@ -22,7 +24,7 @@ public class UrlBuilder {
 
     @NotNull
     @Contract(pure = true)
-    public static String getPosterImageURL(String imgKey){return BASE_POSTER_w300 + imgKey;}
+    public static String getBasePosterw300(String imgKey){return BASE_POSTER_w300 + imgKey;}
 
     @NotNull
     @Contract(pure = true)
@@ -61,4 +63,7 @@ public class UrlBuilder {
     @NotNull
     @Contract(pure = true)
     public static String getBasePosterw92(String imgKey){return BASE_POSTER_w92 + imgKey;}
+
+
+
 }

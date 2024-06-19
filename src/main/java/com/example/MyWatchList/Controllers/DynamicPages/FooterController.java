@@ -19,6 +19,7 @@ public class FooterController {
         try {
             for (int i = 0; i <= 10; i++) {
                 VBox actorNode = CommonFactory.createActorPosterNode(
+                        cast[i].getId(),
                         cast[i].getProfile_path(),
                         cast[i].getName(),
                         cast[i].getCharacter()

@@ -1,13 +1,13 @@
 package com.example.MyWatchList.AppEntry;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
-import com.example.MyWatchList.Caching.JsonCache;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
-import com.example.MyWatchList.Controllers.DynamicPages.ActorActressPage.ActorActressPageFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonPageFactory;
+import com.example.MyWatchList.Controllers.EventHandlers.PersonPageRequestEvent;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.Controllers.HistoryManager.History;
-import com.example.MyWatchList.Controllers.HistoryManager.UpdateCastCrewPageCommand;
-import com.example.MyWatchList.Controllers.HistoryManager.UpdateInfoPageCommand;
+import com.example.MyWatchList.Controllers.HistoryManager.UpdateMoviePageCommand;
+import com.example.MyWatchList.Controllers.HistoryManager.UpdatePersonPageCommand;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.EventHandlers.InfoPageRequestEvent;
 import com.example.MyWatchList.Controllers.DynamicPages.InfoPageFactory;
@@ -45,7 +45,7 @@ public class MainController implements Initializable {
     private final BorderPane movieInfoPage = InfoPageFactory.createMovieInfoPage();
     private final BorderPane tvInfoPage = InfoPageFactory.createTvInfoPage();
     private final ScrollPane castCrewPage = CommonFactory.createCastCrewPage();
-    private final BorderPane actorActressPage = ActorActressPageFactory.createActorActressPage();
+    private final BorderPane personPage = PersonPageFactory.createActorActressPage();
     private History history;
 
     @Override
@@ -60,13 +60,16 @@ public class MainController implements Initializable {
         motherContainer.addEventFilter(Event.ANY, event -> {
             try {
                 if (event.getEventType() == InfoPageRequestEvent.MOVIE_PAGE_REQUEST && movieInfoPage != null) {
-                    history.executeCommand(new UpdateInfoPageCommand(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type(), pnlInfoPageToFront));
+                    history.executeCommand(new UpdateMoviePageCommand(((InfoPageRequestEvent) event).getNodeNumber(), pnlInfoPageToFront));
                     event.consume();
                 } else if (event.getEventType() == InfoPageRequestEvent.TV_PAGE_REQUEST && tvInfoPage != null) {
-                    history.executeCommand(new UpdateInfoPageCommand(((InfoPageRequestEvent) event).getNodeNumber(), ((InfoPageRequestEvent) event).getMedia_Type(), tvPnlToFront));
+                    history.executeCommand(new UpdateMoviePageCommand(((InfoPageRequestEvent) event).getNodeNumber(), tvPnlToFront));
                     event.consume();
                 } else if (event.getEventType() == CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST && castCrewPage != null) {
-                    history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
+                    //history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
+                    event.consume();
+                } else if (event.getEventType() == PersonPageRequestEvent.ACTOR_ACTRESS_PAGE_REQUEST && personPage != null){
+                    history.executeCommand(new UpdatePersonPageCommand(((PersonPageRequestEvent) event).getId(), personPageToFront));
                     event.consume();
                 }
             } catch (IOException e) {
@@ -88,22 +91,25 @@ public class MainController implements Initializable {
         if(actionEvent.getSource() == btnSettings) pnlSettingsToFront.run();
     }
 
-    private final Runnable pnlHomeToFront = () -> {
+    private final Runnable pnlHomeToFront = () ->{
         clearAndSet(homePage);
         history.clearHistory();
     };
-    private final Runnable pnlSettingsToFront = () -> {
+    private final Runnable pnlSettingsToFront = () ->{
         clearAndSet(settingsPage);
         history.clearHistory();
     };
-    private final Runnable pnlWatchedToFront = () -> {
+    private final Runnable pnlWatchedToFront = () ->{
         clearAndSet(watchedList);
         history.clearHistory();
     };
-    private final Runnable pnlInfoPageToFront = () -> clearAndSet(movieInfoPage);
+    private final Runnable pnlInfoPageToFront = () -> {
+        clearAndSet(movieInfoPage);
+        //history.clearHistory();
+    };
     private final Runnable tvPnlToFront = () -> clearAndSet(tvInfoPage);
     private final Runnable castCrewPageToFront = () -> clearAndSet(castCrewPage);
-    private final Runnable actorActressPageToFront = () -> clearAndSet(actorActressPage);
+    private final Runnable personPageToFront = () -> clearAndSet(personPage);
 
     private void activateButtons(){
         historyBack.setOnAction(event -> history.goBack());

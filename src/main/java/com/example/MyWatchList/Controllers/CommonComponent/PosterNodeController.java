@@ -1,7 +1,7 @@
 package com.example.MyWatchList.Controllers.CommonComponent;
 
 import com.example.MyWatchList.Controllers.EventHandlers.InfoPageRequestEvent;
-import com.example.MyWatchList.DataModels.UrlBuilder;
+import com.example.MyWatchList.DataModels.Utils.UrlBuilder;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -97,7 +97,7 @@ public class PosterNodeController {
     public void loadImg(){
         Image image = imageCache.get(imgID);
         if ( image == null) {
-            image = new Image(UrlBuilder.getPosterImageURL(imgID), true);
+            image = new Image(UrlBuilder.getBasePosterw300(imgID), true);
             imageCache.put(imgID, image);
         }
         Image finalImage = image;
@@ -114,10 +114,10 @@ public class PosterNodeController {
         posterPane.setCursor(Cursor.HAND);
         posterPane.setOnMouseClicked(event -> {
             if (mediaType.equals("movie")) {
-                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.MOVIE_PAGE_REQUEST, nodeNumber, mediaType);
+                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.MOVIE_PAGE_REQUEST, nodeNumber);
                 posterPane.fireEvent(infoPageRequestEvent);
             } else if (mediaType.equals("tv")) {
-                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.TV_PAGE_REQUEST, nodeNumber, mediaType);
+                InfoPageRequestEvent infoPageRequestEvent = new InfoPageRequestEvent(InfoPageRequestEvent.TV_PAGE_REQUEST, nodeNumber);
                 posterPane.fireEvent(infoPageRequestEvent);
             }
         });

@@ -1,13 +1,5 @@
 
-	java:S112!"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8º«¾õ€2J$c7699fde-f7e8-4797-9094-3ccd3dbc7526
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8¼«¾õ€2J$c9da8b07-1542-40d7-8148-dabf862e4742
-
-java:S1128"\Remove this unused import 'com.example.MyWatchList.DataModels.CommonModels.CombinedCredits'.(İÊ8½Åõ€2J$dad2f39f-1c26-4c46-b10a-78befa4a9cc5
-¦
-java:S1128"^Remove this unused import 'com.example.MyWatchList.DataModels.PersonModels.ActorActressModel'.(±êÆ øÿÿÿÿ8¾Åõ€2J$91bc38bc-0386-4a2a-b895-59fd0b9ade09
-œ
-java:S1128"TRemove this unused import 'com.example.MyWatchList.TestFolder.TestJsonStringHolder'.(æÔ¨„ûÿÿÿÿ8¾Åõ€2J$3549a239-56da-4790-b283-3f02af6d453c
-u
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8 ÚÀõ€2J$fed40cf4-e705-4ddc-ba5f-65a0cc3bd6c3
-u
-java:S1128"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ8 ÚÀõ€2J$254182bf-5bb8-41f7-b05a-498e7450b446
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ÇÑ…¡2J$752ca0f3-636b-45bf-82ac-dda809136e88
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‰åòşúÿÿÿÿ8Ë“õ˜2J$1eccda4f-e987-4126-8a09-08d572a65fcd
+R
+java:S1128"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8ÒÕ–¡2

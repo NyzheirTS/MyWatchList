@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="335.0" prefWidth="1920.0" styleClass="hbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonHeaderController">
+   <children>
+      <VBox alignment="TOP_CENTER">
+         <HBox.margin>
+            <Insets bottom="-90.0" left="56.0" top="19.0" />
+         </HBox.margin>
+         <children>
+            <ImageView fx:id="personImage" fitHeight="372.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/TestIcons/qYNofOjlRke2MlJVihmJmEdQI4v%20(1).jpg" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="24.05" radius="11.5125" spread="1.0" width="24.0" />
+               </effect>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox prefHeight="335.0" prefWidth="1547.0">
+         <children>
+            <Label fx:id="name" text="Timothee Chalamet">
+               <font>
+                  <Font name="Arimo Regular" size="48.0" />
+               </font>
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+            </Label>
+            <Label fx:id="placeofbirth" text="Manhattan, New York City, New York, USA">
+               <font>
+                  <Font name="Arimo Italic" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <TextArea fx:id="biography" editable="false" prefHeight="242.0" prefWidth="1408.0" stylesheets="@../StyleSheets/style.css" text="Anya-Josephine Marie Taylor-Joy (born 16 April 1996) is a British-American actress and model.&#10;&#10;She left school at age sixteen and began to pursue an acting career. After small television roles, she made her film debut with the lead role of Thomasin in the horror film The Witch (2015). She went on to star in the horror film Split and the black comedy Thoroughbreds (both 2017). She also appeared in the drama miniseries The Miniaturist (2017), the fifth and sixth series of Peaky Blinders (2019–2022) and The Dark Crystal: Age of Resistance (2019), and the superhero film Glass (2019), reprising her role from Split. Taylor-Joy will voice Princess Peach in the upcoming Mario film (2022) and portray the title character in Furiosa (2024)." wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="-4.0" top="39.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets right="65.0" />
+               </VBox.margin>
+            </TextArea>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="48.0" />
+         </padding>
+         <HBox.margin>
+            <Insets top="19.0" />
+         </HBox.margin>
+      </VBox>
+      <VBox fx:id="logoBox" alignment="CENTER" spacing="15.0">
+         <HBox.margin>
+            <Insets left="10.0" right="6.0" top="89.0" />
+         </HBox.margin>
+      </VBox>
+   </children>
+</HBox>

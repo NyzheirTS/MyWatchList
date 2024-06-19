@@ -3,10 +3,10 @@ package com.example.MyWatchList.Controllers.CommonComponent;
 import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CastCrewPageController;
 import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CastItemController;
 import com.example.MyWatchList.Controllers.CommonComponent.CastCrewPages.CrewItemController;
-import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class CommonFactory {
     private static final String ComponentController = "controller";
@@ -39,14 +40,14 @@ public class CommonFactory {
         }
     }
 
-    public static VBox createActorPosterNode(String urlKey, String actorName, String actorRole){
+    public static VBox createActorPosterNode(int id, String urlKey, String actorName, String actorRole){
         try {
             FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/actor-poster.fxml"));
             VBox actorNode = loader.load();
 
-            ActorPosterController controller = loader.getController();
+            PersonPosterController controller = loader.getController();
 
-            controller.initActorPoster(urlKey, actorName, actorRole);
+            controller.initActorPoster(id,urlKey, actorName, actorRole);
 
             actorNode.getProperties().put(ComponentController, controller);
 
@@ -135,6 +136,22 @@ public class CommonFactory {
         } catch ( IOException e){
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public static AnchorPane createLogo(String url, URL image){
+        try{
+            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/logo-image.fxml"));
+            AnchorPane logo = loader.load();
+
+            LogoImageController controller = loader.getController();
+            controller.initObject(url, image);
+
+            logo.getProperties().put(ComponentController, controller);
+
+            return logo;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

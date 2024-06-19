@@ -2,9 +2,9 @@ package com.example.MyWatchList.Controllers.HomePage;
 
 import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
-import com.example.MyWatchList.DataModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MoviePosterModel;
 import com.example.MyWatchList.DataModels.TvModels.TvPosterModel;
+import com.example.MyWatchList.DataModels.Utils.ApiCallType;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,7 +1,7 @@
 package com.example.MyWatchList.Controllers.DynamicPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.QrCodeGen;
-import com.example.MyWatchList.DataModels.UrlBuilder;
+import com.example.MyWatchList.DataModels.Utils.UrlBuilder;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.application.Platform;
 import javafx.concurrent.Task;

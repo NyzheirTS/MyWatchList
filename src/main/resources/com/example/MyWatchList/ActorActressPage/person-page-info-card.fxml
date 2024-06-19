@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="25.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonInfoCardController">
+   <children>
+      <ImageView fx:id="posterImg" fitHeight="154.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TestIcons/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" />
+         </image>
+         <HBox.margin>
+            <Insets bottom="4.0" left="4.0" top="4.0" />
+         </HBox.margin>
+         <effect>
+            <DropShadow height="5.28" radius="2.14" spread="1.0" width="5.28" />
+         </effect>
+      </ImageView>
+      <VBox>
+         <children>
+            <Label fx:id="title" prefHeight="32.0" prefWidth="929.0" text="The Super Mario Bros. Movie">
+               <font>
+                  <Font name="Arimo Regular" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="character" prefHeight="25.0" prefWidth="679.0" text="Character: Princess Peach (voice)">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arimo Regular" size="22.0" />
+               </font>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </VBox>
+      <VBox>
+         <children>
+            <Label fx:id="date" text="2023-04-05">
+               <font>
+                  <Font name="Arimo Regular" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="12.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="rating" alignment="CENTER" prefHeight="55.0" prefWidth="108.0" text="10.0" textOverrun="CLIP">
+               <font>
+                  <Font name="Arimo Regular" size="48.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="45.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+   </children>
+</HBox>

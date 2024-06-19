@@ -5,8 +5,8 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -24,17 +24,11 @@
       </ImageView>
       <VBox alignment="CENTER_RIGHT" prefHeight="350.0" prefWidth="403.0">
          <children>
-            <AnchorPane prefHeight="351.0" prefWidth="234.0" styleClass="header-poster-border" stylesheets="@../../StyleSheets/style.css">
-               <children>
-                  <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-               <VBox.margin>
-                  <Insets left="-62.0" right="5.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="-5.0" right="-1.0" />
-               </padding>
-            </AnchorPane>
+            <ImageView fx:id="staticPosterImage" fitHeight="350.0" fitWidth="267.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <DropShadow height="7.0" radius="3.0" spread="1.0" width="7.0" />
+               </effect>
+            </ImageView>
          </children>
          <HBox.margin>
             <Insets />

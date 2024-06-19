@@ -1,12 +1,9 @@
 package com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
 
-import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.DynamicPages.*;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
-import com.example.MyWatchList.DataModels.PersonModels.ActorActressModel;
-import com.example.MyWatchList.DataModels.UrlBuilder;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -16,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class MovieInfoPageController {
 
@@ -32,7 +28,6 @@ public class MovieInfoPageController {
 
     private static MovieInfoPageController instance;
     private int nodeID;
-    private String mediaType;
     private static final String ComponentController = "controller";
     private final VBox rightPanel = InfoPageFactory.createRightPanel();
     private final HBox header = InfoPageFactory.createHeader();
@@ -42,9 +37,8 @@ public class MovieInfoPageController {
     //
     private MovieInfoPageModel model;
 
-    public void update(int nodeID, String mediaType) throws IOException {
+    public void update(int nodeID) throws IOException {
         this.nodeID = nodeID;
-        this.mediaType = mediaType;
         model = MediaInfoPageModelDeserializer.fromJson(
                 //ApiConnection.getInstance().onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID)),
                 TestJsonStringHolder.getJsonStringMovie(),
@@ -68,7 +62,7 @@ public class MovieInfoPageController {
     private void setRightPanelContainer(RecommendationsModel string){
         if (rightPanel != null && rightPanel.getProperties().containsKey(ComponentController)) {
             RightPanelController rightPanelController = (RightPanelController) rightPanel.getProperties().get(ComponentController);
-            rightPanelController.updateRightPanel(string, mediaType);
+            rightPanelController.updateRightPanel(string, "movie");
             rightPanelContainer.setContent(rightPanel);
         }
     }

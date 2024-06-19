@@ -6,17 +6,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 
 <BorderPane fx:id="motherContainer" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.AppEntry.MainController">
    <center>
       <BorderPane BorderPane.alignment="CENTER">
          <center>
-              <StackPane>
-                  <children>
-                  <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
-                  </children>
-              </StackPane>
+            <BorderPane fx:id="infoPageBorderPane" prefHeight="1080.0" prefWidth="1674.0" />
          </center>
          <top>
             <HBox fillHeight="false" BorderPane.alignment="CENTER">
@@ -35,21 +30,21 @@
                   </Button>
                </children>
                <BorderPane.margin>
-                  <Insets top="4.0" />
+                  <Insets />
                </BorderPane.margin>
             </HBox>
          </top>
       </BorderPane>
    </center>
    <top>
-      <HBox fx:id="menuPnl" alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+      <HBox fx:id="menuPnl" alignment="CENTER_LEFT" prefHeight="46.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" text="Home">
+                <Button fx:id="btnOverview" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Home">
                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="28.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../images/Home%20Page.png" />
                             </image>
@@ -58,8 +53,11 @@
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
                 </Button>
-                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Watched Shows">
+                <Button fx:id="btnOrders" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Watched Shows">
                     <graphic>
                         <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -68,7 +66,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Want To Watch">
+                <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Want To Watch">
                     <graphic>
                         <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -77,7 +75,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnMenus" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Recommendations">
+                <Button fx:id="btnMenus" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Recommendations">
                     <graphic>
                         <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -86,7 +84,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="38.0" text="Settings">
+                <Button fx:id="btnSettings" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Settings">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -98,7 +96,7 @@
                   <Insets />
                </HBox.margin>
                 </Button>
-                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="38.0" text="Sign Out">
+                <Button fx:id="btnSignout" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" graphicTextGap="22.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Sign Out">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                             <image>
