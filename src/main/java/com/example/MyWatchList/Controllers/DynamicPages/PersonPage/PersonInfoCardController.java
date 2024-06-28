@@ -10,6 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class PersonInfoCardController {
 
     @FXML private HBox parent;
@@ -31,6 +34,7 @@ public class PersonInfoCardController {
         setImage(img);
         setTitleChar(character, title);
         setDateRating();
+        setClickable();
     }
 
     private void setImage(String img){
@@ -69,9 +73,6 @@ public class PersonInfoCardController {
     }
 
 
-    public String getDatetime() {
-        return datetime;
-    }
 
     public Double getRate() {
         return rate;

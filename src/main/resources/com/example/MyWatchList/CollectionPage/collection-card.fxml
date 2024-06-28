@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="850.0" style="-fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.CollectionPage.CollectionCardController">
+   <children>
+      <Pane prefWidth="849.0" style="-fx-background-color: black;" />
+      <ImageView fx:id="backgroundImage" fitHeight="474.0" fitWidth="846.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/TestIcons/ygVSGv86R0BTOKJIb8RQ1sFxs4q.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur />
+         </effect>
+      </ImageView>
+      <Label fx:id="date" alignment="CENTER" text="2021-09-15" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="Arimo Regular" size="36.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="15.0" top="15.0" />
+         </StackPane.margin>
+      </Label>
+      <HBox alignment="CENTER_LEFT" spacing="40.0">
+         <children>
+            <ImageView fx:id="posterImg" fitHeight="374.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/TestIcons/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" />
+               </image>
+               <effect>
+                  <DropShadow height="9.28" radius="3.405" spread="1.0" width="6.34" />
+               </effect>
+            </ImageView>
+            <VBox alignment="CENTER" spacing="50.0">
+               <children>
+                  <Label fx:id="title" prefHeight="72.0" prefWidth="521.0" text="Dune">
+                     <font>
+                        <Font name="Arimo Regular" size="56.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="rate" alignment="BOTTOM_LEFT" prefHeight="72.0" prefWidth="520.0" text="10.0">
+                     <font>
+                        <Font name="Arimo Regular" size="56.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets top="23.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="35.0" />
+         </padding>
+      </HBox>
+   </children>
+</StackPane>

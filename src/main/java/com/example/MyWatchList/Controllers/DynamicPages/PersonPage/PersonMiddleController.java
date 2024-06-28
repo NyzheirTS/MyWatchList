@@ -22,7 +22,7 @@ public class PersonMiddleController {
     @FXML private ChoiceBox<String> filterBox;
 
     private static PersonMiddleController instance;
-    private final  String[] actionList = {"All","Cast","Crew","Rating Up","Rating Down","Date Up","Date Down"};
+    private final  String[] actionList = {"All","Cast","Crew","Rating Up","Rating Down"};
     private ObservableList<HBox> items = FXCollections.observableArrayList();
     private final VirtualFlow<HBox, ?> bf = VirtualFlow.createVertical(items, this::regionCell);
     private final VirtualizedScrollPane<VirtualFlow<HBox, ?>> vf = new VirtualizedScrollPane<>(bf, ScrollPane.ScrollBarPolicy.NEVER, ScrollPane.ScrollBarPolicy.ALWAYS);
@@ -58,12 +58,6 @@ public class PersonMiddleController {
                 break;
             case "ratingdown":
                 items = getRatingDown(string);
-                break;
-            case "dateup":
-                items = getDateUp(string);
-                break;
-            case "datedown":
-                items = getDateDown(string);
                 break;
             default:
                 System.out.println("Default");
@@ -134,14 +128,6 @@ public class PersonMiddleController {
     private ObservableList<HBox> getRatingDown(CombinedCredits cc){
         items = getAllItems(cc);
         return (ObservableList<HBox>) QuickSort.sortScoreDown(items, 0, items.size() -1);
-    }
-    private ObservableList<HBox> getDateUp(CombinedCredits cc){
-        items = getAllItems(cc);
-        return (ObservableList<HBox>) null;
-    }
-    private ObservableList<HBox> getDateDown(CombinedCredits cc){
-        items = getAllItems(cc);
-        return (ObservableList<HBox>) null;
     }
 
 

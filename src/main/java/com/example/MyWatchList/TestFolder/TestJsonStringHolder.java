@@ -19,5 +19,9 @@ public class TestJsonStringHolder {
         String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\TestFolder\\PersonPage.txt";
         return Files.readString(Paths.get(filepath));
     }
+    public static String getJsonStringCollection() throws IOException {
+        String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\TestFolder\\CollectionJson.txt";
+        return Files.readString(Paths.get(filepath));
+    }
 
 }

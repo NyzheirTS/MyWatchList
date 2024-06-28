@@ -42,8 +42,6 @@ Q.idea/sonarlint/securityhotspotstore/c/f/cfc2494d7260505ea53e9cb54de4e8058ec425
 Q.idea/sonarlint/securityhotspotstore/4/6/467ca5676687c1530fa4f8da51ef6e8287bafba7,b\4\b4bba6e48c8292a3e289836de6c5463fd35c4607
 Å
 Q.idea/sonarlint/securityhotspotstore/f/5/f55915402b60c9e2b7e827a3a7adbc5a3def57ac,2\1\2180e5161d58c6ad9b214500dc48faa93144efdc
-q
-Asrc/main/java/com/example/MyWatchList/DataModels/ApiCallType.java,d\c\dc4a2faa7c1599f24498b38b0541406e2f4f6100
 Å
 Q.idea/sonarlint/securityhotspotstore/8/2/82b202e64490b461621966106750abcbda5b8905,b\d\bd47756b42c2b135afa081060761e67279764ada
 r
@@ -86,8 +84,6 @@ Usrc/main/java/com/example/MyWatchList/DataModels/CommonModels/MediaInfoPageMode
 asrc/main/java/com/example/MyWatchList/DataModels/CommonModels/MediaInfoPageModelDeserializer.java,1\4\14d94965fb19e4abc3834977c2cf514c674ff68b
 å
 \src/main/java/com/example/MyWatchList/DataModels/CommonModels/MediaInfoPageModelFactory.java,2\e\2e9f066abbc0d2af5271bf2e6d0d7dee81ad0d90
-p
-@src/main/java/com/example/MyWatchList/DataModels/UrlBuilder.java,c\7\c7c80569e0e1fc02f11554a00b0f96b8822e5781
 ~
 Nsrc/main/java/com/example/MyWatchList/DataModels/CommonModels/VideosModel.java,7\8\78daca195049421a7ba4f73aa1157e51b44469c4
 
@@ -150,8 +146,6 @@ w
 G.idea/sonarlint/issuestore/e/8/e81c9c4063529cffd1d6589b29481071df2d1ff6,3\2\32fe958d49f10be86989fae2e749172f9ae4aaa9
 Å
 Q.idea/sonarlint/securityhotspotstore/b/4/b4bba6e48c8292a3e289836de6c5463fd35c4607,3\2\323273ca498ce541880c5ecc2522500591dd8969
-Å
-Q.idea/sonarlint/securityhotspotstore/d/c/dc4a2faa7c1599f24498b38b0541406e2f4f6100,0\9\09a164570b43d31c95d5b8a6508a098554246209
 Å
 Q.idea/sonarlint/securityhotspotstore/2/1/2180e5161d58c6ad9b214500dc48faa93144efdc,9\d\9d2db77ae24164ba3b83cd04db7724e4699ec32e
 Å
@@ -239,8 +233,6 @@ Q.idea/sonarlint/securityhotspotstore/7/b/7b4a3529d189ab4bd8400bd866f8b9b94a4883
 Å
 Q.idea/sonarlint/securityhotspotstore/9/3/93445e616a9d1692c9ab1a294ddb8d70df9830ae,8\8\8880b9da4e6c217ae6e494c051c0ec7ef418b433
 Å
-Q.idea/sonarlint/securityhotspotstore/c/7/c7c80569e0e1fc02f11554a00b0f96b8822e5781,1\4\140d9ab1b20c13b7815c255a4b3a6c44a5b70fdc
-Å
 Q.idea/sonarlint/securityhotspotstore/7/5/75e7c86a67d74f9709301a0c346b6a2c07a33018,3\a\3a5ccd0c89cf45bc80f8c1b6ea89ead9cf751799
 Å
 Q.idea/sonarlint/securityhotspotstore/5/b/5bbc7fc2938f2190fabccb85ee0112ab0ecfef7e,f\b\fb03a37b550ace0a6624b00e3c83c82ea7c36f50
@@ -326,8 +318,6 @@ csrc/main/java/com/example/MyWatchList/Controllers/DynamicPages/PersonPage/Perso
 ]src/main/java/com/example/MyWatchList/Controllers/CommonComponent/PersonPosterController.java,9\4\940b30c31d16fb124b5ad0e8387adc6ecdab14e1
 ä
 Zsrc/main/java/com/example/MyWatchList/Controllers/CommonComponent/LogoImageController.java,6\8\689ce20d063d876bd95c479106f7c0fa13c673bf
-n
->src/main/java/com/example/MyWatchList/DataModels/LogosMap.java,4\c\4cb5689cefd832267540b26e66280bf79c97cbe3
 ~
 Nsrc/main/java/com/example/MyWatchList/DataModels/PersonModels/PersonModel.java,9\c\9c61cef3adb8d695089bb7a92e1685267224a89b
 ò
@@ -348,3 +338,19 @@ v
 Fsrc/main/java/com/example/MyWatchList/DataModels/Utils/UrlBuilder.java,5\1\51a23ac0e0bf65f03a7bb40663324aeab0da9c65
 t
 Dsrc/main/java/com/example/MyWatchList/DataModels/Utils/LogosMap.java,8\3\8315a093429ea0527a540d4e0a18486c30c22dbe
+s
+Csrc/main/java/com/example/MyWatchList/TestFolder/CollectionJson.txt,4\2\42ad5a5521d173b265c5ffe55bf40bc5168f3e6e
+õ
+ksrc/main/java/com/example/MyWatchList/Controllers/DynamicPages/CollectionPage/CollectionPageController.java,2\b\2ba18054111aa19d4f6198b01932751b2c0980ef
+Ü
+Vsrc/main/java/com/example/MyWatchList/DataModels/CollectionModels/CollectionModel.java,e\5\e588164d0f632403bb85e2bdf647cdc16a07883c
+ò
+hsrc/main/java/com/example/MyWatchList/Controllers/DynamicPages/CollectionPage/CollectionPageFactory.java,0\a\0a0537ca4d3de5630efa8990410b8281edc89dce
+õ
+ksrc/main/java/com/example/MyWatchList/Controllers/DynamicPages/CollectionPage/CollectionCardController.java,f\8\f810582f8aab3f9ec3b8cc68d2b891d369965e99
+è
+_src/main/java/com/example/MyWatchList/Controllers/EventHandlers/CollectionPagerequestEvent.java,c\8\c8abac8b7037514d2f27e0119629b21262b807c8
+è
+_src/main/java/com/example/MyWatchList/Controllers/EventHandlers/CollectionPageRequestEvent.java,a\f\afc00fc4a963c7313e4ee3012be3c73a941bab72
+ë
+asrc/main/java/com/example/MyWatchList/Controllers/HistoryManager/UpdateCollectionPageCommand.java,7\0\70a60b3468fbb1b17d49cd04ee4f833b1d204762

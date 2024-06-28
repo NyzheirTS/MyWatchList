@@ -3,6 +3,7 @@ package com.example.MyWatchList.DataModels.Utils;
 import com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonInfoCardController;
 import javafx.scene.layout.HBox;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class QuickSort {

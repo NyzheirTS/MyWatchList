@@ -1,10 +1,12 @@
 package com.example.MyWatchList.Controllers.DynamicPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFormatter;
+import com.example.MyWatchList.Controllers.EventHandlers.CollectionPageRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.ProductionCompaniesModel;
 import com.example.MyWatchList.DataModels.CommonModels.ProductionCountriesModel;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -29,10 +31,26 @@ public class LeftPanelController {
 
     private void setLabels(MovieInfoPageModel jsonString){
         runtimeLabel.setText(CommonFormatter.formateRuntime(jsonString.getRuntime()));
-        collectionLabel.setText(jsonString.getBelongs_to_collection() != null ? jsonString.getBelongs_to_collection().getName() : "N/A");
+        setClick(jsonString);
         budgetLabel.setText(CommonFormatter.formatMoney(jsonString.getBudget()));
         revenueLabel.setText(CommonFormatter.formatMoney(jsonString.getRevenue()));
         releasedateLabel.setText(jsonString.getRelease_date() != null ? jsonString.getRelease_date() : "N/A");
+    }
+
+    private void setClick(MovieInfoPageModel json){
+        collectionLabel.setOnMouseClicked(null);
+        collectionLabel.setCursor(null);
+        if (json.getBelongs_to_collection() != null){
+            collectionLabel.setText(json.getBelongs_to_collection().getName());
+            collectionLabel.setCursor(Cursor.HAND);
+            collectionLabel.setOnMouseClicked(event -> {
+                CollectionPageRequestEvent requestEvent = new CollectionPageRequestEvent(CollectionPageRequestEvent.COLLECTION_PAGE_REQUEST, json.getBelongs_to_collection().getId());
+                collectionLabel.fireEvent(requestEvent);
+                requestEvent.consume();
+            });
+        } else {
+            collectionLabel.setText("N/A");
+        }
     }
 
     private void setProductionCompanies(MovieInfoPageModel jsonString){
