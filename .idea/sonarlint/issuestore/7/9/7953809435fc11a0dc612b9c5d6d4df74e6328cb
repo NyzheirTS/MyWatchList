@@ -1,10 +1,14 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ØÂÙÿÿÿÿÿÿ8Ù®‚õ€2J$4cc54a51-a04d-4f5e-83cb-732fbbb7c3fb
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ØÂÙÿÿÿÿÿÿ8ÒöÑˆ2J$671797cc-500d-485d-9131-c2cb492d7b92
 „
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üü¢«8á®‚õ€2J$2b7b99ae-d970-475b-bb72-efa8f7fb06e7
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Üü¢«8ÛöÑˆ2J$7d097b28-6e65-41f1-8b75-f4fc4d0a3f33
 ƒ
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(×ÓK8â®‚õ€2J$67cb883f-179e-44ad-9604-ae525ffe7311
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(×ÓK8İöÑˆ2J$02b8efda-c6a5-4057-a7cd-dcd7596412e7
 ‰
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(´‘ßúÿÿÿÿ8ä®‚õ€2J$29554454-76bd-4734-82a8-af2c5f66056d
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(´‘ßúÿÿÿÿ8ŞöÑˆ2J$4c3bf5ed-4c32-49cc-8d08-cddb495fb12d
 ‰
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(Ñƒ´²úÿÿÿÿ8’±µ÷…2J$bb020956-48f6-4bf9-bfa3-11dc3a1041de
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Ñƒ´²úÿÿÿÿ8ŞöÑˆ2J$cf954efb-65e8-49d6-9f30-0d63888cbdfc
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(àÒÙ±8ßöÑˆ2J$7491a885-3f29-462c-ac51-d9da6765ad88
+r
+java:S1128"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8àöÑˆ2J$5731824e-ab6b-4874-9704-240b3d4cbe4a

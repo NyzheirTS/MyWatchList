@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" styleClass="vbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.RightPanelController">
+<VBox alignment="TOP_CENTER" styleClass="vbox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.RightPanelController">
    <children>
       <Label fx:id="rightLabel" text="Recommended" underline="true">
          <font>

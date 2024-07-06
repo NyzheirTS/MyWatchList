@@ -1,4 +1,4 @@
-package com.example.MyWatchList.Controllers.DynamicPages;
+package com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
 
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFormatter;
 import com.example.MyWatchList.Controllers.EventHandlers.CollectionPageRequestEvent;

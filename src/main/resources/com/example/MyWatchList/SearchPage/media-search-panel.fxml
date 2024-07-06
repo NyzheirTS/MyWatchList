@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.SearchPage.MediaSearchCardController">
+   <left>
+      <ImageView fx:id="posterImg" fitHeight="138.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="7.0" />
+         </BorderPane.margin>
+         <image>
+            <Image url="@../images/TestIcons/yZevl2vHQgmosfwUdVNzviIfaWS.jpg" />
+         </image>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" spread="1.0" width="5.0" />
+         </effect>
+      </ImageView>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="nameLabel" text="The Flash (2014)">
+               <font>
+                  <Font name="Arimo Regular" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="overviewLabel" text="After being struck by lightning, CSI investigator Barry Allen awakens from a nine-month coma to discover he has been  granted the gift of super speed.  Teaming up with S.T.A.R. Labs, Barry takes on the persona of The Flash, the Fastest  Man Alive, to protect his city." wrapText="true">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="14.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <Label fx:id="scoreLabel" text="7.8" BorderPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="Arimo Regular" size="32.0" />
+         </font>
+         <padding>
+            <Insets right="21.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets top="11.0" />
+         </BorderPane.margin>
+      </Label>
+   </right>
+</BorderPane>

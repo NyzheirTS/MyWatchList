@@ -2,6 +2,7 @@ package com.example.MyWatchList.TestFolder;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class TestJsonStringHolder {
@@ -22,6 +23,11 @@ public class TestJsonStringHolder {
     public static String getJsonStringCollection() throws IOException {
         String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\TestFolder\\CollectionJson.txt";
         return Files.readString(Paths.get(filepath));
+    }
+
+    public static String getJsonStringSearchPage() throws IOException{
+        String filepath = "C:\\Users\\eshas\\IdeaProjects\\MyWatchList\\src\\main\\java\\com\\example\\MyWatchList\\TestFolder\\SearchPage.txt";
+        return  Files.readString(Paths.get(filepath));
     }
 
 }

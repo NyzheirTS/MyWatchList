@@ -70,24 +70,6 @@ public class CommonFactory {
         }
     }
 
-    public static BorderPane createCommonScrollPane(Node node){
-        try {
-            FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/common-scrollpane-page.fxml"));
-            BorderPane commonScrollPane = loader.load();
-
-            CommonScrollPaneController controller = loader.getController();
-            controller.makePage(node);
-
-            commonScrollPane.getProperties().put(ComponentController, controller);
-
-            return commonScrollPane;
-
-        } catch (IOException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public static VBox createCastItem(String name, String character, int id){
         try {
             FXMLLoader loader = new FXMLLoader(CommonFactory.class.getResource("/com/example/MyWatchList/CommonFXML/CastCrewPages/cast-item.fxml"));

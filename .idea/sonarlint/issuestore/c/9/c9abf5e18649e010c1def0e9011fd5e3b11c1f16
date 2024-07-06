@@ -1,5 +1,9 @@
 
-	java:S112š"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‘ªŸ¢2J$6b431312-d418-449f-bcb8-2024b86b6106
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8àÿ±2J$361caffc-1bd0-4dbb-a13a-3bf861834730
+	java:S112ˆ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‘ªŸ¢2J$634ac390-a2dc-4802-a760-47416aaae5ac
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ­Ï§8àÿ±2J$184d187b-b6c2-4604-ab33-7da06e5b0940
+q
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8ŞùìØ‡2J$2883f217-ad22-44e9-bae9-453af611e9ea
 x
-java:S1128	"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8İ—Ÿ¢2J$edb3560d-1f98-4923-9539-51fc8e5d8e04
+java:S1128	"5Remove this unused import 'javafx.scene.image.Image'.(‰¿½Ç8İ—Ÿ¢2J$c97b92a3-f09a-476f-b429-d88c4debb50e
+ƒ
+java:S1128";Remove this unused import 'javafx.scene.layout.BorderPane'.(Îî¥üÿÿÿÿ8ŞùìØ‡2J$f35a04ba-7a3c-4b56-a217-debcd5f6cc18

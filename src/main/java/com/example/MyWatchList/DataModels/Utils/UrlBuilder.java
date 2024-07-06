@@ -4,6 +4,9 @@ import javafx.scene.image.Image;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -21,6 +24,7 @@ public class UrlBuilder {
     private static final String BASE_YOUTUBE_WATCH_LINK = "https://www.youtube.com/watch?v=%s";
     private static final String TMDB_MOVIE_PAGE = "https://api.themoviedb.org/3/movie/";
     private static final String TMDB_ACTOR_ACTRESS_PAGE = "https://api.themoviedb.org/3/person/";
+    private static final String TMDB_SEARCH_QUERY = "https://api.themoviedb.org/3/search/multi?query=";
 
     @NotNull
     @Contract(pure = true)
@@ -64,6 +68,13 @@ public class UrlBuilder {
     @Contract(pure = true)
     public static String getBasePosterw92(String imgKey){return BASE_POSTER_w92 + imgKey;}
 
+    @NotNull
+    @Contract(pure = true)
+    public static String getTmdbSearchQuery(String query, int page){return TMDB_SEARCH_QUERY + encodeValue(query) +"&include_adult=false&language=en-US&page=" + page;}
+
+    private static String encodeValue(String value) {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8);
+    }
 
 
 }

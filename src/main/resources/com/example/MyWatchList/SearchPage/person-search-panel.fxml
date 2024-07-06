@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="basePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MyWatchList.Controllers.DynamicPages.SearchPage.PersonSearchCardController">
+   <left>
+      <ImageView fx:id="posterImg" fitHeight="138.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="7.0" />
+         </BorderPane.margin>
+         <image>
+            <Image url="@../images/TestIcons/yZevl2vHQgmosfwUdVNzviIfaWS.jpg" />
+         </image>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" spread="1.0" width="5.0" />
+         </effect>
+      </ImageView>
+   </left>
+   <center>
+      <VBox spacing="33.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="nameLabel" text="The Flash (2014)">
+               <font>
+                  <Font name="Arimo Regular" size="32.0" />
+               </font>
+            </Label>
+            <VBox>
+               <children>
+                  <Label alignment="TOP_LEFT" text="Known For:" wrapText="true">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="6.0">
+                     <children>
+                        <Label fx:id="knownForLabel" alignment="TOP_LEFT" text="The Flaming Signal," wrapText="true">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="knownForLabel1" alignment="TOP_LEFT" text="His Master's Voice," wrapText="true">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="knownForLabel2" alignment="TOP_LEFT" text="Call The Mesquiteers" wrapText="true">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="14.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,9 +1,10 @@
 package com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages;
 
-import com.example.MyWatchList.Controllers.DynamicPages.*;
+import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.*;
 import com.example.MyWatchList.DataModels.MovieModels.MovieInfoPageModel;
+import com.example.MyWatchList.DataModels.Utils.UrlBuilder;
 import com.example.MyWatchList.TestFolder.TestJsonStringHolder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -40,8 +41,8 @@ public class MovieInfoPageController {
     public void update(int nodeID) throws IOException {
         this.nodeID = nodeID;
         model = MediaInfoPageModelDeserializer.fromJson(
-                //ApiConnection.getInstance().onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID)),
-                TestJsonStringHolder.getJsonStringMovie(),
+                ApiConnection.getInstance().onDemandApiCall(UrlBuilder.getTmdbMoviePage(nodeID)),
+                //TestJsonStringHolder.getJsonStringMovie(),
                 MovieInfoPageModel.class
         ); // when update set to model so the on init methods can use the current string
         buildMoviePage(model);

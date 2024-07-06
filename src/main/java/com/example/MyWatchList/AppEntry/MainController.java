@@ -4,16 +4,15 @@ import com.example.MyWatchList.ApiClass.ApiConnection;
 import com.example.MyWatchList.Controllers.CommonComponent.CommonFactory;
 import com.example.MyWatchList.Controllers.DynamicPages.CollectionPage.CollectionPageFactory;
 import com.example.MyWatchList.Controllers.DynamicPages.PersonPage.PersonPageFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.SearchPage.SearchPageController;
+import com.example.MyWatchList.Controllers.DynamicPages.SearchPage.SearchPageFactory;
 import com.example.MyWatchList.Controllers.EventHandlers.CollectionPageRequestEvent;
 import com.example.MyWatchList.Controllers.EventHandlers.PersonPageRequestEvent;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
-import com.example.MyWatchList.Controllers.HistoryManager.History;
-import com.example.MyWatchList.Controllers.HistoryManager.UpdateCollectionPageCommand;
-import com.example.MyWatchList.Controllers.HistoryManager.UpdateMoviePageCommand;
-import com.example.MyWatchList.Controllers.HistoryManager.UpdatePersonPageCommand;
+import com.example.MyWatchList.Controllers.HistoryManager.*;
 import com.example.MyWatchList.Controllers.HomePage.HomePageFactory;
 import com.example.MyWatchList.Controllers.EventHandlers.InfoPageRequestEvent;
-import com.example.MyWatchList.Controllers.DynamicPages.InfoPageFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.InfoPageFactory;
 import com.example.MyWatchList.Controllers.SettingsPage.SettingsPageFactory;
 import com.example.MyWatchList.Controllers.WatchedList.WatchedListFactory;
 import javafx.application.Platform;
@@ -25,6 +24,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
@@ -34,6 +36,8 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
 
+    @FXML private TextField searchField;
+    @FXML private ImageView searchButton;
     @FXML private Button historyBack;
     @FXML private Button btnOverview;
     @FXML private Button btnOrders;
@@ -50,6 +54,7 @@ public class MainController implements Initializable {
     private final ScrollPane castCrewPage = CommonFactory.createCastCrewPage();
     private final BorderPane personPage = PersonPageFactory.createActorActressPage();
     private final BorderPane collectionPage = CollectionPageFactory.createCollectionPage();
+    private final BorderPane searchPage = SearchPageFactory.createSearchPage();
     private History history;
 
     @Override
@@ -70,7 +75,7 @@ public class MainController implements Initializable {
                     history.executeCommand(new UpdateMoviePageCommand(((InfoPageRequestEvent) event).getNodeNumber(), tvPnlToFront));
                     event.consume();
                 } else if (event.getEventType() == CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST && castCrewPage != null) {
-                    //history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
+                    history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
                     event.consume();
                 } else if (event.getEventType() == PersonPageRequestEvent.ACTOR_ACTRESS_PAGE_REQUEST && personPage != null){
                     history.executeCommand(new UpdatePersonPageCommand(((PersonPageRequestEvent) event).getId(), personPageToFront));
@@ -113,10 +118,40 @@ public class MainController implements Initializable {
     private final Runnable tvPnlToFront = () -> clearAndSet(tvInfoPage);
     private final Runnable castCrewPageToFront = () -> clearAndSet(castCrewPage);
     private final Runnable personPageToFront = () -> clearAndSet(personPage);
-    private Runnable collectionPageToFront = () -> clearAndSet(collectionPage);
+    private final Runnable collectionPageToFront = () -> clearAndSet(collectionPage);
+    private final Runnable searchPageToFront = () -> clearAndSet(searchPage);
 
     private void activateButtons(){
         historyBack.setOnAction(event -> history.goBack());
+        setSearchButtonOnAction();
+        setSearchFieldOnAction();
+    }
+
+    private void setSearchFieldOnAction(){
+        searchField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER && !searchField.getText().isEmpty()){
+                try {
+                    SearchPageController.getInstance().update(searchField.getText());
+                    searchPageToFront.run();
+                    motherContainer.requestFocus();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
+    private void setSearchButtonOnAction(){
+        searchButton.setOnMouseClicked(event -> {
+            if (!searchField.getText().isEmpty()) {
+                try {
+                    SearchPageController.getInstance().update(searchField.getText());
+                    searchPageToFront.run();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     public void setSceneListeners(Scene scene) {

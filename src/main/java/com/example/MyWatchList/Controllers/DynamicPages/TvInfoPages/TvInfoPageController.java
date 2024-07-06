@@ -1,7 +1,7 @@
 package com.example.MyWatchList.Controllers.DynamicPages.TvInfoPages;
 
-import com.example.MyWatchList.Controllers.DynamicPages.InfoPageFactory;
-import com.example.MyWatchList.Controllers.DynamicPages.RightPanelController;
+import com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.InfoPageFactory;
+import com.example.MyWatchList.Controllers.DynamicPages.MovieInfoPages.RightPanelController;
 import com.example.MyWatchList.Controllers.EventHandlers.CastCrewRequestEvent;
 import com.example.MyWatchList.DataModels.CommonModels.MediaInfoPageModelDeserializer;
 import com.example.MyWatchList.DataModels.CommonModels.RecommendationsModel;
