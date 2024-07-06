@@ -64,7 +64,6 @@ public class PersonMiddleController {
         }
     }
 
-
     private ObservableList<HBox> getAllItems(CombinedCredits str){
         items.clear();
         List<CC> sff = str.getBoth();
