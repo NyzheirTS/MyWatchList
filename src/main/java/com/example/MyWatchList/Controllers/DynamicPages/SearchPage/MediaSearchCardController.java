@@ -47,7 +47,8 @@ public class MediaSearchCardController {
         if (url != null) {
             new Thread(imageLoadingTask).start();
         } else {
-
+            Image loadedImage = new Image("https://github.com/NyzheirTS/MyWatchList/blob/main/src/main/resources/com/example/MyWatchList/images/defaultpfpv3.png?raw=true", true);
+            Platform.runLater(() -> posterImg.setImage(loadedImage));
         }
     }
 
