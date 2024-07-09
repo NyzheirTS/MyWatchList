@@ -70,18 +70,24 @@ public class MainController implements Initializable {
             try {
                 if (event.getEventType() == InfoPageRequestEvent.MOVIE_PAGE_REQUEST && movieInfoPage != null) {
                     history.executeCommand(new UpdateMoviePageCommand(((InfoPageRequestEvent) event).getNodeNumber(), moviePnlToFront));
+                    resetFocus();
                     event.consume();
                 } else if (event.getEventType() == InfoPageRequestEvent.TV_PAGE_REQUEST && tvInfoPage != null) {
                     history.executeCommand(new UpdateMoviePageCommand(((InfoPageRequestEvent) event).getNodeNumber(), tvPnlToFront));
+                    resetFocus();
                     event.consume();
                 } else if (event.getEventType() == CastCrewRequestEvent.CAST_CREW_PAGE_REQUEST && castCrewPage != null) {
                     history.executeCommand(new UpdateCastCrewPageCommand(((CastCrewRequestEvent) event).getString(), castCrewPageToFront));
+                    resetFocus();
                     event.consume();
                 } else if (event.getEventType() == PersonPageRequestEvent.ACTOR_ACTRESS_PAGE_REQUEST && personPage != null){
                     history.executeCommand(new UpdatePersonPageCommand(((PersonPageRequestEvent) event).getId(), personPageToFront));
+                    resetFocus();
                     event.consume();
                 } else if (event.getEventType() == CollectionPageRequestEvent.COLLECTION_PAGE_REQUEST && collectionPage != null) {
                     history.executeCommand(new UpdateCollectionPageCommand(((CollectionPageRequestEvent) event).getId(), collectionPageToFront));
+                    resetFocus();
+                    event.consume();
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -133,7 +139,6 @@ public class MainController implements Initializable {
                 try {
                     SearchPageController.getInstance().update(searchField.getText());
                     searchPageToFront.run();
-                    motherContainer.requestFocus();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -169,5 +174,9 @@ public class MainController implements Initializable {
                 e.consume();
             }
         });
+    }
+
+    private void resetFocus(){
+        motherContainer.requestFocus();
     }
 }

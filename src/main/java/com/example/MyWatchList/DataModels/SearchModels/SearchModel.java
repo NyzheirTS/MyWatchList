@@ -62,7 +62,7 @@ public class SearchModel {
             public String getName() {
                 return name != null ? name : title;
             }
-        }e
+        }
     }
 
     public static SearchModel fromJson(String json){
